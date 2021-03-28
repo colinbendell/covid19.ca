@@ -1,0 +1,21 @@
+{
+  "name": "covid19VaccineDashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy",
+    "watch": "eleventy --watch",
+    "serve": "eleventy --serve",
+    "start": "eleventy --serve",
+    "debug": "DEBUG=* eleventy"
+  },
+  "keywords": [],
+  "author": "Colin Bendell <colin@bendell.ca> (https://twitter.com/colinbendell)",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-cache-assets": "^2.1.0",
+    "@11ty/eleventy-navigation": "^0.1.6"
+  }
+}
