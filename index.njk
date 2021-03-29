@@ -140,6 +140,7 @@ eleventyNavigation:
 {#          Last updated: <b>${updatedAt}</b><br>#}
 {#          Update expected by: <b>${expectedTime(data.code)}</b>'>#}
 {#          </span>#}
+          <span class='province-update-status status-{{ data.data_status | lower | replace(r/\s/gi, '-') }}'></span>
         </span>
         {% else %}
         <span>{{ data.name.en or data.name }}</span>
