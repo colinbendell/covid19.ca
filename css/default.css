@@ -570,7 +570,7 @@ thead tr th {
   text-align: center !important;
 }
 
-.history div {
+.history > div {
   height: 2rem;
   width: 7rem;
   margin: -0.5rem auto;
@@ -578,6 +578,11 @@ thead tr th {
 
 .history table.column td {
   margin-inline-start: 1px;
+}
+
+.history .tooltip {
+  bottom: 2rem !important;
+  z-index: 30 !important;
 }
 
 .dose.history table.column {

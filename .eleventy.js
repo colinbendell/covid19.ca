@@ -1,4 +1,4 @@
-// const { DateTime } = require("luxon");
+const { DateTime } = require("luxon");
 const fs = require("fs");
 const CleanCSS = require("clean-css");
 const pluginNavigation = require("@11ty/eleventy-navigation");
@@ -36,9 +36,20 @@ module.exports = function(eleventyConfig) {
     return new CleanCSS({}).minify(code).styles;
   });
 
-  // eleventyConfig.addFilter("readableDate", dateObj => {
-  //   return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
-  // });
+  eleventyConfig.addShortcode("today", () => `${new Date().toJSON().split('T')[0]}`)
+
+  eleventyConfig.addFilter("readableDate", dateObj => {
+    if (!dateObj) return '';
+
+    const d = DateTime.fromJSDate(new Date(dateObj));
+    const today = DateTime.now();
+    const yesterday = DateTime.fromJSDate(new Date(Date.now() - 24*60*60*1000));
+
+    if (today.toFormat('yyyy-LL-dd') === d.toFormat('yyyy-LL-dd')) return 'Today';
+    if (yesterday.toFormat('yyyy-LL-dd') === d.toFormat('yyyy-LL-dd')) return 'Yesterday';
+
+    return d.year === today.year ? d.toFormat("LLL dd") : d.toFormat("yyyy LLL dd");
+  });
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   // eleventyConfig.addFilter('htmlDateString', (dateObj) => {
