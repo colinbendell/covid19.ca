@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="{{ 'css/chartsCSS-0.9.0.css' | url }}">
   </head>
   <body>
-{#    <header>#}
-{#      <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>#}
+    <header>
+      <h1 class="home"><a href="{{ '/' | url }}">{{ title or metadata.title }}</a></h1>
 
 {#      #}{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
 {#      <ul class="nav">#}
@@ -18,7 +18,7 @@
 {#        <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>#}
 {#      {%- endfor %}#}
 {#      </ul>#}
-{#    </header>#}
+    </header>
     <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
       {{ content | safe }}
     </main>

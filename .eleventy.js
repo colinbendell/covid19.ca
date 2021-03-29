@@ -63,6 +63,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("min", (...numbers) => {
     return Math.min.apply(null, numbers.map(n => n || 0));
   });
+  // Return the smallest number argument
+  eleventyConfig.addFilter("max", (...numbers) => {
+    return Math.max.apply(null, numbers.map(n => n || 0));
+  });
 
   eleventyConfig.addFilter("filterProp", (valArray, property, compare, value) => {
     if (compare === "neq") {

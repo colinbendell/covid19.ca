@@ -20,16 +20,15 @@ function normalizeVaccine(data) {
   const population = data.population;
   const totalRecoveries = data.total.total_recoveries || 0;
   const currentChangeCases = data.total.change_cases;
-  const currentChangeTests = data.total.change_tests || 0;
-  const currentActive = totalCases - totalFatalities - totalRecoveries;
-  const currentHospitalized = data.total.total_hospitalizations || 'N/A';
+  const activeCases = totalCases - totalFatalities - totalRecoveries;
+  const currentHospitalized = data.total.total_hospitalizations;
 
   const vaccinationsPerCapita = Math.round(((totalVaccinations - (totalVaccinated || 0))/ data.population) * 1000) / 10;
   const casesPerCapita = Math.round((totalCases / data.population) * 1000) / 10;
   const deathsPerCase = Math.round((totalFatalities / totalCases) * 1000) / 10;
-  const activePer100k = currentActive > 0 ? Math.round(currentActive / population * 100*1000) : 0;
-  const hospitalizedPer100k = currentHospitalized >= 0 ? Math.round(currentHospitalized / population * 1000*1000) : "N/A";
-  const vaccinationsCompletePerCapita = totalVaccinated > 0 ? Math.round((totalVaccinated / data.population) * 1000) / 10 : "N/A";
+  const activePer100k = activeCases > 0 ? Math.round(activeCases / population * 100*1000) : 0;
+  const hospitalizedPer1000k = currentHospitalized >= 0 ? Math.round(currentHospitalized / population * 1000*1000) : null;
+  const vaccinationsCompletePerCapita = totalVaccinated > 0 ? Math.round((totalVaccinated / data.population) * 1000) / 10 : null;
 
   const itemVaccinesAvailable = data.total.total_vaccines_distributed - (totalVaccinations || 0);
 
@@ -40,7 +39,6 @@ function normalizeVaccine(data) {
     newCasesAvg: Math.round(item.map(i => i.change_cases).reduce((p, c) => p + c) / item.length + 0.5),
     activeAvg: Math.round(item.map(v => (v.total_cases || 0) - (v.total_fatalities || 0) - (v.total_recoveries || 0)).reduce((p, c) => p + c) / item.length + 0.5)
   }));
-  const lastMonth = chunkArray(data.daily.slice(-8*7 -1, -1), 7);
   const lastWeek = data.daily.slice(-8, -1).map(item =>({
     date: item.date,
     change_vaccinations: item.change_vaccinations || 0,
@@ -51,7 +49,7 @@ function normalizeVaccine(data) {
 
   const last7DayTests = data.daily.slice(-7).map(i => i.change_tests).reduce((p, c) => p + c);
   const last7DayCases = data.daily.slice(-7).map(i => i.change_cases).reduce((p, c) => p + c);
-  const currentPositivityRate = last7DayTests > 0 ? Math.round(last7DayCases / last7DayTests * 1000) / 10 : "N/A";
+  const weekPositiviityRate = last7DayTests > 0 ? Math.round(last7DayCases / last7DayTests * 1000) / 10 : null;
 
 
   const weekVaccinations = lastWeek.map(v => v.change_vaccinations || 0);
@@ -59,7 +57,6 @@ function normalizeVaccine(data) {
   const weekActive = lastWeek.map(v => v.active_cases);
   const weekActiveAvg = Math.floor(weekActive.reduce((c, v) => c + v) / lastWeek.length);
   const weekNewCases = lastWeek.map(v => v.change_cases);
-  const weekNewCasesAvg = Math.floor(weekNewCases.reduce((c, v) => c + v) / lastWeek.length);
 
   const yesterdayVaccinations = yesterday?.change_vaccinations;
   const changeInVaccinationRate = changeVaccinations > 0 && yesterdayVaccinations > 0 ? Math.round((changeVaccinations - weekVaccinationsAvg) / weekVaccinationsAvg*100) : 0;
@@ -67,20 +64,17 @@ function normalizeVaccine(data) {
   const daysToZeroVaccines = itemVaccinesAvailable > 0 ? Math.max(Math.round(itemVaccinesAvailable / (weekVaccinationsAvg-0.001) + 0.5),0) : null;
 
 
-  const changeInActiveRate = Math.max(Math.min(Math.round((currentActive - weekActiveAvg) / (weekActiveAvg+0.001)*100), 100), -100);
-  const changeActive = currentActive - weekActive.slice(-1)[0];
+  const wowActiveCases = Math.max(Math.min(Math.round((activeCases - weekActiveAvg) / (weekActiveAvg+0.001)*100), 100), -100);
 
-  const vaccinationsMax = Math.max(...weekly.map(w => w.vaccinationsAvg || 0), ...weekVaccinations.map(v => v || 0), changeVaccinations || 0, 0);
-  const newCaseMax = Math.max(...weekly.slice(-8).map(w => w.newCasesAvg || 0), ...weekNewCases.map(v => v || 0), currentChangeCases || 0, 0);
-  const activeMax = Math.max(...weekly.slice(-8).map(w => w.activeAvg || 0), ...weekActive.map(v => v || 0), currentActive || 0, 0);
+  const maxVaccinations = Math.max(...weekly.map(w => w.vaccinationsAvg || 0), ...weekVaccinations.map(v => v || 0), changeVaccinations || 0, 0);
+  const maxChangeCases = Math.max(...weekly.slice(-8).map(w => w.newCasesAvg || 0), ...weekNewCases.map(v => v || 0), currentChangeCases || 0, 0);
+  const maxActiveCases = Math.max(...weekly.slice(-8).map(w => w.activeAvg || 0), ...weekActive.map(v => v || 0), activeCases || 0, 0);
  return {
    data_status: data.data_status,
-   lastMonth,
    lastWeek,
    yesterday,
    weekly,
    vaccine: {
-     changeVaccinations,
      totalVaccinations,
      totalVaccinated,
      vaccinationsPerCapita,
@@ -92,29 +86,18 @@ function normalizeVaccine(data) {
      changeInVaccinationRate,
      daysToFullVaccinations,
      daysToZeroVaccines,
-     vaccinationsMax
+     maxVaccinations
    },
    infection: {
-     totalCases,
-     totalFatalities,
-     totalRecoveries,
-     currentChangeCases,
-     currentChangeTests,
-     currentActive,
-     currentHospitalized,
-     currentPositivityRate,
+     activeCases,
+     weekPositiviityRate,
      casesPerCapita,
      deathsPerCase,
      activePer100k,
-     hospitalizedPer100k,
-     changeInActiveRate,
-     changeActive,
-     weekActive,
-     weekActiveAvg,
-     weekNewCases,
-     weekNewCasesAvg,
-     newCaseMax,
-     activeMax,
+     hospitalizedPer1000k,
+     wowActiveCases,
+     maxChangeCases,
+     maxActiveCases,
    }
  }
 }
