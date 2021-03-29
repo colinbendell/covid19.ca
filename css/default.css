@@ -253,24 +253,18 @@ main {
   padding-left: 2.75rem;
 }
 
-#vaccinationsProvinceTable > tr > td:nth-child(-n+4), #vaccinationsProvinceTable > tr > td:last-child {
+.vaccine > tbody > tr > td, .vaccine > tfoot > tr > td {
   white-space: nowrap;
   font-weight: normal;
-  font-style: italic;
+  /*font-style: italic;*/
 }
-
-#vaccinationsProvinceTableFooter > tr > * {
-  font-weight: bold;
-  font-style: italic;
+.infection > tbody > tr > td, .infection > tfoot > tr > td {
   white-space: nowrap;
+  font-weight: normal;
+  /*font-style: italic;*/
 }
 
-#casesProvinceTable > tr > td:nth-child(-n+4), #vaccinationsProvinceTable > tr > td:last-child {
-  white-space: nowrap;
-  font-style: italic;
-}
-
-#casesProvinceTableFooter > tr > * {
+.vaccine > tfoot > tr > *, .infection > tfoot > tr > * {
   font-weight: bold;
   font-style: italic;
   white-space: nowrap;
@@ -280,6 +274,7 @@ td[data-rate]::after {
   color: var(--blue);
   content: " (▲" attr(data-rate) "%)"
 }
+
 td[data-rate ^= "-"]::after {
   color: var(--red);
   content: " (▼" attr(data-rate) "%)"
@@ -298,6 +293,7 @@ td[data-rate]:empty::after {
 
 
 .progressbar {
+  display: inline-block;
   text-align: left;
   height: 1.6rem;
   width: 100%;
@@ -381,13 +377,16 @@ td[data-rate]:empty::after {
   content: attr(aria-valuenow) "/₁₀₀₀ₖ";
 }
 
+.dose.one, .dose.full, .activecases.per100k, .hospitalized.per1000k, td.positivity, td.infection, td.death {
+  text-align: center;
+}
 
 .dose.one, .dose.total {
   border-right: hidden;
 }
 .dose.one::after {
   content: "＋";
-  margin-top: -1.6rem;
+  /*margin-top: -1.6rem;*/
   float: right;
   margin-right: -1.2rem;
   font-weight: bold;
@@ -546,7 +545,6 @@ tr.healthregion > th:first-child > span {
   border-bottom: 0;
 }
 
-
 .table thead tr th {
   border-top: 0;
   border-left: 0;
@@ -573,7 +571,8 @@ thead tr th {
 .history > div {
   height: 2rem;
   width: 7rem;
-  margin: -0.5rem auto;
+  /*margin: -0.5rem auto;*/
+  margin-bottom: -0.5rem;
 }
 
 .history table.column td {
