@@ -120,7 +120,7 @@ font-size: 2.5rem;
 /*  top: 0.125rem;*/
 /*  display: inline-block;*/
 /*  margin-right: 10px;*/
-/*  !*background-image: url(../assets/img/custom.png);*!*/
+/*  !*background-image: url(assets/img/custom.png);*!*/
 /*  !*background-size: 16px 16px;*!*/
 /*}*/
 /*.province-update-status::before {*/
@@ -201,24 +201,24 @@ font-size: 2.5rem;
   top: 2px;
   display: inline-block;
   margin-right: 10px;
-  background-image: url("../img/custom.png");
+  background-image: url("img/custom.png");
   background-size: 16px 16px;
 }
 
 .status-reported {
-  background-image: url("../img/reported.png");
+  background-image: url("img/reported.png");
 }
 
 .status-waiting-for-report {
-  background-image: url("../img/waiting-for-report.png");
+  background-image: url("img/waiting-for-report.png");
 }
 
 .status-in-progress {
-  background-image: url("../img/in-progress.png");
+  background-image: url("img/in-progress.png");
 }
 
 .status-no-report-expected-today {
-  background-image: url("../img/no-report-expected-today.png");
+  background-image: url("img/no-report-expected-today.png");
 }
 
 svg.icon {
