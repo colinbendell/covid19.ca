@@ -5,8 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>{{ title or metadata.title }}</title>
     <meta name="description" content="{{ description or metadata.description }}">
-    <link rel="stylesheet" href="{{ 'css/default.css' | url }}">
-    <link rel="stylesheet" href="{{ 'css/chartsCSS-0.9.0.css' | url }}">
+{#    <link rel="stylesheet" href="{{ 'css/default.css' | url }}">#}
+{#    <link rel="stylesheet" href="{{ 'css/chartsCSS-0.9.0.css' | url }}">#}
+    <!-- capture the CSS content as a Nunjucks variable -->
+    {% set css %}
+      {% include "css/reset.css" %}
+      {% include "css/default.css" %}
+      {% include "css/chartsCSS-0.9.0.css" %}
+    {% endset %}
+    <!-- feed it through our cssmin filter to minify -->
+    <style>
+      {{ css | cssmin | safe }}
+    </style>
   </head>
   <body>
     <header>

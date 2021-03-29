@@ -1,10 +1,7 @@
 // const { DateTime } = require("luxon");
 const fs = require("fs");
-// const pluginRss = require("@11ty/eleventy-plugin-rss");
-// const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const CleanCSS = require("clean-css");
 const pluginNavigation = require("@11ty/eleventy-navigation");
-// const markdownIt = require("markdown-it");
-// const markdownItAnchor = require("markdown-it-anchor");
 
 const formatter = new Intl.NumberFormat('en-CA');
 function format(value) {
@@ -35,8 +32,9 @@ module.exports = function(eleventyConfig) {
   // https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true);
 
-  // Alias `layout: post` to `layout: layouts/post.njk`
-  // eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
+  eleventyConfig.addFilter("cssmin", function(code) {
+    return new CleanCSS({}).minify(code).styles;
+  });
 
   // eleventyConfig.addFilter("readableDate", dateObj => {
   //   return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
