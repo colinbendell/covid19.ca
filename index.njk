@@ -86,7 +86,7 @@ eleventyNavigation:
       <td class="dose full"><div class="progressbar" role="progressbar" aria-valuenow="{{ data.vaccine.vaccinationsCompletePerCapita or "N/A" }}" data-value="{{ data.total.total_vaccinated | formatNumber }}" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: {{ data.vaccine.vaccinationsCompletePerCapita or 0 }}%"></span></div></td>
       <td><div class="progressbar infection" role="progressbar" aria-valuenow="{{ data.infection.casesPerCapita }}" data-value="{{ data.total.total_cases | formatNumber }}" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: {{ (data.infection.casesPerCapita/10*100) | min (100) }}%"></span></div></td>
       <td class='supply available'>{{ data.vaccine.itemVaccinesAvailable | formatNumber }}
-        <span class="supply zero {{ "bad" if daysToZeroVaccines > 10 else ( "ok" if daysToZeroVaccines > 7 else "good") }}">{{ data.vaccine.daysToZeroVaccines }}</span>
+        <span class="supply zero {{ "bad" if data.vaccine.daysToZeroVaccines > 10 else ( "ok" if data.vaccine.daysToZeroVaccines >= 7 else "good") }}">{{ data.vaccine.daysToZeroVaccines }}</span>
       </td>
     </tr>
   {%  endmacro %}
