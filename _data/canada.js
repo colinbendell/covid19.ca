@@ -82,7 +82,6 @@ function normalizeVaccine(data) {
      itemVaccinesAvailable,
      weekVaccinations,
      weekVaccinationsAvg,
-     yesterdayVaccinations,
      changeInVaccinationRate,
      daysToFullVaccinations,
      daysToZeroVaccines,

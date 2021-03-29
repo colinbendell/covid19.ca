@@ -42,7 +42,7 @@ eleventyNavigation:
   </thead>
   <tbody id="vaccinationsProvinceTable">
   {% macro vaccineRow(data, type='province') %}
-    <tr class="vaccine {{ type }} {{ data.code or data.province }}"  title="Total: {{ data.total.total_vaccinations | d(0) | format }} (Today: {{ data.total.change_vaccinations | format}}, Yesterday: {{ data.vaccine.yesterdayVaccinations | format }}) Population: {{ data.population | format }}">
+    <tr class="vaccine {{ type }} {{ data.code or data.province }}"  title="Total: {{ data.total.total_vaccinations | d(0) | format }} ({{ data.total.date | readableDate }}: {{ data.total.change_vaccinations | format}}, {{ data.yesterday.date | readableDate }}: {{ data.yesterday.change_vaccinations | format }}) Population: {{ data.population | format }}">
       <th class="name">
       {% if type === 'province' %}
         <label for="toggle-vaccine-{{ data.code }}" class="label-toggle"></label>
@@ -129,7 +129,7 @@ eleventyNavigation:
   {% macro selectBase(data) %}{{ 10 if data < 10 else (25 if data < 25 else (40 if data < 40 else (100 if data < 100 else 150))) }}{% endmacro %}
 
   {% macro infectionRow(data, type='province') %}
-    <tr class="infection {{ type }} {{ data.code if data.code else data.province }}" title="Total: {{ data.total.total_cases | format }} (Today: {{ data.total.change_cases | format }}, Yesterday: {{ data.yesterday.change_cases | format }}) Population: {{ data.population | format }}">
+    <tr class="infection {{ type }} {{ data.code if data.code else data.province }}" title="Total: {{ data.total.total_cases | format }} ({{ data.total.date | readableDate }}: {{ data.total.change_cases | format }}, {{ data.yesterday.date | readableDate }}: {{ data.yesterday.change_cases | format }}) Population: {{ data.population | format }}">
       <th class="name">
         {% if type === 'province' %}
         <label for="toggle-infection-{{ data.code }}" class="label-toggle"></label>
