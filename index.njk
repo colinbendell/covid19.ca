@@ -115,13 +115,14 @@ eleventyNavigation:
   <tr>
     <th></th>
     <th>New Cases<br/>(60 days)</th>
-    <th>Today</th>
-    <th>Active (60 days)</th>
+    <th>New Cases<br/>Today</th>
+    <th>Active Cases<br/>(60 days)</th>
     <th>Active/₁₀₀ₖ</th>
     <th>Hospital/₁₀₀₀ₖ</th>
-    <th>Positivity Rate (Inf./Tests)</th>
-    <th>% Population ever infected</th>
-    <th>Death Rate (of Infected)</th>
+    <th>Deaths/₁₀₀ₖ</th>
+    <th>Test-Positivity<br/>Rate (7 days)</th>
+    <th class="infected">% Population ever infected</th>
+    <th class="infected">Death Rate <br/>(of Infected)</th>
   </tr>
   </thead>
   <tbody id="casesProvinceTable">
@@ -191,9 +192,10 @@ eleventyNavigation:
         <div class="progressbar {{ selectColour(data.infection.activePer100k)  }}" aria-valuenow="{{ data.infection.activePer100k }}" data-value="{{ data.infection.activeCases | formatNumber }}" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: {{ (data.infection.activePer100k/selectBase(data.infection.activePer100k)*100) | min(100) }}%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar {{ selectColour(data.infection.hospitalizedPer1000k) }}" aria-valuenow="{{ data.infection.hospitalizedPer1000k or "N/A"}}" data-value="{{ data.total.total_hospitalizations | formatNumber }}" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: {{ (data.infection.hospitalizedPer1000k/selectBase(data.infection.hospitalizedPer1000k)*100) | min(100) }}%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="{{ data.infection.fatalitiesPer100k }}" data-value="{{ data.total.total_fatalities | formatNumber }}" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: {{ data.infection.fatalitiesPer100k | min(100) }}%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="{{ data.infection.weekPositiviityRate or "N/A"}}" data-value="{{ data.total.change_tests | formatNumber }}" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: {{ ((data.infection.weekPositiviityRate or 0)/10*100) | min(100) }}%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="{{ data.infection.casesPerCapita }}" data-value="{{ data.total.total_cases | formatNumber }}" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: {{ (data.infection.casesPerCapita/10*100) | d(0) | min(100) }}%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="{{ data.infection.deathsPerCase }}" data-value="{{ data.total.total_fatalities | formatNumber }}" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: {{ (data.infection.deathsPerCase/4*100) | d(0) | min(100) }}%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="{{ data.infection.casesPerCapita }}" data-value="{{ data.total.total_cases | formatNumber }}" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: {{ (data.infection.casesPerCapita/10*100) | d(0) | min(100) }}%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="{{ data.infection.deathsPerCase }}" data-value="{{ data.total.total_fatalities | formatNumber }}" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: {{ (data.infection.deathsPerCase/4*100) | d(0) | min(100) }}%"></span></div></td>
     </tr>
   {%  endmacro %}
 

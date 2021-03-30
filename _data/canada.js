@@ -28,6 +28,7 @@ function normalizeVaccine(data) {
   const deathsPerCase = Math.round((totalFatalities / totalCases) * 1000) / 10;
   const activePer100k = activeCases > 0 ? Math.round(activeCases / population * 100*1000) : 0;
   const hospitalizedPer1000k = currentHospitalized >= 0 ? Math.round(currentHospitalized / population * 1000*1000) : null;
+  const fatalitiesPer100k =  totalFatalities >= 0 ? Math.round(totalFatalities / population * 100*1000) : null;
   const vaccinationsCompletePerCapita = totalVaccinated > 0 ? Math.round((totalVaccinated / data.population) * 1000) / 10 : null;
 
   const itemVaccinesAvailable = data.total.total_vaccines_distributed - (totalVaccinations || 0);
@@ -39,12 +40,16 @@ function normalizeVaccine(data) {
     newCasesAvg: Math.round(item.map(i => i.change_cases).reduce((p, c) => p + c) / item.length + 0.5),
     activeAvg: Math.round(item.map(v => (v.total_cases || 0) - (v.total_fatalities || 0) - (v.total_recoveries || 0)).reduce((p, c) => p + c) / item.length + 0.5)
   }));
-  const lastWeek = data.daily.slice(-8, -1).map(item =>({
-    date: item.date,
+
+  const lastWeek = data.daily.slice(-8, -1).map(item =>Object.assign(item, {
     change_vaccinations: item.change_vaccinations || 0,
-    change_cases: item.change_cases,
-    active_cases: (item.total_cases || 0) - (item.total_fatalities || 0) - (item.total_recoveries || 0)
+    active_cases: (item.total_cases || 0) - (item.total_fatalities || 0) - (item.total_recoveries || 0),
+  })).map(item =>Object.assign(item, {
+    activePer100k: item.active_cases >= 0 ? Math.round(item.active_cases / population * 100*1000) : null,
+    fatalitiesPer100k: item.total_fatalities >= 0 ? Math.round(item.total_fatalities / population * 100*1000) : null,
+    hospitalizedPer1000k: item.total_hospitalizations >= 0 ? Math.round(item.total_hospitalizations / population * 1000*1000) : null,
   }));
+
   const yesterday = lastWeek.slice(-1)[0];
 
   const last7DayTests = data.daily.slice(-7).map(i => i.change_tests).reduce((p, c) => p + c);
@@ -94,6 +99,7 @@ function normalizeVaccine(data) {
      deathsPerCase,
      activePer100k,
      hospitalizedPer1000k,
+     fatalitiesPer100k,
      wowActiveCases,
      maxChangeCases,
      maxActiveCases,
