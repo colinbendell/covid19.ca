@@ -113,94 +113,13 @@ font-size: 2.5rem;
 
 /* TODO: cleanup */
 
-/*.province-update-status {*/
-/*  width: 1rem;*/
-/*  height: 1rem;*/
-/*  position: relative;*/
-/*  top: 0.125rem;*/
-/*  display: inline-block;*/
-/*  margin-right: 10px;*/
-/*  !*background-image: url(assets/img/custom.png);*!*/
-/*  !*background-size: 16px 16px;*!*/
-/*}*/
-/*.province-update-status::before {*/
-/*  font-size: 0.8rem;*/
-/*  font-weight: bold;*/
-/*  position: absolute;*/
-/*  text-align: center;*/
-/*  width: 100%;*/
-/*}*/
-/*.triangle {*/
-/*  position: relative;*/
-/*  background-color: orange;*/
-/*  text-align: left;*/
-/*}*/
-/*.triangle:before,*/
-/*.triangle:after {*/
-/*  content: '';*/
-/*  position: absolute;*/
-/*  background-color: inherit;*/
-/*}*/
-/*.triangle,*/
-/*.triangle:before,*/
-/*.triangle:after {*/
-/*  width:  10em;*/
-/*  height: 10em;*/
-/*  border-top-right-radius: 30%;*/
-/*}*/
-
-/*.triangle {*/
-/*  transform: rotate(-60deg) skewX(-30deg) scale(1,.866);*/
-/*}*/
-/*.triangle:before {*/
-/*  transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);*/
-/*}*/
-/*.triangle:after {*/
-/*  transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);*/
-/*}*/
-
-/*.status-reported {*/
-/*  color: white;*/
-/*  background-color: var(--green);*/
-/*  border-radius: 50%;*/
-/*}*/
-
-/*.status-reported::before {*/
-/*  margin-top: -0.125rem;*/
-/*  content: '✓';*/
-/*}*/
-
-/*.status-waiting-for-report {*/
-/*  color: var(--darkgray);*/
-/*  background-color: var(--white);*/
-/*  border-color: var(--red);*/
-/*  border-width: 3px;*/
-/*  border-radius: 50%;*/
-/*  border-style: solid;*/
-
-/*}*/
-
-/*.status-waiting-for-report::before {*/
-/*  font-size: 1.1rem;*/
-/*  font-weight: bolder;*/
-/*  content: '¬';*/
-/*  margin-top: -0.7rem;*/
-/*  margin-left: -0.08rem;*/
-
-/*  transform: rotate(-90deg) scale(-1, 1);*/
-/*  -webkit-transform: rotate(-90deg) scale(-1, 1);*/
-/*  -moz-transform: rotate(-90deg) scale(-1, 1);*/
-/*  -o-transform: rotate(-90deg) scale(-1, 1);*/
-
-/*}*/
-
 .province-update-status {
   width: 16px;
   height: 16px;
   position: relative;
   top: 2px;
   display: inline-block;
-  margin-right: 10px;
+  margin-left: 0.125rem;
   background-image: url("img/custom.png");
   background-size: 16px 16px;
 }
@@ -231,6 +150,10 @@ main {
   padding-right: 1.5rem;
 }
 
+.table {
+  margin-bottom: 2rem;
+}
+
 .table > tbody > tr:hover {
   color: #212529;
   background-color: rgba(0, 0, 0, 0.075);
@@ -243,14 +166,14 @@ main {
 }
 .table > * > tr > th:first-child {
   /*width: 100%;*/
-  min-width: 15rem;
-  max-width: 20rem;
+  min-width: 12rem;
+  max-width: 15rem;
   font-weight: normal;
   font-style: italic;
 }
 
 .table > * > tr > th.name {
-  padding-left: 2.75rem;
+  padding-left: 1.5rem;
 }
 
 .vaccine > tbody > tr > td, .vaccine > tfoot > tr > td {
@@ -265,9 +188,9 @@ main {
 }
 
 .vaccine > tfoot > tr > *, .infection > tfoot > tr > * {
-  font-weight: bold;
-  font-style: italic;
-  white-space: nowrap;
+  font-weight: bold !important;
+  font-style: italic !important;
+  white-space: nowrap !important;
 }
 
 td[data-rate]::after {
@@ -290,7 +213,6 @@ td[data-rate = "0"]:not(:empty)::before, td[data-rate = ""]:not(:empty)::before 
 td[data-rate]:empty::after {
   content: "N/A"
 }
-
 
 .progressbar {
   display: inline-block;
@@ -342,13 +264,6 @@ td[data-rate]:empty::after {
   height: 100%;
 }
 
-.progressbar.infection > .value {
-  background-color: var(--orange);
-}
-.progressbar.death > .value {
-  background-color: var(--red);
-}
-
 .per100k .progressbar > .value, .per1000k .progressbar > .value {
   background-color: var(--gray-dark);
 }
@@ -362,6 +277,13 @@ td[data-rate]:empty::after {
   background-color: var(--orange);
 }
 .per100k .progressbar.red > .value, .per1000k .progressbar.red > .value {
+  background-color: var(--red);
+}
+
+.progressbar.infection > .value {
+  background-color: var(--orange);
+}
+.progressbar.death > .value {
   background-color: var(--red);
 }
 
@@ -398,24 +320,150 @@ td[data-rate]:empty::after {
   font-weight: bold;
 }
 
-/*.supply.complete {*/
-/*  min-width: 10rem;*/
-/*  max-width: 10rem;*/
-/*  width: 10rem;*/
-/*  !*content: "/days";*!*/
-/*  background-image: linear-gradient(*/
-/*          to right,*/
-/*          orange,*/
-/*          orangered 25%,*/
-/*          skyblue 25%,*/
-/*          deepskyblue 50%,*/
-/*          firebrick 50%,*/
-/*          firebrick 75%,*/
-/*          green 75%);*/
-/*  background-size: 100% 6px;*/
-/*  background-position: 50% 100%;*/
-/*  background-repeat: no-repeat;*/
-/*}*/
+.infected.percapita::after {
+  content: "{";
+  float: right;
+  margin-right: -1rem;
+  font-weight: lighter;
+  font-size: 2rem;
+  margin-top: -0.75rem;
+  margin-bottom: -1rem;
+}
+
+td.infected, th.infected {
+  background-color: rgba(0,0,0,0.05) !important;
+}
+
+input.toggle[type='checkbox'] {
+  display: none;
+}
+
+.label-toggle:focus {
+  outline: 0;
+}
+
+.label-toggle {
+  cursor: pointer;
+}
+
+.label-toggle::before {
+  display: inline-block;
+  font-style: normal !important;
+  content: ">︎";
+  font-weight: 700;
+  font-family: monospace;
+  font-size: 1.5rem;
+  color: var(--gray);
+  transform: rotateY(55deg);
+}
+
+.label-toggle.visible::before {
+  transform: rotate(90deg) rotateY(55deg);
+}
+
+.name > .label-toggle {
+  margin-left: -1rem;
+  /*color: var(--black);*/
+  font-style: italic;
+}
+
+.name > .label-toggle > *:first-child {
+  border-bottom:1px dashed #000;
+}
+
+tr.healthregion {
+  display: none
+}
+
+tr.healthregion.visible {
+  display: table-row
+}
+tr.vaccine:first-child {
+  word-wrap: break-word;
+}
+tr.province td button:focus {
+  outline: 0;
+}
+
+tr.healthregion > th:first-child > span {
+  white-space: break-spaces !important;
+}
+
+.table thead tr:first-child th:empty {
+  border-bottom: 0;
+}
+
+.table > thead > tr > th {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  width: 28px;
+  text-align: center !important;
+}
+
+.table > thead > tr:last-child > th:not(:first-child)::after {
+  color: #D0E0EA;
+  content: '|';
+  float: left;
+  margin-left: -1rem;
+  vertical-align: middle;
+}
+
+.table > thead > tr:last-child > th + th:empty::after {
+  content: '';
+}
+
+.history > div {
+  height: 2rem;
+  width: 7rem;
+  margin-bottom: -0.5rem;
+}
+
+.history table.column td {
+  margin-inline-start: 1px;
+}
+
+.history .tooltip {
+  bottom: 2rem !important;
+  z-index: 30 !important;
+}
+
+.dose.history table.column {
+  --color-1: rgba(0, 123, 255, 0.2);
+  --color-2: rgba(0, 123, 255, 0.6);
+}
+
+.cases.history table.column {
+  --color-1: rgba(220, 53, 69, 0.2);
+  --color-2: rgba(220, 53, 69, 0.6);
+}
+.dose.history table tbody tr:last-child td:last-child {
+  --color: var(--blue);
+}
+
+.cases.history table.column {
+  --color-1: rgba(220, 53, 69, 0.2);
+  --color-2: rgba(220, 53, 69, 0.6);
+}
+.cases.history table tbody tr:last-child td:last-child {
+  --color: var(--red);
+}
+
+.activecases.history table.column {
+  --color-1: rgba(253, 126, 20, 0.2);
+  --color-2: rgba(253, 126, 20, 0.6);
+}
+
+.activecases.history table tbody tr:last-child td:last-child {
+  --color: var(--orange);
+}
+
+td[data-rate].activecases::after {
+  color: var(--red);
+}
+td[data-rate ^= "-"].activecases::after {
+  color: var(--blue);
+}
 
 .supply.zero:not(:empty)::before {
   content: " (~";
@@ -475,155 +523,6 @@ td[data-rate]:empty::after {
   display: none;
 }
 
-input.province.row {
-  display: none;
-}
-
-label {
-  color: #09c;
-  cursor: pointer;
-}
-
-tr input:checked ~ tr {
-  background-color: green;
-}
-
-input:checked + tr {
-  color: red;
-}
-
-tr.healthregion {
-  display: none
-}
-
-tr.healthregion.visible {
-  display: table-row
-}
-tr.vaccine:first-child {
-  word-wrap: break-word;
-}
-tr.province td button:focus {
-  outline: 0;
-}
-
-.label-toggle:focus {
-  outline: 0;
-}
-.label-toggle {
-  cursor: pointer;
-  font-style: normal !important;
-  /*margin: 0 0.5rem 0 0;*/
-  /*padding: 0;*/
-  border: solid 1px var(--gray);
-  margin-right: 0.5rem;
-  /*position: relative;*/
-}
-
-.label-toggle::before {
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
-  content: "➕";
-  /*left: -0.125rem;*/
-  /*top: -0.25rem;*/
-  /*position: relative;*/
-}
-
-.name > .label-toggle {
-  margin-left: -2rem;
-}
-
-.label-toggle.visible::before {
-  content: "➖";
-}
-
-tr.healthregion > th:first-child > span {
-  white-space: break-spaces !important;
-}
-
-.table thead tr:first-child th:empty {
-  border-bottom: 0;
-}
-
-.table thead tr th {
-  border-top: 0;
-  border-left: 0;
-  border-right: 0;
-}
-
-thead tr:last-child th:not(:first-child)::after {
-  color: #D0E0EA;
-  content: '|';
-  float: left;
-  margin-left: -1rem;
-  vertical-align: middle;
-}
-
-thead tr:last-child th + th:empty::after {
-  content: '';
-}
-
-thead tr th {
-  width: 28px;
-  text-align: center !important;
-}
-
-.history > div {
-  height: 2rem;
-  width: 7rem;
-  /*margin: -0.5rem auto;*/
-  margin-bottom: -0.5rem;
-}
-
-.history table.column td {
-  margin-inline-start: 1px;
-}
-
-.history .tooltip {
-  bottom: 2rem !important;
-  z-index: 30 !important;
-}
-
-.dose.history table.column {
-  --color-1: rgba(0, 123, 255, 0.2);
-  --color-2: rgba(0, 123, 255, 0.6);
-}
-
-.cases.history table.column {
-  --color-1: rgba(220, 53, 69, 0.2);
-  --color-2: rgba(220, 53, 69, 0.6);
-}
-.dose.history table tbody tr:last-child td:last-child {
-  --color: var(--blue);
-}
-
-.cases.history table.column {
-  --color-1: rgba(220, 53, 69, 0.2);
-  --color-2: rgba(220, 53, 69, 0.6);
-}
-.cases.history table tbody tr:last-child td:last-child {
-  --color: var(--red);
-}
-
-.activecases.history table.column {
-  --color-1: rgba(253, 126, 20, 0.2);
-  --color-2: rgba(253, 126, 20, 0.6);
-}
-.activecases.history table tbody tr:last-child td:last-child {
-  --color: var(--orange);
-}
-
-td[data-rate].activecases::after {
-  color: var(--red);
-}
-td[data-rate ^= "-"].activecases::after {
-  color: var(--blue);
-}
-
-input[type='checkbox'] {
-  display: none;
-}
-
 .balloon {
   position: absolute;
   z-index: 25;
@@ -657,8 +556,4 @@ input[type='checkbox'] {
 *:hover > .balloon {
   visibility: visible;
   opacity: 1;
-}
-
-.name .balloon {
-
 }
