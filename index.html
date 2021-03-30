@@ -5258,13 +5258,14 @@
   <tr>
     <th></th>
     <th>New Cases<br/>(60 days)</th>
-    <th>Today</th>
-    <th>Active (60 days)</th>
+    <th>New Cases<br/>Today</th>
+    <th>Active Cases<br/>(60 days)</th>
     <th>Active/₁₀₀ₖ</th>
     <th>Hospital/₁₀₀₀ₖ</th>
-    <th>Positivity Rate (Inf./Tests)</th>
-    <th>% Population ever infected</th>
-    <th>Death Rate (of Infected)</th>
+    <th>Deaths/₁₀₀ₖ</th>
+    <th>Test-Positivity<br/>Rate (7 days)</th>
+    <th class="infected">% Population ever infected</th>
+    <th class="infected">Death Rate <br/>(of Infected)</th>
   </tr>
   </thead>
   <tbody id="casesProvinceTable">
@@ -5373,9 +5374,10 @@
         <div class="progressbar black" aria-valuenow="127" data-value="18.7k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 84.66666666666667%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar red" aria-valuenow="57" data-value="841" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 56.99999999999999%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="50" data-value="7.3k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 50%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="4.3" data-value="39.5k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 43%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="2.4" data-value="352k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 24%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.1" data-value="7.3k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 52.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="2.4" data-value="352k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 24%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.1" data-value="7.3k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 52.5%"></span></div></td>
     </tr>
   
       
@@ -5470,9 +5472,10 @@
         <div class="progressbar green" aria-valuenow="5" data-value="6" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 50%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="4" data-value="4" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 4%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="0.2" data-value="1.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 2%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.2" data-value="228" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 2%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.8" data-value="4" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 45%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.2" data-value="228" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 2%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.8" data-value="4" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 45%"></span></div></td>
     </tr>
   
       
@@ -5567,9 +5570,10 @@
         <div class="progressbar red" aria-valuenow="50" data-value="68" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 50%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar yellow" aria-valuenow="22" data-value="3" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 88%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="10" data-value="13" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 10%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="2.6" data-value="953" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 26%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="1.3" data-value="1.8k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 13%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="0.7" data-value="13" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 17.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="1.3" data-value="1.8k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 13%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="0.7" data-value="13" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 17.5%"></span></div></td>
     </tr>
   
       
@@ -5664,9 +5668,10 @@
         <div class="progressbar black" aria-valuenow="154" data-value="997" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar red" aria-valuenow="53" data-value="34" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 53%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="48" data-value="307" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 48%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="2.2" data-value="13.9k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 22.000000000000004%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.2" data-value="307" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 55.00000000000001%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="2.2" data-value="13.9k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 22.000000000000004%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.2" data-value="307" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 55.00000000000001%"></span></div></td>
     </tr>
   
       
@@ -5761,9 +5766,10 @@
         <div class="progressbar orange" aria-valuenow="36" data-value="59" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 90%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar orange" aria-valuenow="37" data-value="6" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 92.5%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="2" data-value="4" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 2%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.5" data-value="814" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 5%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="0.5" data-value="4" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 12.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.5" data-value="814" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 5%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="0.5" data-value="4" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 12.5%"></span></div></td>
     </tr>
   
       
@@ -5858,9 +5864,10 @@
         <div class="progressbar red" aria-valuenow="82" data-value="90" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 82%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="36" data-value="39" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 36%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="1.5" data-value="1.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 15%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.4" data-value="39" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 60%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="1.5" data-value="1.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 15%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.4" data-value="39" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 60%"></span></div></td>
     </tr>
   
       
@@ -5955,9 +5962,10 @@
         <div class="progressbar green" aria-valuenow="8" data-value="15" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 80%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar yellow" aria-valuenow="11" data-value="2" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 44%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="38" data-value="68" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 38%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="0.7" data-value="413" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 6.999999999999999%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.6" data-value="1.1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 6%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="6" data-value="68" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.6" data-value="1.1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 6%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="6" data-value="68" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
     </tr>
   
       
@@ -6052,9 +6060,10 @@
         <div class="progressbar red" aria-valuenow="71" data-value="391" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 71%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="36" data-value="200" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 36%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="2" data-value="10.8k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 20%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.8" data-value="200" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 45%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="2" data-value="10.8k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 20%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.8" data-value="200" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 45%"></span></div></td>
     </tr>
   
       
@@ -6149,9 +6158,10 @@
         <div class="progressbar black" aria-valuenow="174" data-value="934" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="58" data-value="309" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 58%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="2.3" data-value="12.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 23%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.5" data-value="309" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 62.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="2.3" data-value="12.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 23%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.5" data-value="309" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 62.5%"></span></div></td>
     </tr>
   
       
@@ -6246,9 +6256,10 @@
         <div class="progressbar yellow" aria-valuenow="23" data-value="37" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 92%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="4" data-value="6" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 4%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.3" data-value="479" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 3%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.3" data-value="6" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 32.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.3" data-value="479" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 3%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.3" data-value="6" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 32.5%"></span></div></td>
     </tr>
   
       
@@ -6343,9 +6354,10 @@
         <div class="progressbar orange" aria-valuenow="27" data-value="16" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 67.5%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar red" aria-valuenow="51" data-value="3" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 51%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="84" data-value="50" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 84%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="2.4" data-value="1.4k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 24%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="3.5" data-value="50" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 87.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="2.4" data-value="1.4k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 24%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="3.5" data-value="50" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 87.5%"></span></div></td>
     </tr>
   
       
@@ -6440,9 +6452,10 @@
         <div class="progressbar red" aria-valuenow="95" data-value="97" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 95%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar yellow" aria-valuenow="10" data-value="1" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 40%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="10" data-value="10" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 10%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="1.5" data-value="1.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 15%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="0.6" data-value="10" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 15%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="1.5" data-value="1.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 15%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="0.6" data-value="10" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 15%"></span></div></td>
     </tr>
   
       
@@ -6537,9 +6550,10 @@
         <div class="progressbar orange" aria-valuenow="31" data-value="59" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 77.5%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar yellow" aria-valuenow="10" data-value="2" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 40%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="1" data-value="1" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 1%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.5" data-value="911" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 5%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="0.1" data-value="1" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 2.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.5" data-value="911" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 5%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="0.1" data-value="1" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 2.5%"></span></div></td>
     </tr>
   
       
@@ -6634,9 +6648,10 @@
         <div class="progressbar black" aria-valuenow="156" data-value="197" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="8" data-value="1" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 80%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="39" data-value="49" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 39%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="2.2" data-value="2.8k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 22.000000000000004%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.7" data-value="49" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 42.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="2.2" data-value="2.8k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 22.000000000000004%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.7" data-value="49" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 42.5%"></span></div></td>
     </tr>
   
       
@@ -6731,9 +6746,10 @@
         <div class="progressbar red" aria-valuenow="61" data-value="104" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 61%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="6" data-value="1" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 60%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="32" data-value="54" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 32%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.7" data-value="1.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 6.999999999999999%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="4.3" data-value="54" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.7" data-value="1.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 6.999999999999999%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="4.3" data-value="54" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
     </tr>
   
       
@@ -6828,9 +6844,10 @@
         <div class="progressbar red" aria-valuenow="95" data-value="434" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 95%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="41" data-value="186" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 41%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="1.5" data-value="7k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 15%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.7" data-value="186" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 67.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="1.5" data-value="7k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 15%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.7" data-value="186" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 67.5%"></span></div></td>
     </tr>
   
       
@@ -6925,9 +6942,10 @@
         <div class="progressbar black" aria-valuenow="114" data-value="512" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 76%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="84" data-value="375" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 84%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="2.1" data-value="9.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 21.000000000000004%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="3.9" data-value="375" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 97.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="2.1" data-value="9.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 21.000000000000004%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="3.9" data-value="375" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 97.5%"></span></div></td>
     </tr>
   
       
@@ -7022,9 +7040,10 @@
         <div class="progressbar green" aria-valuenow="4" data-value="5" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 40%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="3" data-value="4" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 3%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="945" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.2" data-value="289" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 2%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.4" data-value="4" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 35%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.2" data-value="289" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 2%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.4" data-value="4" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 35%"></span></div></td>
     </tr>
   
       
@@ -7119,9 +7138,10 @@
         <div class="progressbar red" aria-valuenow="44" data-value="34" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 44%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="1" data-value="1" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 1%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.9" data-value="678" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 9%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="0.1" data-value="1" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 2.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.9" data-value="678" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 9%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="0.1" data-value="1" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 2.5%"></span></div></td>
     </tr>
   
       
@@ -7216,9 +7236,10 @@
         <div class="progressbar black" aria-valuenow="121" data-value="1.1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 80.66666666666666%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar orange" aria-valuenow="39" data-value="36" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 97.5%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="49" data-value="460" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 49%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="1.8" data-value="17.1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 18%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.7" data-value="460" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 67.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="1.8" data-value="17.1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 18%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.7" data-value="460" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 67.5%"></span></div></td>
     </tr>
   
       
@@ -7313,9 +7334,10 @@
         <div class="progressbar black" aria-valuenow="187" data-value="2.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="46" data-value="639" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 46%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="5.1" data-value="70.5k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 51%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="0.9" data-value="639" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 22.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="5.1" data-value="70.5k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 51%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="0.9" data-value="639" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 22.5%"></span></div></td>
     </tr>
   
       
@@ -7410,9 +7432,10 @@
         <div class="progressbar orange" aria-valuenow="38" data-value="52" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 95%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="7" data-value="10" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 7%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.6" data-value="855" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 6%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.2" data-value="10" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 30%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.6" data-value="855" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 6%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.2" data-value="10" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 30%"></span></div></td>
     </tr>
   
       
@@ -7507,9 +7530,10 @@
         <div class="progressbar green" aria-valuenow="5" data-value="4" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 50%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="30" data-value="25" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 30%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="848" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.4" data-value="350" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 4%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="7.1" data-value="25" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.4" data-value="350" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 4%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="7.1" data-value="25" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
     </tr>
   
       
@@ -7604,9 +7628,10 @@
         <div class="progressbar orange" aria-valuenow="36" data-value="37" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 90%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="4" data-value="4" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 4%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.4" data-value="432" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 4%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="0.9" data-value="4" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 22.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.4" data-value="432" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 4%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="0.9" data-value="4" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 22.5%"></span></div></td>
     </tr>
   
       
@@ -7701,9 +7726,10 @@
         <div class="progressbar black" aria-valuenow="164" data-value="332" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar black" aria-valuenow="158" data-value="32" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="36" data-value="73" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 36%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="6.9" data-value="616" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 69%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="1.6" data-value="3.3k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 16%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.2" data-value="73" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 55.00000000000001%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="1.6" data-value="3.3k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 16%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.2" data-value="73" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 55.00000000000001%"></span></div></td>
     </tr>
   
       
@@ -7798,9 +7824,10 @@
         <div class="progressbar black" aria-valuenow="107" data-value="579" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 71.33333333333334%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar red" aria-valuenow="46" data-value="25" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 46%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="36" data-value="197" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 36%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="86.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="1.4" data-value="7.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 13.999999999999998%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.6" data-value="197" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 65%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="1.4" data-value="7.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 13.999999999999998%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.6" data-value="197" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 65%"></span></div></td>
     </tr>
   
       
@@ -7895,9 +7922,10 @@
         <div class="progressbar black" aria-valuenow="163" data-value="321" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="10" data-value="19" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 10%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="2.5" data-value="3.1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 25%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.7" data-value="1.4k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 6.999999999999999%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.4" data-value="19" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 35%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.7" data-value="1.4k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 6.999999999999999%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.4" data-value="19" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 35%"></span></div></td>
     </tr>
   
       
@@ -7992,9 +8020,10 @@
         <div class="progressbar black" aria-valuenow="136" data-value="207" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 90.66666666666666%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar black" aria-valuenow="125" data-value="19" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 83.33333333333334%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="31" data-value="47" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 31%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="1.8" data-value="2.8k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 18%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.7" data-value="47" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 42.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="1.8" data-value="2.8k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 18%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.7" data-value="47" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 42.5%"></span></div></td>
     </tr>
   
       
@@ -8089,9 +8118,10 @@
         <div class="progressbar orange" aria-valuenow="36" data-value="12" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 90%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="6" data-value="2" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 6%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="3.1" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 31%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.4" data-value="127" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 4%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.6" data-value="2" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 40%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.4" data-value="127" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 4%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.6" data-value="2" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 40%"></span></div></td>
     </tr>
   
       
@@ -8186,9 +8216,10 @@
         <div class="progressbar red" aria-valuenow="58" data-value="308" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 57.99999999999999%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar orange" aria-valuenow="36" data-value="19" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 90%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="45" data-value="242" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 45%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="3" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 30%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="2.2" data-value="11.9k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 22.000000000000004%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2" data-value="242" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 50%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="2.2" data-value="11.9k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 22.000000000000004%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2" data-value="242" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 50%"></span></div></td>
     </tr>
   
       
@@ -8283,9 +8314,10 @@
         <div class="progressbar red" aria-valuenow="52" data-value="149" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 52%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar yellow" aria-valuenow="14" data-value="4" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 56.00000000000001%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="37" data-value="106" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 37%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="1.8" data-value="5.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 18%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2" data-value="106" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 50%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="1.8" data-value="5.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 18%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2" data-value="106" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 50%"></span></div></td>
     </tr>
   
       
@@ -8380,9 +8412,10 @@
         <div class="progressbar red" aria-valuenow="73" data-value="293" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 73%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar red" aria-valuenow="80" data-value="32" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 80%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="101" data-value="402" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="3.5" data-value="13.8k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 35%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.9" data-value="402" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 72.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="3.5" data-value="13.8k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 35%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.9" data-value="402" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 72.5%"></span></div></td>
     </tr>
   
       
@@ -8477,9 +8510,10 @@
         <div class="progressbar black" aria-valuenow="160" data-value="1.8k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar black" aria-valuenow="123" data-value="137" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 82%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="50" data-value="554" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 50%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="3" data-value="33.4k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 30%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.7" data-value="554" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 42.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="3" data-value="33.4k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 30%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.7" data-value="554" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 42.5%"></span></div></td>
     </tr>
   
       
@@ -8574,9 +8608,10 @@
         <div class="progressbar black" aria-valuenow="NaN" data-value="92" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar black" aria-valuenow="N/A" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="NaN" data-value="69" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="NaN" data-value="2.8k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.5" data-value="69" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 62.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="NaN" data-value="2.8k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.5" data-value="69" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 62.5%"></span></div></td>
     </tr>
   
       
@@ -8671,9 +8706,10 @@
         <div class="progressbar black" aria-valuenow="247" data-value="6.8k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar black" aria-valuenow="111" data-value="302" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 74%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="102" data-value="2.8k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="4.1" data-value="111k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 41%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.5" data-value="2.8k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 62.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="4.1" data-value="111k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 41%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.5" data-value="2.8k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 62.5%"></span></div></td>
     </tr>
   
     
@@ -8777,9 +8813,10 @@
         <div class="progressbar red" aria-valuenow="93" data-value="8k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 93%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar red" aria-valuenow="56" data-value="477" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 56.00000000000001%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="124" data-value="10.7k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="2.9" data-value="22.1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 28.999999999999996%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="3.6" data-value="309k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 36%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="3.4" data-value="10.7k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 85%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="3.6" data-value="309k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 36%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="3.4" data-value="10.7k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 85%"></span></div></td>
     </tr>
   
       
@@ -8874,9 +8911,10 @@
         <div class="progressbar black" aria-valuenow="128" data-value="253" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 85.33333333333334%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="15" data-value="30" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 15%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="1" data-value="1.9k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 10%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.6" data-value="30" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 40%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="1" data-value="1.9k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 10%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.6" data-value="30" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 40%"></span></div></td>
     </tr>
   
       
@@ -8971,9 +9009,10 @@
         <div class="progressbar black" aria-valuenow="126" data-value="349" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 84%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="96" data-value="265" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 96%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="3.4" data-value="9.4k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 34%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.8" data-value="265" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 70%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="3.4" data-value="9.4k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 34%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.8" data-value="265" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 70%"></span></div></td>
     </tr>
   
       
@@ -9068,9 +9107,10 @@
         <div class="progressbar black" aria-valuenow="117" data-value="855" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 78%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="139" data-value="1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="3.3" data-value="23.8k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 32.99999999999999%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="4.3" data-value="1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="3.3" data-value="23.8k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 32.99999999999999%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="4.3" data-value="1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
     </tr>
   
       
@@ -9165,9 +9205,10 @@
         <div class="progressbar orange" aria-valuenow="37" data-value="186" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 92.5%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="100" data-value="508" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="2.6" data-value="13.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 26%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="3.9" data-value="508" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 97.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="2.6" data-value="13.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 26%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="3.9" data-value="508" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 97.5%"></span></div></td>
     </tr>
   
       
@@ -9262,9 +9303,10 @@
         <div class="progressbar orange" aria-valuenow="36" data-value="168" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 90%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="68" data-value="321" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 68%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="2.5" data-value="12k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 25%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.7" data-value="321" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 67.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="2.5" data-value="12k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 25%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.7" data-value="321" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 67.5%"></span></div></td>
     </tr>
   
       
@@ -9359,9 +9401,10 @@
         <div class="progressbar black" aria-valuenow="215" data-value="4.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="238" data-value="4.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="5.9" data-value="115k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 59.00000000000001%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="4" data-value="4.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="5.9" data-value="115k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 59.00000000000001%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="4" data-value="4.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
     </tr>
   
       
@@ -9456,9 +9499,10 @@
         <div class="progressbar black" aria-valuenow="154" data-value="590" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="45" data-value="172" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 45%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="1.9" data-value="7.4k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 19%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.3" data-value="172" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 57.49999999999999%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="1.9" data-value="7.4k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 19%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.3" data-value="172" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 57.49999999999999%"></span></div></td>
     </tr>
   
       
@@ -9553,9 +9597,10 @@
         <div class="progressbar red" aria-valuenow="45" data-value="66" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 45%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="5" data-value="8" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 5%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.7" data-value="960" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 6.999999999999999%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="0.8" data-value="8" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 20%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.7" data-value="960" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 6.999999999999999%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="0.8" data-value="8" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 20%"></span></div></td>
     </tr>
   
       
@@ -9650,9 +9695,10 @@
         <div class="progressbar green" aria-valuenow="2" data-value="2" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 20%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="3" data-value="3" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 3%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.4" data-value="360" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 4%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="0.8" data-value="3" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 20%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.4" data-value="360" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 4%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="0.8" data-value="3" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 20%"></span></div></td>
     </tr>
   
       
@@ -9747,9 +9793,10 @@
         <div class="progressbar green" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.6" data-value="88" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 6%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.6" data-value="88" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 6%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
     </tr>
   
       
@@ -9844,9 +9891,10 @@
         <div class="progressbar green" aria-valuenow="2" data-value="2" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 20%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="50" data-value="45" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 50%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="1.9" data-value="1.7k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 19%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.6" data-value="45" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 65%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="1.9" data-value="1.7k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 19%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.6" data-value="45" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 65%"></span></div></td>
     </tr>
   
       
@@ -9941,9 +9989,10 @@
         <div class="progressbar red" aria-valuenow="86" data-value="360" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 86%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="69" data-value="288" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 69%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="2.9" data-value="12.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 28.999999999999996%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.4" data-value="288" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 60%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="2.9" data-value="12.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 28.999999999999996%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.4" data-value="288" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 60%"></span></div></td>
     </tr>
   
       
@@ -10038,9 +10087,10 @@
         <div class="progressbar black" aria-valuenow="235" data-value="995" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="209" data-value="886" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="6.4" data-value="27.1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 64%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="3.3" data-value="886" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 82.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="6.4" data-value="27.1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 64%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="3.3" data-value="886" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 82.5%"></span></div></td>
     </tr>
   
       
@@ -10135,9 +10185,10 @@
         <div class="progressbar black" aria-valuenow="100" data-value="495" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 66.66666666666666%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="101" data-value="501" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="4.4" data-value="21.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 44.00000000000001%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.3" data-value="501" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 57.49999999999999%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="4.4" data-value="21.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 44.00000000000001%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.3" data-value="501" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 57.49999999999999%"></span></div></td>
     </tr>
   
       
@@ -10232,9 +10283,10 @@
         <div class="progressbar red" aria-valuenow="86" data-value="506" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 86%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="82" data-value="482" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 82%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="3" data-value="17.8k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 30%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.7" data-value="482" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 67.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="3" data-value="17.8k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 30%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.7" data-value="482" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 67.5%"></span></div></td>
     </tr>
   
       
@@ -10329,9 +10381,10 @@
         <div class="progressbar red" aria-valuenow="86" data-value="1.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 86%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="112" data-value="1.5k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="3.3" data-value="44.1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 32.99999999999999%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="3.4" data-value="1.5k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 85%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="3.3" data-value="44.1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 32.99999999999999%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="3.4" data-value="1.5k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 85%"></span></div></td>
     </tr>
   
       
@@ -10426,9 +10479,10 @@
         <div class="progressbar green" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.3" data-value="46" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 3%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.3" data-value="46" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 3%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
     </tr>
   
       
@@ -10523,9 +10577,10 @@
         <div class="progressbar green" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="18" data-value="3" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 18%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.7" data-value="119" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 6.999999999999999%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.5" data-value="3" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 62.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.7" data-value="119" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 6.999999999999999%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.5" data-value="3" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 62.5%"></span></div></td>
     </tr>
   
     
@@ -10629,9 +10684,10 @@
         <div class="progressbar black" aria-valuenow="136" data-value="7k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 90.66666666666666%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar red" aria-valuenow="58" data-value="299" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 57.99999999999999%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="28" data-value="1.5k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 28%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="9.5" data-value="26.1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 95%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="1.9" data-value="98.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 19%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.5" data-value="1.5k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 37.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="1.9" data-value="98.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 19%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.5" data-value="1.5k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 37.5%"></span></div></td>
     </tr>
   
       
@@ -10726,9 +10782,10 @@
         <div class="progressbar black" aria-valuenow="197" data-value="3.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar red" aria-valuenow="90" data-value="162" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 90%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="44" data-value="787" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 44%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="11.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="3.2" data-value="56.9k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 32%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.4" data-value="787" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 35%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="3.2" data-value="56.9k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 32%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.4" data-value="787" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 35%"></span></div></td>
     </tr>
   
       
@@ -10823,9 +10880,10 @@
         <div class="progressbar red" aria-valuenow="60" data-value="447" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 60%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar yellow" aria-valuenow="23" data-value="17" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 92%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="15" data-value="114" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 15%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="2.5k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="1.1" data-value="8.4k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 11.000000000000002%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.4" data-value="114" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 35%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="1.1" data-value="8.4k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 11.000000000000002%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.4" data-value="114" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 35%"></span></div></td>
     </tr>
   
       
@@ -10920,9 +10978,10 @@
         <div class="progressbar red" aria-valuenow="44" data-value="373" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 44%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar yellow" aria-valuenow="14" data-value="12" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 56.00000000000001%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="3" data-value="29" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 3%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="2.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.4" data-value="3.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 4%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="0.9" data-value="29" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 22.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.4" data-value="3.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 4%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="0.9" data-value="29" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 22.5%"></span></div></td>
     </tr>
   
       
@@ -11017,9 +11076,10 @@
         <div class="progressbar black" aria-valuenow="115" data-value="346" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 76.66666666666667%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar black" aria-valuenow="100" data-value="30" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 66.66666666666666%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="40" data-value="120" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 40%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="844" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="2" data-value="5.9k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 20%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2" data-value="120" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 50%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="2" data-value="5.9k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 20%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2" data-value="120" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 50%"></span></div></td>
     </tr>
   
       
@@ -11114,9 +11174,10 @@
         <div class="progressbar black" aria-valuenow="183" data-value="2.3k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar red" aria-valuenow="62" data-value="78" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 62%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="32" data-value="405" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 32%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="7.3k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="1.9" data-value="23.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 19%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.7" data-value="405" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 42.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="1.9" data-value="23.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 19%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.7" data-value="405" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 42.5%"></span></div></td>
     </tr>
   
     
@@ -11220,9 +11281,10 @@
         <div class="progressbar black" aria-valuenow="179" data-value="7.9k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar red" aria-valuenow="65" data-value="288" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 65%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="45" data-value="2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 45%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="5.7" data-value="8.4k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 57.00000000000001%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="3.3" data-value="147k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 32.99999999999999%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.4" data-value="2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 35%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="3.3" data-value="147k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 32.99999999999999%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.4" data-value="2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 35%"></span></div></td>
     </tr>
   
     
@@ -11326,9 +11388,10 @@
         <div class="progressbar red" aria-valuenow="85" data-value="1.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 85%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar black" aria-valuenow="108" data-value="149" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 72%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="68" data-value="934" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 68%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="3.8" data-value="1.7k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 38%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="2.5" data-value="34k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 25%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.7" data-value="934" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 67.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="2.5" data-value="34k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 25%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.7" data-value="934" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 67.5%"></span></div></td>
     </tr>
   
       
@@ -11423,9 +11486,10 @@
         <div class="progressbar red" aria-valuenow="58" data-value="415" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 57.99999999999999%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar black" aria-valuenow="144" data-value="104" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 96%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="92" data-value="662" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 92%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="2.6" data-value="18.5k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 26%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="3.6" data-value="662" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 90%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="2.6" data-value="18.5k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 26%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="3.6" data-value="662" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 90%"></span></div></td>
     </tr>
   
       
@@ -11520,9 +11584,10 @@
         <div class="progressbar orange" aria-valuenow="26" data-value="43" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 65%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar orange" aria-valuenow="30" data-value="5" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 75%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="32" data-value="53" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 32%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="1.3" data-value="2.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 13%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.4" data-value="53" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 60%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="1.3" data-value="2.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 13%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.4" data-value="53" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 60%"></span></div></td>
     </tr>
   
       
@@ -11617,9 +11682,10 @@
         <div class="progressbar yellow" aria-valuenow="20" data-value="25" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 80%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar orange" aria-valuenow="39" data-value="5" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 97.5%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="29" data-value="37" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 29%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="1.9" data-value="2.5k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 19%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.5" data-value="37" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 37.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="1.9" data-value="2.5k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 19%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.5" data-value="37" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 37.5%"></span></div></td>
     </tr>
   
       
@@ -11714,9 +11780,10 @@
         <div class="progressbar black" aria-valuenow="908" data-value="656" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar black" aria-valuenow="291" data-value="21" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="54" data-value="39" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 54%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="8.2" data-value="5.9k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 82%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="0.7" data-value="39" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 17.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="8.2" data-value="5.9k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 82%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="0.7" data-value="39" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 17.5%"></span></div></td>
     </tr>
   
       
@@ -11811,9 +11878,10 @@
         <div class="progressbar yellow" aria-valuenow="20" data-value="38" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 80%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar red" aria-valuenow="73" data-value="14" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 73%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="74" data-value="143" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 74%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="2.6" data-value="4.9k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 26%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.9" data-value="143" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 72.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="2.6" data-value="4.9k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 26%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.9" data-value="143" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 72.5%"></span></div></td>
     </tr>
   
     
@@ -11917,9 +11985,10 @@
         <div class="progressbar black" aria-valuenow="168" data-value="2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar black" aria-valuenow="138" data-value="162" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 92%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="37" data-value="433" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 37%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="5.4" data-value="3.1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 54%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="2.8" data-value="33.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 27.999999999999996%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.3" data-value="433" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 32.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="2.8" data-value="33.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 27.999999999999996%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.3" data-value="433" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 32.5%"></span></div></td>
     </tr>
   
       
@@ -12014,9 +12083,10 @@
         <div class="progressbar black" aria-valuenow="136" data-value="77" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 90.66666666666666%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar yellow" aria-valuenow="18" data-value="1" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 72%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="78" data-value="44" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 78%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="11" data-value="102" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="7.9" data-value="4.5k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 79%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1" data-value="44" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 25%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="7.9" data-value="4.5k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 79%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1" data-value="44" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 25%"></span></div></td>
     </tr>
   
       
@@ -12111,9 +12181,10 @@
         <div class="progressbar black" aria-valuenow="147" data-value="254" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 98%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar black" aria-valuenow="104" data-value="18" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 69.33333333333334%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="62" data-value="108" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 62%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="7.2" data-value="355" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 72%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="4.7" data-value="8.1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 47%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.3" data-value="108" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 32.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="4.7" data-value="8.1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 47%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.3" data-value="108" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 32.5%"></span></div></td>
     </tr>
   
       
@@ -12208,9 +12279,10 @@
         <div class="progressbar red" aria-valuenow="70" data-value="96" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 70%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar red" aria-valuenow="80" data-value="11" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 80%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="12" data-value="16" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 12%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="4.5" data-value="150" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 45%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="1.5" data-value="2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 15%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="0.8" data-value="16" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 20%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="1.5" data-value="2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 15%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="0.8" data-value="16" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 20%"></span></div></td>
     </tr>
   
       
@@ -12305,9 +12377,10 @@
         <div class="progressbar red" aria-valuenow="73" data-value="243" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 73%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar black" aria-valuenow="131" data-value="44" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 87.33333333333333%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="27" data-value="90" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 27%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="3.6" data-value="473" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 36%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="2.4" data-value="8.1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 24%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.1" data-value="90" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 27.500000000000004%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="2.4" data-value="8.1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 24%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.1" data-value="90" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 27.500000000000004%"></span></div></td>
     </tr>
   
       
@@ -12402,9 +12475,10 @@
         <div class="progressbar black" aria-valuenow="380" data-value="1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar black" aria-valuenow="282" data-value="77" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="44" data-value="121" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 44%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="8.6" data-value="1.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 86%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="2.8" data-value="7.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 27.999999999999996%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.6" data-value="121" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 40%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="2.8" data-value="7.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 27.999999999999996%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.6" data-value="121" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 40%"></span></div></td>
     </tr>
   
       
@@ -12499,9 +12573,10 @@
         <div class="progressbar black" aria-valuenow="132" data-value="254" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 88%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar red" aria-valuenow="57" data-value="11" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 56.99999999999999%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="28" data-value="54" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 28%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="6.3" data-value="451" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 63%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="1.5" data-value="2.9k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 15%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.8" data-value="54" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 45%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="1.5" data-value="2.9k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 15%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.8" data-value="54" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 45%"></span></div></td>
     </tr>
   
     
@@ -12605,9 +12680,10 @@
         <div class="progressbar green" aria-valuenow="2" data-value="24" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 20%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="1" data-value="1" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 10%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="7" data-value="66" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 7%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="0.1" data-value="2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 1%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.2" data-value="1.7k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 2%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="3.9" data-value="66" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 97.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.2" data-value="1.7k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 2%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="3.9" data-value="66" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 97.5%"></span></div></td>
     </tr>
   
     
@@ -12711,9 +12787,10 @@
         <div class="progressbar yellow" aria-valuenow="15" data-value="121" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 60%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="5" data-value="4" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 50%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="4" data-value="30" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 4%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="1.2" data-value="1.1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 12%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.2" data-value="1.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 2%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.9" data-value="30" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 47.5%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.2" data-value="1.6k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 2%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.9" data-value="30" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 47.5%"></span></div></td>
     </tr>
   
     
@@ -12817,9 +12894,10 @@
         <div class="progressbar green" aria-valuenow="1" data-value="6" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 10%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="1" data-value="6" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 1%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="0.1" data-value="196" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 1%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.2" data-value="1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 2%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="0.6" data-value="6" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 15%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.2" data-value="1k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 2%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="0.6" data-value="6" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 15%"></span></div></td>
     </tr>
   
     
@@ -12923,9 +13001,10 @@
         <div class="progressbar green" aria-valuenow="8" data-value="12" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 80%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="0.3" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 3%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.1" data-value="156" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 1%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.1" data-value="156" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 1%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
     </tr>
   
       
@@ -13020,9 +13099,10 @@
         <div class="progressbar green" aria-valuenow="8" data-value="12" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 80%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.1" data-value="156" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 1%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.1" data-value="156" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 1%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
     </tr>
   
     
@@ -13126,9 +13206,10 @@
         <div class="progressbar green" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.1" data-value="47" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 1%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.1" data-value="47" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 1%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
     </tr>
   
       
@@ -13223,9 +13304,10 @@
         <div class="progressbar green" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.1" data-value="47" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 1%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.1" data-value="47" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 1%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
     </tr>
   
     
@@ -13329,9 +13411,10 @@
         <div class="progressbar green" aria-valuenow="2" data-value="1" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 20%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="2" data-value="1" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 2%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="1.5" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 15%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.2" data-value="73" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 2%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.4" data-value="1" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 35%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.2" data-value="73" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 2%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.4" data-value="1" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 35%"></span></div></td>
     </tr>
   
       
@@ -13426,9 +13509,10 @@
         <div class="progressbar green" aria-valuenow="3" data-value="1" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 30%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="3" data-value="1" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 3%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="0.2" data-value="73" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 2%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1.4" data-value="1" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 35%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="0.2" data-value="73" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 2%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1.4" data-value="1" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 35%"></span></div></td>
     </tr>
   
     
@@ -13532,9 +13616,10 @@
         <div class="progressbar green" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar green" aria-valuenow="N/A" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="10" data-value="4" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 10%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="40" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="1" data-value="395" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 10%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1" data-value="4" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 25%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="1" data-value="395" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 10%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1" data-value="4" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 25%"></span></div></td>
     </tr>
   
       
@@ -13629,9 +13714,10 @@
         <div class="progressbar green" aria-valuenow="0" data-value="0" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar black" aria-valuenow="7317" data-value="263" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 100%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="11" data-value="4" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 11%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="N/A" data-value="40" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 0%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="1.1" data-value="395" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 11.000000000000002%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="1" data-value="4" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 25%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="1.1" data-value="395" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 11.000000000000002%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="1" data-value="4" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 25%"></span></div></td>
     </tr>
   
   </tbody>
@@ -13728,9 +13814,10 @@
         <div class="progressbar black" aria-valuenow="118" data-value="44.9k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 78.66666666666666%"></span></div>
       </td>
       <td class="hospitalized per1000k"><div class="progressbar red" aria-valuenow="58" data-value="2.2k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 57.99999999999999%"></span></div></td>
+      <td class="death per100k"><div class="progressbar death" role="progressbar" aria-valuenow="60" data-value="22.9k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 60%"></span></div></td>
       <td class="positivity"><div class="progressbar" role="progressbar" aria-valuenow="4.3" data-value="104k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 43%"></span></div></td>
-      <td class="infection"><div class="progressbar infection" role="progressbar" aria-valuenow="2.6" data-value="978k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 26%"></span></div></td>
-      <td class="death"><div class="progressbar death" role="progressbar" aria-valuenow="2.3" data-value="22.9k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 57.49999999999999%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="2.6" data-value="978k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 26%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="2.3" data-value="22.9k" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: 57.49999999999999%"></span></div></td>
     </tr>
   
   </tfoot>
