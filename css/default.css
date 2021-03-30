@@ -91,7 +91,7 @@ button, [type=button], [type=reset], [type=submit] {
   background-color: white;
 }
 .table > tbody > tr:hover > th:first-child {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: #f2f2f2;
 }
 
 .table thead th {
@@ -156,7 +156,7 @@ main {
 
 .table > tbody > tr:hover {
   color: #212529;
-  background-color: rgba(0, 0, 0, 0.075);
+  background-color: #f2f2f2;
 }
 
 .table > * > tr > td, .table > * > tr > td {
@@ -324,14 +324,15 @@ td[data-rate]:empty::after {
   content: "{";
   float: right;
   margin-right: -1rem;
-  font-weight: lighter;
-  font-size: 2rem;
   margin-top: -0.75rem;
   margin-bottom: -1rem;
+  font-weight: 100;
+  font-size: 2rem;
+  font-style: normal;
 }
 
 td.infected, th.infected {
-  background-color: rgba(0,0,0,0.05) !important;
+  background-color: #f2f2f2 !important;
 }
 
 input.toggle[type='checkbox'] {
