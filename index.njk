@@ -10,9 +10,9 @@ eleventyNavigation:
 <style>
   {%- for province in canada %}
   #toggle-vaccine-{{ province.code }}:checked ~ table.vaccine > tbody > tr.healthregion.{{ province.code }} { display: table-row; }
-  #toggle-vaccine-{{ province.code }}:checked ~ table.vaccine > tbody > tr.province.{{ province.code }} th:first-child .label-toggle::before { content: "➖";}
+  #toggle-vaccine-{{ province.code }}:checked ~ table.vaccine > tbody > tr.province.{{ province.code }} th:first-child .label-toggle::before { transform: rotate(90deg) rotateY(55deg);}
   #toggle-infection-{{ province.code }}:checked ~ table.infection > tbody > tr.healthregion.{{ province.code }} { display: table-row; }
-  #toggle-infection-{{ province.code }}:checked ~ table.infection > tbody > tr.province.{{ province.code }} th:first-child .label-toggle::before { content: "➖";}
+  #toggle-infection-{{ province.code }}:checked ~ table.infection > tbody > tr.province.{{ province.code }} th:first-child .label-toggle::before { transform: rotate(90deg) rotateY(55deg);}
   {%- endfor %}
 </style>
 {%- for province in canada %}
@@ -30,8 +30,8 @@ eleventyNavigation:
   </tr>
   <tr>
     <th></th>
-    <th>Last 60 days</th>
-    <th>Today</th>
+    <th>Vaccinations<br/>(60 days)</th>
+    <th>Vaccinations<br/>Today</th>
     <th>Projected Completion</th>
     <th>Total</th>
     <th>% Population with 1 Dose</th>
@@ -43,18 +43,17 @@ eleventyNavigation:
   <tbody id="vaccinationsProvinceTable">
   {% macro vaccineRow(data, type='province') %}
     <tr class="vaccine {{ type }} {{ data.code or data.province }}"  title="Total: {{ data.total.total_vaccinations | d(0) | format }} ({{ data.total.date | readableDate }}: {{ data.total.change_vaccinations | format}}, {{ data.yesterday.date | readableDate }}: {{ data.yesterday.change_vaccinations | format }}) Population: {{ data.population | format }}">
-      <th class="name">
+      <th class="name" title="{{ data.data_status }} @ {{ data.updated_at }}">
       {% if type === 'province' %}
-        <label for="toggle-vaccine-{{ data.code }}" class="label-toggle"></label>
-        <span title="{{ data.data_status }} @ {{ data.updated_at }}">
+        <label for="toggle-vaccine-{{ data.code }}" class="label-toggle">
 {#          <span class="balloon">#}
 {#Status: <b>{{ data.data_status }}</b><br>#}
 {#Last updated: <b>${updatedAt}</b><br>#}
 {#Update expected by: <b>${expectedTime(data.code)}</b>#}
 {#          </span>#}
-          <span style="border-bottom:1px dashed #000;">{{ data.name.en or data.name }}</span>
+          <span style="">{{ data.name.en or data.name }}</span>
           <span class='province-update-status status-{{ data.data_status | lower | replace(r/\s/gi, '-') }}'></span>
-        </span>
+        </label>
       {% else %}
         <span>{{ data.name.en or data.name }}</span>
       {% endif %}
@@ -131,18 +130,17 @@ eleventyNavigation:
 
   {% macro infectionRow(data, type='province') %}
     <tr class="infection {{ type }} {{ data.code if data.code else data.province }}" title="Total: {{ data.total.total_cases | format }} ({{ data.total.date | readableDate }}: {{ data.total.change_cases | format }}, {{ data.yesterday.date | readableDate }}: {{ data.yesterday.change_cases | format }}) Population: {{ data.population | format }}">
-      <th class="name">
+      <th class="name" title="{{ data.data_status }} @ {{ data.updated_at }}">
         {% if type === 'province' %}
-        <label for="toggle-infection-{{ data.code }}" class="label-toggle"></label>
-        <span title="{{ data.data_status }} @ {{ data.updated_at }}">
-          <span>{{ data.name.en or data.name }}</span>
-{#          <span class='province-update-status status-{{ data.data_status | lower | replace(r/\s/gi, '-') }}' data-toggle='tooltiprow' data-placement='bottom' data-html='true' title='#}
-{#          Status: <b>{{ data.data_status }}</b><br>#}
-{#          Last updated: <b>${updatedAt}</b><br>#}
-{#          Update expected by: <b>${expectedTime(data.code)}</b>'>#}
-{#          </span>#}
+        <label for="toggle-infection-{{ data.code }}" class="label-toggle">
+          {#          <span class="balloon">#}
+          {#Status: <b>{{ data.data_status }}</b><br>#}
+          {#Last updated: <b>${updatedAt}</b><br>#}
+          {#Update expected by: <b>${expectedTime(data.code)}</b>#}
+          {#          </span>#}
+          <span style="">{{ data.name.en or data.name }}</span>
           <span class='province-update-status status-{{ data.data_status | lower | replace(r/\s/gi, '-') }}'></span>
-        </span>
+        </label>
         {% else %}
         <span>{{ data.name.en or data.name }}</span>
         {% endif %}
