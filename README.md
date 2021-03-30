@@ -1,4 +1,5 @@
 # Covid19 Canada > Dashboard
+[covid19.colinbendell.dev](https://covid19.colinbendell.dev/)
 
 This 11ty project generates a unified dashboard to represent the vaccination progress as well as the infection rate of covid 19
 throughout Canada, the provinces and the health regions. The data is refreshed hourly and reflects the status of the reported
