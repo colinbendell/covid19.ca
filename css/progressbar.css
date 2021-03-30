@@ -1,0 +1,49 @@
+.progressbar {
+  display: inline-block;
+  text-align: left;
+  height: 1.6rem;
+  width: 100%;
+  min-width: 7rem;
+  max-width: 7rem;
+  position: relative;
+  color: white;
+  border: var(--dark);
+  border-width: thin;
+  border-style: solid;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  background-color: gray;
+  vertical-align: middle;
+}
+
+.progressbar::before {
+  content: attr(aria-valuenow) "%";
+  position:absolute;
+  color: white;
+  left:0.2rem;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.progressbar[data-value]:not([data-value="N/A"]):not([data-value=""])::after {
+  content: attr(data-value);
+  vertical-align: middle;
+  position:absolute;
+  right: 0.2rem;
+  margin-top: 0.2rem;
+  color: white;
+  font-size: 0.7rem;
+}
+.progressbar[data-value="0"]:after {
+  content: "";
+}
+
+.progressbar[aria-valuenow="N/A"]::before {
+  content: attr(aria-valuenow);
+  font-weight: lighter;
+}
+.progressbar > .value {
+  position: absolute;
+  background-color: blue;
+  height: 100%;
+}

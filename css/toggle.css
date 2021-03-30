@@ -1,0 +1,26 @@
+input.toggle[type='checkbox'] {
+  display: none;
+}
+
+.label-toggle:focus {
+  outline: 0;
+}
+
+.label-toggle {
+  cursor: pointer;
+}
+
+.label-toggle::before {
+  display: inline-block;
+  font-style: normal !important;
+  content: ">︎";
+  font-weight: 700;
+  font-family: monospace;
+  font-size: 1.5rem;
+  color: var(--gray);
+  transform: rotateY(55deg);
+}
+
+.label-toggle.visible::before {
+  transform: rotate(90deg) rotateY(55deg);
+}
