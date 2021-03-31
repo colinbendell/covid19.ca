@@ -73,7 +73,7 @@ eleventyNavigation:
                 <td style="--size:calc({{ height if height > 0 else 3}}/100);"><span class="tooltip">{{ day.date | readableDate }}: {{ day.change_vaccinations | formatNumber }}</span></td>
               {%- endfor %}
               {% set height = (data.total.change_vaccinations / data.vaccine.maxVaccinations * 100) | round %}
-              <td style="--size:calc({{ height if height > 0 else 3 }}/100);"><span class="tooltip">{{ data.total.date or data.total.latest_date | readableDate }}: {{ data.total.change_vaccinations | formatNumber }}</span></td>
+              <td style="--size:calc({{ height if height > 0 else 3 }}/100);"><span class="tooltip">{{ (data.total.date or data.total.latest_date) | readableDate }}: {{ data.total.change_vaccinations | formatNumber }}</span></td>
             </tr>
             </tbody></table>
         </div>
@@ -160,7 +160,7 @@ eleventyNavigation:
                 <td style="--size:calc({{ height if height > 0 else 3}}/100);"><span class="tooltip">{{ day.date | readableDate }}: {{ day.change_cases | formatNumber }}</span></td>
               {%- endfor %}
               {% set height = (data.total.change_cases / data.infection.maxChangeCases * 100) | round %}
-              <td style="--size:calc({{ height if height > 0 else 3 }}/100);"><span class="tooltip">{{ data.total.date or data.total.latest_date | readableDate}}: {{ data.total.change_cases | formatNumber}}</span></td>
+              <td style="--size:calc({{ height if height > 0 else 3 }}/100);"><span class="tooltip">{{ (data.total.date or data.total.latest_date) | readableDate}}: {{ data.total.change_cases | formatNumber}}</span></td>
             </tr>
             </tbody></table>
         </div>
@@ -181,7 +181,7 @@ eleventyNavigation:
                 <td style="--size:calc({{ height if height > 0 else 3 }}/100);" ><span class="tooltip">{{ day.date | readableDate}}: {{ day.active_cases | formatNumber }}</span></td>
               {%- endfor %}
               {% set height = (data.infection.activeCases / data.infection.maxActiveCases * 100) | round %}
-              <td style="--size:calc({{ height if height > 0 else 3 }}/100);"><span class="tooltip">{{ data.total.date or data.total.latest_date | readableDate }}: {{ data.infection.activeCases | formatNumber}}</span></td>
+              <td style="--size:calc({{ height if height > 0 else 3 }}/100);"><span class="tooltip">{{ (data.total.date or data.total.latest_date) | readableDate }}: {{ data.infection.activeCases | formatNumber}}</span></td>
             </tr>
             </tbody></table>
         </div>
