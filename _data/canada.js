@@ -128,7 +128,12 @@ module.exports = async function() {
 
     Object.assign(prov, normalizeVaccine(prov))
 
-    prov.regions = prov.regions?.filter(r => r.daily && (Number.isInteger(r.total?.total_vaccinations) ||  Number.isInteger(r.total?.total_cases))) || [];
+    // only real health regions
+    prov.regions = prov.regions?.filter(r => r.daily && !['NT', 'NU', 'PE', 'YT'].includes(r.province)) || [];
+    
+    // that have total values
+    prov.regions = prov.regions?.filter(r => Number.isInteger(r.total?.total_vaccinations) ||  Number.isInteger(r.total?.total_cases)) || [];
+
     for (const region of prov.regions) {
       if (prov.data_status && !/reported|no report/i.test(prov.data_status)) {
         if (region.total?.date === new Date().toJSON().split('T')[0]) {
