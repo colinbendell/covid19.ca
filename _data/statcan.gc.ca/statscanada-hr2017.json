@@ -92,7 +92,7 @@
   {"name": "Thompson/Cariboo Health Service Delivery Area", "id": "5914", "population": 219467},
   {"name": "Kelsey Trail Regional Health Authority", "id": "4708", "population": 39574},
   {"name": "Waterloo Health Unit", "id": "3565", "population": 535154},
-  {"name": "Huron County Health Unit", "id": "3539", "population": 59297},
+  {"name": "Huron County Health Unit", "id": "3539", "population": 136093, "notes":  "hr_uid 3539 + 3554"},
   {"name": "Hastings and Prince Edward Counties Health Unit", "id": "3538", "population": 161180},
   {"name": "Kootenay-Boundary Health Service Delivery Area", "id": "5912", "population": 78463},
   {"name": "Northwestern Health Unit", "id": "3549", "population": 76455},
@@ -122,5 +122,6 @@
   {"name": "Central", "id": 473, "population": 137678},
   {"name": "Saskatoon", "id": 474, "population": 334757},
   {"name": "Regina", "id": 475, "population": 273287},
-  {"name": "South", "id": 476, "population": 192474}
+  {"name": "South", "id": 476, "population": 192474},
+  {"name": "Southwestern Public Health Unit", "id": "3575", "population": 199840, "notes":  "hr_uid 3532 + 3531"}
 ]
