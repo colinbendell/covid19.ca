@@ -1,4 +1,4 @@
-name: Build Eleventy
+name: Build covid19.ca
 
 on:
   workflow_dispatch:

@@ -5,8 +5,8 @@ on:
     branches:
       - main
   schedule:
-  - cron: "1 00-11 * * *"
-  - cron: "*/20 12-23 * * *"
+    - cron: "1 00-11 * * *"
+    - cron: "*/20 12-23 * * *"
 
 jobs:
   sync:
