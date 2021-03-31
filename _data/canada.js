@@ -56,7 +56,7 @@ function normalizeVaccine(data) {
   const last7DayTests = data.daily.slice(-7).map(i => i.change_tests).reduce((p, c) => p + c);
   const last7DayCases = data.daily.slice(-7).map(i => i.change_cases).reduce((p, c) => p + c);
   const weekPositiviityRate = last7DayTests > 0 ? Math.round(last7DayCases / last7DayTests * 1000) / 10 : null;
-
+  const changeActiveCases = activeCases - yesterday.active_cases;
 
   const weekVaccinations = lastWeek.map(v => v.change_vaccinations || 0);
   const weekVaccinationsAvg = Math.floor(weekVaccinations.reduce((c, v) => c + v) / lastWeek.length);
@@ -95,6 +95,7 @@ function normalizeVaccine(data) {
    },
    infection: {
      activeCases,
+     changeActiveCases,
      weekPositiviityRate,
      casesPerCapita,
      deathsPerCase,
@@ -116,19 +117,27 @@ module.exports = async function() {
   const fullData = JSON.parse(fs.readFileSync('_data/covid19tracker.ca/data.json', 'utf-8'));
   const data = Object.keys(fullData).map(k => Object.assign(fullData[k], {code: k}));
   for (const prov of data) {
-    if (prov.data_status && !/in progress|reported|no report/i.test(prov.data_status)) {
-      prov.daily.pop();
-      prov.total = prov.daily[prov.daily.length - 1];
+    if (prov.data_status && !/reported|no report/i.test(prov.data_status)) {
+      if (prov.total?.date === new Date().toJSON().split('T')[0]) {
+        if (!prov.total?.change_cases) {
+          prov.daily.pop();
+          prov.total = prov.daily[prov.daily.length - 1];
+        }
+      }
     }
 
     Object.assign(prov, normalizeVaccine(prov))
 
-    prov.regions = prov.regions?.filter(r => Number.isInteger(r.total?.total_vaccinations) && r.daily) || [];
+    prov.regions = prov.regions?.filter(r => r.daily && (Number.isInteger(r.total?.total_vaccinations) ||  Number.isInteger(r.total?.total_cases))) || [];
     for (const region of prov.regions) {
-      if (prov.data_status && !/in progress|reported|no report/i.test(prov.data_status)) {
+      if (prov.data_status && !/reported|no report/i.test(prov.data_status)) {
+        if (region.total?.date === new Date().toJSON().split('T')[0]) {
+          if (!region.total?.change_cases) {
+            region.daily.pop();
+            region.total = region.daily[region.daily.length - 1];
+          }
+        }
       // if (!region.total?.change_cases) {
-        region.daily.pop();
-        region.total = region.daily[region.daily.length - 1];
       }
 
       Object.assign(region, normalizeVaccine(region));
