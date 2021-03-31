@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout main
         uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PAT }}
       # Setup node
       - uses: actions/setup-node@v1
         with:
@@ -24,9 +26,6 @@ jobs:
 
         # Assume we want to merge into same branch
       - name: Commit to branch
-        run: |
-          git config user.name "Github Actions"
-          git config user.email "actions@github.com"
-          git add -A
-          git diff-index --quiet HEAD || git commit -m "Sync Data"
-          git push origin main
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Sync Data"
