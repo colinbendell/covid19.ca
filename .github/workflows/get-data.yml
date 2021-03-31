@@ -5,7 +5,8 @@ on:
     branches:
       - main
   schedule:
-  - cron: "1 * * * *"
+  - cron: "1 00-11 * * *"
+  - cron: "*/20 12-23 * * *"
 
 jobs:
   sync:
@@ -19,7 +20,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '15'
-      - run: npm install
+      - run: npm ci
 
       - name: Get data
         run: node .github/workflows/index.js

@@ -1,7 +1,7 @@
 {
-  "name": "covid19VaccineDashboard",
+  "name": "covid19.ca",
   "version": "1.0.0",
-  "description": "",
+  "description": "Dashboard for Covid19 in Canada",
   "main": "index.js",
   "scripts": {
     "build": "eleventy",
