@@ -1,4 +1,3 @@
-const { DateTime } = require("luxon");
 const fs = require("fs");
 const CleanCSS = require("clean-css");
 const pluginNavigation = require("@11ty/eleventy-navigation");
@@ -23,6 +22,8 @@ function formatNumber(value) {
   return value || '';
 }
 
+const ISO_3_LETTER_MONTH = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
 module.exports = function(eleventyConfig) {
   // Add plugins
   // eleventyConfig.addPlugin(pluginRss);
@@ -38,17 +39,23 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addShortcode("today", () => `${new Date().toJSON().split('T')[0]}`)
 
-  eleventyConfig.addFilter("readableDate", dateObj => {
+  eleventyConfig.addFilter("readableDate", (dateObj, tzOffset = -8) => {
     if (!dateObj) return '';
 
-    const d = DateTime.fromJSDate(new Date(dateObj));
-    const today = DateTime.now();
-    const yesterday = DateTime.fromJSDate(new Date(Date.now() - 24*60*60*1000));
+    const d = new Date(dateObj)?.toJSON().split('T')[0];
+    if (!d) return ''; // un parseable
 
-    if (today.toFormat('yyyy-LL-dd') === d.toFormat('yyyy-LL-dd')) return 'Today';
-    if (yesterday.toFormat('yyyy-LL-dd') === d.toFormat('yyyy-LL-dd')) return 'Yesterday';
+    const today = new Date(Date.now() + (tzOffset||0)*60*60*1000).toJSON().split('T')[0];
 
-    return d.year === today.year ? d.toFormat("LLL dd") : d.toFormat("yyyy LLL dd");
+    const yesterday = new Date(Date.now() - 24*60*60*1000 + (tzOffset||0)*60*60*1000).toJSON().split('T')[0];
+
+    if (today === d) return 'Today';
+    if (yesterday === d) return 'Yesterday';
+
+    const [year, month, day] = d.split('-');
+    if (today.startsWith(year)) return `${ISO_3_LETTER_MONTH[Number.parseInt(month)]} ${day}`;
+
+    return `${year} ${ISO_3_LETTER_MONTH[month]} ${day}`;
   });
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
