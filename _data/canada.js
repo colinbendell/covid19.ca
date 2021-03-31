@@ -1,4 +1,5 @@
-const Cache = require("@11ty/eleventy-cache-assets");
+const fs = require('fs');
+// const Cache = require("@11ty/eleventy-cache-assets");
 
 function chunkArray(myArray, chunkSize){
   const results = [];
@@ -107,11 +108,12 @@ function normalizeVaccine(data) {
  }
 }
 module.exports = async function() {
-  const fullData  = await Cache("https://colinbendell.github.io/covid19data.ca/data.json", {
-    duration: "30m", // 1 day
-    type: "json" // also supports "text" or "buffer"
-  });
+  // const fullData  = await Cache("https://colinbendell.github.io/covid19data.ca/data.json", {
+  //   duration: "30m", // 1 day
+  //   type: "json" // also supports "text" or "buffer"
+  // });
 
+  const fullData = JSON.parse(fs.readFileSync('_data/covid19tracker.ca/data.json', 'utf-8'));
   const data = Object.keys(fullData).map(k => Object.assign(fullData[k], {code: k}));
   for (const prov of data) {
     if (prov.data_status && !/in progress|reported|no report/i.test(prov.data_status)) {

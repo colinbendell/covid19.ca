@@ -17,6 +17,7 @@
     "@11ty/eleventy": "^0.12.1",
     "@11ty/eleventy-cache-assets": "^2.1.0",
     "@11ty/eleventy-navigation": "^0.1.6",
+    "@adobe/helix-fetch": "^2.2.0",
     "clean-css": "^5.1.2",
     "luxon": "^1.26.0"
   }
