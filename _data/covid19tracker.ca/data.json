@@ -562,9 +562,14 @@
         "date": "2021-03-31", "change_cases": 871, "change_criticals": 5, "change_fatalities": 3, "change_hospitalizations": 0, "change_recoveries": 493, "change_tests": 13761,
         "change_vaccinated": 1920, "change_vaccinations": 14988, "change_vaccines_distributed": 0, "total_cases": 148332, "total_criticals": 63, "total_fatalities": 1990, "total_hospitalizations": 301,
         "total_recoveries": 137992, "total_tests": 3706367, "total_vaccinated": 101298, "total_vaccinations": 634997, "total_vaccines_distributed": 697415
+      },
+      {
+        "date": "2021-04-01", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_tests": 0, "change_vaccinated": 0,
+        "change_vaccinations": 0, "change_vaccines_distributed": 0, "total_cases": 148332, "total_criticals": 63, "total_fatalities": 1990, "total_hospitalizations": 301, "total_recoveries": 137992,
+        "total_tests": 3706367, "total_vaccinated": 101298, "total_vaccinations": 634997, "total_vaccines_distributed": 697415
       }
     ],
-    "data_status": "Reported",
+    "data_status": "Waiting for report",
     "density": 6.893966686231253,
     "gdp": 344812,
     "geographic": 1,
@@ -999,11 +1004,8 @@
         "id": 4831,
         "population": 291112,
         "province": "AB",
-        "total": {
-          "date": "2021-03-31", "change_cases": 84, "change_criticals": 1, "change_fatalities": 1, "change_hospitalizations": -1, "change_recoveries": 44, "total_cases": 8136, "total_criticals": 8,
-          "total_fatalities": 106, "total_hospitalizations": 33, "total_recoveries": 7176
-        },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 8136, "total_criticals": 8, "total_fatalities": 106, "total_hospitalizations": 33, "total_recoveries": 7176},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Calgary Zone", "fr": "Calgary Zone"},
@@ -1434,11 +1436,8 @@
         "id": 4832,
         "population": 1551876,
         "province": "AB",
-        "total": {
-          "date": "2021-03-31", "change_cases": 363, "change_criticals": 3, "change_fatalities": 0, "change_hospitalizations": -1, "change_recoveries": 212, "total_cases": 57440, "total_criticals": 31,
-          "total_fatalities": 604, "total_hospitalizations": 112, "total_recoveries": 52913
-        },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 57440, "total_criticals": 31, "total_fatalities": 604, "total_hospitalizations": 112, "total_recoveries": 52913},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Central Zone", "fr": "Central Zone"},
@@ -1869,11 +1868,8 @@
         "id": 4833,
         "population": 461553,
         "province": "AB",
-        "total": {
-          "date": "2021-03-31", "change_cases": 79, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 39, "total_cases": 11548, "total_criticals": 4,
-          "total_fatalities": 122, "total_hospitalizations": 33, "total_recoveries": 10693
-        },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 11548, "total_criticals": 4, "total_fatalities": 122, "total_hospitalizations": 33, "total_recoveries": 10693},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Edmonton Zone", "fr": "Edmonton Zone"},
@@ -2304,11 +2300,8 @@
         "id": 4834,
         "population": 1320798,
         "province": "AB",
-        "total": {
-          "date": "2021-03-31", "change_cases": 209, "change_criticals": 1, "change_fatalities": 1, "change_hospitalizations": 4, "change_recoveries": 126, "total_cases": 57070, "total_criticals": 15,
-          "total_fatalities": 1010, "total_hospitalizations": 96, "total_recoveries": 54216
-        },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 57070, "total_criticals": 15, "total_fatalities": 1010, "total_hospitalizations": 96, "total_recoveries": 54216},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "North Zone", "fr": "North Zone"},
@@ -2739,23 +2732,20 @@
         "id": 4835,
         "population": 441836,
         "province": "AB",
-        "total": {
-          "date": "2021-03-31", "change_cases": 133, "change_criticals": 0, "change_fatalities": 1, "change_hospitalizations": -2, "change_recoveries": 68, "total_cases": 13996, "total_criticals": 5,
-          "total_fatalities": 148, "total_hospitalizations": 27, "total_recoveries": 12878
-        },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 13996, "total_criticals": 5, "total_fatalities": 148, "total_hospitalizations": 27, "total_recoveries": 12878},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       }
     ],
     "total": {
-      "date": "2021-03-31",
-      "change_cases": 871,
-      "change_criticals": 5,
-      "change_fatalities": 3,
+      "date": "2021-04-01",
+      "change_cases": 0,
+      "change_criticals": 0,
+      "change_fatalities": 0,
       "change_hospitalizations": 0,
-      "change_recoveries": 493,
-      "change_tests": 13761,
-      "change_vaccinated": 1920,
-      "change_vaccinations": 14988,
+      "change_recoveries": 0,
+      "change_tests": 0,
+      "change_vaccinated": 0,
+      "change_vaccinations": 0,
       "change_vaccines_distributed": 0,
       "total_cases": 148332,
       "total_criticals": 63,
@@ -2766,9 +2756,9 @@
       "total_vaccinated": 101298,
       "total_vaccinations": 634997,
       "total_vaccines_distributed": 697415,
-      "updated_at": "2021-04-01T01:14:04.000Z"
+      "updated_at": "2021-04-01T14:40:03.000Z"
     },
-    "updated_at": "2021-03-31T21:41:39.000Z"
+    "updated_at": "2021-04-01T14:35:35.000Z"
   },
   "BC": {
     "name": "British Columbia",
@@ -3336,9 +3326,14 @@
         "date": "2021-03-31", "change_cases": 1013, "change_criticals": 2, "change_fatalities": 3, "change_hospitalizations": -11, "change_recoveries": 665, "change_tests": 9992,
         "change_vaccinated": 32, "change_vaccinations": 31887, "change_vaccines_distributed": 46800, "total_cases": 100048, "total_criticals": 80, "total_fatalities": 1458,
         "total_hospitalizations": 301, "total_recoveries": 91066, "total_tests": 2192813, "total_vaccinated": 87351, "total_vaccinations": 756080, "total_vaccines_distributed": 981060
+      },
+      {
+        "date": "2021-04-01", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_tests": 0, "change_vaccinated": 0,
+        "change_vaccinations": 0, "change_vaccines_distributed": 0, "total_cases": 100048, "total_criticals": 80, "total_fatalities": 1458, "total_hospitalizations": 301, "total_recoveries": 91066,
+        "total_tests": 2192813, "total_vaccinated": 87351, "total_vaccinations": 756080, "total_vaccines_distributed": 981060
       }
     ],
-    "data_status": "Reported",
+    "data_status": "Waiting for report",
     "density": 5.561963756477076,
     "gdp": 295401,
     "geographic": 1,
@@ -3793,17 +3788,20 @@
             "date": "2021-03-31", "change_cases": 458, "change_criticals": -1, "change_fatalities": 0, "change_hospitalizations": -16, "change_recoveries": 388, "change_tests": 4006,
             "change_vaccinated": 4, "change_vaccinations": 9505, "total_cases": 57770, "total_criticals": 39, "total_fatalities": 787, "total_hospitalizations": 154, "total_recoveries": 53294,
             "total_tests": 946849, "total_vaccinated": 32915, "total_vaccinations": 252804
+          },
+          {
+            "date": "2021-04-01", "total_cases": 57770, "total_criticals": 39, "total_fatalities": 787, "total_hospitalizations": 154, "total_recoveries": 53294, "total_tests": 946849,
+            "total_vaccinated": 32915, "total_vaccinations": 252804
           }
         ],
         "id": 591,
         "population": 1800000,
         "province": "BC",
         "total": {
-          "date": "2021-03-31", "change_cases": 458, "change_criticals": -1, "change_fatalities": 0, "change_hospitalizations": -16, "change_recoveries": 388, "change_tests": 4006,
-          "change_vaccinated": 4, "change_vaccinations": 9505, "total_cases": 57770, "total_criticals": 39, "total_fatalities": 787, "total_hospitalizations": 154, "total_recoveries": 53294,
-          "total_tests": 946849, "total_vaccinated": 32915, "total_vaccinations": 252804
+          "date": "2021-04-01", "total_cases": 57770, "total_criticals": 39, "total_fatalities": 787, "total_hospitalizations": 154, "total_recoveries": 53294, "total_tests": 946849,
+          "total_vaccinated": 32915, "total_vaccinations": 252804
         },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Interior Health", "fr": "Interior Health"},
@@ -4251,17 +4249,20 @@
             "date": "2021-03-31", "change_cases": 64, "change_criticals": 2, "change_fatalities": 1, "change_hospitalizations": -2, "change_recoveries": 41, "change_tests": 929, "change_vaccinated": 0,
             "change_vaccinations": 4757, "total_cases": 8545, "total_criticals": 8, "total_fatalities": 115, "total_hospitalizations": 15, "total_recoveries": 7929, "total_tests": 216647,
             "total_vaccinated": 13061, "total_vaccinations": 109455
+          },
+          {
+            "date": "2021-04-01", "total_cases": 8545, "total_criticals": 8, "total_fatalities": 115, "total_hospitalizations": 15, "total_recoveries": 7929, "total_tests": 216647,
+            "total_vaccinated": 13061, "total_vaccinations": 109455
           }
         ],
         "id": 592,
         "population": 742000,
         "province": "BC",
         "total": {
-          "date": "2021-03-31", "change_cases": 64, "change_criticals": 2, "change_fatalities": 1, "change_hospitalizations": -2, "change_recoveries": 41, "change_tests": 929, "change_vaccinated": 0,
-          "change_vaccinations": 4757, "total_cases": 8545, "total_criticals": 8, "total_fatalities": 115, "total_hospitalizations": 15, "total_recoveries": 7929, "total_tests": 216647,
+          "date": "2021-04-01", "total_cases": 8545, "total_criticals": 8, "total_fatalities": 115, "total_hospitalizations": 15, "total_recoveries": 7929, "total_tests": 216647,
           "total_vaccinated": 13061, "total_vaccinations": 109455
         },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Vancouver Island Health", "fr": "Vancouver Island Health"},
@@ -4711,17 +4712,20 @@
             "date": "2021-03-31", "change_cases": 47, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 33, "change_tests": 1169, "change_vaccinated": 0,
             "change_vaccinations": 3588, "total_cases": 3324, "total_criticals": 1, "total_fatalities": 29, "total_hospitalizations": 13, "total_recoveries": 2887, "total_tests": 233531,
             "total_vaccinated": 10148, "total_vaccinations": 117440
+          },
+          {
+            "date": "2021-04-01", "total_cases": 3324, "total_criticals": 1, "total_fatalities": 29, "total_hospitalizations": 13, "total_recoveries": 2887, "total_tests": 233531,
+            "total_vaccinated": 10148, "total_vaccinations": 117440
           }
         ],
         "id": 593,
         "population": 850000,
         "province": "BC",
         "total": {
-          "date": "2021-03-31", "change_cases": 47, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 33, "change_tests": 1169, "change_vaccinated": 0,
-          "change_vaccinations": 3588, "total_cases": 3324, "total_criticals": 1, "total_fatalities": 29, "total_hospitalizations": 13, "total_recoveries": 2887, "total_tests": 233531,
+          "date": "2021-04-01", "total_cases": 3324, "total_criticals": 1, "total_fatalities": 29, "total_hospitalizations": 13, "total_recoveries": 2887, "total_tests": 233531,
           "total_vaccinated": 10148, "total_vaccinations": 117440
         },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Northern Health", "fr": "Northern Health"},
@@ -5170,17 +5174,20 @@
             "date": "2021-03-31", "change_cases": 60, "change_criticals": 1, "change_fatalities": 1, "change_hospitalizations": 3, "change_recoveries": 42, "change_tests": 260, "change_vaccinated": 1,
             "change_vaccinations": 2159, "total_cases": 6004, "total_criticals": 13, "total_fatalities": 121, "total_hospitalizations": 35, "total_recoveries": 5563, "total_tests": 73796,
             "total_vaccinated": 2761, "total_vaccinations": 39586
+          },
+          {
+            "date": "2021-04-01", "total_cases": 6004, "total_criticals": 13, "total_fatalities": 121, "total_hospitalizations": 35, "total_recoveries": 5563, "total_tests": 73796,
+            "total_vaccinated": 2761, "total_vaccinations": 39586
           }
         ],
         "id": 594,
         "population": 300000,
         "province": "BC",
         "total": {
-          "date": "2021-03-31", "change_cases": 60, "change_criticals": 1, "change_fatalities": 1, "change_hospitalizations": 3, "change_recoveries": 42, "change_tests": 260, "change_vaccinated": 1,
-          "change_vaccinations": 2159, "total_cases": 6004, "total_criticals": 13, "total_fatalities": 121, "total_hospitalizations": 35, "total_recoveries": 5563, "total_tests": 73796,
+          "date": "2021-04-01", "total_cases": 6004, "total_criticals": 13, "total_fatalities": 121, "total_hospitalizations": 35, "total_recoveries": 5563, "total_tests": 73796,
           "total_vaccinated": 2761, "total_vaccinations": 39586
         },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Vancouver  Coastal Health", "fr": "Vancouver  Coastal Health"},
@@ -5639,24 +5646,23 @@
         "population": 1250000,
         "province": "BC",
         "total": {
-          "date": "2021-03-31", "change_cases": 385, "change_criticals": 0, "change_fatalities": 1, "change_hospitalizations": 4, "change_recoveries": 160, "change_tests": 3292, "change_vaccinated": 8,
-          "change_vaccinations": 10983, "total_cases": 24230, "total_criticals": 19, "total_fatalities": 406, "total_hospitalizations": 84, "total_recoveries": 21230, "total_tests": 667981,
+          "date": "2021-04-01", "total_cases": 24230, "total_criticals": 19, "total_fatalities": 406, "total_hospitalizations": 84, "total_recoveries": 21230, "total_tests": 667981,
           "total_vaccinated": 22844, "total_vaccinations": 188563
         },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       }
     ],
     "total": {
-      "date": "2021-03-31",
-      "change_cases": 1013,
-      "change_criticals": 2,
-      "change_fatalities": 3,
-      "change_hospitalizations": -11,
-      "change_recoveries": 665,
-      "change_tests": 9992,
-      "change_vaccinated": 32,
-      "change_vaccinations": 31887,
-      "change_vaccines_distributed": 46800,
+      "date": "2021-04-01",
+      "change_cases": 0,
+      "change_criticals": 0,
+      "change_fatalities": 0,
+      "change_hospitalizations": 0,
+      "change_recoveries": 0,
+      "change_tests": 0,
+      "change_vaccinated": 0,
+      "change_vaccinations": 0,
+      "change_vaccines_distributed": 0,
       "total_cases": 100048,
       "total_criticals": 80,
       "total_fatalities": 1458,
@@ -5666,9 +5672,9 @@
       "total_vaccinated": 87351,
       "total_vaccinations": 756080,
       "total_vaccines_distributed": 981060,
-      "updated_at": "2021-04-01T01:14:04.000Z"
+      "updated_at": "2021-04-01T14:40:03.000Z"
     },
-    "updated_at": "2021-04-01T01:13:25.000Z"
+    "updated_at": "2021-04-01T14:35:35.000Z"
   },
   "CA": {
     "name": "Canada",
@@ -6232,32 +6238,37 @@
         "date": "2021-03-31", "change_cases": 5809, "change_criticals": 8, "change_fatalities": 46, "change_hospitalizations": 10, "change_recoveries": 4506, "change_tests": 87905,
         "change_vaccinated": 6505, "change_vaccinations": 219496, "change_vaccines_distributed": 183520, "total_cases": 988680, "total_criticals": 712, "total_fatalities": 22959,
         "total_hospitalizations": 2516, "total_recoveries": 918228, "total_tests": 28007912, "total_vaccinated": 685974, "total_vaccinations": 5690380, "total_vaccines_distributed": 7155769
+      },
+      {
+        "date": "2021-04-01", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_tests": 0, "change_vaccinated": 1900,
+        "change_vaccinations": 89603, "change_vaccines_distributed": 0, "total_cases": 988680, "total_criticals": 712, "total_fatalities": 22959, "total_hospitalizations": 2516,
+        "total_recoveries": 918228, "total_tests": 28007912, "total_vaccinated": 687874, "total_vaccinations": 5779983, "total_vaccines_distributed": 7155769
       }
     ],
     "population": 38008005,
     "total": {
-      "change_cases": "5809",
-      "change_criticals": "8",
-      "change_fatalities": "46",
-      "change_hospitalizations": "10",
-      "change_recoveries": "4506",
-      "change_tests": "87905",
-      "change_vaccinated": "6505",
-      "change_vaccinations": "219496",
-      "change_vaccines_distributed": "183520",
-      "latest_date": "2021-03-31",
+      "change_cases": "0",
+      "change_criticals": "0",
+      "change_fatalities": "0",
+      "change_hospitalizations": "0",
+      "change_recoveries": "0",
+      "change_tests": "0",
+      "change_vaccinated": "1900",
+      "change_vaccinations": "89603",
+      "change_vaccines_distributed": "0",
+      "latest_date": "2021-04-01",
       "total_cases": "988680",
       "total_criticals": "712",
       "total_fatalities": "22959",
       "total_hospitalizations": "2516",
       "total_recoveries": "918228",
       "total_tests": "28007912",
-      "total_vaccinated": "685974",
-      "total_vaccinations": "5690380",
+      "total_vaccinated": "687874",
+      "total_vaccinations": "5779983",
       "total_vaccines_distributed": "7155769",
-      "updated_at": "2021-04-01T01:14:04.000Z"
+      "updated_at": "2021-04-01T14:40:03.000Z"
     },
-    "updated_at": "2021-04-01T01:14:04.000Z"
+    "updated_at": "2021-04-01T14:40:03.000Z"
   },
   "MB": {
     "name": "Manitoba",
@@ -6822,9 +6833,14 @@
         "date": "2021-03-31", "change_cases": 70, "change_criticals": -3, "change_fatalities": 1, "change_hospitalizations": -4, "change_recoveries": 85, "change_tests": 2255, "change_vaccinated": 571,
         "change_vaccinations": 5282, "change_vaccines_distributed": 0, "total_cases": 34122, "total_criticals": 28, "total_fatalities": 935, "total_hospitalizations": 146, "total_recoveries": 32006,
         "total_tests": 582697, "total_vaccinated": 56462, "total_vaccinations": 183563, "total_vaccines_distributed": 248180
+      },
+      {
+        "date": "2021-04-01", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_tests": 0, "change_vaccinated": 0,
+        "change_vaccinations": 0, "change_vaccines_distributed": 0, "total_cases": 34122, "total_criticals": 28, "total_fatalities": 935, "total_hospitalizations": 146, "total_recoveries": 32006,
+        "total_tests": 582697, "total_vaccinated": 56462, "total_vaccinations": 183563, "total_vaccines_distributed": 248180
       }
     ],
-    "data_status": "Reported",
+    "data_status": "Waiting for report",
     "density": 2.492221202552226,
     "gdp": 72688,
     "geographic": 1,
@@ -7235,17 +7251,20 @@
             "date": "2021-03-31", "change_cases": 37, "change_criticals": -2, "change_fatalities": 1, "change_hospitalizations": -3, "change_recoveries": 36, "change_vaccinated": 220,
             "change_vaccinations": 1922, "total_cases": 18590, "total_criticals": 14, "total_fatalities": 663, "total_hospitalizations": 101, "total_recoveries": 17493, "total_vaccinated": 33292,
             "total_vaccinations": 102682
+          },
+          {
+            "date": "2021-04-01", "total_cases": 18590, "total_criticals": 14, "total_fatalities": 663, "total_hospitalizations": 101, "total_recoveries": 17493, "total_vaccinated": 33292,
+            "total_vaccinations": 102682
           }
         ],
         "id": 4601,
         "population": 720883,
         "province": "MB",
         "total": {
-          "date": "2021-03-31", "change_cases": 37, "change_criticals": -2, "change_fatalities": 1, "change_hospitalizations": -3, "change_recoveries": 36, "change_vaccinated": 220,
-          "change_vaccinations": 1922, "total_cases": 18590, "total_criticals": 14, "total_fatalities": 663, "total_hospitalizations": 101, "total_recoveries": 17493, "total_vaccinated": 33292,
+          "date": "2021-04-01", "total_cases": 18590, "total_criticals": 14, "total_fatalities": 663, "total_hospitalizations": 101, "total_recoveries": 17493, "total_vaccinated": 33292,
           "total_vaccinations": 102682
         },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Prairie Mountain Health", "fr": "Santé de Prairie Mountain"},
@@ -7662,11 +7681,10 @@
         "population": 165600,
         "province": "MB",
         "total": {
-          "date": "2021-03-31", "change_cases": 2, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -1, "change_recoveries": 3, "change_vaccinated": 34,
-          "change_vaccinations": 770, "total_cases": 2172, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 4, "total_recoveries": 2082, "total_vaccinated": 8246,
+          "date": "2021-04-01", "total_cases": 2172, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 4, "total_recoveries": 2082, "total_vaccinated": 8246,
           "total_vaccinations": 24993
         },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Interlake-Eastern Regional Health Authority", "fr": "Office régional de la santé d'Entre-les-Lacs et de l'Est"},
@@ -8083,11 +8101,10 @@
         "population": 127601,
         "province": "MB",
         "total": {
-          "date": "2021-03-31", "change_cases": 3, "change_criticals": -1, "change_fatalities": 0, "change_hospitalizations": -2, "change_recoveries": 6, "change_vaccinated": 76,
-          "change_vaccinations": 720, "total_cases": 2483, "total_criticals": 1, "total_fatalities": 37, "total_hospitalizations": 3, "total_recoveries": 2424, "total_vaccinated": 5715,
+          "date": "2021-04-01", "total_cases": 2483, "total_criticals": 1, "total_fatalities": 37, "total_hospitalizations": 3, "total_recoveries": 2424, "total_vaccinated": 5715,
           "total_vaccinations": 19656
         },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Northern Regional Health Authority", "fr": "Office régional de la santé du Nord"},
@@ -8504,11 +8521,10 @@
         "population": 72220,
         "province": "MB",
         "total": {
-          "date": "2021-03-31", "change_cases": 24, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 36, "change_vaccinated": 91,
-          "change_vaccinations": 792, "total_cases": 5949, "total_criticals": 11, "total_fatalities": 39, "total_hospitalizations": 24, "total_recoveries": 5254, "total_vaccinated": 3554,
+          "date": "2021-04-01", "total_cases": 5949, "total_criticals": 11, "total_fatalities": 39, "total_hospitalizations": 24, "total_recoveries": 5254, "total_vaccinated": 3554,
           "total_vaccinations": 13757
         },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Southern Health", "fr": "Southern Health—Santé Sud"},
@@ -8925,23 +8941,22 @@
         "population": 192061,
         "province": "MB",
         "total": {
-          "date": "2021-03-31", "change_cases": 4, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 4, "change_vaccinated": 202,
-          "change_vaccinations": 1057, "total_cases": 4928, "total_criticals": 2, "total_fatalities": 143, "total_hospitalizations": 14, "total_recoveries": 4753, "total_vaccinated": 5438,
+          "date": "2021-04-01", "total_cases": 4928, "total_criticals": 2, "total_fatalities": 143, "total_hospitalizations": 14, "total_recoveries": 4753, "total_vaccinated": 5438,
           "total_vaccinations": 21874
         },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       }
     ],
     "total": {
-      "date": "2021-03-31",
-      "change_cases": 70,
-      "change_criticals": -3,
-      "change_fatalities": 1,
-      "change_hospitalizations": -4,
-      "change_recoveries": 85,
-      "change_tests": 2255,
-      "change_vaccinated": 571,
-      "change_vaccinations": 5282,
+      "date": "2021-04-01",
+      "change_cases": 0,
+      "change_criticals": 0,
+      "change_fatalities": 0,
+      "change_hospitalizations": 0,
+      "change_recoveries": 0,
+      "change_tests": 0,
+      "change_vaccinated": 0,
+      "change_vaccinations": 0,
       "change_vaccines_distributed": 0,
       "total_cases": 34122,
       "total_criticals": 28,
@@ -8952,9 +8967,9 @@
       "total_vaccinated": 56462,
       "total_vaccinations": 183563,
       "total_vaccines_distributed": 248180,
-      "updated_at": "2021-04-01T01:14:04.000Z"
+      "updated_at": "2021-04-01T14:40:03.000Z"
     },
-    "updated_at": "2021-03-31T22:25:37.000Z"
+    "updated_at": "2021-04-01T14:35:35.000Z"
   },
   "NB": {
     "name": "New Brunswick",
@@ -9516,9 +9531,14 @@
         "date": "2021-03-31", "change_cases": 12, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 3, "change_tests": 1589, "change_vaccinated": -1,
         "change_vaccinations": 3878, "change_vaccines_distributed": 0, "total_cases": 1613, "total_criticals": 2, "total_fatalities": 30, "total_hospitalizations": 5, "total_recoveries": 1447,
         "total_tests": 256317, "total_vaccinated": 12225, "total_vaccinations": 95255, "total_vaccines_distributed": 123115
+      },
+      {
+        "date": "2021-04-01", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_tests": 0, "change_vaccinated": 5,
+        "change_vaccinations": 5543, "change_vaccines_distributed": 0, "total_cases": 1613, "total_criticals": 2, "total_fatalities": 30, "total_hospitalizations": 5, "total_recoveries": 1447,
+        "total_tests": 256317, "total_vaccinated": 12230, "total_vaccinations": 100798, "total_vaccines_distributed": 123115
       }
     ],
-    "data_status": "Reported",
+    "data_status": "In progress",
     "density": 10.935129461161651,
     "gdp": 36966,
     "geographic": 1,
@@ -9896,16 +9916,14 @@
           {
             "date": "2021-03-31", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 415, "total_cases": 357, "total_fatalities": 4, "total_recoveries": 341,
             "total_tests": 79986
-          }
+          },
+          {"date": "2021-04-01", "total_cases": 357, "total_fatalities": 4, "total_recoveries": 341, "total_tests": 79986}
         ],
         "id": 1301,
         "population": 209256,
         "province": "NB",
-        "total": {
-          "date": "2021-03-31", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 415, "total_cases": 357, "total_fatalities": 4, "total_recoveries": 341,
-          "total_tests": 79986
-        },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 357, "total_fatalities": 4, "total_recoveries": 341, "total_tests": 79986},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Zone 2 (Saint John area)", "fr": "Zone 2 (région de Saint John)"},
@@ -10285,11 +10303,8 @@
         "id": 1302,
         "population": 170537,
         "province": "NB",
-        "total": {
-          "date": "2021-03-31", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 189, "total_cases": 231, "total_fatalities": 7, "total_recoveries": 216,
-          "total_tests": 46819
-        },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 231, "total_fatalities": 7, "total_recoveries": 216, "total_tests": 46819},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Zone 3 (Fredericton area)", "fr": "Zone 3 (région de Fredericton)"},
@@ -10669,11 +10684,8 @@
         "id": 1303,
         "population": 174348,
         "province": "NB",
-        "total": {
-          "date": "2021-03-31", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 162, "total_cases": 248, "total_fatalities": 0, "total_recoveries": 244,
-          "total_tests": 46125
-        },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 248, "total_fatalities": 0, "total_recoveries": 244, "total_tests": 46125},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Zone 4 (Edmundston area)", "fr": "Zone 4 (région d'Edmundston)"},
@@ -11053,11 +11065,8 @@
         "id": 1304,
         "population": 47775,
         "province": "NB",
-        "total": {
-          "date": "2021-03-31", "change_cases": 11, "change_fatalities": 0, "change_recoveries": 2, "change_tests": 110, "total_cases": 540, "total_fatalities": 15, "total_recoveries": 416,
-          "total_tests": 31910
-        },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 540, "total_fatalities": 15, "total_recoveries": 416, "total_tests": 31910},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Zone 5 (Campbellton area)", "fr": "Zone 5 (région de Campbellton)"},
@@ -11437,11 +11446,8 @@
         "id": 1305,
         "population": 25250,
         "province": "NB",
-        "total": {
-          "date": "2021-03-31", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 41, "total_cases": 182, "total_fatalities": 4, "total_recoveries": 178,
-          "total_tests": 20941
-        },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 182, "total_fatalities": 4, "total_recoveries": 178, "total_tests": 20941},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Zone 6 (Bathurst area)", "fr": "Zone 6 (région de Bathurst)"},
@@ -11821,11 +11827,8 @@
         "id": 1306,
         "population": 76374,
         "province": "NB",
-        "total": {
-          "date": "2021-03-31", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 632, "total_cases": 29, "total_fatalities": 0, "total_recoveries": 27,
-          "total_tests": 18857
-        },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 29, "total_fatalities": 0, "total_recoveries": 27, "total_tests": 18857},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Zone 7 (Miramichi area)", "fr": "Zone 7 (région de Miramichi)"},
@@ -12205,23 +12208,20 @@
         "id": 1307,
         "population": 43561,
         "province": "NB",
-        "total": {
-          "date": "2021-03-31", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 40, "total_cases": 26, "total_fatalities": 0, "total_recoveries": 25,
-          "total_tests": 11679
-        },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 26, "total_fatalities": 0, "total_recoveries": 25, "total_tests": 11679},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       }
     ],
     "total": {
-      "date": "2021-03-31",
-      "change_cases": 12,
+      "date": "2021-04-01",
+      "change_cases": 0,
       "change_criticals": 0,
       "change_fatalities": 0,
       "change_hospitalizations": 0,
-      "change_recoveries": 3,
-      "change_tests": 1589,
-      "change_vaccinated": -1,
-      "change_vaccinations": 3878,
+      "change_recoveries": 0,
+      "change_tests": 0,
+      "change_vaccinated": 5,
+      "change_vaccinations": 5543,
       "change_vaccines_distributed": 0,
       "total_cases": 1613,
       "total_criticals": 2,
@@ -12229,12 +12229,12 @@
       "total_hospitalizations": 5,
       "total_recoveries": 1447,
       "total_tests": 256317,
-      "total_vaccinated": 12225,
-      "total_vaccinations": 95255,
+      "total_vaccinated": 12230,
+      "total_vaccinations": 100798,
       "total_vaccines_distributed": 123115,
-      "updated_at": "2021-04-01T01:14:04.000Z"
+      "updated_at": "2021-04-01T14:40:03.000Z"
     },
-    "updated_at": "2021-03-31T21:42:56.000Z"
+    "updated_at": "2021-04-01T14:39:58.000Z"
   },
   "NL": {
     "name": "Newfoundland and Labrador",
@@ -12795,9 +12795,14 @@
         "date": "2021-03-31", "change_cases": 1, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 2, "change_tests": 261, "change_vaccinated": 127,
         "change_vaccinations": 14620, "change_vaccines_distributed": 1000, "total_cases": 1019, "total_criticals": 0, "total_fatalities": 6, "total_hospitalizations": 0, "total_recoveries": 1006,
         "total_tests": 124261, "total_vaccinated": 9654, "total_vaccinations": 69851, "total_vaccines_distributed": 85280
+      },
+      {
+        "date": "2021-04-01", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_tests": 0, "change_vaccinated": 0,
+        "change_vaccinations": 0, "change_vaccines_distributed": 0, "total_cases": 1019, "total_criticals": 0, "total_fatalities": 6, "total_hospitalizations": 0, "total_recoveries": 1006,
+        "total_tests": 124261, "total_vaccinated": 9654, "total_vaccinations": 69851, "total_vaccines_distributed": 85280
       }
     ],
-    "data_status": "Reported",
+    "data_status": "Waiting for report",
     "density": 1.3935197072794967,
     "gdp": 33241,
     "geographic": 1,
@@ -13187,11 +13192,8 @@
         "id": 1011,
         "population": 313267,
         "province": "NL",
-        "total": {
-          "date": "2021-03-31", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 2, "change_tests": 193, "total_cases": 925, "total_criticals": 1, "total_fatalities": 5,
-          "total_hospitalizations": 0, "total_recoveries": 915, "total_tests": 90845
-        },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 925, "total_criticals": 1, "total_fatalities": 5, "total_hospitalizations": 0, "total_recoveries": 915, "total_tests": 90845},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Central Regional Health Authority", "fr": "Central Regional Health Authority"},
@@ -13577,11 +13579,8 @@
         "id": 1012,
         "population": 92690,
         "province": "NL",
-        "total": {
-          "date": "2021-03-31", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 43, "total_cases": 46, "total_criticals": 0, "total_fatalities": 0,
-          "total_hospitalizations": 0, "total_recoveries": 45, "total_tests": 13485
-        },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 46, "total_criticals": 0, "total_fatalities": 0, "total_hospitalizations": 0, "total_recoveries": 45, "total_tests": 13485},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Western Regional Health Authority", "fr": "Western Regional Health Authority"},
@@ -13967,11 +13966,8 @@
         "id": 1013,
         "population": 77687,
         "province": "NL",
-        "total": {
-          "date": "2021-03-31", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 12, "total_cases": 39, "total_criticals": 0, "total_fatalities": 1,
-          "total_hospitalizations": 0, "total_recoveries": 37, "total_tests": 13406
-        },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 39, "total_criticals": 0, "total_fatalities": 1, "total_hospitalizations": 0, "total_recoveries": 37, "total_tests": 13406},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Labrador-Grenfell Regional Health Authority", "fr": "Labrador-Grenfell Regional Health Authority"},
@@ -14357,24 +14353,21 @@
         "id": 1014,
         "population": 36072,
         "province": "NL",
-        "total": {
-          "date": "2021-03-31", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 13, "total_cases": 9, "total_criticals": 0, "total_fatalities": 0,
-          "total_hospitalizations": 0, "total_recoveries": 9, "total_tests": 6525
-        },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 9, "total_criticals": 0, "total_fatalities": 0, "total_hospitalizations": 0, "total_recoveries": 9, "total_tests": 6525},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       }
     ],
     "total": {
-      "date": "2021-03-31",
-      "change_cases": 1,
+      "date": "2021-04-01",
+      "change_cases": 0,
       "change_criticals": 0,
       "change_fatalities": 0,
       "change_hospitalizations": 0,
-      "change_recoveries": 2,
-      "change_tests": 261,
-      "change_vaccinated": 127,
-      "change_vaccinations": 14620,
-      "change_vaccines_distributed": 1000,
+      "change_recoveries": 0,
+      "change_tests": 0,
+      "change_vaccinated": 0,
+      "change_vaccinations": 0,
+      "change_vaccines_distributed": 0,
       "total_cases": 1019,
       "total_criticals": 0,
       "total_fatalities": 6,
@@ -14384,9 +14377,9 @@
       "total_vaccinated": 9654,
       "total_vaccinations": 69851,
       "total_vaccines_distributed": 85280,
-      "updated_at": "2021-04-01T01:14:04.000Z"
+      "updated_at": "2021-04-01T14:40:03.000Z"
     },
-    "updated_at": "2021-04-01T00:52:32.000Z"
+    "updated_at": "2021-04-01T14:35:35.000Z"
   },
   "NS": {
     "name": "Nova Scotia",
@@ -14948,9 +14941,14 @@
         "date": "2021-03-31", "change_cases": 2, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 3, "change_tests": 4446, "change_vaccinated": 1497,
         "change_vaccinations": 6459, "change_vaccines_distributed": 0, "total_cases": 1716, "total_criticals": 0, "total_fatalities": 66, "total_hospitalizations": 1, "total_recoveries": 1627,
         "total_tests": 426519, "total_vaccinated": 26599, "total_vaccinations": 100832, "total_vaccines_distributed": 155319
+      },
+      {
+        "date": "2021-04-01", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_tests": 0, "change_vaccinated": 0,
+        "change_vaccinations": 0, "change_vaccines_distributed": 0, "total_cases": 1716, "total_criticals": 0, "total_fatalities": 66, "total_hospitalizations": 1, "total_recoveries": 1627,
+        "total_tests": 426519, "total_vaccinated": 26599, "total_vaccinations": 100832, "total_vaccines_distributed": 155319
       }
     ],
-    "data_status": "Reported",
+    "data_status": "Waiting for report",
     "density": 18.356800029997377,
     "gdp": 44354,
     "geographic": 1,
@@ -15070,13 +15068,14 @@
           {"date": "2021-03-28", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "total_cases": 106, "total_fatalities": 1, "total_recoveries": 104},
           {"date": "2021-03-29", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "total_cases": 106, "total_fatalities": 1, "total_recoveries": 104},
           {"date": "2021-03-30", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "total_cases": 106, "total_fatalities": 1, "total_recoveries": 104},
-          {"date": "2021-03-31", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 0, "total_cases": 107, "total_fatalities": 1, "total_recoveries": 104}
+          {"date": "2021-03-31", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 0, "total_cases": 107, "total_fatalities": 1, "total_recoveries": 104},
+          {"date": "2021-04-01", "total_cases": 107, "total_fatalities": 1, "total_recoveries": 104}
         ],
         "id": 1201,
         "population": 194376,
         "province": "NS",
-        "total": {"date": "2021-03-31", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 0, "total_cases": 107, "total_fatalities": 1, "total_recoveries": 104},
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 107, "total_fatalities": 1, "total_recoveries": 104},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Zone 2 - Northern", "fr": "Zone 2 - Northern"},
@@ -15198,8 +15197,8 @@
         "id": 1202,
         "population": 146249,
         "province": "NS",
-        "total": {"date": "2021-03-31", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "total_cases": 133, "total_fatalities": 1, "total_recoveries": 131},
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 133, "total_fatalities": 1, "total_recoveries": 131},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Zone 3 - Eastern", "fr": "Zone 3 - Eastern"},
@@ -15321,8 +15320,8 @@
         "id": 1203,
         "population": 158936,
         "province": "NS",
-        "total": {"date": "2021-03-31", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "total_cases": 92, "total_fatalities": 5, "total_recoveries": 86},
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 92, "total_fatalities": 5, "total_recoveries": 86},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Zone 4 - Central", "fr": "Zone 4 - Central"},
@@ -15444,20 +15443,20 @@
         "id": 1204,
         "population": 424037,
         "province": "NS",
-        "total": {"date": "2021-03-31", "change_cases": 1, "change_fatalities": 0, "change_recoveries": -1245, "total_cases": 1384, "total_fatalities": 59, "total_recoveries": 59},
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 1384, "total_fatalities": 59, "total_recoveries": 59},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       }
     ],
     "total": {
-      "date": "2021-03-31",
-      "change_cases": 2,
+      "date": "2021-04-01",
+      "change_cases": 0,
       "change_criticals": 0,
       "change_fatalities": 0,
       "change_hospitalizations": 0,
-      "change_recoveries": 3,
-      "change_tests": 4446,
-      "change_vaccinated": 1497,
-      "change_vaccinations": 6459,
+      "change_recoveries": 0,
+      "change_tests": 0,
+      "change_vaccinated": 0,
+      "change_vaccinations": 0,
       "change_vaccines_distributed": 0,
       "total_cases": 1716,
       "total_criticals": 0,
@@ -15468,9 +15467,9 @@
       "total_vaccinated": 26599,
       "total_vaccinations": 100832,
       "total_vaccines_distributed": 155319,
-      "updated_at": "2021-04-01T01:14:04.000Z"
+      "updated_at": "2021-04-01T14:40:03.000Z"
     },
-    "updated_at": "2021-03-31T17:14:10.000Z"
+    "updated_at": "2021-04-01T14:35:35.000Z"
   },
   "NT": {
     "name": "Northwest Territories",
@@ -16021,9 +16020,14 @@
         "date": "2021-03-31", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_tests": 53, "change_vaccinated": 0,
         "change_vaccinations": 0, "change_vaccines_distributed": 0, "total_cases": 47, "total_criticals": 0, "total_fatalities": 0, "total_hospitalizations": 0, "total_recoveries": 47,
         "total_tests": 16044, "total_vaccinated": 13933, "total_vaccinations": 37655, "total_vaccines_distributed": 51600
+      },
+      {
+        "date": "2021-04-01", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_tests": 0, "change_vaccinated": 0,
+        "change_vaccinations": 0, "change_vaccines_distributed": 0, "total_cases": 47, "total_criticals": 0, "total_fatalities": 0, "total_hospitalizations": 0, "total_recoveries": 47,
+        "total_tests": 16044, "total_vaccinated": 13933, "total_vaccinations": 37655, "total_vaccines_distributed": 51600
       }
     ],
-    "data_status": "Reported",
+    "data_status": "Waiting for report",
     "density": 0.0380986995862512,
     "gdp": 4730,
     "geographic": 1,
@@ -16427,20 +16431,20 @@
         "population": 41786,
         "province": "NT",
         "total": {
-          "date": "2021-03-31", "change_cases": 0, "change_recoveries": 0, "change_tests": 53, "total_cases": 47, "total_criticals": 24, "total_fatalities": 0, "total_hospitalizations": 0,
-          "total_recoveries": 47, "total_tests": 16044, "total_vaccinated": 13933, "total_vaccinations": 37655
+          "date": "2021-04-01", "total_cases": 47, "total_criticals": 24, "total_fatalities": 0, "total_hospitalizations": 0, "total_recoveries": 47, "total_tests": 16044, "total_vaccinated": 13933,
+          "total_vaccinations": 37655
         },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       }
     ],
     "total": {
-      "date": "2021-03-31",
+      "date": "2021-04-01",
       "change_cases": 0,
       "change_criticals": 0,
       "change_fatalities": 0,
       "change_hospitalizations": 0,
       "change_recoveries": 0,
-      "change_tests": 53,
+      "change_tests": 0,
       "change_vaccinated": 0,
       "change_vaccinations": 0,
       "change_vaccines_distributed": 0,
@@ -16453,9 +16457,9 @@
       "total_vaccinated": 13933,
       "total_vaccinations": 37655,
       "total_vaccines_distributed": 51600,
-      "updated_at": "2021-04-01T01:14:04.000Z"
+      "updated_at": "2021-04-01T14:40:03.000Z"
     },
-    "updated_at": "2021-03-31T22:43:21.000Z"
+    "updated_at": "2021-04-01T14:35:35.000Z"
   },
   "NU": {
     "name": "Nunavut",
@@ -17006,9 +17010,14 @@
         "date": "2021-03-31", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_tests": 21, "change_vaccinated": 193,
         "change_vaccinations": 246, "change_vaccines_distributed": 0, "total_cases": 395, "total_criticals": 0, "total_fatalities": 4, "total_hospitalizations": 0, "total_recoveries": 391,
         "total_tests": 9848, "total_vaccinated": 7592, "total_vaccinations": 20815, "total_vaccines_distributed": 37500
+      },
+      {
+        "date": "2021-04-01", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_tests": 0, "change_vaccinated": 0,
+        "change_vaccinations": 0, "change_vaccines_distributed": 0, "total_cases": 395, "total_criticals": 0, "total_fatalities": 4, "total_hospitalizations": 0, "total_recoveries": 391,
+        "total_tests": 9848, "total_vaccinated": 7592, "total_vaccinations": 20815, "total_vaccines_distributed": 37500
       }
     ],
-    "data_status": "Reported",
+    "data_status": "Waiting for report",
     "density": 0.020290654522747382,
     "gdp": 3421,
     "geographic": 1,
@@ -17372,22 +17381,22 @@
         "population": 35944,
         "province": "NU",
         "total": {
-          "date": "2021-03-31", "change_cases": 0, "change_fatalities": 0, "change_tests": 21, "change_vaccinated": 193, "change_vaccinations": 246, "total_cases": 395, "total_fatalities": 4,
-          "total_hospitalizations": 263, "total_recoveries": 391, "total_tests": 9848, "total_vaccinated": 7592, "total_vaccinations": 20815
+          "date": "2021-04-01", "total_cases": 395, "total_fatalities": 4, "total_hospitalizations": 263, "total_recoveries": 391, "total_tests": 9848, "total_vaccinated": 7592,
+          "total_vaccinations": 20815
         },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       }
     ],
     "total": {
-      "date": "2021-03-31",
+      "date": "2021-04-01",
       "change_cases": 0,
       "change_criticals": 0,
       "change_fatalities": 0,
       "change_hospitalizations": 0,
       "change_recoveries": 0,
-      "change_tests": 21,
-      "change_vaccinated": 193,
-      "change_vaccinations": 246,
+      "change_tests": 0,
+      "change_vaccinated": 0,
+      "change_vaccinations": 0,
       "change_vaccines_distributed": 0,
       "total_cases": 395,
       "total_criticals": 0,
@@ -17398,9 +17407,9 @@
       "total_vaccinated": 7592,
       "total_vaccinations": 20815,
       "total_vaccines_distributed": 37500,
-      "updated_at": "2021-04-01T01:14:04.000Z"
+      "updated_at": "2021-04-01T14:40:03.000Z"
     },
-    "updated_at": "2021-03-31T15:32:26.000Z"
+    "updated_at": "2021-04-01T14:35:35.000Z"
   },
   "ON": {
     "name": "Ontario",
@@ -17965,9 +17974,14 @@
         "date": "2021-03-31", "change_cases": 2623, "change_criticals": 9, "change_fatalities": 28, "change_hospitalizations": 21, "change_recoveries": 2463, "change_tests": 52532,
         "change_vaccinated": 1931, "change_vaccinations": 89873, "change_vaccines_distributed": 0, "total_cases": 356474, "total_criticals": 396, "total_fatalities": 7366,
         "total_hospitalizations": 1111, "total_recoveries": 329325, "total_tests": 12438091, "total_vaccinated": 315820, "total_vaccinations": 2192253, "total_vaccines_distributed": 2820495
+      },
+      {
+        "date": "2021-04-01", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_tests": 0, "change_vaccinated": 1895,
+        "change_vaccinations": 84060, "change_vaccines_distributed": 0, "total_cases": 356474, "total_criticals": 396, "total_fatalities": 7366, "total_hospitalizations": 1111,
+        "total_recoveries": 329325, "total_tests": 12438091, "total_vaccinated": 317715, "total_vaccinations": 2276313, "total_vaccines_distributed": 2820495
       }
     ],
-    "data_status": "Reported",
+    "data_status": "In progress",
     "density": 16.053678543292715,
     "gdp": 857384,
     "geographic": 1,
@@ -18450,17 +18464,20 @@
             "date": "2021-03-31", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_tests": 865, "change_vaccinated": 60,
             "change_vaccinations": 423, "total_cases": 229, "total_criticals": 0, "total_fatalities": 4, "total_hospitalizations": 0, "total_recoveries": 219, "total_tests": 114757,
             "total_vaccinated": 1258, "total_vaccinations": 20797
+          },
+          {
+            "date": "2021-04-01", "total_cases": 229, "total_criticals": 0, "total_fatalities": 4, "total_hospitalizations": 0, "total_recoveries": 219, "total_tests": 114757, "total_vaccinated": 1258,
+            "total_vaccinations": 20797
           }
         ],
         "id": 3526,
         "population": 113084,
         "province": "ON",
         "total": {
-          "date": "2021-03-31", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_tests": 865, "change_vaccinated": 60,
-          "change_vaccinations": 423, "total_cases": 229, "total_criticals": 0, "total_fatalities": 4, "total_hospitalizations": 0, "total_recoveries": 219, "total_tests": 114757,
-          "total_vaccinated": 1258, "total_vaccinations": 20797
+          "date": "2021-04-01", "total_cases": 229, "total_criticals": 0, "total_fatalities": 4, "total_hospitalizations": 0, "total_recoveries": 219, "total_tests": 114757, "total_vaccinated": 1258,
+          "total_vaccinations": 20797
         },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Brant County Health Unit", "fr": "Circonscription sanitaire du comté de Brant"},
@@ -18954,17 +18971,20 @@
             "date": "2021-03-31", "change_cases": 12, "change_fatalities": 0, "change_hospitalizations": -2, "change_recoveries": 10, "change_vaccinated": 0, "change_vaccinations": 1181,
             "total_cases": 1800, "total_criticals": 0, "total_fatalities": 13, "total_hospitalizations": 1, "total_recoveries": 1701, "total_tests": 84985, "total_vaccinated": 2570,
             "total_vaccinations": 26294
+          },
+          {
+            "date": "2021-04-01", "total_cases": 1800, "total_criticals": 0, "total_fatalities": 13, "total_hospitalizations": 1, "total_recoveries": 1701, "total_tests": 84985,
+            "total_vaccinated": 2570, "total_vaccinations": 26294
           }
         ],
         "id": 3527,
         "population": 134943,
         "province": "ON",
         "total": {
-          "date": "2021-03-31", "change_cases": 12, "change_fatalities": 0, "change_hospitalizations": -2, "change_recoveries": 10, "change_vaccinated": 0, "change_vaccinations": 1181,
-          "total_cases": 1800, "total_criticals": 0, "total_fatalities": 13, "total_hospitalizations": 1, "total_recoveries": 1701, "total_tests": 84985, "total_vaccinated": 2570,
+          "date": "2021-04-01", "total_cases": 1800, "total_criticals": 0, "total_fatalities": 13, "total_hospitalizations": 1, "total_recoveries": 1701, "total_tests": 84985, "total_vaccinated": 2570,
           "total_vaccinations": 26294
         },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Durham Regional Health Unit", "fr": "Circonscription sanitaire régionale de Durham"},
@@ -19416,16 +19436,14 @@
           {
             "date": "2021-03-31", "change_cases": 106, "change_criticals": 2, "change_fatalities": 0, "change_hospitalizations": 7, "change_recoveries": 122, "change_vaccinations": 3184,
             "total_cases": 14182, "total_criticals": 11, "total_fatalities": 307, "total_hospitalizations": 40, "total_recoveries": 12861, "total_vaccinations": 89279
-          }
+          },
+          {"date": "2021-04-01", "total_cases": 14182, "total_criticals": 11, "total_fatalities": 307, "total_hospitalizations": 40, "total_recoveries": 12861, "total_vaccinations": 89279}
         ],
         "id": 3530,
         "population": 645862,
         "province": "ON",
-        "total": {
-          "date": "2021-03-31", "change_cases": 106, "change_criticals": 2, "change_fatalities": 0, "change_hospitalizations": 7, "change_recoveries": 122, "change_vaccinations": 3184,
-          "total_cases": 14182, "total_criticals": 11, "total_fatalities": 307, "total_hospitalizations": 40, "total_recoveries": 12861, "total_vaccinations": 89279
-        },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 14182, "total_criticals": 11, "total_fatalities": 307, "total_hospitalizations": 40, "total_recoveries": 12861, "total_vaccinations": 89279},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Grey Bruce Health Unit", "fr": "Circonscription sanitaire de Grey Bruce"},
@@ -19874,16 +19892,14 @@
           {
             "date": "2021-03-31", "change_cases": 12, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 321, "change_vaccinations": 2369, "total_cases": 827,
             "total_criticals": 0, "total_fatalities": 4, "total_hospitalizations": 4, "total_recoveries": 758, "total_vaccinations": 28888
-          }
+          },
+          {"date": "2021-04-01", "total_cases": 827, "total_criticals": 0, "total_fatalities": 4, "total_hospitalizations": 4, "total_recoveries": 758, "total_vaccinations": 28888}
         ],
         "id": 3533,
         "population": 161977,
         "province": "ON",
-        "total": {
-          "date": "2021-03-31", "change_cases": 12, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 321, "change_vaccinations": 2369, "total_cases": 827, "total_criticals": 0,
-          "total_fatalities": 4, "total_hospitalizations": 4, "total_recoveries": 758, "total_vaccinations": 28888
-        },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 827, "total_criticals": 0, "total_fatalities": 4, "total_hospitalizations": 4, "total_recoveries": 758, "total_vaccinations": 28888},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Haldimand-Norfolk Health Unit", "fr": "Circonscription sanitaire de Haldimand-Norfolk"},
@@ -20173,16 +20189,14 @@
           {
             "date": "2021-03-31", "change_cases": 13, "change_fatalities": 0, "change_recoveries": 4, "change_vaccinated": 5, "change_vaccinations": 621, "total_cases": 1642, "total_fatalities": 39,
             "total_recoveries": 1511, "total_tests": 11690, "total_vaccinated": 1627, "total_vaccinations": 19517
-          }
+          },
+          {"date": "2021-04-01", "total_cases": 1642, "total_fatalities": 39, "total_recoveries": 1511, "total_tests": 11690, "total_vaccinated": 1627, "total_vaccinations": 19517}
         ],
         "id": 3534,
         "population": 109652,
         "province": "ON",
-        "total": {
-          "date": "2021-03-31", "change_cases": 13, "change_fatalities": 0, "change_recoveries": 4, "change_vaccinated": 5, "change_vaccinations": 621, "total_cases": 1642, "total_fatalities": 39,
-          "total_recoveries": 1511, "total_tests": 11690, "total_vaccinated": 1627, "total_vaccinations": 19517
-        },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 1642, "total_fatalities": 39, "total_recoveries": 1511, "total_tests": 11690, "total_vaccinated": 1627, "total_vaccinations": 19517},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Haliburton, Kawartha, Pine Ridge District Health Unit", "fr": "Circonscription sanitaire du district de Haliburton, Kawartha et Pine Ridge"},
@@ -20475,17 +20489,20 @@
             "date": "2021-03-31", "change_cases": 6, "change_criticals": 1, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 1, "change_tests": 716, "change_vaccinated": 0,
             "change_vaccinations": 0, "total_cases": 1146, "total_criticals": 2, "total_fatalities": 68, "total_hospitalizations": 2, "total_recoveries": 1057, "total_tests": 162785,
             "total_vaccinated": 2065, "total_vaccinations": 19287
+          },
+          {
+            "date": "2021-04-01", "total_cases": 1146, "total_criticals": 2, "total_fatalities": 68, "total_hospitalizations": 2, "total_recoveries": 1057, "total_tests": 162785,
+            "total_vaccinated": 2065, "total_vaccinations": 19287
           }
         ],
         "id": 3535,
         "population": 179083,
         "province": "ON",
         "total": {
-          "date": "2021-03-31", "change_cases": 6, "change_criticals": 1, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 1, "change_tests": 716, "change_vaccinated": 0,
-          "change_vaccinations": 0, "total_cases": 1146, "total_criticals": 2, "total_fatalities": 68, "total_hospitalizations": 2, "total_recoveries": 1057, "total_tests": 162785,
-          "total_vaccinated": 2065, "total_vaccinations": 19287
+          "date": "2021-04-01", "total_cases": 1146, "total_criticals": 2, "total_fatalities": 68, "total_hospitalizations": 2, "total_recoveries": 1057, "total_tests": 162785, "total_vaccinated": 2065,
+          "total_vaccinations": 19287
         },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Halton Regional Health Unit", "fr": "Circonscription sanitaire régionale de Halton"},
@@ -20721,16 +20738,14 @@
           {
             "date": "2021-03-31", "change_cases": 78, "change_fatalities": 0, "change_recoveries": 64, "change_vaccinations": 0, "total_cases": 10981, "total_fatalities": 200, "total_recoveries": 10338,
             "total_vaccinations": 67563
-          }
+          },
+          {"date": "2021-04-01", "total_cases": 10981, "total_fatalities": 200, "total_recoveries": 10338, "total_vaccinations": 67563}
         ],
         "id": 3536,
         "population": 548430,
         "province": "ON",
-        "total": {
-          "date": "2021-03-31", "change_cases": 78, "change_fatalities": 0, "change_recoveries": 64, "change_vaccinations": 0, "total_cases": 10981, "total_fatalities": 200, "total_recoveries": 10338,
-          "total_vaccinations": 67563
-        },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 10981, "total_fatalities": 200, "total_recoveries": 10338, "total_vaccinations": 67563},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "City of Hamilton Health Unit", "fr": "Circonscription sanitaire de la cité de Hamilton"},
@@ -20975,16 +20990,14 @@
           {
             "date": "2021-03-31", "change_cases": 124, "change_fatalities": 3, "change_recoveries": 213, "change_tests": 5061, "change_vaccinations": 3370, "total_cases": 12854, "total_fatalities": 315,
             "total_recoveries": 11517, "total_tests": 586729, "total_vaccinations": 97259
-          }
+          },
+          {"date": "2021-04-01", "total_cases": 12854, "total_fatalities": 315, "total_recoveries": 11517, "total_tests": 586729, "total_vaccinations": 97259}
         ],
         "id": 3537,
         "population": 536917,
         "province": "ON",
-        "total": {
-          "date": "2021-03-31", "change_cases": 124, "change_fatalities": 3, "change_recoveries": 213, "change_tests": 5061, "change_vaccinations": 3370, "total_cases": 12854, "total_fatalities": 315,
-          "total_recoveries": 11517, "total_tests": 586729, "total_vaccinations": 97259
-        },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 12854, "total_fatalities": 315, "total_recoveries": 11517, "total_tests": 586729, "total_vaccinations": 97259},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Hastings and Prince Edward Counties Health Unit", "fr": "Circonscription sanitaire des comtés de Hastings et Prince Edward"},
@@ -21454,17 +21467,20 @@
             "date": "2021-03-31", "change_cases": 32, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 0, "change_vaccinated": 26,
             "change_vaccinations": 1678, "total_cases": 514, "total_criticals": 0, "total_fatalities": 6, "total_hospitalizations": 1, "total_recoveries": 437, "total_tests": 46512,
             "total_vaccinated": 1946, "total_vaccinations": 28473
+          },
+          {
+            "date": "2021-04-01", "total_cases": 514, "total_criticals": 0, "total_fatalities": 6, "total_hospitalizations": 1, "total_recoveries": 437, "total_tests": 46512, "total_vaccinated": 1946,
+            "total_vaccinations": 28473
           }
         ],
         "id": 3538,
         "population": 161180,
         "province": "ON",
         "total": {
-          "date": "2021-03-31", "change_cases": 32, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 0, "change_vaccinated": 26,
-          "change_vaccinations": 1678, "total_cases": 514, "total_criticals": 0, "total_fatalities": 6, "total_hospitalizations": 1, "total_recoveries": 437, "total_tests": 46512,
-          "total_vaccinated": 1946, "total_vaccinations": 28473
+          "date": "2021-04-01", "total_cases": 514, "total_criticals": 0, "total_fatalities": 6, "total_hospitalizations": 1, "total_recoveries": 437, "total_tests": 46512, "total_vaccinated": 1946,
+          "total_vaccinations": 28473
         },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Huron Perth Public Health Unit", "fr": "Circonscription sanitaire du comté de Huron Perth"},
@@ -21916,17 +21932,15 @@
           {
             "date": "2021-03-31", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 1, "change_vaccinations": 3856, "total_cases": 1417, "total_fatalities": 50,
             "total_hospitalizations": 3, "total_recoveries": 1356, "total_tests": 62709, "total_vaccinations": 17451
-          }
+          },
+          {"date": "2021-04-01", "total_cases": 1417, "total_fatalities": 50, "total_hospitalizations": 3, "total_recoveries": 1356, "total_tests": 62709, "total_vaccinations": 17451}
         ],
         "id": 3539,
         "notes": "hr_uid 3539 + 3554",
         "population": 136093,
         "province": "ON",
-        "total": {
-          "date": "2021-03-31", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 1, "change_vaccinations": 3856, "total_cases": 1417, "total_fatalities": 50, "total_hospitalizations": 3,
-          "total_recoveries": 1356, "total_tests": 62709, "total_vaccinations": 17451
-        },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 1417, "total_fatalities": 50, "total_hospitalizations": 3, "total_recoveries": 1356, "total_tests": 62709, "total_vaccinations": 17451},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Chatham-Kent Health Unit", "fr": "Circonscription sanitaire de Chatham-Kent"},
@@ -22378,16 +22392,20 @@
           {
             "date": "2021-03-31", "change_cases": 9, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 10, "change_vaccinations": 1187, "total_cases": 1615,
             "total_criticals": 0, "total_fatalities": 10, "total_hospitalizations": 4, "total_recoveries": 1526, "total_tests": 94864, "total_vaccinations": 21212
+          },
+          {
+            "date": "2021-04-01", "total_cases": 1615, "total_criticals": 0, "total_fatalities": 10, "total_hospitalizations": 4, "total_recoveries": 1526, "total_tests": 94864,
+            "total_vaccinations": 21212
           }
         ],
         "id": 3540,
         "population": 102042,
         "province": "ON",
         "total": {
-          "date": "2021-03-31", "change_cases": 9, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 10, "change_vaccinations": 1187, "total_cases": 1615, "total_criticals": 0,
-          "total_fatalities": 10, "total_hospitalizations": 4, "total_recoveries": 1526, "total_tests": 94864, "total_vaccinations": 21212
+          "date": "2021-04-01", "total_cases": 1615, "total_criticals": 0, "total_fatalities": 10, "total_hospitalizations": 4, "total_recoveries": 1526, "total_tests": 94864,
+          "total_vaccinations": 21212
         },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Kingston, Frontenac and Lennox and Addington Health Unit", "fr": "Circonscription sanitaire de Kingston, Frontenac et Lennox et Addington"},
@@ -22878,17 +22896,20 @@
             "date": "2021-03-31", "change_cases": 6, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 7, "change_vaccinated": 5,
             "change_vaccinations": 1801, "total_cases": 926, "total_criticals": 0, "total_fatalities": 1, "total_hospitalizations": 2, "total_recoveries": 866, "total_tests": 122419,
             "total_vaccinated": 2671, "total_vaccinations": 56956
+          },
+          {
+            "date": "2021-04-01", "total_cases": 926, "total_criticals": 0, "total_fatalities": 1, "total_hospitalizations": 2, "total_recoveries": 866, "total_tests": 122419, "total_vaccinated": 2671,
+            "total_vaccinations": 56956
           }
         ],
         "id": 3541,
         "population": 193363,
         "province": "ON",
         "total": {
-          "date": "2021-03-31", "change_cases": 6, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 7, "change_vaccinated": 5,
-          "change_vaccinations": 1801, "total_cases": 926, "total_criticals": 0, "total_fatalities": 1, "total_hospitalizations": 2, "total_recoveries": 866, "total_tests": 122419,
-          "total_vaccinated": 2671, "total_vaccinations": 56956
+          "date": "2021-04-01", "total_cases": 926, "total_criticals": 0, "total_fatalities": 1, "total_hospitalizations": 2, "total_recoveries": 866, "total_tests": 122419, "total_vaccinated": 2671,
+          "total_vaccinations": 56956
         },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Lambton Health Unit", "fr": "Circonscription sanitaire de Lambton"},
@@ -23322,16 +23343,20 @@
           {
             "date": "2021-03-31", "change_cases": 13, "change_fatalities": 0, "change_recoveries": 21, "change_vaccinated": 1, "change_vaccinations": 6588, "total_cases": 2835, "total_fatalities": 50,
             "total_hospitalizations": 1, "total_recoveries": 2606, "total_tests": 63399, "total_vaccinated": 1545, "total_vaccinations": 23042
+          },
+          {
+            "date": "2021-04-01", "total_cases": 2835, "total_fatalities": 50, "total_hospitalizations": 1, "total_recoveries": 2606, "total_tests": 63399, "total_vaccinated": 1545,
+            "total_vaccinations": 23042
           }
         ],
         "id": 3542,
         "population": 126638,
         "province": "ON",
         "total": {
-          "date": "2021-03-31", "change_cases": 13, "change_fatalities": 0, "change_recoveries": 21, "change_vaccinated": 1, "change_vaccinations": 6588, "total_cases": 2835, "total_fatalities": 50,
-          "total_hospitalizations": 1, "total_recoveries": 2606, "total_tests": 63399, "total_vaccinated": 1545, "total_vaccinations": 23042
+          "date": "2021-04-01", "total_cases": 2835, "total_fatalities": 50, "total_hospitalizations": 1, "total_recoveries": 2606, "total_tests": 63399, "total_vaccinated": 1545,
+          "total_vaccinations": 23042
         },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Leeds, Grenville and Lanark District Health Unit", "fr": "Circonscription sanitaire du district de Leeds, Grenville et Lanark"},
@@ -23794,16 +23819,20 @@
           {
             "date": "2021-03-31", "change_cases": 3, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 15, "total_cases": 1258, "total_criticals": 1,
             "total_fatalities": 54, "total_hospitalizations": 1, "total_recoveries": 1127, "total_tests": 2, "total_vaccinated": 2169, "total_vaccinations": 20537
+          },
+          {
+            "date": "2021-04-01", "total_cases": 1258, "total_criticals": 1, "total_fatalities": 54, "total_hospitalizations": 1, "total_recoveries": 1127, "total_tests": 2, "total_vaccinated": 2169,
+            "total_vaccinations": 20537
           }
         ],
         "id": 3543,
         "population": 169244,
         "province": "ON",
         "total": {
-          "date": "2021-03-31", "change_cases": 3, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 15, "total_cases": 1258, "total_criticals": 1,
-          "total_fatalities": 54, "total_hospitalizations": 1, "total_recoveries": 1127, "total_tests": 2, "total_vaccinated": 2169, "total_vaccinations": 20537
+          "date": "2021-04-01", "total_cases": 1258, "total_criticals": 1, "total_fatalities": 54, "total_hospitalizations": 1, "total_recoveries": 1127, "total_tests": 2, "total_vaccinated": 2169,
+          "total_vaccinations": 20537
         },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Middlesex-London Health Unit", "fr": "Circonscription sanitaire de Middlesex-London"},
@@ -24000,16 +24029,14 @@
           {
             "date": "2021-03-31", "change_cases": 95, "change_fatalities": 1, "change_recoveries": 42, "change_vaccinations": 0, "total_cases": 7091, "total_fatalities": 188, "total_recoveries": 6398,
             "total_vaccinations": 78380
-          }
+          },
+          {"date": "2021-04-01", "total_cases": 7091, "total_fatalities": 188, "total_recoveries": 6398, "total_vaccinations": 78380}
         ],
         "id": 3544,
         "population": 455526,
         "province": "ON",
-        "total": {
-          "date": "2021-03-31", "change_cases": 95, "change_fatalities": 1, "change_recoveries": 42, "change_vaccinations": 0, "total_cases": 7091, "total_fatalities": 188, "total_recoveries": 6398,
-          "total_vaccinations": 78380
-        },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 7091, "total_fatalities": 188, "total_recoveries": 6398, "total_vaccinations": 78380},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Niagara Regional Area Health Unit", "fr": "Circonscription sanitaire régionale de Niagara"},
@@ -24244,16 +24271,14 @@
           {
             "date": "2021-03-31", "change_cases": 68, "change_fatalities": 1, "change_recoveries": 45, "change_vaccinated": 0, "change_vaccinations": 2009, "total_cases": 9686, "total_fatalities": 376,
             "total_recoveries": 8765, "total_vaccinated": 3038, "total_vaccinations": 70146
-          }
+          },
+          {"date": "2021-04-01", "total_cases": 9686, "total_fatalities": 376, "total_recoveries": 8765, "total_vaccinated": 3038, "total_vaccinations": 70146}
         ],
         "id": 3546,
         "population": 447888,
         "province": "ON",
-        "total": {
-          "date": "2021-03-31", "change_cases": 68, "change_fatalities": 1, "change_recoveries": 45, "change_vaccinated": 0, "change_vaccinations": 2009, "total_cases": 9686, "total_fatalities": 376,
-          "total_recoveries": 8765, "total_vaccinated": 3038, "total_vaccinations": 70146
-        },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 9686, "total_fatalities": 376, "total_recoveries": 8765, "total_vaccinated": 3038, "total_vaccinations": 70146},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "North Bay Parry Sound District Health Unit", "fr": "Circonscription sanitaire du district de North Bay Parry Sound"},
@@ -24713,17 +24738,20 @@
             "date": "2021-03-31", "change_cases": 3, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 1, "change_tests": 291, "change_vaccinated": 9,
             "change_vaccinations": 501, "total_cases": 293, "total_criticals": 0, "total_fatalities": 4, "total_hospitalizations": 0, "total_recoveries": 283, "total_tests": 112301,
             "total_vaccinated": 1621, "total_vaccinations": 16682
+          },
+          {
+            "date": "2021-04-01", "total_cases": 293, "total_criticals": 0, "total_fatalities": 4, "total_hospitalizations": 0, "total_recoveries": 283, "total_tests": 112301, "total_vaccinated": 1621,
+            "total_vaccinations": 16682
           }
         ],
         "id": 3547,
         "population": 123820,
         "province": "ON",
         "total": {
-          "date": "2021-03-31", "change_cases": 3, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 1, "change_tests": 291, "change_vaccinated": 9,
-          "change_vaccinations": 501, "total_cases": 293, "total_criticals": 0, "total_fatalities": 4, "total_hospitalizations": 0, "total_recoveries": 283, "total_tests": 112301,
-          "total_vaccinated": 1621, "total_vaccinations": 16682
+          "date": "2021-04-01", "total_cases": 293, "total_criticals": 0, "total_fatalities": 4, "total_hospitalizations": 0, "total_recoveries": 283, "total_tests": 112301, "total_vaccinated": 1621,
+          "total_vaccinations": 16682
         },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Northwestern Health Unit", "fr": "Circonscription sanitaire du Nord-Ouest"},
@@ -24917,16 +24945,14 @@
           {
             "date": "2021-03-31", "change_cases": 5, "change_fatalities": 5, "change_hospitalizations": 6, "change_recoveries": 201, "change_vaccinations": 1017, "total_cases": 688,
             "total_fatalities": 6, "total_hospitalizations": 6, "total_recoveries": 849, "total_tests": 62617, "total_vaccinations": 10419
-          }
+          },
+          {"date": "2021-04-01", "total_cases": 688, "total_fatalities": 6, "total_hospitalizations": 6, "total_recoveries": 849, "total_tests": 62617, "total_vaccinations": 10419}
         ],
         "id": 3549,
         "population": 76455,
         "province": "ON",
-        "total": {
-          "date": "2021-03-31", "change_cases": 5, "change_fatalities": 5, "change_hospitalizations": 6, "change_recoveries": 201, "change_vaccinations": 1017, "total_cases": 688, "total_fatalities": 6,
-          "total_hospitalizations": 6, "total_recoveries": 849, "total_tests": 62617, "total_vaccinations": 10419
-        },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 688, "total_fatalities": 6, "total_hospitalizations": 6, "total_recoveries": 849, "total_tests": 62617, "total_vaccinations": 10419},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "City of Ottawa Health Unit", "fr": "Circonscription sanitaire de la ville d'Ottawa"},
@@ -25379,17 +25405,20 @@
             "date": "2021-03-31", "change_cases": 117, "change_criticals": -2, "change_fatalities": 1, "change_hospitalizations": 0, "change_recoveries": 68, "change_vaccinated": 26531,
             "change_vaccinations": 19045, "total_cases": 17294, "total_criticals": 11, "total_fatalities": 464, "total_hospitalizations": 39, "total_recoveries": 15597, "total_vaccinated": 26531,
             "total_vaccinations": 139969
+          },
+          {
+            "date": "2021-04-01", "total_cases": 17294, "total_criticals": 11, "total_fatalities": 464, "total_hospitalizations": 39, "total_recoveries": 15597, "total_vaccinated": 26531,
+            "total_vaccinations": 139969
           }
         ],
         "id": 3551,
         "population": 934243,
         "province": "ON",
         "total": {
-          "date": "2021-03-31", "change_cases": 117, "change_criticals": -2, "change_fatalities": 1, "change_hospitalizations": 0, "change_recoveries": 68, "change_vaccinated": 26531,
-          "change_vaccinations": 19045, "total_cases": 17294, "total_criticals": 11, "total_fatalities": 464, "total_hospitalizations": 39, "total_recoveries": 15597, "total_vaccinated": 26531,
+          "date": "2021-04-01", "total_cases": 17294, "total_criticals": 11, "total_fatalities": 464, "total_hospitalizations": 39, "total_recoveries": 15597, "total_vaccinated": 26531,
           "total_vaccinations": 139969
         },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Peel Regional Health Unit", "fr": "Circonscription sanitaire régionale de Peel"},
@@ -25715,16 +25744,14 @@
           {
             "date": "2021-03-31", "change_cases": 495, "change_fatalities": 1, "change_recoveries": 374, "change_vaccinated": 0, "change_vaccinations": 0, "total_cases": 71410, "total_fatalities": 642,
             "total_recoveries": 67964, "total_vaccinated": 24023, "total_vaccinations": 128550
-          }
+          },
+          {"date": "2021-04-01", "total_cases": 71410, "total_fatalities": 642, "total_recoveries": 67964, "total_vaccinated": 24023, "total_vaccinations": 128550}
         ],
         "id": 3553,
         "population": 1381744,
         "province": "ON",
-        "total": {
-          "date": "2021-03-31", "change_cases": 495, "change_fatalities": 1, "change_recoveries": 374, "change_vaccinated": 0, "change_vaccinations": 0, "total_cases": 71410, "total_fatalities": 642,
-          "total_recoveries": 67964, "total_vaccinated": 24023, "total_vaccinations": 128550
-        },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 71410, "total_fatalities": 642, "total_recoveries": 67964, "total_vaccinated": 24023, "total_vaccinations": 128550},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Peterborough County--City Health Unit", "fr": "Circonscription sanitaire du comté et de la cité de Peterborough"},
@@ -26005,16 +26032,14 @@
           {
             "date": "2021-03-31", "change_cases": 9, "change_fatalities": 0, "change_recoveries": 7, "change_vaccinations": 0, "total_cases": 875, "total_fatalities": 10, "total_recoveries": 813,
             "total_tests": 36300, "total_vaccinations": 24309
-          }
+          },
+          {"date": "2021-04-01", "total_cases": 875, "total_fatalities": 10, "total_recoveries": 813, "total_tests": 36300, "total_vaccinations": 24309}
         ],
         "id": 3555,
         "population": 138236,
         "province": "ON",
-        "total": {
-          "date": "2021-03-31", "change_cases": 9, "change_fatalities": 0, "change_recoveries": 7, "change_vaccinations": 0, "total_cases": 875, "total_fatalities": 10, "total_recoveries": 813,
-          "total_tests": 36300, "total_vaccinations": 24309
-        },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 875, "total_fatalities": 10, "total_recoveries": 813, "total_tests": 36300, "total_vaccinations": 24309},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Porcupine Health Unit", "fr": "Circonscription sanitaire de Porcupine"},
@@ -26466,11 +26491,8 @@
         "id": 3556,
         "population": 84201,
         "province": "ON",
-        "total": {
-          "date": "2021-03-31", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 132, "total_cases": 352, "total_fatalities": 25, "total_recoveries": 321,
-          "total_tests": 82991, "total_vaccinated": 702, "total_vaccinations": 6513
-        },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 352, "total_fatalities": 25, "total_recoveries": 321, "total_tests": 82991, "total_vaccinated": 702, "total_vaccinations": 6513},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Renfrew County and District Health Unit", "fr": "Circonscription sanitaire du comté et du district de Renfrew"},
@@ -26745,11 +26767,8 @@
         "id": 3557,
         "population": 103593,
         "province": "ON",
-        "total": {
-          "date": "2021-03-31", "change_cases": 2, "change_fatalities": 0, "change_recoveries": 1, "total_cases": 435, "total_fatalities": 4, "total_recoveries": 397, "total_tests": 44588,
-          "total_vaccinations": 14127
-        },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 435, "total_fatalities": 4, "total_recoveries": 397, "total_tests": 44588, "total_vaccinations": 14127},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "The Eastern Ontario Health Unit", "fr": "Circonscription sanitaire de l'Est de l'Ontario"},
@@ -27250,11 +27269,10 @@
         "population": 202762,
         "province": "ON",
         "total": {
-          "date": "2021-03-31", "change_cases": 35, "change_criticals": 0, "change_fatalities": 7, "change_hospitalizations": -2, "change_recoveries": 13, "change_tests": 1347,
-          "change_vaccinations": 926, "total_cases": 3393, "total_criticals": 7, "total_fatalities": 82, "total_hospitalizations": 34, "total_recoveries": 2960, "total_tests": 122989,
+          "date": "2021-04-01", "total_cases": 3393, "total_criticals": 7, "total_fatalities": 82, "total_hospitalizations": 34, "total_recoveries": 2960, "total_tests": 122989,
           "total_vaccinations": 24452
         },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Simcoe Muskoka District Health Unit", "fr": "Circonscription sanitaire du district de Simcoe Muskoka"},
@@ -27716,10 +27734,10 @@
         "population": 540249,
         "province": "ON",
         "total": {
-          "date": "2021-03-31", "change_cases": 41, "change_fatalities": 0, "change_hospitalizations": 3, "change_recoveries": 52, "change_vaccinations": 3853, "total_cases": 7699,
-          "total_fatalities": 198, "total_hospitalizations": 35, "total_recoveries": 6970, "total_tests": 86206, "total_vaccinated": 1306, "total_vaccinations": 93483
+          "date": "2021-04-01", "total_cases": 7699, "total_fatalities": 198, "total_hospitalizations": 35, "total_recoveries": 6970, "total_tests": 86206, "total_vaccinated": 1306,
+          "total_vaccinations": 93483
         },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Sudbury and District Health Unit", "fr": "Circonscription sanitaire de Sudbury et son district"},
@@ -28177,11 +28195,8 @@
         "id": 3561,
         "population": 196448,
         "province": "ON",
-        "total": {
-          "date": "2021-03-31", "change_cases": 10, "change_fatalities": 0, "change_recoveries": 38, "change_tests": 531, "change_vaccinated": 275, "change_vaccinations": 3498, "total_cases": 1439,
-          "total_fatalities": 20, "total_recoveries": 1123, "total_tests": 215188, "total_vaccinated": 3081, "total_vaccinations": 33218
-        },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 1439, "total_fatalities": 20, "total_recoveries": 1123, "total_tests": 215188, "total_vaccinated": 3081, "total_vaccinations": 33218},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Thunder Bay District Health Unit", "fr": "Circonscription sanitaire du district de Thunder Bay"},
@@ -28644,10 +28659,10 @@
         "population": 151884,
         "province": "ON",
         "total": {
-          "date": "2021-03-31", "change_cases": 34, "change_criticals": 0, "change_fatalities": 1, "change_hospitalizations": 1, "change_recoveries": 16, "total_cases": 2860, "total_criticals": 3,
-          "total_fatalities": 52, "total_hospitalizations": 18, "total_recoveries": 2592, "total_tests": 82313, "total_vaccinated": 3191, "total_vaccinations": 24193
+          "date": "2021-04-01", "total_cases": 2860, "total_criticals": 3, "total_fatalities": 52, "total_hospitalizations": 18, "total_recoveries": 2592, "total_tests": 82313, "total_vaccinated": 3191,
+          "total_vaccinations": 24193
         },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Timiskaming Health Unit", "fr": "Circonscription sanitaire de Timiskaming"},
@@ -29105,11 +29120,8 @@
         "id": 3563,
         "population": 33049,
         "province": "ON",
-        "total": {
-          "date": "2021-03-31", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 2, "change_tests": 0, "change_vaccinations": 312, "total_cases": 129, "total_fatalities": 2,
-          "total_recoveries": 116, "total_tests": 30262, "total_vaccinations": 4501
-        },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 129, "total_fatalities": 2, "total_recoveries": 116, "total_tests": 30262, "total_vaccinations": 4501},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Waterloo Health Unit", "fr": "Circonscription sanitaire de Waterloo"},
@@ -29606,10 +29618,10 @@
         "population": 535154,
         "province": "ON",
         "total": {
-          "date": "2021-03-31", "change_cases": 46, "change_fatalities": 0, "change_recoveries": 38, "change_tests": 0, "change_vaccinated": 129, "change_vaccinations": 3656, "total_cases": 11931,
-          "total_criticals": 8, "total_fatalities": 242, "total_hospitalizations": 19, "total_recoveries": 11375, "total_tests": 424716, "total_vaccinated": 15019, "total_vaccinations": 81914
+          "date": "2021-04-01", "total_cases": 11931, "total_criticals": 8, "total_fatalities": 242, "total_hospitalizations": 19, "total_recoveries": 11375, "total_tests": 424716,
+          "total_vaccinated": 15019, "total_vaccinations": 81914
         },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Wellington-Dufferin-Guelph Health Unit", "fr": "Circonscription sanitaire de Wellington-Dufferin-Guelph"},
@@ -30071,10 +30083,10 @@
         "population": 284461,
         "province": "ON",
         "total": {
-          "date": "2021-03-31", "change_cases": 16, "change_fatalities": 0, "change_recoveries": 16, "change_vaccinated": 5, "change_vaccinations": 2165, "total_cases": 5204, "total_fatalities": 106,
-          "total_hospitalizations": 4, "total_recoveries": 4958, "total_tests": 272252, "total_vaccinated": 6781, "total_vaccinations": 49823
+          "date": "2021-04-01", "total_cases": 5204, "total_fatalities": 106, "total_hospitalizations": 4, "total_recoveries": 4958, "total_tests": 272252, "total_vaccinated": 6781,
+          "total_vaccinations": 49823
         },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Windsor-Essex County Health Unit", "fr": "Circonscription sanitaire de Windsor-comté d'Essex"},
@@ -30536,10 +30548,10 @@
         "population": 398953,
         "province": "ON",
         "total": {
-          "date": "2021-03-31", "change_cases": 54, "change_fatalities": 0, "change_recoveries": 16, "change_vaccinated": 197, "change_vaccinations": 3405, "total_cases": 13891, "total_criticals": 7,
-          "total_fatalities": 403, "total_hospitalizations": 32, "total_recoveries": 13159, "total_vaccinated": 12279, "total_vaccinations": 90894
+          "date": "2021-04-01", "total_cases": 13891, "total_criticals": 7, "total_fatalities": 403, "total_hospitalizations": 32, "total_recoveries": 13159, "total_vaccinated": 12279,
+          "total_vaccinations": 90894
         },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "York Regional Health Unit", "fr": "Circonscription sanitaire régionale de York"},
@@ -31001,10 +31013,10 @@
         "population": 1109909,
         "province": "ON",
         "total": {
-          "date": "2021-03-31", "change_cases": 312, "change_fatalities": 2, "change_recoveries": 173, "change_vaccinated": 3162, "change_vaccinations": 15670, "total_cases": 33879,
-          "total_criticals": 22, "total_fatalities": 556, "total_hospitalizations": 137, "total_recoveries": 31442, "total_vaccinated": 21900, "total_vaccinations": 168052
+          "date": "2021-04-01", "total_cases": 33879, "total_criticals": 22, "total_fatalities": 556, "total_hospitalizations": 137, "total_recoveries": 31442, "total_vaccinated": 21900,
+          "total_vaccinations": 168052
         },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Southwestern Public Health Unit", "fr": "Circonscription sanitaire du sud-ouest"},
@@ -31467,10 +31479,10 @@
         "population": 199840,
         "province": "ON",
         "total": {
-          "date": "2021-03-31", "change_cases": 18, "change_fatalities": 0, "change_recoveries": 10, "total_cases": 2827, "total_criticals": 0, "total_fatalities": 69, "total_hospitalizations": 0,
-          "total_recoveries": 2666, "total_vaccinated": 3921, "total_vaccinations": 11539
+          "date": "2021-04-01", "total_cases": 2827, "total_criticals": 0, "total_fatalities": 69, "total_hospitalizations": 0, "total_recoveries": 2666, "total_vaccinated": 3921,
+          "total_vaccinations": 11539
         },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "City of Toronto Health Unit", "fr": "Circonscription sanitaire de la cité de Toronto"},
@@ -31929,22 +31941,22 @@
         "population": 2731571,
         "province": "ON",
         "total": {
-          "date": "2021-03-31", "change_cases": 837, "change_criticals": -1, "change_fatalities": 6, "change_hospitalizations": 20, "change_recoveries": 561, "change_vaccinations": 18617,
-          "total_cases": 112862, "total_criticals": 76, "total_fatalities": 2796, "total_hospitalizations": 330, "total_recoveries": 102697, "total_vaccinated": 76130, "total_vaccinations": 512484
+          "date": "2021-04-01", "total_cases": 112862, "total_criticals": 76, "total_fatalities": 2796, "total_hospitalizations": 330, "total_recoveries": 102697, "total_vaccinated": 76130,
+          "total_vaccinations": 512484
         },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       }
     ],
     "total": {
-      "date": "2021-03-31",
-      "change_cases": 2623,
-      "change_criticals": 9,
-      "change_fatalities": 28,
-      "change_hospitalizations": 21,
-      "change_recoveries": 2463,
-      "change_tests": 52532,
-      "change_vaccinated": 1931,
-      "change_vaccinations": 89873,
+      "date": "2021-04-01",
+      "change_cases": 0,
+      "change_criticals": 0,
+      "change_fatalities": 0,
+      "change_hospitalizations": 0,
+      "change_recoveries": 0,
+      "change_tests": 0,
+      "change_vaccinated": 1895,
+      "change_vaccinations": 84060,
       "change_vaccines_distributed": 0,
       "total_cases": 356474,
       "total_criticals": 396,
@@ -31952,12 +31964,12 @@
       "total_hospitalizations": 1111,
       "total_recoveries": 329325,
       "total_tests": 12438091,
-      "total_vaccinated": 315820,
-      "total_vaccinations": 2192253,
+      "total_vaccinated": 317715,
+      "total_vaccinations": 2276313,
       "total_vaccines_distributed": 2820495,
-      "updated_at": "2021-04-01T01:14:04.000Z"
+      "updated_at": "2021-04-01T14:40:03.000Z"
     },
-    "updated_at": "2021-03-31T22:37:22.000Z"
+    "updated_at": "2021-04-01T14:35:42.000Z"
   },
   "PE": {
     "name": "Prince Edward Island",
@@ -32516,9 +32528,14 @@
         "date": "2021-03-31", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_tests": 0, "change_vaccinated": 0,
         "change_vaccinations": 0, "change_vaccines_distributed": 0, "total_cases": 159, "total_criticals": 0, "total_fatalities": 0, "total_hospitalizations": 0, "total_recoveries": 145,
         "total_tests": 117403, "total_vaccinated": 6406, "total_vaccinations": 21712, "total_vaccines_distributed": 27205
+      },
+      {
+        "date": "2021-04-01", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_tests": 0, "change_vaccinated": 0,
+        "change_vaccinations": 0, "change_vaccines_distributed": 0, "total_cases": 159, "total_criticals": 0, "total_fatalities": 0, "total_hospitalizations": 0, "total_recoveries": 145,
+        "total_tests": 117403, "total_vaccinated": 6406, "total_vaccinations": 21712, "total_vaccines_distributed": 27205
       }
     ],
-    "data_status": "No report expected today",
+    "data_status": "Waiting for report",
     "density": 28.217844522968196,
     "gdp": 6994,
     "geographic": 1,
@@ -32874,20 +32891,24 @@
           {
             "date": "2021-03-31", "total_cases": 159, "total_criticals": 113, "total_fatalities": 0, "total_hospitalizations": 0, "total_recoveries": 145, "total_tests": 117403,
             "total_vaccinated": 6406, "total_vaccinations": 21712
+          },
+          {
+            "date": "2021-04-01", "total_cases": 159, "total_criticals": 113, "total_fatalities": 0, "total_hospitalizations": 0, "total_recoveries": 145, "total_tests": 117403,
+            "total_vaccinated": 6406, "total_vaccinations": 21712
           }
         ],
         "id": 1100,
         "population": 142907,
         "province": "PE",
         "total": {
-          "date": "2021-03-31", "total_cases": 159, "total_criticals": 113, "total_fatalities": 0, "total_hospitalizations": 0, "total_recoveries": 145, "total_tests": 117403, "total_vaccinated": 6406,
+          "date": "2021-04-01", "total_cases": 159, "total_criticals": 113, "total_fatalities": 0, "total_hospitalizations": 0, "total_recoveries": 145, "total_tests": 117403, "total_vaccinated": 6406,
           "total_vaccinations": 21712
         },
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       }
     ],
     "total": {
-      "date": "2021-03-31",
+      "date": "2021-04-01",
       "change_cases": 0,
       "change_criticals": 0,
       "change_fatalities": 0,
@@ -32906,9 +32927,9 @@
       "total_vaccinated": 6406,
       "total_vaccinations": 21712,
       "total_vaccines_distributed": 27205,
-      "updated_at": "2021-04-01T01:14:04.000Z"
+      "updated_at": "2021-04-01T14:40:03.000Z"
     },
-    "updated_at": "2021-03-31T22:45:00.000Z"
+    "updated_at": "2021-04-01T14:35:35.000Z"
   },
   "QC": {
     "name": "Quebec",
@@ -33473,9 +33494,14 @@
         "date": "2021-03-31", "change_cases": 1025, "change_criticals": -6, "change_fatalities": 9, "change_hospitalizations": -2, "change_recoveries": 616, "change_tests": 0, "change_vaccinated": 0,
         "change_vaccinations": 43486, "change_vaccines_distributed": 99450, "total_cases": 311091, "total_criticals": 120, "total_fatalities": 10667, "total_hospitalizations": 485,
         "total_recoveries": 291906, "total_tests": 7463632, "total_vaccinations": 1349326, "total_vaccines_distributed": 1652905
+      },
+      {
+        "date": "2021-04-01", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_tests": 0, "change_vaccinated": 0,
+        "change_vaccinations": 0, "change_vaccines_distributed": 0, "total_cases": 311091, "total_criticals": 120, "total_fatalities": 10667, "total_hospitalizations": 485, "total_recoveries": 291906,
+        "total_tests": 7463632, "total_vaccinations": 1349326, "total_vaccines_distributed": 1652905
       }
     ],
-    "data_status": "Reported",
+    "data_status": "Waiting for report",
     "density": 6.323723866773638,
     "gdp": 439375,
     "geographic": 1,
@@ -33809,13 +33835,14 @@
             "date": "2021-03-30", "change_cases": 44, "change_fatalities": 0, "change_vaccinations": 541, "total_cases": 1930, "total_fatalities": 30, "total_recoveries": 1603,
             "total_vaccinations": 23450
           },
-          {"date": "2021-03-31", "change_vaccinations": 334, "total_cases": 1930, "total_fatalities": 30, "total_recoveries": 1603, "total_vaccinations": 23784}
+          {"date": "2021-03-31", "change_vaccinations": 334, "total_cases": 1930, "total_fatalities": 30, "total_recoveries": 1603, "total_vaccinations": 23784},
+          {"date": "2021-04-01", "total_cases": 1930, "total_fatalities": 30, "total_recoveries": 1603, "total_vaccinations": 23784}
         ],
         "id": 2401,
         "population": 197385,
         "province": "QC",
-        "total": {"date": "2021-03-31", "change_vaccinations": 334, "total_cases": 1930, "total_fatalities": 30, "total_recoveries": 1603, "total_vaccinations": 23784},
-        "updated_at": "2021-04-01T01:14:04.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 1930, "total_fatalities": 30, "total_recoveries": 1603, "total_vaccinations": 23784},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Région du Saguenay--Lac-Saint-Jean", "fr": "Région du Saguenay—Lac-Saint-Jean"},
@@ -34176,8 +34203,8 @@
         "id": 2402,
         "population": 276368,
         "province": "QC",
-        "total": {"date": "2021-03-31", "change_vaccinations": 339, "total_cases": 9412, "total_fatalities": 265, "total_recoveries": 8782, "total_vaccinations": 35956},
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 9412, "total_fatalities": 265, "total_recoveries": 8782, "total_vaccinations": 35956},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Région de la Capitale-Nationale", "fr": "Région de la Capitale-Nationale"},
@@ -34566,8 +34593,8 @@
         "id": 2403,
         "population": 729997,
         "province": "QC",
-        "total": {"date": "2021-03-31", "change_vaccinations": 4314, "total_cases": 23943, "total_fatalities": 1015, "total_recoveries": 21945, "total_vaccinations": 107274},
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 23943, "total_fatalities": 1015, "total_recoveries": 21945, "total_vaccinations": 107274},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Région de la Mauricie et Centre-du-Québec", "fr": "Région de la Mauricie et du Centre-du-Québec"},
@@ -34940,8 +34967,8 @@
         "id": 2404,
         "population": 508511,
         "province": "QC",
-        "total": {"date": "2021-03-31", "change_vaccinations": 2121, "total_cases": 13194, "total_fatalities": 508, "total_recoveries": 12488, "total_vaccinations": 71170},
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 13194, "total_fatalities": 508, "total_recoveries": 12488, "total_vaccinations": 71170},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Région de l'Estrie", "fr": "Région de l'Estrie"},
@@ -35311,8 +35338,8 @@
         "id": 2405,
         "population": 472615,
         "province": "QC",
-        "total": {"date": "2021-03-31", "change_vaccinations": 3372, "total_cases": 11994, "total_fatalities": 321, "total_recoveries": 11494, "total_vaccinations": 59168},
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 11994, "total_fatalities": 321, "total_recoveries": 11494, "total_vaccinations": 59168},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Région de Montréal", "fr": "Région de Montréal"},
@@ -35701,8 +35728,8 @@
         "id": 2406,
         "population": 1942044,
         "province": "QC",
-        "total": {"date": "2021-03-31", "change_vaccinations": 13513, "total_cases": 115459, "total_fatalities": 4617, "total_recoveries": 106372, "total_vaccinations": 443668},
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 115459, "total_fatalities": 4617, "total_recoveries": 106372, "total_vaccinations": 443668},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Région de l'Outaouais", "fr": "Région de l'Outaouais"},
@@ -36067,8 +36094,8 @@
         "id": 2407,
         "population": 382604,
         "province": "QC",
-        "total": {"date": "2021-03-31", "change_vaccinations": 1066, "total_cases": 7434, "total_fatalities": 172, "total_recoveries": 6615, "total_vaccinations": 46340},
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 7434, "total_fatalities": 172, "total_recoveries": 6615, "total_vaccinations": 46340},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Région de l'Abitibi-Témiscamingue", "fr": "Région de l'Abitibi-Témiscamingue"},
@@ -36364,8 +36391,8 @@
         "id": 2408,
         "population": 146717,
         "province": "QC",
-        "total": {"date": "2021-03-31", "change_vaccinations": 745, "total_cases": 973, "total_fatalities": 8, "total_recoveries": 886, "total_vaccinations": 21524},
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 973, "total_fatalities": 8, "total_recoveries": 886, "total_vaccinations": 21524},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Région de la Côte-Nord", "fr": "Région de la Côte-Nord"},
@@ -36639,8 +36666,8 @@
         "id": 2409,
         "population": 92518,
         "province": "QC",
-        "total": {"date": "2021-03-31", "change_vaccinations": 21, "total_cases": 360, "total_fatalities": 3, "total_recoveries": 355, "total_vaccinations": 27988},
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 360, "total_fatalities": 3, "total_recoveries": 355, "total_vaccinations": 27988},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Région du Nord-du-Québec", "fr": "Région du Nord-du-Québec"},
@@ -36873,8 +36900,8 @@
         "id": 2410,
         "population": 14232,
         "province": "QC",
-        "total": {"date": "2021-03-31", "change_vaccinations": 0, "total_cases": 88, "total_fatalities": 0, "total_recoveries": 88, "total_vaccinations": 8947},
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 88, "total_fatalities": 0, "total_recoveries": 88, "total_vaccinations": 8947},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Région de la Gaspésie--Îles-de-la-Madeleine", "fr": "Région de la Gaspésie—Îles-de-la-Madeleine"},
@@ -37202,8 +37229,8 @@
         "id": 2411,
         "population": 90311,
         "province": "QC",
-        "total": {"date": "2021-03-31", "change_vaccinations": 1104, "total_cases": 1748, "total_fatalities": 45, "total_recoveries": 1700, "total_vaccinations": 24101},
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 1748, "total_fatalities": 45, "total_recoveries": 1700, "total_vaccinations": 24101},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Région de la Chaudière-Appalaches", "fr": "Région de la Chaudière-Appalaches"},
@@ -37573,8 +37600,8 @@
         "id": 2412,
         "population": 420082,
         "province": "QC",
-        "total": {"date": "2021-03-31", "change_vaccinations": 589, "total_cases": 12284, "total_fatalities": 288, "total_recoveries": 11595, "total_vaccinations": 56469},
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 12284, "total_fatalities": 288, "total_recoveries": 11595, "total_vaccinations": 56469},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Région de Laval", "fr": "Région de Laval"},
@@ -37945,8 +37972,8 @@
         "id": 2413,
         "population": 422993,
         "province": "QC",
-        "total": {"date": "2021-03-31", "change_vaccinations": 2367, "total_cases": 27131, "total_fatalities": 889, "total_recoveries": 25190, "total_vaccinations": 69764},
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 27131, "total_fatalities": 889, "total_recoveries": 25190, "total_vaccinations": 69764},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Région de Lanaudière", "fr": "Région de Lanaudière"},
@@ -38320,8 +38347,8 @@
         "id": 2414,
         "population": 494796,
         "province": "QC",
-        "total": {"date": "2021-03-31", "change_vaccinations": 3269, "total_cases": 21683, "total_fatalities": 501, "total_recoveries": 20641, "total_vaccinations": 72224},
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 21683, "total_fatalities": 501, "total_recoveries": 20641, "total_vaccinations": 72224},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Région de Laurentides", "fr": "Région des Laurentides"},
@@ -38695,8 +38722,8 @@
         "id": 2415,
         "population": 589400,
         "province": "QC",
-        "total": {"date": "2021-03-31", "change_vaccinations": 3557, "total_cases": 17828, "total_fatalities": 482, "total_recoveries": 16801, "total_vaccinations": 79625},
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 17828, "total_fatalities": 482, "total_recoveries": 16801, "total_vaccinations": 79625},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Région de la Montérégie", "fr": "Région de la Montérégie"},
@@ -39067,8 +39094,8 @@
         "id": 2416,
         "population": 1353459,
         "province": "QC",
-        "total": {"date": "2021-03-31", "change_vaccinations": 6644, "total_cases": 44155, "total_fatalities": 1511, "total_recoveries": 41394, "total_vaccinations": 183534},
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 44155, "total_fatalities": 1511, "total_recoveries": 41394, "total_vaccinations": 183534},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Région du Nunavik", "fr": "Région du Nunavik"},
@@ -39241,8 +39268,8 @@
         "id": 2417,
         "population": 13188,
         "province": "QC",
-        "total": {"date": "2021-03-31", "change_vaccinations": 132, "total_cases": 46, "total_fatalities": 0, "total_recoveries": 46, "total_vaccinations": 5435},
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 46, "total_fatalities": 0, "total_recoveries": 46, "total_vaccinations": 5435},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Région des Terres-Cries-de-la-Baie-James", "fr": "Région des Terres-Cries-de-la-Baie-James"},
@@ -39427,21 +39454,21 @@
         "id": 2418,
         "population": 17141,
         "province": "QC",
-        "total": {"date": "2021-03-31", "change_vaccinations": 0, "total_cases": 119, "total_fatalities": 3, "total_recoveries": 116, "total_vaccinations": 10633},
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 119, "total_fatalities": 3, "total_recoveries": 116, "total_vaccinations": 10633},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       }
     ],
     "total": {
-      "date": "2021-03-31",
-      "change_cases": 1025,
-      "change_criticals": -6,
-      "change_fatalities": 9,
-      "change_hospitalizations": -2,
-      "change_recoveries": 616,
+      "date": "2021-04-01",
+      "change_cases": 0,
+      "change_criticals": 0,
+      "change_fatalities": 0,
+      "change_hospitalizations": 0,
+      "change_recoveries": 0,
       "change_tests": 0,
       "change_vaccinated": 0,
-      "change_vaccinations": 43486,
-      "change_vaccines_distributed": 99450,
+      "change_vaccinations": 0,
+      "change_vaccines_distributed": 0,
       "total_cases": 311091,
       "total_criticals": 120,
       "total_fatalities": 10667,
@@ -39450,9 +39477,9 @@
       "total_tests": 7463632,
       "total_vaccinations": 1349326,
       "total_vaccines_distributed": 1652905,
-      "updated_at": "2021-04-01T01:14:04.000Z"
+      "updated_at": "2021-04-01T14:40:03.000Z"
     },
-    "updated_at": "2021-03-31T15:26:33.000Z"
+    "updated_at": "2021-04-01T14:35:35.000Z"
   },
   "SK": {
     "name": "Saskatchewan",
@@ -40016,9 +40043,14 @@
         "date": "2021-03-31", "change_cases": 191, "change_criticals": 1, "change_fatalities": 2, "change_hospitalizations": 6, "change_recoveries": 176, "change_tests": 2978, "change_vaccinated": 73,
         "change_vaccinations": 8491, "change_vaccines_distributed": 36270, "total_cases": 33590, "total_criticals": 23, "total_fatalities": 436, "total_hospitalizations": 166, "total_recoveries": 31199,
         "total_tests": 665449, "total_vaccinated": 37318, "total_vaccinations": 192927, "total_vaccines_distributed": 224295
+      },
+      {
+        "date": "2021-04-01", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_tests": 0, "change_vaccinated": 0,
+        "change_vaccinations": 0, "change_vaccines_distributed": 0, "total_cases": 33590, "total_criticals": 23, "total_fatalities": 436, "total_hospitalizations": 166, "total_recoveries": 31199,
+        "total_tests": 665449, "total_vaccinated": 37318, "total_vaccinations": 192927, "total_vaccines_distributed": 224295
       }
     ],
-    "data_status": "Reported",
+    "data_status": "Waiting for report",
     "density": 1.9907786435006,
     "gdp": 80679,
     "geographic": 1,
@@ -40527,11 +40559,10 @@
         "population": 56723,
         "province": "SK",
         "total": {
-          "date": "2021-03-31", "change_cases": 1, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 5, "change_tests": 38, "change_vaccinated": 8,
-          "change_vaccinations": 907, "total_cases": 4488, "total_criticals": 0, "total_fatalities": 44, "total_hospitalizations": 1, "total_recoveries": 4378, "total_tests": 36438,
-          "total_vaccinated": 3299, "total_vaccinations": 11738
+          "date": "2021-04-01", "total_cases": 4488, "total_criticals": 0, "total_fatalities": 44, "total_hospitalizations": 1, "total_recoveries": 4378, "total_tests": 36438, "total_vaccinated": 3299,
+          "total_vaccinations": 11738
         },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "North", "fr": "North"},
@@ -41034,11 +41065,10 @@
         "population": 173331,
         "province": "SK",
         "total": {
-          "date": "2021-03-31", "change_cases": 15, "change_criticals": 1, "change_fatalities": 0, "change_hospitalizations": -2, "change_recoveries": 31, "change_tests": 177, "change_vaccinated": 8,
-          "change_vaccinations": 650, "total_cases": 8084, "total_criticals": 2, "total_fatalities": 108, "total_hospitalizations": 12, "total_recoveries": 7760, "total_tests": 103347,
+          "date": "2021-04-01", "total_cases": 8084, "total_criticals": 2, "total_fatalities": 108, "total_hospitalizations": 12, "total_recoveries": 7760, "total_tests": 103347,
           "total_vaccinated": 7937, "total_vaccinations": 35694
         },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Central", "fr": "Central"},
@@ -41530,11 +41560,10 @@
         "population": 137678,
         "province": "SK",
         "total": {
-          "date": "2021-03-31", "change_cases": 15, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 7, "change_tests": 176, "change_vaccinated": 8,
-          "change_vaccinations": 1886, "total_cases": 2054, "total_criticals": 1, "total_fatalities": 17, "total_hospitalizations": 11, "total_recoveries": 1934, "total_tests": 54902,
-          "total_vaccinated": 5922, "total_vaccinations": 24506
+          "date": "2021-04-01", "total_cases": 2054, "total_criticals": 1, "total_fatalities": 17, "total_hospitalizations": 11, "total_recoveries": 1934, "total_tests": 54902, "total_vaccinated": 5922,
+          "total_vaccinations": 24506
         },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Saskatoon", "fr": "Saskatoon"},
@@ -42039,11 +42068,10 @@
         "population": 334757,
         "province": "SK",
         "total": {
-          "date": "2021-03-31", "change_cases": 20, "change_criticals": -1, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 19, "change_tests": 438, "change_vaccinated": 6,
-          "change_vaccinations": 2080, "total_cases": 8115, "total_criticals": 5, "total_fatalities": 90, "total_hospitalizations": 43, "total_recoveries": 7786, "total_tests": 178912,
+          "date": "2021-04-01", "total_cases": 8115, "total_criticals": 5, "total_fatalities": 90, "total_hospitalizations": 43, "total_recoveries": 7786, "total_tests": 178912,
           "total_vaccinated": 7738, "total_vaccinations": 43105
         },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "Regina", "fr": "Regina"},
@@ -42541,11 +42569,10 @@
         "population": 273287,
         "province": "SK",
         "total": {
-          "date": "2021-03-31", "change_cases": 98, "change_criticals": 1, "change_fatalities": 1, "change_hospitalizations": 9, "change_recoveries": 106, "change_tests": 974, "change_vaccinated": 43,
-          "change_vaccinations": 1201, "total_cases": 7777, "total_criticals": 15, "total_fatalities": 122, "total_hospitalizations": 89, "total_recoveries": 6625, "total_tests": 147690,
+          "date": "2021-04-01", "total_cases": 7777, "total_criticals": 15, "total_fatalities": 122, "total_hospitalizations": 89, "total_recoveries": 6625, "total_tests": 147690,
           "total_vaccinated": 8015, "total_vaccinations": 52018
         },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       },
       {
         "name": {"en": "South", "fr": "South"},
@@ -43035,24 +43062,23 @@
         "population": 192474,
         "province": "SK",
         "total": {
-          "date": "2021-03-31", "change_cases": 41, "change_criticals": 0, "change_fatalities": 1, "change_hospitalizations": -2, "change_recoveries": -21423, "change_tests": 558,
-          "change_vaccinated": 0, "change_vaccinations": 1767, "total_cases": 3009, "total_criticals": 0, "total_fatalities": 55, "total_hospitalizations": 10, "total_recoveries": 2676,
-          "total_tests": 78701, "total_vaccinated": 4407, "total_vaccinations": 25866
+          "date": "2021-04-01", "total_cases": 3009, "total_criticals": 0, "total_fatalities": 55, "total_hospitalizations": 10, "total_recoveries": 2676, "total_tests": 78701, "total_vaccinated": 4407,
+          "total_vaccinations": 25866
         },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "updated_at": "2021-04-01T14:40:03.000Z"
       }
     ],
     "total": {
-      "date": "2021-03-31",
-      "change_cases": 191,
-      "change_criticals": 1,
-      "change_fatalities": 2,
-      "change_hospitalizations": 6,
-      "change_recoveries": 176,
-      "change_tests": 2978,
-      "change_vaccinated": 73,
-      "change_vaccinations": 8491,
-      "change_vaccines_distributed": 36270,
+      "date": "2021-04-01",
+      "change_cases": 0,
+      "change_criticals": 0,
+      "change_fatalities": 0,
+      "change_hospitalizations": 0,
+      "change_recoveries": 0,
+      "change_tests": 0,
+      "change_vaccinated": 0,
+      "change_vaccinations": 0,
+      "change_vaccines_distributed": 0,
       "total_cases": 33590,
       "total_criticals": 23,
       "total_fatalities": 436,
@@ -43062,9 +43088,9 @@
       "total_vaccinated": 37318,
       "total_vaccinations": 192927,
       "total_vaccines_distributed": 224295,
-      "updated_at": "2021-04-01T01:14:04.000Z"
+      "updated_at": "2021-04-01T14:40:03.000Z"
     },
-    "updated_at": "2021-03-31T22:20:39.000Z"
+    "updated_at": "2021-04-01T14:35:35.000Z"
   },
   "YT": {
     "name": "Yukon",
@@ -43613,9 +43639,14 @@
         "date": "2021-03-31", "change_cases": 1, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_tests": 17, "change_vaccinated": 162,
         "change_vaccinations": 286, "change_vaccines_distributed": 0, "total_cases": 74, "total_criticals": 0, "total_fatalities": 1, "total_hospitalizations": 0, "total_recoveries": 71,
         "total_tests": 8471, "total_vaccinated": 11316, "total_vaccinations": 35114, "total_vaccines_distributed": 51400
+      },
+      {
+        "date": "2021-04-01", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_tests": 0, "change_vaccinated": 0,
+        "change_vaccinations": 0, "change_vaccines_distributed": 0, "total_cases": 74, "total_criticals": 0, "total_fatalities": 1, "total_hospitalizations": 0, "total_recoveries": 71,
+        "total_tests": 8471, "total_vaccinated": 11316, "total_vaccinations": 35114, "total_vaccines_distributed": 51400
       }
     ],
-    "data_status": "Reported",
+    "data_status": "Waiting for report",
     "density": 0.08890556524048727,
     "gdp": 3046,
     "geographic": 1,
@@ -43932,23 +43963,20 @@
         "id": 6001,
         "population": 35874,
         "province": "YT",
-        "total": {
-          "date": "2021-03-31", "change_cases": 1, "change_tests": 17, "change_vaccinated": 162, "change_vaccinations": 286, "total_cases": 74, "total_criticals": 59, "total_fatalities": 1,
-          "total_recoveries": 71, "total_tests": 8471, "total_vaccinated": 11316, "total_vaccinations": 35114
-        },
-        "updated_at": "2021-04-01T14:36:18.000Z"
+        "total": {"date": "2021-04-01", "total_cases": 74, "total_criticals": 59, "total_fatalities": 1, "total_recoveries": 71, "total_tests": 8471, "total_vaccinated": 11316, "total_vaccinations": 35114},
+        "updated_at": "2021-04-01T14:40:03.000Z"
       }
     ],
     "total": {
-      "date": "2021-03-31",
-      "change_cases": 1,
+      "date": "2021-04-01",
+      "change_cases": 0,
       "change_criticals": 0,
       "change_fatalities": 0,
       "change_hospitalizations": 0,
       "change_recoveries": 0,
-      "change_tests": 17,
-      "change_vaccinated": 162,
-      "change_vaccinations": 286,
+      "change_tests": 0,
+      "change_vaccinated": 0,
+      "change_vaccinations": 0,
       "change_vaccines_distributed": 0,
       "total_cases": 74,
       "total_criticals": 0,
@@ -43959,8 +43987,8 @@
       "total_vaccinated": 11316,
       "total_vaccinations": 35114,
       "total_vaccines_distributed": 51400,
-      "updated_at": "2021-04-01T01:14:04.000Z"
+      "updated_at": "2021-04-01T14:40:03.000Z"
     },
-    "updated_at": "2021-04-01T00:53:17.000Z"
+    "updated_at": "2021-04-01T14:35:35.000Z"
   }
 }
