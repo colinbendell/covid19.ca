@@ -22554,7 +22554,7 @@
           "date": "2021-04-01", "change_cases": 12, "change_fatalities": 0, "change_recoveries": 8, "change_vaccinations": 1149, "total_cases": 1627, "total_criticals": 0, "total_fatalities": 10,
           "total_hospitalizations": 4, "total_recoveries": 1534, "total_tests": 94864, "total_vaccinations": 22361
         },
-        "updated_at": "2021-04-01T23:36:02.000Z"
+        "updated_at": "2021-04-02T14:37:00.000Z"
       },
       {
         "name": {"en": "Kingston, Frontenac and Lennox and Addington Health Unit", "fr": "Circonscription sanitaire de Kingston, Frontenac et Lennox et Addington"},
@@ -24192,7 +24192,7 @@
           "date": "2021-04-01", "change_cases": 85, "change_fatalities": 0, "change_recoveries": 26, "change_vaccinated": 3044, "total_cases": 7176, "total_fatalities": 188, "total_recoveries": 6424,
           "total_vaccinations": 78380
         },
-        "updated_at": "2021-04-01T23:36:02.000Z"
+        "updated_at": "2021-04-02T14:37:00.000Z"
       },
       {
         "name": {"en": "Niagara Regional Area Health Unit", "fr": "Circonscription sanitaire régionale de Niagara"},
