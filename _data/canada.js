@@ -151,7 +151,7 @@ module.exports = async function() {
   const fullData = JSON.parse(fs.readFileSync('_data/covid19tracker.ca/data.json', 'utf-8'));
   const data = Object.keys(fullData).map(k => Object.assign(fullData[k], {code: k}));
   for (const prov of data) {
-    if (prov.data_status && !/reported|no report/i.test(prov.data_status)) {
+    if (prov.data_status && !/reported/i.test(prov.data_status)) {
       if (prov.total?.date === new Date().toJSON().split('T')[0]) {
         if (!prov.total?.change_cases) {
           prov.daily.pop();
@@ -169,7 +169,7 @@ module.exports = async function() {
     prov.regions = prov.regions?.filter(r => Number.isInteger(r.total?.total_vaccinations) ||  Number.isInteger(r.total?.total_cases)) || [];
 
     for (const region of prov.regions) {
-      if (prov.data_status && !/reported|no report/i.test(prov.data_status)) {
+      if (prov.data_status && !/reported/i.test(prov.data_status)) {
         if (region.total?.date === new Date().toJSON().split('T')[0]) {
           if (!region.total?.change_cases) {
             region.daily.pop();
