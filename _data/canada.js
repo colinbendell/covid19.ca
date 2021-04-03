@@ -115,7 +115,7 @@ function normalizeVaccine(data) {
   const completeDate = new Date(Date.now() + (Math.min(daysToFullVaccinated, daysToFirstVaccinations) * 7*24*60*60*1000)).toJSON().split('T')[0];
   const daysToZeroVaccines = today.available_doses > 0 ? Math.max(Math.round(today.available_doses / (lastWeekInclusive.change_vaccinations_avg-0.001) + 0.5),0) : null;
 
-  const wowActiveCases = Math.max(Math.min(Math.round((today.active_cases - lastWeekExclusive.active_cases_avg) / (lastWeekExclusive.active_cases_avg+0.001)*100), 100), -100);
+  const changeInCasesRate = today.change_cases > 0 ? Math.max(Math.min(Math.round((today.change_cases - lastWeekExclusive.active_cases_avg) / (lastWeekExclusive.active_cases_avg+0.001)*100), 100), -100) : 0;
 
   const maxVaccinations = Math.max(...previousWeeks.slice(-8).map(w => w.change_vaccinations_avg || 0), ...previous7Days.map(v => v.change_vaccinations).map(v => v || 0), today.change_vaccinations || 0, 0);
   const maxChangeCases = Math.max(...previousWeeks.slice(-8).map(w => w.change_cases_avg || 0), ...previous7Days.map(v => v.change_cases).map(v => v || 0), data.total.change_cases || 0, 0);
@@ -137,7 +137,7 @@ function normalizeVaccine(data) {
      maxVaccinations
    },
    infection: {
-     wowActiveCases,
+     changeInCasesRate,
      maxChangeCases,
      maxActiveCases,
    }
@@ -149,7 +149,7 @@ module.exports = async function() {
   //   type: "json" // also supports "text" or "buffer"
   // });
   const fullData = JSON.parse(fs.readFileSync('_data/covid19tracker.ca/data.json', 'utf-8'));
-  const data = Object.keys(fullData).map(k => Object.assign(fullData[k], {code: k}));
+  const data = Object.keys(fullData).map(k => Object.assign(fullData[k], {code: k, iso3166: k === 'PE' ? 'PEI' : k === 'NT' ? 'NWT' : k }));
   for (const prov of data) {
     if (prov.data_status && !/reported/i.test(prov.data_status)) {
       if (prov.total?.date === new Date().toJSON().split('T')[0]) {
