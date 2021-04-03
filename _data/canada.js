@@ -28,7 +28,7 @@ function normalizeVaccine(data) {
       fatalitiesPer100k: item.total_fatalities >= 0 ? Math.round(item.total_fatalities / data.population * 100*1000) : null,
       hospitalizedPer1000k: item.total_hospitalizations >= 0 ? Math.round(item.total_hospitalizations / data.population * 1000*1000) : null,
       vaccinationsPerCapita: Math.round(((item.total_vaccinations - (item.total_vaccinated || 0))/ data.population) * 1000) / 10,
-      vaccinationsCompletePerCapita: item.total_vaccinated > 0 ? Math.round((item.total_vaccinated / data.population) * 1000) / 10 : null,
+      vaccinationsCompletePerCapita: item.total_vaccinated > 0 ? Math.round((item.total_vaccinated / data.population) * 1000) / 10 : 0,
       casesPerCapita: Math.round((item.total_cases / data.population) * 1000) / 10,
       deathsPerCase: Math.round((item.total_fatalities / item.total_cases) * 1000) / 10,
       positivityRate: item.change_tests > 0 ? Math.round(item.change_cases / item.change_tests * 1000) / 10 : null,
