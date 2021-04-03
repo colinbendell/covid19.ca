@@ -42,7 +42,7 @@ eleventyNavigation:
   </thead>
   <tbody id="vaccinationsProvinceTable">
   {% macro vaccineRow(data, type='province') %}
-    <tr class="vaccine {{ type }} {{ data.code or data.province }}"  title="Total: {{ data.total.total_vaccinations | d(0) | format }} ({{ data.total.date | readableDate }}: {{ data.total.change_vaccinations | format}}, {{ data.yesterday.date | readableDate }}: {{ data.yesterday.change_vaccinations | format }}) Population: {{ data.population | format }}">
+    <tr class="vaccine {{ type }} {{ data.code or data.province }}"  title="Total: {{ data.today.total_vaccinations | d(0) | format }} ({{ data.today.date | readableDate }}: {{ data.today.change_vaccinations | format}}, {{ data.yesterday.date | readableDate }}: {{ data.yesterday.change_vaccinations | format }}) Population: {{ data.population | format }}">
       <th class="name" title="{{ data.data_status }} @ {{ data.updated_at }}">
       {% if type === 'province' %}
         <label for="toggle-vaccine-{{ data.code }}" class="label-toggle">
@@ -51,7 +51,8 @@ eleventyNavigation:
 {#Last updated: <b>${updatedAt}</b><br>#}
 {#Update expected by: <b>${expectedTime(data.code)}</b>#}
 {#          </span>#}
-          <span style="">{{ data.name.en or data.name }}</span>
+          <span class="name long">{{ data.name.en or data.name }}</span>
+          <span class="name short">{{ data.code or data.name.en }}</span>
           <span class="province-update-status status-{{ data.data_status | lower | replace(r/\s/gi, '-') }}"></span>
         </label>
       {% else %}
@@ -72,24 +73,24 @@ eleventyNavigation:
                 {% set height = (day.change_vaccinations / data.vaccine.maxVaccinations * 100) | round %}
                 <td style="--size:calc({{ height if height > 0 else 3}}/100);"><span class="tooltip">{{ day.date | readableDate }}: {{ day.change_vaccinations | formatNumber }}</span></td>
               {%- endfor %}
-              {% set height = (data.total.change_vaccinations / data.vaccine.maxVaccinations * 100) | round %}
-              <td style="--size:calc({{ height if height > 0 else 3 }}/100);"><span class="tooltip">{{ data.total.date | readableDate }}: {{ data.total.change_vaccinations | formatNumber }}</span></td>
+              {% set height = (data.today.change_vaccinations / data.vaccine.maxVaccinations * 100) | round %}
+              <td style="--size:calc({{ height if height > 0 else 3 }}/100);"><span class="tooltip">{{ data.today.date | readableDate }}: {{ data.today.change_vaccinations | formatNumber }}</span></td>
             </tr>
             </tbody></table>
         </div>
       </td>
       <td class="dose today" data-rate="{{ data.vaccine.changeInVaccinationRate }}">{{ (data.today.change_vaccinations if data.today.change_vaccinations > 0 else data.lastWeekExclusive.change_vaccinations_avg) | formatNumber }}</td>
       <td class="supply complete {{ "bad" if data.vaccine.daysToFirstVaccinations > 15 else ( "ok" if data.vaccine.daysToFirstVaccinations > 5 else "good") }}">{{ data.vaccine.completeDate | readableDate if data.vaccine.daysToFirstVaccinations > 0 }}</td>
-      <td class="dose total" >{{ data.total.total_vaccinations | d(0) | formatNumber }}</td>
+      <td class="dose total" >{{ data.today.total_vaccinations | d(0) | formatNumber }}</td>
       <td class="dose one">
-        <div class="progressbar" role="progressbar" aria-valuenow="{{ data.today.vaccinationsPerCapita or "N/A" }}" data-value="{{ (data.total.total_vaccinations - data.total.total_vaccinated) | max(0) | formatNumber }}" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: {{ data.today.vaccinationsPerCapita}}%"></span>
-          <span class="change percent" data-value="{{ (data.today.vaccinationsPerCapita - data.yesterday.vaccinationsPerCapita) | format }}"></span>
-          <span class="change absolute" data-value="{{ (data.total.change_vaccinations - (data.total.change_vaccinated | d(0))) | format }}"></span>
+        <div class="progressbar" role="progressbar" aria-valuenow="{{ data.today.vaccinationsPerCapita or "N/A" }}" data-value="{{ data.today.total_first_vaccination | max(0) | formatNumber }}" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: {{ data.today.vaccinationsPerCapita}}%"></span>
+          <span class="change percent" data-value="{{ data.today.change_vaccinationsPerCapita | format }}"></span>
+          <span class="change absolute" data-value="{{ data.today.change_first_vaccination | format }}"></span>
         </div>
       </td>
       <td class="dose full">
-        <div class="progressbar" role="progressbar" aria-valuenow="{{ data.today.vaccinationsCompletePerCapita or "N/A" }}" data-value="{{ data.total.total_vaccinated | formatNumber }}" data-change="{{ data.total.change_vaccinated | format }}" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: {{ data.today.vaccinationsCompletePerCapita or 0 }}%"></span>
-          <span class="change percent" data-value="{{ (data.today.vaccinationsCompletePerCapita - data.yesterday.vaccinationsCompletePerCapita) | format }}"></span>
+        <div class="progressbar" role="progressbar" aria-valuenow="{{ data.today.vaccinationsCompletePerCapita or "N/A" }}" data-value="{{ data.total.total_vaccinated | formatNumber }}" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: {{ data.today.vaccinationsCompletePerCapita or 0 }}%"></span>
+          <span class="change percent" data-value="{{ data.today.change_vaccinationsCompletePerCapita | format }}"></span>
           <span class="change absolute" data-value="{{ data.total.change_vaccinated | format }}"></span>
         </div>
       </td>
@@ -150,7 +151,8 @@ eleventyNavigation:
           {#Last updated: <b>${updatedAt}</b><br>#}
           {#Update expected by: <b>${expectedTime(data.code)}</b>#}
           {#          </span>#}
-          <span style="">{{ data.name.en or data.name }}</span>
+          <span class="name long">{{ data.name.en or data.name }}</span>
+          <span class="name short">{{ data.code or data.name.en }}</span>
           <span class="province-update-status status-{{ data.data_status | lower | replace(r/\s/gi, '-') }}"></span>
         </label>
         {% else %}
@@ -177,7 +179,7 @@ eleventyNavigation:
             </tbody></table>
         </div>
       </td>
-      <td class="activecases today" data-rate="{{ data.infection.wowActiveCases }}">{{ data.total.change_cases | formatNumber }}</td>
+      <td class="activecases today" data-rate="{{ data.infection.wowActiveCases }}">{{ data.today.change_cases | formatNumber }}</td>
       <td class="activecases history">
         <div>
           <table class="charts-css column"><tbody>
@@ -193,7 +195,7 @@ eleventyNavigation:
                 <td style="--size:calc({{ height if height > 0 else 3 }}/100);" ><span class="tooltip">{{ day.date | readableDate}}: {{ day.active_cases | formatNumber }}</span></td>
               {%- endfor %}
               {% set height = (data.today.active_cases / data.infection.maxActiveCases * 100) | round %}
-              <td style="--size:calc({{ height if height > 0 else 3 }}/100);"><span class="tooltip">{{ (data.total.date or data.total.latest_date) | readableDate }}: {{ data.today.active_cases | formatNumber}}</span></td>
+              <td style="--size:calc({{ height if height > 0 else 3 }}/100);"><span class="tooltip">{{ data.today.date | readableDate }}: {{ data.today.active_cases | formatNumber}}</span></td>
             </tr>
             </tbody></table>
         </div>
@@ -207,13 +209,13 @@ eleventyNavigation:
       <td class="hospitalized per1000k">
         <div class="progressbar {{ selectColour(data.today.hospitalizedPer1000k) }}" aria-valuenow="{{ data.today.hospitalizedPer1000k or "N/A"}}" data-value="{{ data.today.total_hospitalizations | formatNumber }}" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: {{ (data.today.hospitalizedPer1000k/selectBase(data.today.hospitalizedPer1000k)*100) | min(100) }}%"></span>
           <span class="change percent" data-value="{{ data.today.change_hospitalizedPer1000k | format }}"></span>
-          <span class="change absolute" data-value="{{ data.total.change_hospitalizations | format }}"></span>
+          <span class="change absolute" data-value="{{ data.today.change_hospitalizations | format }}"></span>
         </div>
       </td>
       <td class="death per100k">
-        <div class="progressbar death" role="progressbar" aria-valuenow="{{ data.today.fatalitiesPer100k }}" data-value="{{ data.total.total_fatalities | formatNumber }}" data-change="{{ data.total.change_fatalities | format }}" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: {{ data.today.fatalitiesPer100k | min(100) }}%"></span>
+        <div class="progressbar death" role="progressbar" aria-valuenow="{{ data.today.fatalitiesPer100k }}" data-value="{{ data.today.total_fatalities | formatNumber }}" data-change="{{ data.today.change_fatalities | format }}" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: {{ data.today.fatalitiesPer100k | min(100) }}%"></span>
           <span class="change percent" data-value="{{ data.today.change_fatalitiesPer100k | format }}"></span>
-          <span class="change absolute" data-value="{{ data.total.change_fatalities | format }}"></span>
+          <span class="change absolute" data-value="{{ data.today.change_fatalities | format }}"></span>
         </div>
       </td>
       <td class="positivity">
@@ -221,8 +223,8 @@ eleventyNavigation:
           <span class="change percent" data-value="{{ (data.lastWeekInclusive.weekPositivityRate - ((data.previousWeeks | head(-2) | head(1))[0].weekPositivityRate) | d(0)) | format }}"></span>
         </div>
       </td>
-      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="{{ data.today.casesPerCapita }}" data-value="{{ data.total.total_cases | formatNumber }}" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: {{ (data.today.casesPerCapita/10*100) | d(0) | min(100) }}%"></span></div></td>
-      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="{{ data.today.deathsPerCase }}" data-value="{{ data.total.total_fatalities | formatNumber }}" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: {{ (data.today.deathsPerCase/4*100) | d(0) | min(100) }}%"></span></div></td>
+      <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="{{ data.today.casesPerCapita }}" data-value="{{ data.today.total_cases | formatNumber }}" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: {{ (data.today.casesPerCapita/10*100) | d(0) | min(100) }}%"></span></div></td>
+      <td class="infected death"><div class="progressbar death" role="progressbar" aria-valuenow="{{ data.today.deathsPerCase }}" data-value="{{ data.today.total_fatalities | formatNumber }}" aria-labelledby="provinceID tableHeaderID"><span class="value" aria-hidden="true" style="width: {{ (data.today.deathsPerCase/4*100) | d(0) | min(100) }}%"></span></div></td>
     </tr>
   {%  endmacro %}
 
