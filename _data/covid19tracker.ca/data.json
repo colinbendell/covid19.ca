@@ -1024,10 +1024,440 @@
       },
       {
         "name": {"en": "Calgary Zone", "fr": "Calgary Zone"},
+        "daily": [
+          {
+            "date": "2020-12-10", "change_cases": 371, "change_criticals": 4, "change_fatalities": 5, "change_hospitalizations": -1, "change_recoveries": 552, "total_cases": 29865,
+            "total_criticals": 40, "total_fatalities": 224, "total_hospitalizations": 201, "total_recoveries": 22337
+          },
+          {
+            "date": "2020-12-11", "change_cases": 497, "change_criticals": -3, "change_fatalities": 5, "change_hospitalizations": -6, "change_recoveries": 630, "total_cases": 30362,
+            "total_criticals": 37, "total_fatalities": 229, "total_hospitalizations": 195, "total_recoveries": 22967
+          },
+          {
+            "date": "2020-12-12", "change_cases": 563, "change_criticals": -4, "change_fatalities": 2, "change_hospitalizations": -6, "change_recoveries": 600, "total_cases": 30925,
+            "total_criticals": 33, "total_fatalities": 231, "total_hospitalizations": 189, "total_recoveries": 23567
+          },
+          {
+            "date": "2020-12-13", "change_cases": 619, "change_criticals": 3, "change_fatalities": 3, "change_hospitalizations": -4, "change_recoveries": 475, "total_cases": 31544,
+            "total_criticals": 36, "total_fatalities": 234, "total_hospitalizations": 185, "total_recoveries": 24042
+          },
+          {
+            "date": "2020-12-14", "change_cases": 622, "change_criticals": 1, "change_fatalities": 6, "change_hospitalizations": 8, "change_recoveries": 475, "total_cases": 32166, "total_criticals": 37,
+            "total_fatalities": 240, "total_hospitalizations": 193, "total_recoveries": 24517
+          },
+          {
+            "date": "2020-12-15", "change_cases": 502, "change_criticals": -2, "change_fatalities": 0, "change_hospitalizations": 10, "change_recoveries": 580, "total_cases": 32668,
+            "total_criticals": 35, "total_fatalities": 240, "total_hospitalizations": 203, "total_recoveries": 25097
+          },
+          {
+            "date": "2020-12-16", "change_cases": 452, "change_criticals": 4, "change_fatalities": 4, "change_hospitalizations": 6, "change_recoveries": 657, "total_cases": 33120, "total_criticals": 39,
+            "total_fatalities": 244, "total_hospitalizations": 209, "total_recoveries": 25754
+          },
+          {
+            "date": "2020-12-17", "change_cases": 552, "change_criticals": 1, "change_fatalities": 12, "change_hospitalizations": 20, "change_recoveries": 619, "total_cases": 33672,
+            "total_criticals": 40, "total_fatalities": 256, "total_hospitalizations": 229, "total_recoveries": 26373
+          },
+          {
+            "date": "2020-12-18", "change_cases": 546, "change_criticals": 2, "change_fatalities": 11, "change_hospitalizations": -8, "change_recoveries": 607, "total_cases": 34218,
+            "total_criticals": 42, "total_fatalities": 267, "total_hospitalizations": 221, "total_recoveries": 26980
+          },
+          {
+            "date": "2020-12-19", "change_cases": 539, "change_criticals": 0, "change_fatalities": 6, "change_hospitalizations": 6, "change_recoveries": 561, "total_cases": 34757, "total_criticals": 42,
+            "total_fatalities": 273, "total_hospitalizations": 227, "total_recoveries": 27541
+          },
+          {
+            "date": "2020-12-20", "change_cases": 444, "change_criticals": 1, "change_fatalities": 1, "change_hospitalizations": -7, "change_recoveries": 533, "total_cases": 35201,
+            "total_criticals": 43, "total_fatalities": 274, "total_hospitalizations": 220, "total_recoveries": 28074
+          },
+          {
+            "date": "2020-12-21", "change_cases": 448, "change_criticals": 3, "change_fatalities": 1, "change_hospitalizations": 4, "change_recoveries": 552, "total_cases": 35649, "total_criticals": 46,
+            "total_fatalities": 275, "total_hospitalizations": 224, "total_recoveries": 28626
+          },
+          {
+            "date": "2020-12-22", "change_cases": 49, "change_criticals": 3, "change_fatalities": 2, "change_hospitalizations": -9, "change_recoveries": 530, "total_cases": 35698, "total_criticals": 49,
+            "total_fatalities": 277, "total_hospitalizations": 215, "total_recoveries": 29156
+          },
+          {
+            "date": "2020-12-23", "change_cases": 777, "change_criticals": -2, "change_fatalities": 6, "change_hospitalizations": -1, "change_recoveries": 566, "total_cases": 36475,
+            "total_criticals": 47, "total_fatalities": 283, "total_hospitalizations": 214, "total_recoveries": 29722
+          },
+          {"date": "2020-12-24", "total_cases": 36475, "total_criticals": 47, "total_fatalities": 283, "total_hospitalizations": 214, "total_recoveries": 29722},
+          {"date": "2020-12-25", "total_cases": 36475, "total_criticals": 47, "total_fatalities": 283, "total_hospitalizations": 214, "total_recoveries": 29722},
+          {"date": "2020-12-26", "total_cases": 36475, "total_criticals": 47, "total_fatalities": 283, "total_hospitalizations": 214, "total_recoveries": 29722},
+          {"date": "2020-12-27", "total_cases": 36475, "total_criticals": 47, "total_fatalities": 283, "total_hospitalizations": 214, "total_recoveries": 29722},
+          {
+            "date": "2020-12-28", "change_cases": 1419, "change_criticals": 3, "change_fatalities": 30, "change_hospitalizations": 19, "change_recoveries": 2430, "total_cases": 37894,
+            "total_criticals": 50, "total_fatalities": 313, "total_hospitalizations": 233, "total_recoveries": 32152
+          },
+          {
+            "date": "2020-12-29", "change_cases": 317, "change_criticals": 1, "change_fatalities": 10, "change_hospitalizations": -1, "change_recoveries": 492, "total_cases": 38211,
+            "total_criticals": 51, "total_fatalities": 323, "total_hospitalizations": 232, "total_recoveries": 32644
+          },
+          {
+            "date": "2020-12-30", "change_cases": 399, "change_criticals": -1, "change_fatalities": 6, "change_hospitalizations": 10, "change_recoveries": 508, "total_cases": 38610,
+            "total_criticals": 50, "total_fatalities": 329, "total_hospitalizations": 242, "total_recoveries": 33152
+          },
+          {"date": "2020-12-31", "total_cases": 38610, "total_criticals": 50, "total_fatalities": 329, "total_hospitalizations": 242, "total_recoveries": 33152},
+          {"date": "2021-01-01", "total_cases": 38610, "total_criticals": 50, "total_fatalities": 329, "total_hospitalizations": 242, "total_recoveries": 33152},
+          {"date": "2021-01-02", "total_cases": 38610, "total_criticals": 50, "total_fatalities": 329, "total_hospitalizations": 242, "total_recoveries": 33152},
+          {"date": "2021-01-03", "total_cases": 38610, "total_criticals": 50, "total_fatalities": 329, "total_hospitalizations": 242, "total_recoveries": 33152},
+          {
+            "date": "2021-01-04", "change_cases": 1769, "change_criticals": 19, "change_fatalities": 28, "change_hospitalizations": 246, "change_recoveries": 5570, "total_cases": 40379,
+            "total_criticals": 69, "total_fatalities": 357, "total_hospitalizations": 488, "total_recoveries": 38722
+          },
+          {
+            "date": "2021-01-05", "change_cases": 291, "change_criticals": -20, "change_fatalities": 11, "change_hospitalizations": -245, "change_recoveries": -2965, "total_cases": 40670,
+            "total_criticals": 49, "total_fatalities": 368, "total_hospitalizations": 243, "total_recoveries": 35757
+          },
+          {
+            "date": "2021-01-06", "change_cases": 424, "change_criticals": 1, "change_fatalities": 7, "change_hospitalizations": 11, "change_recoveries": 256, "total_cases": 41094,
+            "total_criticals": 50, "total_fatalities": 375, "total_hospitalizations": 254, "total_recoveries": 36013
+          },
+          {
+            "date": "2021-01-07", "change_cases": 406, "change_criticals": -2, "change_fatalities": 9, "change_hospitalizations": -13, "change_recoveries": 364, "total_cases": 41500,
+            "total_criticals": 48, "total_fatalities": 384, "total_hospitalizations": 241, "total_recoveries": 36377
+          },
+          {
+            "date": "2021-01-08", "change_cases": 405, "change_criticals": -1, "change_fatalities": 9, "change_hospitalizations": -4, "change_recoveries": 296, "total_cases": 41905,
+            "total_criticals": 47, "total_fatalities": 393, "total_hospitalizations": 237, "total_recoveries": 36673
+          },
+          {
+            "date": "2021-01-09", "change_cases": 373, "change_criticals": -3, "change_fatalities": 11, "change_hospitalizations": -16, "change_recoveries": 62, "total_cases": 42278,
+            "total_criticals": 44, "total_fatalities": 404, "total_hospitalizations": 221, "total_recoveries": 36735
+          },
+          {
+            "date": "2021-01-10", "change_cases": 336, "change_criticals": -1, "change_fatalities": 3, "change_hospitalizations": -10, "change_recoveries": 453, "total_cases": 42614,
+            "total_criticals": 43, "total_fatalities": 407, "total_hospitalizations": 211, "total_recoveries": 37188
+          },
+          {
+            "date": "2021-01-11", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "total_cases": 42614, "total_criticals": 43,
+            "total_fatalities": 407, "total_hospitalizations": 211, "total_recoveries": 37188
+          },
+          {
+            "date": "2021-01-12", "change_cases": 526, "change_criticals": -2, "change_fatalities": 18, "change_hospitalizations": 0, "change_recoveries": 749, "total_cases": 43140,
+            "total_criticals": 41, "total_fatalities": 425, "total_hospitalizations": 211, "total_recoveries": 37937
+          },
+          {
+            "date": "2021-01-13", "change_cases": 366, "change_criticals": 2, "change_fatalities": 11, "change_hospitalizations": 7, "change_recoveries": 381, "total_cases": 43506,
+            "total_criticals": 43, "total_fatalities": 436, "total_hospitalizations": 218, "total_recoveries": 38318
+          },
+          {
+            "date": "2021-01-14", "change_cases": 379, "change_criticals": 3, "change_fatalities": 4, "change_hospitalizations": 2, "change_recoveries": 436, "total_cases": 43885, "total_criticals": 46,
+            "total_fatalities": 440, "total_hospitalizations": 220, "total_recoveries": 38754
+          },
+          {
+            "date": "2021-01-15", "change_cases": 249, "change_criticals": -2, "change_fatalities": 6, "change_hospitalizations": -3, "change_recoveries": 277, "total_cases": 44134,
+            "total_criticals": 44, "total_fatalities": 446, "total_hospitalizations": 217, "total_recoveries": 39031
+          },
+          {
+            "date": "2021-01-16", "change_cases": 266, "change_criticals": 2, "change_fatalities": 5, "change_hospitalizations": -4, "change_recoveries": 55, "total_cases": 44400, "total_criticals": 46,
+            "total_fatalities": 451, "total_hospitalizations": 213, "total_recoveries": 39086
+          },
+          {
+            "date": "2021-01-17", "change_cases": 262, "change_criticals": 0, "change_fatalities": 7, "change_hospitalizations": -7, "change_recoveries": 508, "total_cases": 44662,
+            "total_criticals": 46, "total_fatalities": 458, "total_hospitalizations": 206, "total_recoveries": 39594
+          },
+          {
+            "date": "2021-01-18", "change_cases": 185, "change_criticals": 3, "change_fatalities": 5, "change_hospitalizations": 6, "change_recoveries": 327, "total_cases": 44847, "total_criticals": 49,
+            "total_fatalities": 463, "total_hospitalizations": 212, "total_recoveries": 39921
+          },
+          {
+            "date": "2021-01-19", "change_cases": 238, "change_criticals": 1, "change_fatalities": 7, "change_hospitalizations": 2, "change_recoveries": 445, "total_cases": 45085, "total_criticals": 50,
+            "total_fatalities": 470, "total_hospitalizations": 214, "total_recoveries": 40366
+          },
+          {
+            "date": "2021-01-20", "change_cases": 255, "change_criticals": 4, "change_fatalities": 7, "change_hospitalizations": 3, "change_recoveries": 401, "total_cases": 45340, "total_criticals": 54,
+            "total_fatalities": 477, "total_hospitalizations": 217, "total_recoveries": 40767
+          },
+          {
+            "date": "2021-01-21", "change_cases": 221, "change_criticals": -1, "change_fatalities": 4, "change_hospitalizations": -1, "change_recoveries": 351, "total_cases": 45561,
+            "total_criticals": 53, "total_fatalities": 481, "total_hospitalizations": 216, "total_recoveries": 41118
+          },
+          {
+            "date": "2021-01-22", "change_cases": 274, "change_criticals": -3, "change_fatalities": 3, "change_hospitalizations": -3, "change_recoveries": 394, "total_cases": 45835,
+            "total_criticals": 50, "total_fatalities": 484, "total_hospitalizations": 213, "total_recoveries": 41512
+          },
+          {
+            "date": "2021-01-23", "change_cases": 273, "change_criticals": -1, "change_fatalities": 3, "change_hospitalizations": -7, "change_recoveries": 323, "total_cases": 46108,
+            "total_criticals": 49, "total_fatalities": 487, "total_hospitalizations": 206, "total_recoveries": 41835
+          },
+          {
+            "date": "2021-01-24", "change_cases": 165, "change_criticals": -1, "change_fatalities": 2, "change_hospitalizations": 3, "change_recoveries": 296, "total_cases": 46273,
+            "total_criticals": 48, "total_fatalities": 489, "total_hospitalizations": 209, "total_recoveries": 42131
+          },
+          {
+            "date": "2021-01-25", "change_cases": 279, "change_criticals": 2, "change_fatalities": 6, "change_hospitalizations": -6, "change_recoveries": 338, "total_cases": 46552,
+            "total_criticals": 50, "total_fatalities": 495, "total_hospitalizations": 203, "total_recoveries": 42469
+          },
+          {
+            "date": "2021-01-26", "change_cases": 173, "change_criticals": -3, "change_fatalities": 4, "change_hospitalizations": -5, "change_recoveries": 388, "total_cases": 46725,
+            "total_criticals": 47, "total_fatalities": 499, "total_hospitalizations": 198, "total_recoveries": 42857
+          },
+          {
+            "date": "2021-01-27", "change_cases": 181, "change_criticals": 2, "change_fatalities": 2, "change_hospitalizations": -5, "change_recoveries": 296, "total_cases": 46906,
+            "total_criticals": 49, "total_fatalities": 501, "total_hospitalizations": 193, "total_recoveries": 43153
+          },
+          {
+            "date": "2021-01-28", "change_cases": 191, "change_criticals": -3, "change_fatalities": 3, "change_hospitalizations": -2, "change_recoveries": 238, "total_cases": 47097,
+            "total_criticals": 46, "total_fatalities": 504, "total_hospitalizations": 191, "total_recoveries": 43391
+          },
+          {
+            "date": "2021-01-29", "change_cases": 223, "change_criticals": 2, "change_fatalities": 1, "change_hospitalizations": 8, "change_recoveries": 286, "total_cases": 47320, "total_criticals": 48,
+            "total_fatalities": 505, "total_hospitalizations": 199, "total_recoveries": 43677
+          },
+          {
+            "date": "2021-01-30", "change_cases": 174, "change_criticals": -4, "change_fatalities": 2, "change_hospitalizations": -1, "change_recoveries": 247, "total_cases": 47494,
+            "total_criticals": 44, "total_fatalities": 507, "total_hospitalizations": 198, "total_recoveries": 43924
+          },
+          {
+            "date": "2021-01-31", "change_cases": 180, "change_criticals": 0, "change_fatalities": 4, "change_hospitalizations": -11, "change_recoveries": 213, "total_cases": 47674,
+            "total_criticals": 44, "total_fatalities": 511, "total_hospitalizations": 187, "total_recoveries": 44137
+          },
+          {
+            "date": "2021-02-01", "change_cases": 128, "change_criticals": 0, "change_fatalities": 4, "change_hospitalizations": 0, "change_recoveries": 200, "total_cases": 47802, "total_criticals": 44,
+            "total_fatalities": 515, "total_hospitalizations": 187, "total_recoveries": 44337
+          },
+          {
+            "date": "2021-02-02", "change_cases": 125, "change_criticals": -4, "change_fatalities": 4, "change_hospitalizations": -2, "change_recoveries": 266, "total_cases": 47927,
+            "total_criticals": 40, "total_fatalities": 519, "total_hospitalizations": 185, "total_recoveries": 44603
+          },
+          {
+            "date": "2021-02-03", "change_cases": 143, "change_criticals": -1, "change_fatalities": 2, "change_hospitalizations": -8, "change_recoveries": 229, "total_cases": 48070,
+            "total_criticals": 39, "total_fatalities": 521, "total_hospitalizations": 177, "total_recoveries": 44832
+          },
+          {
+            "date": "2021-02-04", "change_cases": 242, "change_criticals": -1, "change_fatalities": 5, "change_hospitalizations": -8, "change_recoveries": 244, "total_cases": 48312,
+            "total_criticals": 38, "total_fatalities": 526, "total_hospitalizations": 169, "total_recoveries": 45076
+          },
+          {
+            "date": "2021-02-05", "change_cases": 158, "change_criticals": -2, "change_fatalities": 2, "change_hospitalizations": -7, "change_recoveries": 268, "total_cases": 48470,
+            "total_criticals": 36, "total_fatalities": 528, "total_hospitalizations": 162, "total_recoveries": 45344
+          },
+          {
+            "date": "2021-02-06", "change_cases": 143, "change_criticals": -3, "change_fatalities": 4, "change_hospitalizations": -6, "change_recoveries": 176, "total_cases": 48613,
+            "total_criticals": 33, "total_fatalities": 532, "total_hospitalizations": 156, "total_recoveries": 45520
+          },
+          {
+            "date": "2021-02-07", "change_cases": 115, "change_criticals": 1, "change_fatalities": 1, "change_hospitalizations": -3, "change_recoveries": 167, "total_cases": 48728,
+            "total_criticals": 34, "total_fatalities": 533, "total_hospitalizations": 153, "total_recoveries": 45687
+          },
+          {
+            "date": "2021-02-08", "change_cases": 108, "change_criticals": -2, "change_fatalities": -1, "change_hospitalizations": 1, "change_recoveries": 154, "total_cases": 48836,
+            "total_criticals": 32, "total_fatalities": 532, "total_hospitalizations": 154, "total_recoveries": 45841
+          },
+          {
+            "date": "2021-02-09", "change_cases": 85, "change_criticals": 2, "change_fatalities": 4, "change_hospitalizations": -2, "change_recoveries": 209, "total_cases": 48921, "total_criticals": 34,
+            "total_fatalities": 536, "total_hospitalizations": 152, "total_recoveries": 46050
+          },
+          {
+            "date": "2021-02-10", "change_cases": 121, "change_criticals": -1, "change_fatalities": 2, "change_hospitalizations": 0, "change_recoveries": 185, "total_cases": 49042,
+            "total_criticals": 33, "total_fatalities": 538, "total_hospitalizations": 152, "total_recoveries": 46235
+          },
+          {
+            "date": "2021-02-11", "change_cases": 139, "change_criticals": -3, "change_fatalities": 4, "change_hospitalizations": -4, "change_recoveries": 202, "total_cases": 49181,
+            "total_criticals": 30, "total_fatalities": 542, "total_hospitalizations": 148, "total_recoveries": 46437
+          },
+          {
+            "date": "2021-02-12", "change_cases": 115, "change_criticals": -3, "change_fatalities": 4, "change_hospitalizations": -6, "change_recoveries": 188, "total_cases": 49296,
+            "total_criticals": 27, "total_fatalities": 546, "total_hospitalizations": 142, "total_recoveries": 46625
+          },
+          {
+            "date": "2021-02-13", "change_cases": 109, "change_criticals": -3, "change_fatalities": 6, "change_hospitalizations": -12, "change_recoveries": 173, "total_cases": 49405,
+            "total_criticals": 24, "total_fatalities": 552, "total_hospitalizations": 130, "total_recoveries": 46798
+          },
+          {
+            "date": "2021-02-14", "change_cases": 103, "change_criticals": 1, "change_fatalities": 1, "change_hospitalizations": -1, "change_recoveries": 135, "total_cases": 49508,
+            "total_criticals": 25, "total_fatalities": 553, "total_hospitalizations": 129, "total_recoveries": 46933
+          },
+          {
+            "date": "2021-02-15", "change_cases": 91, "change_criticals": -1, "change_fatalities": 1, "change_hospitalizations": -1, "change_recoveries": 123, "total_cases": 49599,
+            "total_criticals": 24, "total_fatalities": 554, "total_hospitalizations": 128, "total_recoveries": 47056
+          },
+          {
+            "date": "2021-02-16", "change_cases": 89, "change_criticals": -1, "change_fatalities": 2, "change_hospitalizations": 2, "change_recoveries": 189, "total_cases": 49688, "total_criticals": 23,
+            "total_fatalities": 556, "total_hospitalizations": 130, "total_recoveries": 47245
+          },
+          {
+            "date": "2021-02-17", "change_cases": 103, "change_criticals": 4, "change_fatalities": 2, "change_hospitalizations": 6, "change_recoveries": 165, "total_cases": 49791, "total_criticals": 27,
+            "total_fatalities": 558, "total_hospitalizations": 136, "total_recoveries": 47410
+          },
+          {
+            "date": "2021-02-18", "change_cases": 95, "change_criticals": -2, "change_fatalities": 0, "change_hospitalizations": -6, "change_recoveries": 184, "total_cases": 49886,
+            "total_criticals": 25, "total_fatalities": 558, "total_hospitalizations": 130, "total_recoveries": 47594
+          },
+          {
+            "date": "2021-02-19", "change_cases": 98, "change_criticals": -2, "change_fatalities": 0, "change_hospitalizations": -6, "change_recoveries": 130, "total_cases": 49984,
+            "total_criticals": 23, "total_fatalities": 558, "total_hospitalizations": 124, "total_recoveries": 47724
+          },
+          {
+            "date": "2021-02-20", "change_cases": 142, "change_criticals": -3, "change_fatalities": 4, "change_hospitalizations": -4, "change_recoveries": 136, "total_cases": 50126,
+            "total_criticals": 20, "total_fatalities": 562, "total_hospitalizations": 120, "total_recoveries": 47860
+          },
+          {
+            "date": "2021-02-21", "change_cases": 130, "change_criticals": -2, "change_fatalities": 4, "change_hospitalizations": -5, "change_recoveries": 161, "total_cases": 50256,
+            "total_criticals": 18, "total_fatalities": 566, "total_hospitalizations": 115, "total_recoveries": 48021
+          },
+          {
+            "date": "2021-02-22", "change_cases": 144, "change_criticals": -1, "change_fatalities": 3, "change_hospitalizations": 3, "change_recoveries": 145, "total_cases": 50400,
+            "total_criticals": 17, "total_fatalities": 569, "total_hospitalizations": 118, "total_recoveries": 48166
+          },
+          {
+            "date": "2021-02-23", "change_cases": 100, "change_criticals": -1, "change_fatalities": 2, "change_hospitalizations": 5, "change_recoveries": 151, "total_cases": 50500,
+            "total_criticals": 16, "total_fatalities": 571, "total_hospitalizations": 123, "total_recoveries": 48317
+          },
+          {
+            "date": "2021-02-24", "change_cases": 121, "change_criticals": 1, "change_fatalities": 4, "change_hospitalizations": -9, "change_recoveries": 165, "total_cases": 50621,
+            "total_criticals": 17, "total_fatalities": 575, "total_hospitalizations": 114, "total_recoveries": 48482
+          },
+          {
+            "date": "2021-02-25", "change_cases": 103, "change_criticals": -2, "change_fatalities": 2, "change_hospitalizations": -14, "change_recoveries": 155, "total_cases": 50724,
+            "total_criticals": 15, "total_fatalities": 577, "total_hospitalizations": 100, "total_recoveries": 48637
+          },
+          {
+            "date": "2021-02-26", "change_cases": 120, "change_criticals": -2, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 107, "total_cases": 50844,
+            "total_criticals": 13, "total_fatalities": 577, "total_hospitalizations": 100, "total_recoveries": 48744
+          },
+          {
+            "date": "2021-02-27", "change_cases": 146, "change_criticals": 0, "change_fatalities": 2, "change_hospitalizations": -4, "change_recoveries": 122, "total_cases": 50990,
+            "total_criticals": 13, "total_fatalities": 579, "total_hospitalizations": 96, "total_recoveries": 48866
+          },
+          {
+            "date": "2021-02-28", "change_cases": 108, "change_criticals": -1, "change_fatalities": 1, "change_hospitalizations": 0, "change_recoveries": 101, "total_cases": 51098,
+            "total_criticals": 12, "total_fatalities": 580, "total_hospitalizations": 96, "total_recoveries": 48967
+          },
+          {
+            "date": "2021-03-01", "change_cases": 91, "change_criticals": 2, "change_fatalities": 1, "change_hospitalizations": 6, "change_recoveries": 79, "total_cases": 51189, "total_criticals": 14,
+            "total_fatalities": 581, "total_hospitalizations": 102, "total_recoveries": 49046
+          },
+          {
+            "date": "2021-03-02", "change_cases": 107, "change_criticals": 3, "change_fatalities": 0, "change_hospitalizations": -4, "change_recoveries": 109, "total_cases": 51296,
+            "total_criticals": 17, "total_fatalities": 581, "total_hospitalizations": 98, "total_recoveries": 49155
+          },
+          {
+            "date": "2021-03-03", "change_cases": 150, "change_criticals": -2, "change_fatalities": 6, "change_hospitalizations": -8, "change_recoveries": 82, "total_cases": 51446,
+            "total_criticals": 15, "total_fatalities": 587, "total_hospitalizations": 90, "total_recoveries": 49237
+          },
+          {
+            "date": "2021-03-04", "change_cases": 131, "change_criticals": -1, "change_fatalities": 3, "change_hospitalizations": -8, "change_recoveries": 105, "total_cases": 51577,
+            "total_criticals": 14, "total_fatalities": 590, "total_hospitalizations": 82, "total_recoveries": 49342
+          },
+          {
+            "date": "2021-03-05", "change_cases": 145, "change_criticals": 0, "change_fatalities": 1, "change_hospitalizations": -5, "change_recoveries": 135, "total_cases": 51722,
+            "total_criticals": 14, "total_fatalities": 591, "total_hospitalizations": 77, "total_recoveries": 49477
+          },
+          {
+            "date": "2021-03-06", "change_cases": 120, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 4, "change_recoveries": 115, "total_cases": 51842, "total_criticals": 14,
+            "total_fatalities": 591, "total_hospitalizations": 81, "total_recoveries": 49592
+          },
+          {"date": "2021-03-07", "total_cases": 51842, "total_criticals": 14, "total_fatalities": 591, "total_hospitalizations": 81, "total_recoveries": 49592},
+          {
+            "date": "2021-03-08", "change_cases": 193, "change_criticals": -2, "change_fatalities": 1, "change_hospitalizations": 5, "change_recoveries": 243, "total_cases": 52035,
+            "total_criticals": 12, "total_fatalities": 592, "total_hospitalizations": 86, "total_recoveries": 49835
+          },
+          {
+            "date": "2021-03-09", "change_cases": 94, "change_criticals": 1, "change_fatalities": 1, "change_hospitalizations": 3, "change_recoveries": 107, "total_cases": 52129, "total_criticals": 13,
+            "total_fatalities": 593, "total_hospitalizations": 89, "total_recoveries": 49942
+          },
+          {
+            "date": "2021-03-10", "change_cases": 143, "change_criticals": 0, "change_fatalities": 1, "change_hospitalizations": 1, "change_recoveries": 113, "total_cases": 52272, "total_criticals": 13,
+            "total_fatalities": 594, "total_hospitalizations": 90, "total_recoveries": 50055
+          },
+          {
+            "date": "2021-03-11", "change_cases": 135, "change_criticals": 2, "change_fatalities": 0, "change_hospitalizations": 3, "change_recoveries": 104, "total_cases": 52407, "total_criticals": 15,
+            "total_fatalities": 594, "total_hospitalizations": 93, "total_recoveries": 50159
+          },
+          {
+            "date": "2021-03-12", "change_cases": 157, "change_criticals": 1, "change_fatalities": 1, "change_hospitalizations": -5, "change_recoveries": 149, "total_cases": 52564,
+            "total_criticals": 16, "total_fatalities": 595, "total_hospitalizations": 88, "total_recoveries": 50308
+          },
+          {
+            "date": "2021-03-13", "change_cases": 180, "change_criticals": -2, "change_fatalities": 0, "change_hospitalizations": -6, "change_recoveries": 146, "total_cases": 52744,
+            "total_criticals": 14, "total_fatalities": 595, "total_hospitalizations": 82, "total_recoveries": 50454
+          },
+          {
+            "date": "2021-03-14", "change_cases": 148, "change_criticals": 3, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 105, "total_cases": 52892, "total_criticals": 17,
+            "total_fatalities": 595, "total_hospitalizations": 82, "total_recoveries": 50559
+          },
+          {
+            "date": "2021-03-15", "change_cases": 136, "change_criticals": 2, "change_fatalities": 1, "change_hospitalizations": 4, "change_recoveries": 94, "total_cases": 53028, "total_criticals": 19,
+            "total_fatalities": 596, "total_hospitalizations": 86, "total_recoveries": 50653
+          },
+          {
+            "date": "2021-03-16", "change_cases": 175, "change_criticals": 0, "change_fatalities": 1, "change_hospitalizations": 4, "change_recoveries": 129, "total_cases": 53203, "total_criticals": 19,
+            "total_fatalities": 597, "total_hospitalizations": 90, "total_recoveries": 50782
+          },
+          {
+            "date": "2021-03-17", "change_cases": 198, "change_criticals": -3, "change_fatalities": 2, "change_hospitalizations": -1, "change_recoveries": 133, "total_cases": 53401,
+            "total_criticals": 16, "total_fatalities": 599, "total_hospitalizations": 89, "total_recoveries": 50915
+          },
+          {
+            "date": "2021-03-18", "change_cases": 220, "change_criticals": -1, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 135, "total_cases": 53621,
+            "total_criticals": 15, "total_fatalities": 599, "total_hospitalizations": 90, "total_recoveries": 51050
+          },
+          {
+            "date": "2021-03-19", "change_cases": 307, "change_criticals": 3, "change_fatalities": 0, "change_hospitalizations": 3, "change_recoveries": 107, "total_cases": 53928, "total_criticals": 18,
+            "total_fatalities": 599, "total_hospitalizations": 93, "total_recoveries": 51157
+          },
+          {
+            "date": "2021-03-20", "change_cases": 238, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 3, "change_recoveries": 114, "total_cases": 54166, "total_criticals": 18,
+            "total_fatalities": 599, "total_hospitalizations": 96, "total_recoveries": 51271
+          },
+          {
+            "date": "2021-03-21", "change_cases": 243, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -1, "change_recoveries": 74, "total_cases": 54409, "total_criticals": 18,
+            "total_fatalities": 599, "total_hospitalizations": 95, "total_recoveries": 51345
+          },
+          {
+            "date": "2021-03-22", "change_cases": 241, "change_criticals": 1, "change_fatalities": 1, "change_hospitalizations": 3, "change_recoveries": 107, "total_cases": 54650, "total_criticals": 19,
+            "total_fatalities": 600, "total_hospitalizations": 98, "total_recoveries": 51452
+          },
+          {
+            "date": "2021-03-23", "change_cases": 256, "change_criticals": 2, "change_fatalities": 0, "change_hospitalizations": 9, "change_recoveries": 130, "total_cases": 54906, "total_criticals": 21,
+            "total_fatalities": 600, "total_hospitalizations": 107, "total_recoveries": 51582
+          },
+          {
+            "date": "2021-03-24", "change_cases": 318, "change_criticals": 0, "change_fatalities": 1, "change_hospitalizations": -6, "change_recoveries": 131, "total_cases": 55224,
+            "total_criticals": 21, "total_fatalities": 601, "total_hospitalizations": 101, "total_recoveries": 51713
+          },
+          {
+            "date": "2021-03-25", "change_cases": 347, "change_criticals": -1, "change_fatalities": 0, "change_hospitalizations": 5, "change_recoveries": 158, "total_cases": 55571,
+            "total_criticals": 20, "total_fatalities": 601, "total_hospitalizations": 106, "total_recoveries": 51871
+          },
+          {
+            "date": "2021-03-26", "change_cases": 345, "change_criticals": 2, "change_fatalities": 1, "change_hospitalizations": -6, "change_recoveries": 197, "total_cases": 55916,
+            "total_criticals": 22, "total_fatalities": 602, "total_hospitalizations": 100, "total_recoveries": 52068
+          },
+          {
+            "date": "2021-03-27", "change_cases": 314, "change_criticals": 3, "change_fatalities": 0, "change_hospitalizations": 3, "change_recoveries": 153, "total_cases": 56230, "total_criticals": 25,
+            "total_fatalities": 602, "total_hospitalizations": 103, "total_recoveries": 52221
+          },
+          {
+            "date": "2021-03-28", "change_cases": 284, "change_criticals": 2, "change_fatalities": 1, "change_hospitalizations": -1, "change_recoveries": 125, "total_cases": 56514,
+            "total_criticals": 27, "total_fatalities": 603, "total_hospitalizations": 102, "total_recoveries": 52346
+          },
+          {
+            "date": "2021-03-29", "change_cases": 294, "change_criticals": 3, "change_fatalities": 0, "change_hospitalizations": 7, "change_recoveries": 133, "total_cases": 56808, "total_criticals": 30,
+            "total_fatalities": 603, "total_hospitalizations": 109, "total_recoveries": 52479
+          },
+          {
+            "date": "2021-03-30", "change_cases": 269, "change_criticals": -2, "change_fatalities": 1, "change_hospitalizations": 4, "change_recoveries": 222, "total_cases": 57077,
+            "total_criticals": 28, "total_fatalities": 604, "total_hospitalizations": 113, "total_recoveries": 52701
+          },
+          {
+            "date": "2021-03-31", "change_cases": 363, "change_criticals": 3, "change_fatalities": 0, "change_hospitalizations": -1, "change_recoveries": 212, "total_cases": 57440,
+            "total_criticals": 31, "total_fatalities": 604, "total_hospitalizations": 112, "total_recoveries": 52913
+          },
+          {
+            "date": "2021-04-01", "change_cases": 398, "change_criticals": -3, "change_fatalities": 1, "change_hospitalizations": 0, "change_recoveries": 262, "total_cases": 57838,
+            "total_criticals": 28, "total_fatalities": 605, "total_hospitalizations": 112, "total_recoveries": 53175
+          },
+          {"date": "2021-04-02", "total_cases": 57838, "total_criticals": 28, "total_fatalities": 605, "total_hospitalizations": 112, "total_recoveries": 53175},
+          {"date": "2021-04-03", "total_cases": 57838, "total_criticals": 28, "total_fatalities": 605, "total_hospitalizations": 112, "total_recoveries": 53175}
+        ],
         "id": 4832,
         "population": 1551876,
         "province": "AB",
-        "total": {"date": "2021-04-03", "total_cases": 57838, "total_criticals": 28, "total_fatalities": 605, "total_hospitalizations": 112, "total_recoveries": 53175}
+        "total": {"date": "2021-04-03", "total_cases": 57838, "total_criticals": 28, "total_fatalities": 605, "total_hospitalizations": 112, "total_recoveries": 53175},
+        "updated_at": "2021-04-03T15:20:06.000Z"
       },
       {
         "name": {"en": "Central Zone", "fr": "Central Zone"},
@@ -6953,23 +7383,861 @@
       },
       {
         "name": {"en": "Prairie Mountain Health", "fr": "Santé de Prairie Mountain"},
+        "daily": [
+          {
+            "date": "2020-12-10", "change_cases": 12, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -1, "change_recoveries": 13, "total_cases": 1213, "total_criticals": 0,
+            "total_fatalities": 24, "total_hospitalizations": 5, "total_recoveries": 996
+          },
+          {
+            "date": "2020-12-11", "change_cases": 35, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 6, "total_cases": 1248, "total_criticals": 0,
+            "total_fatalities": 24, "total_hospitalizations": 6, "total_recoveries": 1002
+          },
+          {"date": "2020-12-12", "total_cases": 1248, "total_criticals": 0, "total_fatalities": 24, "total_hospitalizations": 6, "total_recoveries": 1002},
+          {"date": "2020-12-13", "change_cases": 41, "change_fatalities": 0, "total_cases": 1289, "total_criticals": 0, "total_fatalities": 24, "total_hospitalizations": 6, "total_recoveries": 1002},
+          {
+            "date": "2020-12-14", "change_cases": 12, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -5, "change_recoveries": 22, "total_cases": 1301, "total_criticals": 0,
+            "total_fatalities": 24, "total_hospitalizations": 1, "total_recoveries": 1024
+          },
+          {
+            "date": "2020-12-15", "change_cases": 49, "change_criticals": 2, "change_fatalities": 1, "change_hospitalizations": 5, "change_recoveries": 11, "total_cases": 1350, "total_criticals": 2,
+            "total_fatalities": 25, "total_hospitalizations": 6, "total_recoveries": 1035
+          },
+          {
+            "date": "2020-12-16", "change_cases": 40, "change_criticals": 1, "change_fatalities": 2, "change_hospitalizations": 2, "change_recoveries": 5, "total_cases": 1390, "total_criticals": 3,
+            "total_fatalities": 27, "total_hospitalizations": 8, "total_recoveries": 1040
+          },
+          {
+            "date": "2020-12-17", "change_cases": 10, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -3, "change_recoveries": 20, "total_cases": 1400, "total_criticals": 3,
+            "total_fatalities": 27, "total_hospitalizations": 5, "total_recoveries": 1060
+          },
+          {
+            "date": "2020-12-18", "change_cases": 32, "change_criticals": 0, "change_fatalities": 1, "change_hospitalizations": 0, "change_recoveries": 19, "total_cases": 1432, "total_criticals": 3,
+            "total_fatalities": 28, "total_hospitalizations": 5, "total_recoveries": 1079
+          },
+          {"date": "2020-12-19", "total_cases": 1432, "total_criticals": 3, "total_fatalities": 28, "total_hospitalizations": 5, "total_recoveries": 1079},
+          {
+            "date": "2020-12-20", "change_cases": 34, "change_criticals": 0, "change_fatalities": 1, "change_hospitalizations": 0, "change_recoveries": 33, "total_cases": 1466, "total_criticals": 3,
+            "total_fatalities": 29, "total_hospitalizations": 5, "total_recoveries": 1112
+          },
+          {
+            "date": "2020-12-21", "change_cases": 6, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 33, "total_cases": 1472, "total_criticals": 3,
+            "total_fatalities": 29, "total_hospitalizations": 6, "total_recoveries": 1145
+          },
+          {
+            "date": "2020-12-22", "change_cases": 9, "change_criticals": -1, "change_fatalities": 2, "change_hospitalizations": 0, "change_recoveries": 42, "total_cases": 1481, "total_criticals": 2,
+            "total_fatalities": 31, "total_hospitalizations": 6, "total_recoveries": 1187
+          },
+          {
+            "date": "2020-12-23", "change_cases": 12, "change_criticals": -1, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 14, "total_cases": 1493, "total_criticals": 1,
+            "total_fatalities": 31, "total_hospitalizations": 6, "total_recoveries": 1201
+          },
+          {"date": "2020-12-24", "total_cases": 1493, "total_criticals": 1, "total_fatalities": 31, "total_hospitalizations": 6, "total_recoveries": 1201},
+          {"date": "2020-12-25", "total_cases": 1493, "total_criticals": 1, "total_fatalities": 31, "total_hospitalizations": 6, "total_recoveries": 1201},
+          {"date": "2020-12-26", "total_cases": 1493, "total_criticals": 1, "total_fatalities": 31, "total_hospitalizations": 6, "total_recoveries": 1201},
+          {"date": "2020-12-27", "total_cases": 1493, "total_criticals": 1, "total_fatalities": 31, "total_hospitalizations": 6, "total_recoveries": 1201},
+          {
+            "date": "2020-12-28", "change_cases": 39, "change_criticals": 1, "change_fatalities": 1, "change_hospitalizations": 3, "change_recoveries": 108, "total_cases": 1532, "total_criticals": 2,
+            "total_fatalities": 32, "total_hospitalizations": 9, "total_recoveries": 1309
+          },
+          {"date": "2020-12-29", "total_cases": 1532, "total_criticals": 2, "total_fatalities": 32, "total_hospitalizations": 9, "total_recoveries": 1309},
+          {"date": "2020-12-30", "total_cases": 1532, "total_criticals": 2, "total_fatalities": 32, "total_hospitalizations": 9, "total_recoveries": 1309},
+          {"date": "2020-12-31", "total_cases": 1532, "total_criticals": 2, "total_fatalities": 32, "total_hospitalizations": 9, "total_recoveries": 1309},
+          {"date": "2021-01-01", "total_cases": 1532, "total_criticals": 2, "total_fatalities": 32, "total_hospitalizations": 9, "total_recoveries": 1309},
+          {"date": "2021-01-02", "total_cases": 1532, "total_criticals": 2, "total_fatalities": 32, "total_hospitalizations": 9, "total_recoveries": 1309},
+          {"date": "2021-01-03", "total_cases": 1532, "total_criticals": 2, "total_fatalities": 32, "total_hospitalizations": 9, "total_recoveries": 1309},
+          {
+            "date": "2021-01-04", "change_cases": 47, "change_criticals": -1, "change_fatalities": 2, "change_hospitalizations": -3, "change_recoveries": 77, "total_cases": 1579, "total_criticals": 1,
+            "total_fatalities": 34, "total_hospitalizations": 6, "total_recoveries": 1386
+          },
+          {
+            "date": "2021-01-05", "change_cases": 9, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 2, "change_recoveries": 5, "total_cases": 1588, "total_criticals": 1,
+            "total_fatalities": 34, "total_hospitalizations": 8, "total_recoveries": 1391
+          },
+          {
+            "date": "2021-01-06", "change_vaccinations": 214, "total_cases": 1588, "total_criticals": 1, "total_fatalities": 34, "total_hospitalizations": 8, "total_recoveries": 1391,
+            "total_vaccinations": 214
+          },
+          {
+            "date": "2021-01-07", "change_cases": 25, "change_criticals": -1, "change_fatalities": 2, "change_hospitalizations": 2, "change_recoveries": 27, "change_vaccinations": 41,
+            "total_cases": 1613, "total_criticals": 0, "total_fatalities": 36, "total_hospitalizations": 10, "total_recoveries": 1418, "total_vaccinations": 255
+          },
+          {"date": "2021-01-08", "total_cases": 1613, "total_criticals": 0, "total_fatalities": 36, "total_hospitalizations": 10, "total_recoveries": 1418, "total_vaccinations": 255},
+          {"date": "2021-01-09", "total_cases": 1613, "total_criticals": 0, "total_fatalities": 36, "total_hospitalizations": 10, "total_recoveries": 1418, "total_vaccinations": 255},
+          {
+            "date": "2021-01-10", "change_cases": 75, "change_criticals": 0, "change_fatalities": 3, "change_hospitalizations": 4, "change_recoveries": 25, "total_cases": 1688, "total_criticals": 0,
+            "total_fatalities": 39, "total_hospitalizations": 14, "total_recoveries": 1443, "total_vaccinations": 255
+          },
+          {
+            "date": "2021-01-11", "change_cases": 28, "change_criticals": 0, "change_fatalities": 1, "change_hospitalizations": 0, "change_recoveries": 18, "total_cases": 1716, "total_criticals": 0,
+            "total_fatalities": 40, "total_hospitalizations": 14, "total_recoveries": 1461, "total_vaccinations": 255
+          },
+          {"date": "2021-01-12", "total_cases": 1716, "total_criticals": 0, "total_fatalities": 40, "total_hospitalizations": 14, "total_recoveries": 1461, "total_vaccinations": 255},
+          {
+            "date": "2021-01-13", "change_cases": 33, "change_criticals": 0, "change_fatalities": 2, "change_hospitalizations": 3, "change_recoveries": 35, "total_cases": 1749, "total_criticals": 0,
+            "total_fatalities": 42, "total_hospitalizations": 17, "total_recoveries": 1496, "total_vaccinations": 255
+          },
+          {
+            "date": "2021-01-14", "change_cases": 23, "change_criticals": 0, "change_fatalities": 1, "change_hospitalizations": 1, "change_recoveries": 15, "total_cases": 1772, "total_criticals": 0,
+            "total_fatalities": 43, "total_hospitalizations": 18, "total_recoveries": 1511, "total_vaccinations": 255
+          },
+          {"date": "2021-01-15", "total_cases": 1772, "total_criticals": 0, "total_fatalities": 43, "total_hospitalizations": 18, "total_recoveries": 1511, "total_vaccinations": 255},
+          {"date": "2021-01-16", "total_cases": 1772, "total_criticals": 0, "total_fatalities": 43, "total_hospitalizations": 18, "total_recoveries": 1511, "total_vaccinations": 255},
+          {"date": "2021-01-17", "total_cases": 1772, "total_criticals": 0, "total_fatalities": 43, "total_hospitalizations": 18, "total_recoveries": 1511, "total_vaccinations": 255},
+          {"date": "2021-01-18", "total_cases": 1772, "total_criticals": 0, "total_fatalities": 43, "total_hospitalizations": 18, "total_recoveries": 1511, "total_vaccinations": 255},
+          {
+            "date": "2021-01-19", "change_cases": 49, "change_criticals": 1, "change_fatalities": 1, "change_hospitalizations": -5, "change_recoveries": 73, "change_vaccinations": 1236,
+            "total_cases": 1821, "total_criticals": 1, "total_fatalities": 44, "total_hospitalizations": 13, "total_recoveries": 1584, "total_vaccinations": 1491
+          },
+          {
+            "date": "2021-01-20", "change_vaccinations": 0, "total_cases": 1821, "total_criticals": 1, "total_fatalities": 44, "total_hospitalizations": 13, "total_recoveries": 1584,
+            "total_vaccinations": 1491
+          },
+          {
+            "date": "2021-01-21", "change_cases": 24, "change_criticals": 0, "change_fatalities": 2, "change_hospitalizations": -1, "change_recoveries": 20, "change_vaccinations": 771,
+            "total_cases": 1845, "total_criticals": 1, "total_fatalities": 46, "total_hospitalizations": 12, "total_recoveries": 1604, "total_vaccinations": 2262
+          },
+          {
+            "date": "2021-01-22", "change_cases": 12, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 10, "change_vaccinations": 474,
+            "total_cases": 1857, "total_criticals": 1, "total_fatalities": 46, "total_hospitalizations": 12, "total_recoveries": 1614, "total_vaccinations": 2736
+          },
+          {
+            "date": "2021-01-23", "change_cases": 13, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 2, "change_recoveries": 21, "total_cases": 1870, "total_criticals": 1,
+            "total_fatalities": 46, "total_hospitalizations": 14, "total_recoveries": 1635, "total_vaccinations": 2736
+          },
+          {
+            "date": "2021-01-24", "change_cases": 23, "change_criticals": 0, "change_fatalities": 1, "change_hospitalizations": 0, "change_recoveries": 5, "change_vaccinations": 610,
+            "total_cases": 1893, "total_criticals": 1, "total_fatalities": 47, "total_hospitalizations": 14, "total_recoveries": 1640, "total_vaccinations": 3346
+          },
+          {
+            "date": "2021-01-25", "change_cases": 8, "change_criticals": 0, "change_fatalities": 3, "change_hospitalizations": -1, "change_recoveries": 6, "change_vaccinations": 117,
+            "total_cases": 1901, "total_criticals": 1, "total_fatalities": 50, "total_hospitalizations": 13, "total_recoveries": 1646, "total_vaccinations": 3463
+          },
+          {
+            "date": "2021-01-26", "change_cases": 14, "change_criticals": -1, "change_fatalities": 1, "change_hospitalizations": 0, "change_recoveries": 12, "change_vaccinations": 325,
+            "total_cases": 1915, "total_criticals": 0, "total_fatalities": 51, "total_hospitalizations": 13, "total_recoveries": 1658, "total_vaccinations": 3788
+          },
+          {
+            "date": "2021-01-27", "change_cases": 3, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 15, "total_cases": 1918, "total_criticals": 0,
+            "total_fatalities": 51, "total_hospitalizations": 14, "total_recoveries": 1673, "total_vaccinations": 3788
+          },
+          {
+            "date": "2021-01-28", "change_cases": 19, "change_criticals": 1, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 31, "total_cases": 1937, "total_criticals": 1,
+            "total_fatalities": 51, "total_hospitalizations": 14, "total_recoveries": 1704, "total_vaccinations": 3788
+          },
+          {
+            "date": "2021-01-29", "change_cases": 23, "change_criticals": 1, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 10, "change_vaccinations": 749,
+            "total_cases": 1960, "total_criticals": 2, "total_fatalities": 51, "total_hospitalizations": 14, "total_recoveries": 1714, "total_vaccinations": 4537
+          },
+          {
+            "date": "2021-01-30", "change_cases": 18, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 13, "change_vaccinations": 223,
+            "total_cases": 1978, "total_criticals": 2, "total_fatalities": 51, "total_hospitalizations": 14, "total_recoveries": 1727, "total_vaccinations": 4760
+          },
+          {
+            "date": "2021-01-31", "change_cases": -1, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -2, "change_recoveries": 23, "change_vaccinations": 87,
+            "total_cases": 1977, "total_criticals": 2, "total_fatalities": 51, "total_hospitalizations": 12, "total_recoveries": 1750, "total_vaccinations": 4847
+          },
+          {
+            "date": "2021-02-01", "change_cases": 3, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 10, "change_vaccinations": 40, "total_cases": 1980,
+            "total_criticals": 2, "total_fatalities": 51, "total_hospitalizations": 12, "total_recoveries": 1760, "total_vaccinations": 4887
+          },
+          {
+            "date": "2021-02-02", "change_cases": 5, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -1, "change_recoveries": 17, "total_cases": 1985, "total_criticals": 2,
+            "total_fatalities": 51, "total_hospitalizations": 11, "total_recoveries": 1777, "total_vaccinations": 4887
+          },
+          {"date": "2021-02-03", "total_cases": 1985, "total_criticals": 2, "total_fatalities": 51, "total_hospitalizations": 11, "total_recoveries": 1777, "total_vaccinations": 4887},
+          {
+            "date": "2021-02-04", "change_cases": 14, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 2, "change_recoveries": 26, "change_vaccinations": 68,
+            "total_cases": 1999, "total_criticals": 2, "total_fatalities": 51, "total_hospitalizations": 13, "total_recoveries": 1803, "total_vaccinations": 4955
+          },
+          {
+            "date": "2021-02-05", "change_cases": 8, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 11, "change_vaccinations": 18, "total_cases": 2007,
+            "total_criticals": 2, "total_fatalities": 51, "total_hospitalizations": 13, "total_recoveries": 1814, "total_vaccinations": 4973
+          },
+          {"date": "2021-02-06", "total_cases": 2007, "total_criticals": 2, "total_fatalities": 51, "total_hospitalizations": 13, "total_recoveries": 1814, "total_vaccinations": 4973},
+          {
+            "date": "2021-02-07", "change_cases": 19, "change_criticals": 1, "change_fatalities": 0, "change_hospitalizations": 2, "change_recoveries": 30, "total_cases": 2026, "total_criticals": 3,
+            "total_fatalities": 51, "total_hospitalizations": 15, "total_recoveries": 1844, "total_vaccinations": 4973
+          },
+          {"date": "2021-02-08", "total_cases": 2026, "total_criticals": 3, "total_fatalities": 51, "total_hospitalizations": 15, "total_recoveries": 1844, "total_vaccinations": 4973},
+          {
+            "date": "2021-02-09", "change_cases": 0, "change_criticals": -2, "change_fatalities": 1, "change_hospitalizations": -5, "change_recoveries": 66, "change_vaccinations": 515,
+            "total_cases": 2026, "total_criticals": 1, "total_fatalities": 52, "total_hospitalizations": 10, "total_recoveries": 1910, "total_vaccinations": 5488
+          },
+          {
+            "date": "2021-02-10", "change_cases": 4, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 9, "change_vaccinations": 255, "total_cases": 2030,
+            "total_criticals": 1, "total_fatalities": 52, "total_hospitalizations": 10, "total_recoveries": 1919, "total_vaccinations": 5743
+          },
+          {"date": "2021-02-11", "total_cases": 2030, "total_criticals": 1, "total_fatalities": 52, "total_hospitalizations": 10, "total_recoveries": 1919, "total_vaccinations": 5743},
+          {
+            "date": "2021-02-12", "change_cases": 11, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 13, "total_cases": 2041, "total_criticals": 1,
+            "total_fatalities": 52, "total_hospitalizations": 11, "total_recoveries": 1932, "total_vaccinations": 5743
+          },
+          {"date": "2021-02-13", "total_cases": 2041, "total_criticals": 1, "total_fatalities": 52, "total_hospitalizations": 11, "total_recoveries": 1932, "total_vaccinations": 5743},
+          {
+            "date": "2021-02-14", "change_cases": 2, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 4, "total_cases": 2043, "total_criticals": 1,
+            "total_fatalities": 52, "total_hospitalizations": 11, "total_recoveries": 1936, "total_vaccinations": 5743
+          },
+          {"date": "2021-02-15", "total_cases": 2043, "total_criticals": 1, "total_fatalities": 52, "total_hospitalizations": 11, "total_recoveries": 1936, "total_vaccinations": 5743},
+          {
+            "date": "2021-02-16", "change_cases": 2, "change_criticals": -1, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 8, "change_vaccinations": 1009,
+            "total_cases": 2045, "total_criticals": 0, "total_fatalities": 52, "total_hospitalizations": 11, "total_recoveries": 1944, "total_vaccinations": 6752
+          },
+          {
+            "date": "2021-02-17", "change_cases": 4, "change_criticals": 1, "change_fatalities": 1, "change_hospitalizations": 0, "change_recoveries": 5, "total_cases": 2049, "total_criticals": 1,
+            "total_fatalities": 53, "total_hospitalizations": 11, "total_recoveries": 1949, "total_vaccinations": 6752
+          },
+          {
+            "date": "2021-02-18", "change_cases": 3, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -1, "change_recoveries": 22, "total_cases": 2052, "total_criticals": 1,
+            "total_fatalities": 53, "total_hospitalizations": 10, "total_recoveries": 1971, "total_vaccinations": 6752
+          },
+          {
+            "date": "2021-02-19", "change_cases": 3, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -1, "change_recoveries": 3, "change_vaccinations": 719,
+            "total_cases": 2055, "total_criticals": 1, "total_fatalities": 53, "total_hospitalizations": 9, "total_recoveries": 1974, "total_vaccinations": 7471
+          },
+          {
+            "date": "2021-02-20", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -2, "change_recoveries": 1, "change_vaccinated": 3195,
+            "change_vaccinations": 373, "total_cases": 2055, "total_criticals": 1, "total_fatalities": 53, "total_hospitalizations": 7, "total_recoveries": 1975, "total_vaccinated": 3195,
+            "total_vaccinations": 7844
+          },
+          {
+            "date": "2021-02-21", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 2, "change_vaccinated": 52,
+            "change_vaccinations": 90, "total_cases": 2055, "total_criticals": 1, "total_fatalities": 53, "total_hospitalizations": 7, "total_recoveries": 1977, "total_vaccinated": 3247,
+            "total_vaccinations": 7934
+          },
+          {
+            "date": "2021-02-22", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": -1, "change_vaccinated": 20,
+            "change_vaccinations": 29, "total_cases": 2055, "total_criticals": 1, "total_fatalities": 53, "total_hospitalizations": 7, "total_recoveries": 1976, "total_vaccinated": 3267,
+            "total_vaccinations": 7963
+          },
+          {
+            "date": "2021-02-23", "change_vaccinated": 189, "change_vaccinations": 391, "total_cases": 2055, "total_criticals": 1, "total_fatalities": 53, "total_hospitalizations": 7,
+            "total_recoveries": 1976, "total_vaccinated": 3456, "total_vaccinations": 8354
+          },
+          {
+            "date": "2021-02-24", "change_vaccinated": 137, "change_vaccinations": 540, "total_cases": 2055, "total_criticals": 1, "total_fatalities": 53, "total_hospitalizations": 7,
+            "total_recoveries": 1976, "total_vaccinated": 3593, "total_vaccinations": 8894
+          },
+          {
+            "date": "2021-02-25", "change_cases": 2, "change_criticals": -1, "change_fatalities": 0, "change_hospitalizations": -1, "change_recoveries": 11, "change_vaccinated": 148,
+            "change_vaccinations": 688, "total_cases": 2057, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 6, "total_recoveries": 1987, "total_vaccinated": 3741,
+            "total_vaccinations": 9582
+          },
+          {
+            "date": "2021-02-26", "change_vaccinated": 261, "change_vaccinations": 466, "total_cases": 2057, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 6,
+            "total_recoveries": 1987, "total_vaccinated": 4002, "total_vaccinations": 10048
+          },
+          {
+            "date": "2021-02-27", "change_cases": 1, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -2, "change_recoveries": 4, "change_vaccinated": 129,
+            "change_vaccinations": 594, "total_cases": 2058, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 4, "total_recoveries": 1991, "total_vaccinated": 4131,
+            "total_vaccinations": 10642
+          },
+          {
+            "date": "2021-02-28", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_vaccinated": 24,
+            "change_vaccinations": 449, "total_cases": 2058, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 4, "total_recoveries": 1991, "total_vaccinated": 4155,
+            "total_vaccinations": 11091
+          },
+          {
+            "date": "2021-03-01", "change_vaccinated": 3, "change_vaccinations": 180, "total_cases": 2058, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 4,
+            "total_recoveries": 1991, "total_vaccinated": 4158, "total_vaccinations": 11271
+          },
+          {
+            "date": "2021-03-02", "change_cases": 2, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 2, "change_vaccinated": 50,
+            "change_vaccinations": 133, "total_cases": 2060, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 4, "total_recoveries": 1993, "total_vaccinated": 4208,
+            "total_vaccinations": 11404
+          },
+          {
+            "date": "2021-03-03", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -2, "change_recoveries": 0, "change_vaccinated": 17,
+            "change_vaccinations": 69, "total_cases": 2060, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 2, "total_recoveries": 1993, "total_vaccinated": 4225,
+            "total_vaccinations": 11473
+          },
+          {
+            "date": "2021-03-04", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 1, "change_vaccinated": 47,
+            "change_vaccinations": 334, "total_cases": 2060, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 3, "total_recoveries": 1994, "total_vaccinated": 4272,
+            "total_vaccinations": 11807
+          },
+          {
+            "date": "2021-03-05", "change_cases": 5, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 3, "change_vaccinated": 32,
+            "change_vaccinations": 378, "total_cases": 2065, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 3, "total_recoveries": 1997, "total_vaccinated": 4304,
+            "total_vaccinations": 12185
+          },
+          {
+            "date": "2021-03-06", "change_cases": 1, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 2, "change_vaccinated": 49,
+            "change_vaccinations": 568, "total_cases": 2066, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 3, "total_recoveries": 1999, "total_vaccinated": 4353,
+            "total_vaccinations": 12753
+          },
+          {
+            "date": "2021-03-07", "change_cases": 1, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 1, "change_vaccinated": 4,
+            "change_vaccinations": 231, "total_cases": 2067, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 3, "total_recoveries": 2000, "total_vaccinated": 4357,
+            "total_vaccinations": 12984
+          },
+          {
+            "date": "2021-03-08", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 1, "change_vaccinated": 0,
+            "change_vaccinations": 5, "total_cases": 2067, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 3, "total_recoveries": 2001, "total_vaccinated": 4357,
+            "total_vaccinations": 12989
+          },
+          {
+            "date": "2021-03-09", "change_cases": 1, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 2, "change_vaccinated": 19,
+            "change_vaccinations": 26, "total_cases": 2068, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 3, "total_recoveries": 2003, "total_vaccinated": 4376,
+            "total_vaccinations": 13015
+          },
+          {
+            "date": "2021-03-10", "change_cases": 6, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_vaccinated": 14,
+            "change_vaccinations": 61, "total_cases": 2074, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 3, "total_recoveries": 2003, "total_vaccinated": 4390,
+            "total_vaccinations": 13076
+          },
+          {
+            "date": "2021-03-11", "change_cases": 9, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 4, "change_vaccinated": 6,
+            "change_vaccinations": 435, "total_cases": 2083, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 3, "total_recoveries": 2007, "total_vaccinated": 4396,
+            "total_vaccinations": 13511
+          },
+          {
+            "date": "2021-03-12", "change_cases": 6, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 12, "change_vaccinated": 26,
+            "change_vaccinations": 291, "total_cases": 2089, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 3, "total_recoveries": 2019, "total_vaccinated": 4422,
+            "total_vaccinations": 13802
+          },
+          {
+            "date": "2021-03-13", "change_cases": 6, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 3, "change_vaccinated": 31,
+            "change_vaccinations": 330, "total_cases": 2095, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 3, "total_recoveries": 2022, "total_vaccinated": 4453,
+            "total_vaccinations": 14132
+          },
+          {
+            "date": "2021-03-14", "change_cases": 2, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 1, "change_vaccinated": 15,
+            "change_vaccinations": 251, "total_cases": 2097, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 4, "total_recoveries": 2023, "total_vaccinated": 4468,
+            "total_vaccinations": 14383
+          },
+          {
+            "date": "2021-03-15", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 1, "change_vaccinated": 3,
+            "change_vaccinations": 3, "total_cases": 2097, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 5, "total_recoveries": 2024, "total_vaccinated": 4471,
+            "total_vaccinations": 14386
+          },
+          {
+            "date": "2021-03-16", "change_cases": 4, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_vaccinated": 371,
+            "change_vaccinations": 759, "total_cases": 2101, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 5, "total_recoveries": 2024, "total_vaccinated": 4842,
+            "total_vaccinations": 15145
+          },
+          {
+            "date": "2021-03-17", "change_cases": 3378, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 21, "change_recoveries": 2810, "total_cases": 5479,
+            "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 26, "total_recoveries": 4834, "total_vaccinated": 4842, "total_vaccinations": 15145
+          },
+          {
+            "date": "2021-03-18", "change_cases": -3370, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -22, "change_recoveries": -2803, "change_vaccinated": 777,
+            "change_vaccinations": 1613, "total_cases": 2109, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 4, "total_recoveries": 2031, "total_vaccinated": 5619,
+            "total_vaccinations": 16758
+          },
+          {
+            "date": "2021-03-19", "total_cases": 2109, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 4, "total_recoveries": 2031, "total_vaccinated": 5619,
+            "total_vaccinations": 16758
+          },
+          {
+            "date": "2021-03-20", "change_cases": 24, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 2, "change_recoveries": 12, "total_cases": 2133, "total_criticals": 0,
+            "total_fatalities": 53, "total_hospitalizations": 6, "total_recoveries": 2043, "total_vaccinated": 5619, "total_vaccinations": 16758
+          },
+          {
+            "date": "2021-03-21", "change_cases": 9, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 4, "change_vaccinated": 1151,
+            "change_vaccinations": 2788, "total_cases": 2142, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 6, "total_recoveries": 2047, "total_vaccinated": 6770,
+            "total_vaccinations": 19546
+          },
+          {
+            "date": "2021-03-22", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 4, "change_vaccinated": 189,
+            "change_vaccinations": 424, "total_cases": 2142, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 6, "total_recoveries": 2051, "total_vaccinated": 6959,
+            "total_vaccinations": 19970
+          },
+          {
+            "date": "2021-03-23", "change_cases": 6, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 5, "change_vaccinated": 10,
+            "change_vaccinations": 78, "total_cases": 2148, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 6, "total_recoveries": 2056, "total_vaccinated": 6969,
+            "total_vaccinations": 20048
+          },
+          {
+            "date": "2021-03-24", "change_cases": 4, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -1, "change_recoveries": 3, "change_vaccinated": 52,
+            "change_vaccinations": 290, "total_cases": 2152, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 5, "total_recoveries": 2059, "total_vaccinated": 7021,
+            "total_vaccinations": 20338
+          },
+          {
+            "date": "2021-03-25", "change_cases": 8, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 1, "change_vaccinated": 294,
+            "change_vaccinations": 928, "total_cases": 2160, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 6, "total_recoveries": 2060, "total_vaccinated": 7315,
+            "total_vaccinations": 21266
+          },
+          {
+            "date": "2021-03-26", "change_cases": 3, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -1, "change_recoveries": 4, "change_vaccinated": 386,
+            "change_vaccinations": 1015, "total_cases": 2163, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 5, "total_recoveries": 2064, "total_vaccinated": 7701,
+            "total_vaccinations": 22281
+          },
+          {
+            "date": "2021-03-27", "change_cases": 1, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 1, "change_vaccinated": 276,
+            "change_vaccinations": 742, "total_cases": 2164, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 5, "total_recoveries": 2065, "total_vaccinated": 7977,
+            "total_vaccinations": 23023
+          },
+          {
+            "date": "2021-03-28", "change_cases": 3, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 3, "change_vaccinated": 213,
+            "change_vaccinations": 505, "total_cases": 2167, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 5, "total_recoveries": 2068, "total_vaccinated": 8190,
+            "total_vaccinations": 23528
+          },
+          {
+            "date": "2021-03-29", "change_cases": 2, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 5, "change_vaccinated": 5,
+            "change_vaccinations": 52, "total_cases": 2169, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 5, "total_recoveries": 2073, "total_vaccinated": 8195,
+            "total_vaccinations": 23580
+          },
+          {
+            "date": "2021-03-30", "change_cases": 1, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 6, "change_vaccinated": 17,
+            "change_vaccinations": 643, "total_cases": 2170, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 5, "total_recoveries": 2079, "total_vaccinated": 8212,
+            "total_vaccinations": 24223
+          },
+          {
+            "date": "2021-03-31", "change_cases": 2, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -1, "change_recoveries": 3, "change_vaccinated": 34,
+            "change_vaccinations": 770, "total_cases": 2172, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 4, "total_recoveries": 2082, "total_vaccinated": 8246,
+            "total_vaccinations": 24993
+          },
+          {
+            "date": "2021-04-01", "change_cases": 7, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 5, "change_vaccinated": 194,
+            "change_vaccinations": 936, "total_cases": 2179, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 4, "total_recoveries": 2087, "total_vaccinated": 8440,
+            "total_vaccinations": 25929
+          },
+          {
+            "date": "2021-04-02", "total_cases": 2179, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 4, "total_recoveries": 2087, "total_vaccinated": 8440,
+            "total_vaccinations": 25929
+          },
+          {
+            "date": "2021-04-03", "total_cases": 2179, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 4, "total_recoveries": 2087, "total_vaccinated": 8440,
+            "total_vaccinations": 25929
+          }
+        ],
         "id": 4602,
         "population": 165600,
         "province": "MB",
         "total": {
           "date": "2021-04-03", "total_cases": 2179, "total_criticals": 0, "total_fatalities": 53, "total_hospitalizations": 4, "total_recoveries": 2087, "total_vaccinated": 8440,
           "total_vaccinations": 25929
-        }
+        },
+        "updated_at": "2021-04-03T15:20:06.000Z"
       },
       {
         "name": {"en": "Interlake-Eastern Regional Health Authority", "fr": "Office régional de la santé d'Entre-les-Lacs et de l'Est"},
+        "daily": [
+          {
+            "date": "2020-12-10", "change_cases": 35, "change_criticals": 0, "change_fatalities": 1, "change_hospitalizations": 0, "change_recoveries": 9, "total_cases": 1378, "total_criticals": 4,
+            "total_fatalities": 20, "total_hospitalizations": 18, "total_recoveries": 1034
+          },
+          {
+            "date": "2020-12-11", "change_cases": 40, "change_criticals": -1, "change_fatalities": 1, "change_hospitalizations": 1, "change_recoveries": 12, "total_cases": 1418, "total_criticals": 3,
+            "total_fatalities": 21, "total_hospitalizations": 19, "total_recoveries": 1046
+          },
+          {"date": "2020-12-12", "total_cases": 1418, "total_criticals": 3, "total_fatalities": 21, "total_hospitalizations": 19, "total_recoveries": 1046},
+          {"date": "2020-12-13", "change_cases": 70, "change_fatalities": 2, "total_cases": 1488, "total_criticals": 3, "total_fatalities": 23, "total_hospitalizations": 19, "total_recoveries": 1046},
+          {
+            "date": "2020-12-14", "change_cases": 10, "change_criticals": 3, "change_fatalities": 0, "change_hospitalizations": -1, "change_recoveries": 29, "total_cases": 1498, "total_criticals": 6,
+            "total_fatalities": 23, "total_hospitalizations": 18, "total_recoveries": 1075
+          },
+          {
+            "date": "2020-12-15", "change_cases": 13, "change_criticals": -1, "change_fatalities": 1, "change_hospitalizations": -1, "change_recoveries": 17, "total_cases": 1511, "total_criticals": 5,
+            "total_fatalities": 24, "total_hospitalizations": 17, "total_recoveries": 1092
+          },
+          {
+            "date": "2020-12-16", "change_cases": 9, "change_criticals": 0, "change_fatalities": 1, "change_hospitalizations": 2, "change_recoveries": 23, "total_cases": 1520, "total_criticals": 5,
+            "total_fatalities": 25, "total_hospitalizations": 19, "total_recoveries": 1115
+          },
+          {
+            "date": "2020-12-17", "change_cases": 23, "change_criticals": 0, "change_fatalities": 2, "change_hospitalizations": -3, "change_recoveries": 9, "total_cases": 1543, "total_criticals": 5,
+            "total_fatalities": 27, "total_hospitalizations": 16, "total_recoveries": 1124
+          },
+          {
+            "date": "2020-12-18", "change_cases": 38, "change_criticals": 1, "change_fatalities": 1, "change_hospitalizations": 2, "change_recoveries": 12, "total_cases": 1581, "total_criticals": 6,
+            "total_fatalities": 28, "total_hospitalizations": 18, "total_recoveries": 1136
+          },
+          {"date": "2020-12-19", "total_cases": 1581, "total_criticals": 6, "total_fatalities": 28, "total_hospitalizations": 18, "total_recoveries": 1136},
+          {
+            "date": "2020-12-20", "change_cases": 49, "change_criticals": -1, "change_fatalities": 1, "change_hospitalizations": 0, "change_recoveries": 39, "total_cases": 1630, "total_criticals": 5,
+            "total_fatalities": 29, "total_hospitalizations": 18, "total_recoveries": 1175
+          },
+          {
+            "date": "2020-12-21", "change_cases": 7, "change_criticals": 0, "change_fatalities": -1, "change_hospitalizations": 1, "change_recoveries": 0, "total_cases": 1637, "total_criticals": 5,
+            "total_fatalities": 28, "total_hospitalizations": 19, "total_recoveries": 1175
+          },
+          {
+            "date": "2020-12-22", "change_cases": 7, "change_criticals": 0, "change_fatalities": 1, "change_hospitalizations": 6, "change_recoveries": 49, "total_cases": 1644, "total_criticals": 5,
+            "total_fatalities": 29, "total_hospitalizations": 25, "total_recoveries": 1224
+          },
+          {
+            "date": "2020-12-23", "change_cases": 13, "change_criticals": -1, "change_fatalities": 2, "change_hospitalizations": -2, "change_recoveries": 16, "total_cases": 1657, "total_criticals": 4,
+            "total_fatalities": 31, "total_hospitalizations": 23, "total_recoveries": 1240
+          },
+          {"date": "2020-12-24", "total_cases": 1657, "total_criticals": 4, "total_fatalities": 31, "total_hospitalizations": 23, "total_recoveries": 1240},
+          {"date": "2020-12-25", "total_cases": 1657, "total_criticals": 4, "total_fatalities": 31, "total_hospitalizations": 23, "total_recoveries": 1240},
+          {"date": "2020-12-26", "total_cases": 1657, "total_criticals": 4, "total_fatalities": 31, "total_hospitalizations": 23, "total_recoveries": 1240},
+          {"date": "2020-12-27", "total_cases": 1657, "total_criticals": 4, "total_fatalities": 31, "total_hospitalizations": 23, "total_recoveries": 1240},
+          {
+            "date": "2020-12-28", "change_cases": 150, "change_criticals": -1, "change_fatalities": 2, "change_hospitalizations": 0, "change_recoveries": 58, "total_cases": 1807, "total_criticals": 3,
+            "total_fatalities": 33, "total_hospitalizations": 23, "total_recoveries": 1298
+          },
+          {"date": "2020-12-29", "total_cases": 1807, "total_criticals": 3, "total_fatalities": 33, "total_hospitalizations": 23, "total_recoveries": 1298},
+          {"date": "2020-12-30", "total_cases": 1807, "total_criticals": 3, "total_fatalities": 33, "total_hospitalizations": 23, "total_recoveries": 1298},
+          {"date": "2020-12-31", "total_cases": 1807, "total_criticals": 3, "total_fatalities": 33, "total_hospitalizations": 23, "total_recoveries": 1298},
+          {"date": "2021-01-01", "total_cases": 1807, "total_criticals": 3, "total_fatalities": 33, "total_hospitalizations": 23, "total_recoveries": 1298},
+          {"date": "2021-01-02", "total_cases": 1807, "total_criticals": 3, "total_fatalities": 33, "total_hospitalizations": 23, "total_recoveries": 1298},
+          {"date": "2021-01-03", "total_cases": 1807, "total_criticals": 3, "total_fatalities": 33, "total_hospitalizations": 23, "total_recoveries": 1298},
+          {
+            "date": "2021-01-04", "change_cases": 67, "change_criticals": 1, "change_fatalities": 1, "change_hospitalizations": -4, "change_recoveries": 130, "total_cases": 1874, "total_criticals": 4,
+            "total_fatalities": 34, "total_hospitalizations": 19, "total_recoveries": 1428
+          },
+          {
+            "date": "2021-01-05", "change_cases": 17, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -3, "change_recoveries": 15, "total_cases": 1891, "total_criticals": 4,
+            "total_fatalities": 34, "total_hospitalizations": 16, "total_recoveries": 1443
+          },
+          {
+            "date": "2021-01-06", "change_vaccinations": 398, "total_cases": 1891, "total_criticals": 4, "total_fatalities": 34, "total_hospitalizations": 16, "total_recoveries": 1443,
+            "total_vaccinations": 398
+          },
+          {
+            "date": "2021-01-07", "change_cases": 16, "change_criticals": -1, "change_fatalities": 0, "change_hospitalizations": -3, "change_recoveries": 32, "change_vaccinations": 92,
+            "total_cases": 1907, "total_criticals": 3, "total_fatalities": 34, "total_hospitalizations": 13, "total_recoveries": 1475, "total_vaccinations": 490
+          },
+          {"date": "2021-01-08", "total_cases": 1907, "total_criticals": 3, "total_fatalities": 34, "total_hospitalizations": 13, "total_recoveries": 1475, "total_vaccinations": 490},
+          {"date": "2021-01-09", "total_cases": 1907, "total_criticals": 3, "total_fatalities": 34, "total_hospitalizations": 13, "total_recoveries": 1475, "total_vaccinations": 490},
+          {
+            "date": "2021-01-10", "change_cases": 34, "change_criticals": 1, "change_fatalities": 0, "change_hospitalizations": 3, "change_recoveries": 32, "total_cases": 1941, "total_criticals": 4,
+            "total_fatalities": 34, "total_hospitalizations": 16, "total_recoveries": 1507, "total_vaccinations": 490
+          },
+          {
+            "date": "2021-01-11", "change_cases": 11, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 29, "total_cases": 1952, "total_criticals": 4,
+            "total_fatalities": 34, "total_hospitalizations": 16, "total_recoveries": 1536, "total_vaccinations": 490
+          },
+          {"date": "2021-01-12", "total_cases": 1952, "total_criticals": 4, "total_fatalities": 34, "total_hospitalizations": 16, "total_recoveries": 1536, "total_vaccinations": 490},
+          {
+            "date": "2021-01-13", "change_cases": 17, "change_criticals": -1, "change_fatalities": 0, "change_hospitalizations": -3, "change_recoveries": 46, "total_cases": 1969, "total_criticals": 3,
+            "total_fatalities": 34, "total_hospitalizations": 13, "total_recoveries": 1582, "total_vaccinations": 490
+          },
+          {
+            "date": "2021-01-14", "change_cases": 10, "change_criticals": -1, "change_fatalities": 0, "change_hospitalizations": -1, "change_recoveries": 26, "total_cases": 1979, "total_criticals": 2,
+            "total_fatalities": 34, "total_hospitalizations": 12, "total_recoveries": 1608, "total_vaccinations": 490
+          },
+          {"date": "2021-01-15", "total_cases": 1979, "total_criticals": 2, "total_fatalities": 34, "total_hospitalizations": 12, "total_recoveries": 1608, "total_vaccinations": 490},
+          {"date": "2021-01-16", "total_cases": 1979, "total_criticals": 2, "total_fatalities": 34, "total_hospitalizations": 12, "total_recoveries": 1608, "total_vaccinations": 490},
+          {"date": "2021-01-17", "total_cases": 1979, "total_criticals": 2, "total_fatalities": 34, "total_hospitalizations": 12, "total_recoveries": 1608, "total_vaccinations": 490},
+          {"date": "2021-01-18", "total_cases": 1979, "total_criticals": 2, "total_fatalities": 34, "total_hospitalizations": 12, "total_recoveries": 1608, "total_vaccinations": 490},
+          {
+            "date": "2021-01-19", "change_cases": 50, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 6, "change_recoveries": 63, "change_vaccinations": 1404,
+            "total_cases": 2029, "total_criticals": 2, "total_fatalities": 34, "total_hospitalizations": 18, "total_recoveries": 1671, "total_vaccinations": 1894
+          },
+          {
+            "date": "2021-01-20", "change_vaccinations": 0, "total_cases": 2029, "total_criticals": 2, "total_fatalities": 34, "total_hospitalizations": 18, "total_recoveries": 1671,
+            "total_vaccinations": 1894
+          },
+          {
+            "date": "2021-01-21", "change_cases": 27, "change_criticals": 1, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 17, "change_vaccinations": 607,
+            "total_cases": 2056, "total_criticals": 3, "total_fatalities": 34, "total_hospitalizations": 19, "total_recoveries": 1688, "total_vaccinations": 2501
+          },
+          {
+            "date": "2021-01-22", "change_cases": 33, "change_criticals": -1, "change_fatalities": 0, "change_hospitalizations": -4, "change_recoveries": 9, "change_vaccinations": 233,
+            "total_cases": 2089, "total_criticals": 2, "total_fatalities": 34, "total_hospitalizations": 15, "total_recoveries": 1697, "total_vaccinations": 2734
+          },
+          {
+            "date": "2021-01-23", "change_cases": 22, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -2, "change_recoveries": 7, "total_cases": 2111, "total_criticals": 2,
+            "total_fatalities": 34, "total_hospitalizations": 13, "total_recoveries": 1704, "total_vaccinations": 2734
+          },
+          {
+            "date": "2021-01-24", "change_cases": 15, "change_criticals": 1, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 3, "change_vaccinations": 348,
+            "total_cases": 2126, "total_criticals": 3, "total_fatalities": 34, "total_hospitalizations": 14, "total_recoveries": 1707, "total_vaccinations": 3082
+          },
+          {
+            "date": "2021-01-25", "change_cases": 10, "change_criticals": -1, "change_fatalities": 0, "change_hospitalizations": -1, "change_recoveries": 4, "change_vaccinations": 47,
+            "total_cases": 2136, "total_criticals": 2, "total_fatalities": 34, "total_hospitalizations": 13, "total_recoveries": 1711, "total_vaccinations": 3129
+          },
+          {
+            "date": "2021-01-26", "change_cases": -2, "change_criticals": 1, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 10, "change_vaccinations": 205,
+            "total_cases": 2134, "total_criticals": 3, "total_fatalities": 34, "total_hospitalizations": 13, "total_recoveries": 1721, "total_vaccinations": 3334
+          },
+          {
+            "date": "2021-01-27", "change_cases": 2, "change_criticals": 3, "change_fatalities": 0, "change_hospitalizations": 2, "change_recoveries": 4, "total_cases": 2136, "total_criticals": 6,
+            "total_fatalities": 34, "total_hospitalizations": 15, "total_recoveries": 1725, "total_vaccinations": 3334
+          },
+          {
+            "date": "2021-01-28", "change_cases": 17, "change_criticals": 0, "change_fatalities": 1, "change_hospitalizations": -1, "change_recoveries": 2, "total_cases": 2153, "total_criticals": 6,
+            "total_fatalities": 35, "total_hospitalizations": 14, "total_recoveries": 1727, "total_vaccinations": 3334
+          },
+          {
+            "date": "2021-01-29", "change_cases": 8, "change_criticals": 0, "change_fatalities": -1, "change_hospitalizations": 0, "change_recoveries": 8, "change_vaccinations": 487,
+            "total_cases": 2161, "total_criticals": 6, "total_fatalities": 34, "total_hospitalizations": 14, "total_recoveries": 1735, "total_vaccinations": 3821
+          },
+          {
+            "date": "2021-01-30", "change_cases": 24, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 3, "change_vaccinations": 116,
+            "total_cases": 2185, "total_criticals": 6, "total_fatalities": 34, "total_hospitalizations": 14, "total_recoveries": 1738, "total_vaccinations": 3937
+          },
+          {
+            "date": "2021-01-31", "change_cases": 35, "change_criticals": -2, "change_fatalities": 1, "change_hospitalizations": 0, "change_recoveries": 13, "change_vaccinations": 272,
+            "total_cases": 2220, "total_criticals": 4, "total_fatalities": 35, "total_hospitalizations": 14, "total_recoveries": 1751, "total_vaccinations": 4209
+          },
+          {
+            "date": "2021-02-01", "change_cases": 23, "change_criticals": 1, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 4, "change_vaccinations": 150,
+            "total_cases": 2243, "total_criticals": 5, "total_fatalities": 35, "total_hospitalizations": 15, "total_recoveries": 1755, "total_vaccinations": 4359
+          },
+          {
+            "date": "2021-02-02", "change_cases": 7, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -1, "change_recoveries": 7, "total_cases": 2250, "total_criticals": 5,
+            "total_fatalities": 35, "total_hospitalizations": 14, "total_recoveries": 1762, "total_vaccinations": 4359
+          },
+          {"date": "2021-02-03", "total_cases": 2250, "total_criticals": 5, "total_fatalities": 35, "total_hospitalizations": 14, "total_recoveries": 1762, "total_vaccinations": 4359},
+          {
+            "date": "2021-02-04", "change_cases": 56, "change_criticals": 3, "change_fatalities": 0, "change_hospitalizations": 4, "change_recoveries": 17, "change_vaccinations": 259,
+            "total_cases": 2306, "total_criticals": 8, "total_fatalities": 35, "total_hospitalizations": 18, "total_recoveries": 1779, "total_vaccinations": 4618
+          },
+          {
+            "date": "2021-02-05", "change_cases": 14, "change_criticals": -1, "change_fatalities": 0, "change_hospitalizations": -1, "change_recoveries": 7, "change_vaccinations": 91,
+            "total_cases": 2320, "total_criticals": 7, "total_fatalities": 35, "total_hospitalizations": 17, "total_recoveries": 1786, "total_vaccinations": 4709
+          },
+          {"date": "2021-02-06", "total_cases": 2320, "total_criticals": 7, "total_fatalities": 35, "total_hospitalizations": 17, "total_recoveries": 1786, "total_vaccinations": 4709},
+          {
+            "date": "2021-02-07", "change_cases": 9, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 22, "total_cases": 2329, "total_criticals": 7,
+            "total_fatalities": 35, "total_hospitalizations": 17, "total_recoveries": 1808, "total_vaccinations": 4709
+          },
+          {"date": "2021-02-08", "total_cases": 2329, "total_criticals": 7, "total_fatalities": 35, "total_hospitalizations": 17, "total_recoveries": 1808, "total_vaccinations": 4709},
+          {
+            "date": "2021-02-09", "change_cases": 6, "change_criticals": -1, "change_fatalities": 0, "change_hospitalizations": -1, "change_recoveries": 260, "change_vaccinations": 395,
+            "total_cases": 2335, "total_criticals": 6, "total_fatalities": 35, "total_hospitalizations": 16, "total_recoveries": 2068, "total_vaccinations": 5104
+          },
+          {
+            "date": "2021-02-10", "change_cases": 2, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -2, "change_recoveries": 9, "change_vaccinations": 43, "total_cases": 2337,
+            "total_criticals": 6, "total_fatalities": 35, "total_hospitalizations": 14, "total_recoveries": 2077, "total_vaccinations": 5147
+          },
+          {"date": "2021-02-11", "total_cases": 2337, "total_criticals": 6, "total_fatalities": 35, "total_hospitalizations": 14, "total_recoveries": 2077, "total_vaccinations": 5147},
+          {
+            "date": "2021-02-12", "change_cases": 16, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -1, "change_recoveries": 8, "total_cases": 2353, "total_criticals": 6,
+            "total_fatalities": 35, "total_hospitalizations": 13, "total_recoveries": 2085, "total_vaccinations": 5147
+          },
+          {"date": "2021-02-13", "total_cases": 2353, "total_criticals": 6, "total_fatalities": 35, "total_hospitalizations": 13, "total_recoveries": 2085, "total_vaccinations": 5147},
+          {
+            "date": "2021-02-14", "change_cases": 6, "change_criticals": 0, "change_fatalities": 1, "change_hospitalizations": -3, "change_recoveries": 7, "total_cases": 2359, "total_criticals": 6,
+            "total_fatalities": 36, "total_hospitalizations": 10, "total_recoveries": 2092, "total_vaccinations": 5147
+          },
+          {"date": "2021-02-15", "total_cases": 2359, "total_criticals": 6, "total_fatalities": 36, "total_hospitalizations": 10, "total_recoveries": 2092, "total_vaccinations": 5147},
+          {
+            "date": "2021-02-16", "change_cases": 14, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 6, "change_vaccinations": 342,
+            "total_cases": 2373, "total_criticals": 6, "total_fatalities": 36, "total_hospitalizations": 10, "total_recoveries": 2098, "total_vaccinations": 5489
+          },
+          {
+            "date": "2021-02-17", "change_cases": 3, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 1, "total_cases": 2376, "total_criticals": 6,
+            "total_fatalities": 36, "total_hospitalizations": 11, "total_recoveries": 2099, "total_vaccinations": 5489
+          },
+          {
+            "date": "2021-02-18", "change_cases": 7, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 88, "total_cases": 2383, "total_criticals": 6,
+            "total_fatalities": 36, "total_hospitalizations": 11, "total_recoveries": 2187, "total_vaccinations": 5489
+          },
+          {
+            "date": "2021-02-19", "change_cases": 1, "change_criticals": -1, "change_fatalities": -1, "change_hospitalizations": -1, "change_recoveries": 2, "change_vaccinations": 610,
+            "total_cases": 2384, "total_criticals": 5, "total_fatalities": 35, "total_hospitalizations": 10, "total_recoveries": 2189, "total_vaccinations": 6099
+          },
+          {
+            "date": "2021-02-20", "change_cases": 5, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 2, "change_vaccinated": 2340,
+            "change_vaccinations": 140, "total_cases": 2389, "total_criticals": 5, "total_fatalities": 35, "total_hospitalizations": 10, "total_recoveries": 2191, "total_vaccinated": 2340,
+            "total_vaccinations": 6239
+          },
+          {
+            "date": "2021-02-21", "change_cases": 4, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 2, "change_vaccinated": 12,
+            "change_vaccinations": 66, "total_cases": 2393, "total_criticals": 5, "total_fatalities": 35, "total_hospitalizations": 11, "total_recoveries": 2193, "total_vaccinated": 2352,
+            "total_vaccinations": 6305
+          },
+          {
+            "date": "2021-02-22", "change_cases": 4, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -1, "change_recoveries": 6, "change_vaccinated": 1,
+            "change_vaccinations": 64, "total_cases": 2397, "total_criticals": 5, "total_fatalities": 35, "total_hospitalizations": 10, "total_recoveries": 2199, "total_vaccinated": 2353,
+            "total_vaccinations": 6369
+          },
+          {
+            "date": "2021-02-23", "change_vaccinated": 82, "change_vaccinations": 182, "total_cases": 2397, "total_criticals": 5, "total_fatalities": 35, "total_hospitalizations": 10,
+            "total_recoveries": 2199, "total_vaccinated": 2435, "total_vaccinations": 6551
+          },
+          {
+            "date": "2021-02-24", "change_vaccinated": 48, "change_vaccinations": 154, "total_cases": 2397, "total_criticals": 5, "total_fatalities": 35, "total_hospitalizations": 10,
+            "total_recoveries": 2199, "total_vaccinated": 2483, "total_vaccinations": 6705
+          },
+          {
+            "date": "2021-02-25", "change_cases": 12, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -1, "change_recoveries": 14, "change_vaccinated": 80,
+            "change_vaccinations": 177, "total_cases": 2409, "total_criticals": 5, "total_fatalities": 35, "total_hospitalizations": 9, "total_recoveries": 2213, "total_vaccinated": 2563,
+            "total_vaccinations": 6882
+          },
+          {
+            "date": "2021-02-26", "change_vaccinated": 9, "change_vaccinations": 135, "total_cases": 2409, "total_criticals": 5, "total_fatalities": 35, "total_hospitalizations": 9,
+            "total_recoveries": 2213, "total_vaccinated": 2572, "total_vaccinations": 7017
+          },
+          {
+            "date": "2021-02-27", "change_cases": 9, "change_criticals": -1, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 10, "change_vaccinated": 1,
+            "change_vaccinations": 234, "total_cases": 2418, "total_criticals": 4, "total_fatalities": 35, "total_hospitalizations": 10, "total_recoveries": 2223, "total_vaccinated": 2573,
+            "total_vaccinations": 7251
+          },
+          {
+            "date": "2021-02-28", "change_cases": -1, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 4, "change_vaccinated": 1,
+            "change_vaccinations": 74, "total_cases": 2417, "total_criticals": 4, "total_fatalities": 35, "total_hospitalizations": 11, "total_recoveries": 2227, "total_vaccinated": 2574,
+            "total_vaccinations": 7325
+          },
+          {
+            "date": "2021-03-01", "change_vaccinated": 1, "change_vaccinations": 74, "total_cases": 2417, "total_criticals": 4, "total_fatalities": 35, "total_hospitalizations": 11,
+            "total_recoveries": 2227, "total_vaccinated": 2575, "total_vaccinations": 7399
+          },
+          {
+            "date": "2021-03-02", "change_cases": 6, "change_criticals": 0, "change_fatalities": 1, "change_hospitalizations": 0, "change_recoveries": 5, "change_vaccinated": 76,
+            "change_vaccinations": 224, "total_cases": 2423, "total_criticals": 4, "total_fatalities": 36, "total_hospitalizations": 11, "total_recoveries": 2232, "total_vaccinated": 2651,
+            "total_vaccinations": 7623
+          },
+          {
+            "date": "2021-03-03", "change_cases": 1, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 2, "change_vaccinated": 9,
+            "change_vaccinations": 201, "total_cases": 2424, "total_criticals": 4, "total_fatalities": 36, "total_hospitalizations": 11, "total_recoveries": 2234, "total_vaccinated": 2660,
+            "total_vaccinations": 7824
+          },
+          {
+            "date": "2021-03-04", "change_cases": 0, "change_criticals": 1, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 3, "change_vaccinated": 14,
+            "change_vaccinations": 333, "total_cases": 2424, "total_criticals": 5, "total_fatalities": 36, "total_hospitalizations": 12, "total_recoveries": 2237, "total_vaccinated": 2674,
+            "total_vaccinations": 8157
+          },
+          {
+            "date": "2021-03-05", "change_cases": 2, "change_criticals": -1, "change_fatalities": 0, "change_hospitalizations": -3, "change_recoveries": 7, "change_vaccinated": 1,
+            "change_vaccinations": 235, "total_cases": 2426, "total_criticals": 4, "total_fatalities": 36, "total_hospitalizations": 9, "total_recoveries": 2244, "total_vaccinated": 2675,
+            "total_vaccinations": 8392
+          },
+          {
+            "date": "2021-03-06", "change_cases": 3, "change_criticals": -1, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 4, "change_vaccinated": 152,
+            "change_vaccinations": 461, "total_cases": 2429, "total_criticals": 3, "total_fatalities": 36, "total_hospitalizations": 10, "total_recoveries": 2248, "total_vaccinated": 2827,
+            "total_vaccinations": 8853
+          },
+          {
+            "date": "2021-03-07", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 7, "change_vaccinated": 40,
+            "change_vaccinations": 115, "total_cases": 2429, "total_criticals": 3, "total_fatalities": 36, "total_hospitalizations": 10, "total_recoveries": 2255, "total_vaccinated": 2867,
+            "total_vaccinations": 8968
+          },
+          {
+            "date": "2021-03-08", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 1, "change_vaccinated": 0,
+            "change_vaccinations": 57, "total_cases": 2429, "total_criticals": 3, "total_fatalities": 36, "total_hospitalizations": 10, "total_recoveries": 2256, "total_vaccinated": 2867,
+            "total_vaccinations": 9025
+          },
+          {
+            "date": "2021-03-09", "change_cases": 5, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 2, "change_vaccinated": 28,
+            "change_vaccinations": 359, "total_cases": 2434, "total_criticals": 3, "total_fatalities": 36, "total_hospitalizations": 10, "total_recoveries": 2258, "total_vaccinated": 2895,
+            "total_vaccinations": 9384
+          },
+          {
+            "date": "2021-03-10", "change_cases": 2, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 3, "change_vaccinated": 5,
+            "change_vaccinations": 304, "total_cases": 2436, "total_criticals": 3, "total_fatalities": 36, "total_hospitalizations": 10, "total_recoveries": 2261, "total_vaccinated": 2900,
+            "total_vaccinations": 9688
+          },
+          {
+            "date": "2021-03-11", "change_cases": 5, "change_criticals": -1, "change_fatalities": 0, "change_hospitalizations": -2, "change_recoveries": 3, "change_vaccinated": 121,
+            "change_vaccinations": 489, "total_cases": 2441, "total_criticals": 2, "total_fatalities": 36, "total_hospitalizations": 8, "total_recoveries": 2264, "total_vaccinated": 3021,
+            "total_vaccinations": 10177
+          },
+          {
+            "date": "2021-03-12", "change_cases": 8, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -2, "change_recoveries": 114, "change_vaccinated": 68,
+            "change_vaccinations": 161, "total_cases": 2449, "total_criticals": 2, "total_fatalities": 36, "total_hospitalizations": 6, "total_recoveries": 2378, "total_vaccinated": 3089,
+            "total_vaccinations": 10338
+          },
+          {
+            "date": "2021-03-13", "change_cases": 3, "change_criticals": 0, "change_fatalities": 1, "change_hospitalizations": 1, "change_recoveries": 1, "change_vaccinated": 19,
+            "change_vaccinations": 385, "total_cases": 2452, "total_criticals": 2, "total_fatalities": 37, "total_hospitalizations": 7, "total_recoveries": 2379, "total_vaccinated": 3108,
+            "total_vaccinations": 10723
+          },
+          {
+            "date": "2021-03-14", "change_cases": 2, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 0, "change_vaccinated": 101,
+            "change_vaccinations": 311, "total_cases": 2454, "total_criticals": 2, "total_fatalities": 37, "total_hospitalizations": 8, "total_recoveries": 2379, "total_vaccinated": 3209,
+            "total_vaccinations": 11034
+          },
+          {
+            "date": "2021-03-15", "change_cases": 0, "change_criticals": 1, "change_fatalities": 0, "change_hospitalizations": 1, "change_recoveries": 0, "change_vaccinated": 57,
+            "change_vaccinations": 74, "total_cases": 2454, "total_criticals": 3, "total_fatalities": 37, "total_hospitalizations": 9, "total_recoveries": 2379, "total_vaccinated": 3266,
+            "total_vaccinations": 11108
+          },
+          {
+            "date": "2021-03-16", "change_cases": 1, "change_criticals": 0, "change_fatalities": 880, "change_hospitalizations": 1, "change_recoveries": 0, "change_vaccinated": 108,
+            "change_vaccinations": 342, "total_cases": 2455, "total_criticals": 3, "total_fatalities": 917, "total_hospitalizations": 10, "total_recoveries": 2379, "total_vaccinated": 3374,
+            "total_vaccinations": 11450
+          },
+          {
+            "date": "2021-03-17", "change_cases": 2, "change_criticals": 0, "change_fatalities": -880, "change_hospitalizations": 90, "change_recoveries": 1, "total_cases": 2457, "total_criticals": 3,
+            "total_fatalities": 37, "total_hospitalizations": 100, "total_recoveries": 2380, "total_vaccinated": 3374, "total_vaccinations": 11450
+          },
+          {
+            "date": "2021-03-18", "change_cases": 2, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": -93, "change_recoveries": 0, "change_vaccinated": 226,
+            "change_vaccinations": 923, "total_cases": 2459, "total_criticals": 3, "total_fatalities": 37, "total_hospitalizations": 7, "total_recoveries": 2380, "total_vaccinated": 3600,
+            "total_vaccinations": 12373
+          },
+          {
+            "date": "2021-03-19", "total_cases": 2459, "total_criticals": 3, "total_fatalities": 37, "total_hospitalizations": 7, "total_recoveries": 2380, "total_vaccinated": 3600,
+            "total_vaccinations": 12373
+          },
+          {
+            "date": "2021-03-20", "change_cases": 7, "change_criticals": -2, "change_fatalities": 0, "change_hospitalizations": -2, "change_recoveries": 7, "total_cases": 2466, "total_criticals": 1,
+            "total_fatalities": 37, "total_hospitalizations": 5, "total_recoveries": 2387, "total_vaccinated": 3600, "total_vaccinations": 12373
+          },
+          {
+            "date": "2021-03-21", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_vaccinated": 350,
+            "change_vaccinations": 1634, "total_cases": 2466, "total_criticals": 1, "total_fatalities": 37, "total_hospitalizations": 5, "total_recoveries": 2387, "total_vaccinated": 3950,
+            "total_vaccinations": 14007
+          },
+          {
+            "date": "2021-03-22", "change_cases": 0, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 2, "change_vaccinated": 246,
+            "change_vaccinations": 287, "total_cases": 2466, "total_criticals": 1, "total_fatalities": 37, "total_hospitalizations": 5, "total_recoveries": 2389, "total_vaccinated": 4196,
+            "total_vaccinations": 14294
+          },
+          {
+            "date": "2021-03-23", "change_cases": 5, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 3, "change_vaccinated": 118,
+            "change_vaccinations": 584, "total_cases": 2471, "total_criticals": 1, "total_fatalities": 37, "total_hospitalizations": 5, "total_recoveries": 2392, "total_vaccinated": 4314,
+            "total_vaccinations": 14878
+          },
+          {
+            "date": "2021-03-24", "change_cases": 3, "change_criticals": 1, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 2, "change_vaccinated": 169,
+            "change_vaccinations": 567, "total_cases": 2474, "total_criticals": 2, "total_fatalities": 37, "total_hospitalizations": 5, "total_recoveries": 2394, "total_vaccinated": 4483,
+            "total_vaccinations": 15445
+          },
+          {
+            "date": "2021-03-25", "change_cases": 2, "change_criticals": 0, "change_fatalities": -1, "change_hospitalizations": 0, "change_recoveries": 21, "change_vaccinated": 189,
+            "change_vaccinations": 679, "total_cases": 2476, "total_criticals": 2, "total_fatalities": 36, "total_hospitalizations": 5, "total_recoveries": 2415, "total_vaccinated": 4672,
+            "total_vaccinations": 16124
+          },
+          {
+            "date": "2021-03-26", "change_cases": 1, "change_criticals": 0, "change_fatalities": 1, "change_hospitalizations": 0, "change_recoveries": -1, "change_vaccinated": 392,
+            "change_vaccinations": 528, "total_cases": 2477, "total_criticals": 2, "total_fatalities": 37, "total_hospitalizations": 5, "total_recoveries": 2414, "total_vaccinated": 5064,
+            "total_vaccinations": 16652
+          },
+          {
+            "date": "2021-03-27", "change_cases": -2, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 2, "change_vaccinated": 183,
+            "change_vaccinations": 881, "total_cases": 2475, "total_criticals": 2, "total_fatalities": 37, "total_hospitalizations": 5, "total_recoveries": 2416, "total_vaccinated": 5247,
+            "total_vaccinations": 17533
+          },
+          {
+            "date": "2021-03-28", "change_cases": 2, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_vaccinated": 163,
+            "change_vaccinations": 769, "total_cases": 2477, "total_criticals": 2, "total_fatalities": 37, "total_hospitalizations": 5, "total_recoveries": 2416, "total_vaccinated": 5410,
+            "total_vaccinations": 18302
+          },
+          {
+            "date": "2021-03-29", "change_cases": 2, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 1, "change_vaccinated": 51,
+            "change_vaccinations": 103, "total_cases": 2479, "total_criticals": 2, "total_fatalities": 37, "total_hospitalizations": 5, "total_recoveries": 2417, "total_vaccinated": 5461,
+            "total_vaccinations": 18405
+          },
+          {
+            "date": "2021-03-30", "change_cases": 1, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 1, "change_vaccinated": 178,
+            "change_vaccinations": 531, "total_cases": 2480, "total_criticals": 2, "total_fatalities": 37, "total_hospitalizations": 5, "total_recoveries": 2418, "total_vaccinated": 5639,
+            "total_vaccinations": 18936
+          },
+          {
+            "date": "2021-03-31", "change_cases": 3, "change_criticals": -1, "change_fatalities": 0, "change_hospitalizations": -2, "change_recoveries": 6, "change_vaccinated": 76,
+            "change_vaccinations": 720, "total_cases": 2483, "total_criticals": 1, "total_fatalities": 37, "total_hospitalizations": 3, "total_recoveries": 2424, "total_vaccinated": 5715,
+            "total_vaccinations": 19656
+          },
+          {
+            "date": "2021-04-01", "change_cases": 1, "change_criticals": 0, "change_fatalities": 0, "change_hospitalizations": 0, "change_recoveries": 0, "change_vaccinated": 566,
+            "change_vaccinations": 1164, "total_cases": 2484, "total_criticals": 1, "total_fatalities": 37, "total_hospitalizations": 3, "total_recoveries": 2424, "total_vaccinated": 6281,
+            "total_vaccinations": 20820
+          },
+          {
+            "date": "2021-04-02", "total_cases": 2484, "total_criticals": 1, "total_fatalities": 37, "total_hospitalizations": 3, "total_recoveries": 2424, "total_vaccinated": 6281,
+            "total_vaccinations": 20820
+          },
+          {
+            "date": "2021-04-03", "total_cases": 2484, "total_criticals": 1, "total_fatalities": 37, "total_hospitalizations": 3, "total_recoveries": 2424, "total_vaccinated": 6281,
+            "total_vaccinations": 20820
+          }
+        ],
         "id": 4603,
         "population": 127601,
         "province": "MB",
         "total": {
           "date": "2021-04-03", "total_cases": 2484, "total_criticals": 1, "total_fatalities": 37, "total_hospitalizations": 3, "total_recoveries": 2424, "total_vaccinated": 6281,
           "total_vaccinations": 20820
-        }
+        },
+        "updated_at": "2021-04-03T15:20:06.000Z"
       },
       {
         "name": {"en": "Northern Regional Health Authority", "fr": "Office régional de la santé du Nord"},
@@ -10369,17 +11637,775 @@
       },
       {
         "name": {"en": "Zone 6 (Bathurst area)", "fr": "Zone 6 (région de Bathurst)"},
+        "daily": [
+          {
+            "date": "2020-12-10", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 117, "total_cases": 10, "total_fatalities": 0, "total_recoveries": 7,
+            "total_tests": 10812
+          },
+          {
+            "date": "2020-12-11", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 81, "total_cases": 11, "total_fatalities": 0, "total_recoveries": 7,
+            "total_tests": 10893
+          },
+          {
+            "date": "2020-12-12", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 80, "total_cases": 11, "total_fatalities": 0, "total_recoveries": 7,
+            "total_tests": 10973
+          },
+          {
+            "date": "2020-12-13", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 149, "total_cases": 11, "total_fatalities": 0, "total_recoveries": 8,
+            "total_tests": 11122
+          },
+          {
+            "date": "2020-12-14", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 54, "total_cases": 11, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 11176
+          },
+          {
+            "date": "2020-12-15", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 76, "total_cases": 11, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 11252
+          },
+          {
+            "date": "2020-12-16", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 115, "total_cases": 11, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 11367
+          },
+          {
+            "date": "2020-12-17", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 82, "total_cases": 11, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 11449
+          },
+          {
+            "date": "2020-12-18", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 153, "total_cases": 11, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 11602
+          },
+          {
+            "date": "2020-12-19", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 82, "total_cases": 12, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 11684
+          },
+          {
+            "date": "2020-12-20", "change_cases": -1, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 79, "total_cases": 11, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 11763
+          },
+          {
+            "date": "2020-12-21", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 81, "total_cases": 11, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 11844
+          },
+          {
+            "date": "2020-12-22", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 117, "total_cases": 11, "total_fatalities": 0, "total_recoveries": 10,
+            "total_tests": 11961
+          },
+          {"date": "2020-12-23", "total_cases": 11, "total_fatalities": 0, "total_recoveries": 10, "total_tests": 11961},
+          {"date": "2020-12-24", "total_cases": 11, "total_fatalities": 0, "total_recoveries": 10, "total_tests": 11961},
+          {"date": "2020-12-25", "total_cases": 11, "total_fatalities": 0, "total_recoveries": 10, "total_tests": 11961},
+          {"date": "2020-12-26", "total_cases": 11, "total_fatalities": 0, "total_recoveries": 10, "total_tests": 11961},
+          {"date": "2020-12-27", "total_cases": 11, "total_fatalities": 0, "total_recoveries": 10, "total_tests": 11961},
+          {
+            "date": "2020-12-28", "change_cases": 2, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 522, "total_cases": 13, "total_fatalities": 0, "total_recoveries": 11,
+            "total_tests": 12483
+          },
+          {"date": "2020-12-29", "total_cases": 13, "total_fatalities": 0, "total_recoveries": 11, "total_tests": 12483},
+          {"date": "2020-12-30", "total_cases": 13, "total_fatalities": 0, "total_recoveries": 11, "total_tests": 12483},
+          {"date": "2020-12-31", "total_cases": 13, "total_fatalities": 0, "total_recoveries": 11, "total_tests": 12483},
+          {"date": "2021-01-01", "total_cases": 13, "total_fatalities": 0, "total_recoveries": 11, "total_tests": 12483},
+          {"date": "2021-01-02", "total_cases": 13, "total_fatalities": 0, "total_recoveries": 11, "total_tests": 12483},
+          {"date": "2021-01-03", "total_cases": 13, "total_fatalities": 0, "total_recoveries": 11, "total_tests": 12483},
+          {
+            "date": "2021-01-04", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 2, "change_tests": 447, "total_cases": 14, "total_fatalities": 0, "total_recoveries": 13,
+            "total_tests": 12930
+          },
+          {
+            "date": "2021-01-05", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 65, "total_cases": 14, "total_fatalities": 0, "total_recoveries": 13,
+            "total_tests": 12995
+          },
+          {"date": "2021-01-06", "total_cases": 14, "total_fatalities": 0, "total_recoveries": 13, "total_tests": 12995},
+          {
+            "date": "2021-01-07", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 137, "total_cases": 14, "total_fatalities": 0, "total_recoveries": 14,
+            "total_tests": 13132
+          },
+          {
+            "date": "2021-01-08", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 144, "total_cases": 14, "total_fatalities": 0, "total_recoveries": 14,
+            "total_tests": 13276
+          },
+          {"date": "2021-01-09", "total_cases": 14, "total_fatalities": 0, "total_recoveries": 14, "total_tests": 13276},
+          {
+            "date": "2021-01-10", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 183, "total_cases": 15, "total_fatalities": 0, "total_recoveries": 14,
+            "total_tests": 13459
+          },
+          {
+            "date": "2021-01-11", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 96, "total_cases": 15, "total_fatalities": 0, "total_recoveries": 14,
+            "total_tests": 13555
+          },
+          {
+            "date": "2021-01-12", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 107, "total_cases": 15, "total_fatalities": 0, "total_recoveries": 14,
+            "total_tests": 13662
+          },
+          {
+            "date": "2021-01-13", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 58, "total_cases": 16, "total_fatalities": 0, "total_recoveries": 14,
+            "total_tests": 13720
+          },
+          {
+            "date": "2021-01-14", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 170, "total_cases": 17, "total_fatalities": 0, "total_recoveries": 14,
+            "total_tests": 13890
+          },
+          {"date": "2021-01-15", "total_cases": 17, "total_fatalities": 0, "total_recoveries": 14, "total_tests": 13890},
+          {"date": "2021-01-16", "total_cases": 17, "total_fatalities": 0, "total_recoveries": 14, "total_tests": 13890},
+          {"date": "2021-01-17", "total_cases": 17, "total_fatalities": 0, "total_recoveries": 14, "total_tests": 13890},
+          {"date": "2021-01-18", "total_cases": 17, "total_fatalities": 0, "total_recoveries": 14, "total_tests": 13890},
+          {
+            "date": "2021-01-19", "change_cases": 6, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 583, "total_cases": 23, "total_fatalities": 0, "total_recoveries": 14,
+            "total_tests": 14473
+          },
+          {
+            "date": "2021-01-20", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 93, "total_cases": 23, "total_fatalities": 0, "total_recoveries": 14,
+            "total_tests": 14566
+          },
+          {
+            "date": "2021-01-21", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 111, "total_cases": 23, "total_fatalities": 0, "total_recoveries": 14,
+            "total_tests": 14677
+          },
+          {
+            "date": "2021-01-22", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 150, "total_cases": 23, "total_fatalities": 0, "total_recoveries": 14,
+            "total_tests": 14827
+          },
+          {
+            "date": "2021-01-23", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 2, "change_tests": 132, "total_cases": 23, "total_fatalities": 0, "total_recoveries": 16,
+            "total_tests": 14959
+          },
+          {
+            "date": "2021-01-24", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 72, "total_cases": 23, "total_fatalities": 0, "total_recoveries": 16,
+            "total_tests": 15031
+          },
+          {
+            "date": "2021-01-25", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 109, "total_cases": 23, "total_fatalities": 0, "total_recoveries": 16,
+            "total_tests": 15140
+          },
+          {
+            "date": "2021-01-26", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 96, "total_cases": 23, "total_fatalities": 0, "total_recoveries": 17,
+            "total_tests": 15236
+          },
+          {
+            "date": "2021-01-27", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 99, "total_cases": 23, "total_fatalities": 0, "total_recoveries": 17,
+            "total_tests": 15335
+          },
+          {
+            "date": "2021-01-28", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 143, "total_cases": 23, "total_fatalities": 0, "total_recoveries": 17,
+            "total_tests": 15478
+          },
+          {
+            "date": "2021-01-29", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 94, "total_cases": 24, "total_fatalities": 0, "total_recoveries": 17,
+            "total_tests": 15572
+          },
+          {
+            "date": "2021-01-30", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 111, "total_cases": 24, "total_fatalities": 0, "total_recoveries": 18,
+            "total_tests": 15683
+          },
+          {
+            "date": "2021-01-31", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 2, "change_tests": 135, "total_cases": 24, "total_fatalities": 0, "total_recoveries": 20,
+            "total_tests": 15818
+          },
+          {
+            "date": "2021-02-01", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 97, "total_cases": 24, "total_fatalities": 0, "total_recoveries": 21,
+            "total_tests": 15915
+          },
+          {
+            "date": "2021-02-02", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 110, "total_cases": 24, "total_fatalities": 0, "total_recoveries": 22,
+            "total_tests": 16025
+          },
+          {"date": "2021-02-03", "total_cases": 24, "total_fatalities": 0, "total_recoveries": 22, "total_tests": 16025},
+          {
+            "date": "2021-02-04", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 170, "total_cases": 25, "total_fatalities": 0, "total_recoveries": 22,
+            "total_tests": 16195
+          },
+          {
+            "date": "2021-02-05", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 62, "total_cases": 25, "total_fatalities": 0, "total_recoveries": 23,
+            "total_tests": 16257
+          },
+          {"date": "2021-02-06", "total_cases": 25, "total_fatalities": 0, "total_recoveries": 23, "total_tests": 16257},
+          {
+            "date": "2021-02-07", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 176, "total_cases": 26, "total_fatalities": 0, "total_recoveries": 23,
+            "total_tests": 16433
+          },
+          {"date": "2021-02-08", "total_cases": 26, "total_fatalities": 0, "total_recoveries": 23, "total_tests": 16433},
+          {
+            "date": "2021-02-09", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 78, "total_cases": 26, "total_fatalities": 0, "total_recoveries": 24,
+            "total_tests": 16511
+          },
+          {
+            "date": "2021-02-10", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 91, "total_cases": 26, "total_fatalities": 0, "total_recoveries": 24,
+            "total_tests": 16602
+          },
+          {"date": "2021-02-11", "total_cases": 26, "total_fatalities": 0, "total_recoveries": 24, "total_tests": 16602},
+          {
+            "date": "2021-02-12", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 132, "total_cases": 27, "total_fatalities": 0, "total_recoveries": 24,
+            "total_tests": 16734
+          },
+          {"date": "2021-02-13", "total_cases": 27, "total_fatalities": 0, "total_recoveries": 24, "total_tests": 16734},
+          {"date": "2021-02-14", "total_cases": 27, "total_fatalities": 0, "total_recoveries": 24, "total_tests": 16734},
+          {
+            "date": "2021-02-15", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 151, "total_cases": 27, "total_fatalities": 0, "total_recoveries": 24,
+            "total_tests": 16885
+          },
+          {"date": "2021-02-16", "total_cases": 27, "total_fatalities": 0, "total_recoveries": 24, "total_tests": 16885},
+          {
+            "date": "2021-02-17", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 119, "total_cases": 27, "total_fatalities": 0, "total_recoveries": 24,
+            "total_tests": 17004
+          },
+          {
+            "date": "2021-02-18", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 35, "total_cases": 27, "total_fatalities": 0, "total_recoveries": 24,
+            "total_tests": 17039
+          },
+          {
+            "date": "2021-02-19", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 61, "total_cases": 27, "total_fatalities": 0, "total_recoveries": 25,
+            "total_tests": 17100
+          },
+          {
+            "date": "2021-02-20", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 28, "total_cases": 27, "total_fatalities": 0, "total_recoveries": 26,
+            "total_tests": 17128
+          },
+          {
+            "date": "2021-02-21", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 43, "total_cases": 27, "total_fatalities": 0, "total_recoveries": 26,
+            "total_tests": 17171
+          },
+          {
+            "date": "2021-02-22", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 19, "total_cases": 27, "total_fatalities": 0, "total_recoveries": 26,
+            "total_tests": 17190
+          },
+          {
+            "date": "2021-02-23", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 55, "total_cases": 27, "total_fatalities": 0, "total_recoveries": 26,
+            "total_tests": 17245
+          },
+          {
+            "date": "2021-02-24", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 49, "total_cases": 27, "total_fatalities": 0, "total_recoveries": 26,
+            "total_tests": 17294
+          },
+          {
+            "date": "2021-02-25", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 37, "total_cases": 27, "total_fatalities": 0, "total_recoveries": 26,
+            "total_tests": 17331
+          },
+          {"date": "2021-02-26", "total_cases": 27, "total_fatalities": 0, "total_recoveries": 26, "total_tests": 17331},
+          {
+            "date": "2021-02-27", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 84, "total_cases": 27, "total_fatalities": 0, "total_recoveries": 27,
+            "total_tests": 17415
+          },
+          {
+            "date": "2021-02-28", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 25, "total_cases": 27, "total_fatalities": 0, "total_recoveries": 27,
+            "total_tests": 17440
+          },
+          {
+            "date": "2021-03-01", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 42, "total_cases": 27, "total_fatalities": 0, "total_recoveries": 27,
+            "total_tests": 17482
+          },
+          {
+            "date": "2021-03-02", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 43, "total_cases": 27, "total_fatalities": 0, "total_recoveries": 27,
+            "total_tests": 17525
+          },
+          {
+            "date": "2021-03-03", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 2, "total_cases": 27, "total_fatalities": 0, "total_recoveries": 27,
+            "total_tests": 17527
+          },
+          {
+            "date": "2021-03-04", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 2, "total_cases": 27, "total_fatalities": 0, "total_recoveries": 27,
+            "total_tests": 17529
+          },
+          {
+            "date": "2021-03-05", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 0, "total_cases": 27, "total_fatalities": 0, "total_recoveries": 27,
+            "total_tests": 17529
+          },
+          {
+            "date": "2021-03-06", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 2, "total_cases": 27, "total_fatalities": 0, "total_recoveries": 27,
+            "total_tests": 17531
+          },
+          {
+            "date": "2021-03-07", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 9, "total_cases": 27, "total_fatalities": 0, "total_recoveries": 27,
+            "total_tests": 17540
+          },
+          {
+            "date": "2021-03-08", "change_cases": 0, "change_fatalities": 0, "change_recoveries": -10, "change_tests": -11, "total_cases": 27, "total_fatalities": 0, "total_recoveries": 17,
+            "total_tests": 17529
+          },
+          {
+            "date": "2021-03-09", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 10, "change_tests": 1, "total_cases": 28, "total_fatalities": 0, "total_recoveries": 27,
+            "total_tests": 17530
+          },
+          {
+            "date": "2021-03-10", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 2, "total_cases": 28, "total_fatalities": 0, "total_recoveries": 27,
+            "total_tests": 17532
+          },
+          {
+            "date": "2021-03-11", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 33, "total_cases": 28, "total_fatalities": 0, "total_recoveries": 27,
+            "total_tests": 17565
+          },
+          {
+            "date": "2021-03-12", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 74, "total_cases": 28, "total_fatalities": 0, "total_recoveries": 28,
+            "total_tests": 17639
+          },
+          {
+            "date": "2021-03-13", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 0, "total_cases": 28, "total_fatalities": 0, "total_recoveries": 28,
+            "total_tests": 17639
+          },
+          {
+            "date": "2021-03-14", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 4, "total_cases": 28, "total_fatalities": 0, "total_recoveries": 28,
+            "total_tests": 17643
+          },
+          {
+            "date": "2021-03-15", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 34, "total_cases": 28, "total_fatalities": 0, "total_recoveries": 28,
+            "total_tests": 17677
+          },
+          {
+            "date": "2021-03-16", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 42, "total_cases": 28, "total_fatalities": 0, "total_recoveries": 28,
+            "total_tests": 17719
+          },
+          {
+            "date": "2021-03-17", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 39, "total_cases": 28, "total_fatalities": 0, "total_recoveries": 28,
+            "total_tests": 17758
+          },
+          {
+            "date": "2021-03-18", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 39, "total_cases": 28, "total_fatalities": 0, "total_recoveries": 28,
+            "total_tests": 17797
+          },
+          {"date": "2021-03-19", "total_cases": 28, "total_fatalities": 0, "total_recoveries": 28, "total_tests": 17797},
+          {
+            "date": "2021-03-20", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 60, "total_cases": 29, "total_fatalities": 0, "total_recoveries": 28,
+            "total_tests": 17857
+          },
+          {
+            "date": "2021-03-21", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 19, "total_cases": 29, "total_fatalities": 0, "total_recoveries": 28,
+            "total_tests": 17876
+          },
+          {
+            "date": "2021-03-22", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 40, "total_cases": 29, "total_fatalities": 0, "total_recoveries": 28,
+            "total_tests": 17916
+          },
+          {
+            "date": "2021-03-23", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 43, "total_cases": 29, "total_fatalities": 0, "total_recoveries": 28,
+            "total_tests": 17959
+          },
+          {
+            "date": "2021-03-24", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 33, "total_cases": 29, "total_fatalities": 0, "total_recoveries": 28,
+            "total_tests": 17992
+          },
+          {
+            "date": "2021-03-25", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 44, "total_cases": 29, "total_fatalities": 0, "total_recoveries": 28,
+            "total_tests": 18036
+          },
+          {
+            "date": "2021-03-26", "change_cases": 0, "change_fatalities": 0, "change_recoveries": -1, "change_tests": 34, "total_cases": 29, "total_fatalities": 0, "total_recoveries": 27,
+            "total_tests": 18070
+          },
+          {
+            "date": "2021-03-27", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 55, "total_cases": 29, "total_fatalities": 0, "total_recoveries": 27,
+            "total_tests": 18125
+          },
+          {
+            "date": "2021-03-28", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 14, "total_cases": 29, "total_fatalities": 0, "total_recoveries": 27,
+            "total_tests": 18139
+          },
+          {
+            "date": "2021-03-29", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 41, "total_cases": 29, "total_fatalities": 0, "total_recoveries": 27,
+            "total_tests": 18180
+          },
+          {
+            "date": "2021-03-30", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 45, "total_cases": 29, "total_fatalities": 0, "total_recoveries": 27,
+            "total_tests": 18225
+          },
+          {
+            "date": "2021-03-31", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 632, "total_cases": 29, "total_fatalities": 0, "total_recoveries": 27,
+            "total_tests": 18857
+          },
+          {
+            "date": "2021-04-01", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 1, "total_cases": 29, "total_fatalities": 0, "total_recoveries": 28,
+            "total_tests": 18858
+          },
+          {"date": "2021-04-02", "total_cases": 29, "total_fatalities": 0, "total_recoveries": 28, "total_tests": 18858},
+          {"date": "2021-04-03", "total_cases": 29, "total_fatalities": 0, "total_recoveries": 28, "total_tests": 18858}
+        ],
         "id": 1306,
         "population": 76374,
         "province": "NB",
-        "total": {"date": "2021-04-03", "total_cases": 29, "total_fatalities": 0, "total_recoveries": 28, "total_tests": 18858}
+        "total": {"date": "2021-04-03", "total_cases": 29, "total_fatalities": 0, "total_recoveries": 28, "total_tests": 18858},
+        "updated_at": "2021-04-03T15:20:06.000Z"
       },
       {
         "name": {"en": "Zone 7 (Miramichi area)", "fr": "Zone 7 (région de Miramichi)"},
+        "daily": [
+          {
+            "date": "2020-12-10", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 57, "total_cases": 4, "total_fatalities": 0, "total_recoveries": 4,
+            "total_tests": 5231
+          },
+          {
+            "date": "2020-12-11", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 40, "total_cases": 4, "total_fatalities": 0, "total_recoveries": 4,
+            "total_tests": 5271
+          },
+          {
+            "date": "2020-12-12", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 22, "total_cases": 4, "total_fatalities": 0, "total_recoveries": 4,
+            "total_tests": 5293
+          },
+          {
+            "date": "2020-12-13", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 34, "total_cases": 4, "total_fatalities": 0, "total_recoveries": 4,
+            "total_tests": 5327
+          },
+          {
+            "date": "2020-12-14", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 34, "total_cases": 4, "total_fatalities": 0, "total_recoveries": 4,
+            "total_tests": 5361
+          },
+          {
+            "date": "2020-12-15", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 47, "total_cases": 4, "total_fatalities": 0, "total_recoveries": 4,
+            "total_tests": 5408
+          },
+          {
+            "date": "2020-12-16", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 56, "total_cases": 4, "total_fatalities": 0, "total_recoveries": 4,
+            "total_tests": 5464
+          },
+          {
+            "date": "2020-12-17", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 44, "total_cases": 4, "total_fatalities": 0, "total_recoveries": 4,
+            "total_tests": 5508
+          },
+          {
+            "date": "2020-12-18", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 50, "total_cases": 4, "total_fatalities": 0, "total_recoveries": 4,
+            "total_tests": 5558
+          },
+          {
+            "date": "2020-12-19", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 36, "total_cases": 4, "total_fatalities": 0, "total_recoveries": 4,
+            "total_tests": 5594
+          },
+          {
+            "date": "2020-12-20", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 32, "total_cases": 4, "total_fatalities": 0, "total_recoveries": 4,
+            "total_tests": 5626
+          },
+          {
+            "date": "2020-12-21", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 44, "total_cases": 4, "total_fatalities": 0, "total_recoveries": 4,
+            "total_tests": 5670
+          },
+          {
+            "date": "2020-12-22", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 47, "total_cases": 4, "total_fatalities": 0, "total_recoveries": 4,
+            "total_tests": 5717
+          },
+          {"date": "2020-12-23", "total_cases": 4, "total_fatalities": 0, "total_recoveries": 4, "total_tests": 5717},
+          {"date": "2020-12-24", "total_cases": 4, "total_fatalities": 0, "total_recoveries": 4, "total_tests": 5717},
+          {"date": "2020-12-25", "total_cases": 4, "total_fatalities": 0, "total_recoveries": 4, "total_tests": 5717},
+          {"date": "2020-12-26", "total_cases": 4, "total_fatalities": 0, "total_recoveries": 4, "total_tests": 5717},
+          {"date": "2020-12-27", "total_cases": 4, "total_fatalities": 0, "total_recoveries": 4, "total_tests": 5717},
+          {
+            "date": "2020-12-28", "change_cases": 2, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 233, "total_cases": 6, "total_fatalities": 0, "total_recoveries": 4,
+            "total_tests": 5950
+          },
+          {"date": "2020-12-29", "total_cases": 6, "total_fatalities": 0, "total_recoveries": 4, "total_tests": 5950},
+          {"date": "2020-12-30", "total_cases": 6, "total_fatalities": 0, "total_recoveries": 4, "total_tests": 5950},
+          {"date": "2020-12-31", "total_cases": 6, "total_fatalities": 0, "total_recoveries": 4, "total_tests": 5950},
+          {"date": "2021-01-01", "total_cases": 6, "total_fatalities": 0, "total_recoveries": 4, "total_tests": 5950},
+          {"date": "2021-01-02", "total_cases": 6, "total_fatalities": 0, "total_recoveries": 4, "total_tests": 5950},
+          {"date": "2021-01-03", "total_cases": 6, "total_fatalities": 0, "total_recoveries": 4, "total_tests": 5950},
+          {
+            "date": "2021-01-04", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 212, "total_cases": 6, "total_fatalities": 0, "total_recoveries": 4,
+            "total_tests": 6162
+          },
+          {
+            "date": "2021-01-05", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 35, "total_cases": 6, "total_fatalities": 0, "total_recoveries": 5,
+            "total_tests": 6197
+          },
+          {"date": "2021-01-06", "total_cases": 6, "total_fatalities": 0, "total_recoveries": 5, "total_tests": 6197},
+          {
+            "date": "2021-01-07", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 88, "total_cases": 6, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 6285
+          },
+          {
+            "date": "2021-01-08", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 40, "total_cases": 6, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 6325
+          },
+          {"date": "2021-01-09", "total_cases": 6, "total_fatalities": 0, "total_recoveries": 6, "total_tests": 6325},
+          {
+            "date": "2021-01-10", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 86, "total_cases": 6, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 6411
+          },
+          {
+            "date": "2021-01-11", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 47, "total_cases": 6, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 6458
+          },
+          {
+            "date": "2021-01-12", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 43, "total_cases": 6, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 6501
+          },
+          {
+            "date": "2021-01-13", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 32, "total_cases": 6, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 6533
+          },
+          {
+            "date": "2021-01-14", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 74, "total_cases": 6, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 6607
+          },
+          {"date": "2021-01-15", "total_cases": 6, "total_fatalities": 0, "total_recoveries": 6, "total_tests": 6607},
+          {"date": "2021-01-16", "total_cases": 6, "total_fatalities": 0, "total_recoveries": 6, "total_tests": 6607},
+          {"date": "2021-01-17", "total_cases": 6, "total_fatalities": 0, "total_recoveries": 6, "total_tests": 6607},
+          {"date": "2021-01-18", "total_cases": 6, "total_fatalities": 0, "total_recoveries": 6, "total_tests": 6607},
+          {
+            "date": "2021-01-19", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 251, "total_cases": 6, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 6858
+          },
+          {
+            "date": "2021-01-20", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 53, "total_cases": 6, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 6911
+          },
+          {
+            "date": "2021-01-21", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 9, "total_cases": 6, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 6920
+          },
+          {
+            "date": "2021-01-22", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 71, "total_cases": 7, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 6991
+          },
+          {
+            "date": "2021-01-23", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 47, "total_cases": 7, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 7038
+          },
+          {
+            "date": "2021-01-24", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 32, "total_cases": 8, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 7070
+          },
+          {
+            "date": "2021-01-25", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 47, "total_cases": 8, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 7117
+          },
+          {
+            "date": "2021-01-26", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 51, "total_cases": 8, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 7168
+          },
+          {
+            "date": "2021-01-27", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 82, "total_cases": 8, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 7250
+          },
+          {
+            "date": "2021-01-28", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 83, "total_cases": 8, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 7333
+          },
+          {
+            "date": "2021-01-29", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 40, "total_cases": 8, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 7373
+          },
+          {
+            "date": "2021-01-30", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 52, "total_cases": 8, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 7425
+          },
+          {
+            "date": "2021-01-31", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 53, "total_cases": 8, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 7478
+          },
+          {
+            "date": "2021-02-01", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 30, "total_cases": 8, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 7508
+          },
+          {
+            "date": "2021-02-02", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 62, "total_cases": 8, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 7570
+          },
+          {"date": "2021-02-03", "total_cases": 8, "total_fatalities": 0, "total_recoveries": 6, "total_tests": 7570},
+          {
+            "date": "2021-02-04", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 50, "total_cases": 8, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 7620
+          },
+          {
+            "date": "2021-02-05", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 24, "total_cases": 8, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 7644
+          },
+          {"date": "2021-02-06", "total_cases": 8, "total_fatalities": 0, "total_recoveries": 6, "total_tests": 7644},
+          {
+            "date": "2021-02-07", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 77, "total_cases": 8, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 7721
+          },
+          {"date": "2021-02-08", "total_cases": 8, "total_fatalities": 0, "total_recoveries": 6, "total_tests": 7721},
+          {
+            "date": "2021-02-09", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 44, "total_cases": 8, "total_fatalities": 0, "total_recoveries": 6,
+            "total_tests": 7765
+          },
+          {
+            "date": "2021-02-10", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 63, "total_cases": 8, "total_fatalities": 0, "total_recoveries": 7,
+            "total_tests": 7828
+          },
+          {"date": "2021-02-11", "total_cases": 8, "total_fatalities": 0, "total_recoveries": 7, "total_tests": 7828},
+          {
+            "date": "2021-02-12", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 40, "total_cases": 8, "total_fatalities": 0, "total_recoveries": 8,
+            "total_tests": 7868
+          },
+          {"date": "2021-02-13", "total_cases": 8, "total_fatalities": 0, "total_recoveries": 8, "total_tests": 7868},
+          {"date": "2021-02-14", "total_cases": 8, "total_fatalities": 0, "total_recoveries": 8, "total_tests": 7868},
+          {
+            "date": "2021-02-15", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 57, "total_cases": 8, "total_fatalities": 0, "total_recoveries": 8,
+            "total_tests": 7925
+          },
+          {"date": "2021-02-16", "total_cases": 8, "total_fatalities": 0, "total_recoveries": 8, "total_tests": 7925},
+          {
+            "date": "2021-02-17", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 49, "total_cases": 8, "total_fatalities": 0, "total_recoveries": 8,
+            "total_tests": 7974
+          },
+          {
+            "date": "2021-02-18", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 28, "total_cases": 8, "total_fatalities": 0, "total_recoveries": 8,
+            "total_tests": 8002
+          },
+          {
+            "date": "2021-02-19", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 16, "total_cases": 9, "total_fatalities": 0, "total_recoveries": 8,
+            "total_tests": 8018
+          },
+          {
+            "date": "2021-02-20", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 18, "total_cases": 9, "total_fatalities": 0, "total_recoveries": 8,
+            "total_tests": 8036
+          },
+          {
+            "date": "2021-02-21", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 21, "total_cases": 9, "total_fatalities": 0, "total_recoveries": 8,
+            "total_tests": 8057
+          },
+          {
+            "date": "2021-02-22", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 6, "total_cases": 9, "total_fatalities": 0, "total_recoveries": 8,
+            "total_tests": 8063
+          },
+          {
+            "date": "2021-02-23", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 16, "total_cases": 9, "total_fatalities": 0, "total_recoveries": 8,
+            "total_tests": 8079
+          },
+          {
+            "date": "2021-02-24", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 14, "total_cases": 9, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 8093
+          },
+          {
+            "date": "2021-02-25", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 17, "total_cases": 9, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 8110
+          },
+          {"date": "2021-02-26", "total_cases": 9, "total_fatalities": 0, "total_recoveries": 9, "total_tests": 8110},
+          {
+            "date": "2021-02-27", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 28, "total_cases": 9, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 8138
+          },
+          {
+            "date": "2021-02-28", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 9, "total_cases": 9, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 8147
+          },
+          {
+            "date": "2021-03-01", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 20, "total_cases": 10, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 8167
+          },
+          {
+            "date": "2021-03-02", "change_cases": 4, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 21, "total_cases": 14, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 8188
+          },
+          {
+            "date": "2021-03-03", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 48, "total_cases": 15, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 8236
+          },
+          {
+            "date": "2021-03-04", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 109, "total_cases": 16, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 8345
+          },
+          {
+            "date": "2021-03-05", "change_cases": 3, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 368, "total_cases": 19, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 8713
+          },
+          {
+            "date": "2021-03-06", "change_cases": 2, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 908, "total_cases": 21, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 9621
+          },
+          {
+            "date": "2021-03-07", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 843, "total_cases": 22, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 10464
+          },
+          {
+            "date": "2021-03-08", "change_cases": 3, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 656, "total_cases": 25, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 11120
+          },
+          {
+            "date": "2021-03-09", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 34, "total_cases": 25, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 11154
+          },
+          {
+            "date": "2021-03-10", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 63, "total_cases": 25, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 11217
+          },
+          {
+            "date": "2021-03-11", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 82, "total_cases": 25, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 11299
+          },
+          {
+            "date": "2021-03-12", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 51, "total_cases": 25, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 11350
+          },
+          {
+            "date": "2021-03-13", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 0, "total_cases": 25, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 11350
+          },
+          {
+            "date": "2021-03-14", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 36, "total_cases": 25, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 11386
+          },
+          {
+            "date": "2021-03-15", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 18, "total_cases": 25, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 11404
+          },
+          {
+            "date": "2021-03-16", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 15, "total_cases": 25, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 11419
+          },
+          {
+            "date": "2021-03-17", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 11, "total_cases": 25, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 11430
+          },
+          {
+            "date": "2021-03-18", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 28, "total_cases": 25, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 11458
+          },
+          {"date": "2021-03-19", "total_cases": 25, "total_fatalities": 0, "total_recoveries": 9, "total_tests": 11458},
+          {
+            "date": "2021-03-20", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 34, "total_cases": 25, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 11492
+          },
+          {
+            "date": "2021-03-21", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 15, "total_cases": 25, "total_fatalities": 0, "total_recoveries": 9,
+            "total_tests": 11507
+          },
+          {
+            "date": "2021-03-22", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 10, "total_cases": 25, "total_fatalities": 0, "total_recoveries": 10,
+            "total_tests": 11517
+          },
+          {
+            "date": "2021-03-23", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 3, "change_tests": 17, "total_cases": 25, "total_fatalities": 0, "total_recoveries": 13,
+            "total_tests": 11534
+          },
+          {
+            "date": "2021-03-24", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 11, "total_cases": 25, "total_fatalities": 0, "total_recoveries": 13,
+            "total_tests": 11545
+          },
+          {
+            "date": "2021-03-25", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 3, "change_tests": 30, "total_cases": 25, "total_fatalities": 0, "total_recoveries": 16,
+            "total_tests": 11575
+          },
+          {
+            "date": "2021-03-26", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 6, "change_tests": 25, "total_cases": 25, "total_fatalities": 0, "total_recoveries": 22,
+            "total_tests": 11600
+          },
+          {
+            "date": "2021-03-27", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 11, "total_cases": 25, "total_fatalities": 0, "total_recoveries": 23,
+            "total_tests": 11611
+          },
+          {
+            "date": "2021-03-28", "change_cases": 1, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 17, "total_cases": 26, "total_fatalities": 0, "total_recoveries": 24,
+            "total_tests": 11628
+          },
+          {
+            "date": "2021-03-29", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 1, "change_tests": 10, "total_cases": 26, "total_fatalities": 0, "total_recoveries": 25,
+            "total_tests": 11638
+          },
+          {
+            "date": "2021-03-30", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 1, "total_cases": 26, "total_fatalities": 0, "total_recoveries": 25,
+            "total_tests": 11639
+          },
+          {
+            "date": "2021-03-31", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 40, "total_cases": 26, "total_fatalities": 0, "total_recoveries": 25,
+            "total_tests": 11679
+          },
+          {
+            "date": "2021-04-01", "change_cases": 0, "change_fatalities": 0, "change_recoveries": 0, "change_tests": 17, "total_cases": 26, "total_fatalities": 0, "total_recoveries": 25,
+            "total_tests": 11696
+          },
+          {"date": "2021-04-02", "total_cases": 26, "total_fatalities": 0, "total_recoveries": 25, "total_tests": 11696},
+          {"date": "2021-04-03", "total_cases": 26, "total_fatalities": 0, "total_recoveries": 25, "total_tests": 11696}
+        ],
         "id": 1307,
         "population": 43561,
         "province": "NB",
-        "total": {"date": "2021-04-03", "total_cases": 26, "total_fatalities": 0, "total_recoveries": 25, "total_tests": 11696}
+        "total": {"date": "2021-04-03", "total_cases": 26, "total_fatalities": 0, "total_recoveries": 25, "total_tests": 11696},
+        "updated_at": "2021-04-03T15:20:06.000Z"
       }
     ],
     "total": {
