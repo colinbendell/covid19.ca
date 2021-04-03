@@ -47,3 +47,42 @@
   background-color: blue;
   height: 100%;
 }
+
+.progressbar {
+  display: grid !important;
+  margin: 0 auto;
+}
+.change {
+  grid-area: 1/1 !important;
+  color: black;
+  font-size: 0.7rem;
+  padding: 0;
+  margin-top: 1.7rem;
+}
+.progressbar > .change.percent {
+  float:left;
+}
+.progressbar > .change.percent:before {
+  content: attr(data-value);
+}
+.progressbar > .change.percent:not([data-value ^= "-"]):before {
+  content: "+" attr(data-value);
+}
+
+.progressbar > .change.absolute {
+  text-align: right;
+}
+.progressbar > .change.absolute:before {
+  content: attr(data-value);
+}
+.progressbar > .change.absolute:not([data-value ^= "-"]):before {
+  content: "+" attr(data-value);
+}
+
+.change.percent[data-value="0"], .change.percent[data-value="0"]:not([data-value]) {
+  display: none !important;
+}
+.change.absolute[data-value="0"], .change.absolute[data-value="0"]:not([data-value]) {
+  display: none !important;
+}
+

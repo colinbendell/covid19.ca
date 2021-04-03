@@ -99,7 +99,7 @@ button, [type=button], [type=reset], [type=submit] {
   border-bottom: 2px solid #dee2e6;
 }
 .table th, .table td {
-  padding: 0.75rem;
+  padding: 0.45rem 0.75rem;
   vertical-align: top;
   border-top: 1px solid #dee2e6;
 }
@@ -255,7 +255,6 @@ td[data-rate]:empty::after {
 
 .dose.total, .dose.one, .dose.full, .activecases.per100k, .hospitalized.per1000k, td.positivity, td.infection, td.death, td.infected {
   text-align: center;
-  vertical-align: middle;
 }
 
 .dose.one, .dose.total {
@@ -346,8 +345,6 @@ tr.healthregion > th:first-child > span {
 .history > div {
   height: 2.3rem;
   width: 7rem;
-  margin-top: -0.3rem;
-  margin-bottom: -0.3rem;
 }
 
 .history table.column td {
@@ -489,47 +486,6 @@ td[data-rate ^= "-"].activecases::after {
   opacity: 1;
 }
 
- .change {
-  font-size: 0.7rem;
-  padding: 0;
-  margin-top: 1.7rem;
-}
- .progressbar {
-   display: grid !important;
-   margin: 0 auto;
-   margin-top: -0.5rem;
- }
- .change {
-   grid-area: 1/1 !important;
-   color: black;
- }
-.progressbar > .change.percent {
-  float:left;
-}
-.progressbar > .change.percent:before {
-  content: attr(data-value);
-}
-.progressbar > .change.percent:not([data-value ^= "-"]):before {
-  content: "+" attr(data-value);
-}
-
-.progressbar > .change.absolute {
-  text-align: right;
-}
-.progressbar > .change.absolute:before {
-  content: attr(data-value);
-}
-.progressbar > .change.absolute:not([data-value ^= "-"]):before {
-  content: "+" attr(data-value);
-}
-
-.change.percent[data-value="0"], .change.percent[data-value="0"]:not([data-value]) {
-  display: none !important;
-}
-.change.absolute[data-value="0"], .change.absolute[data-value="0"]:not([data-value]) {
-  display: none !important;
-}
-
 tr:not(:hover) .progressbar > .change {
   color: var(--gray);
   font-weight: lighter;
@@ -561,4 +517,22 @@ tr:not(:hover) .progressbar > .change {
 }
 .positivity .progressbar > .change.percent:not([data-value ^= "-"]):before {
   content: "+" attr(data-value) "%";
+}
+
+@media screen and (min-width: 600px) {
+  .name.short {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+  .name.long {
+    display: none;
+  }
+  .table>*>tr>th:first-child {
+    min-width: 5rem;
+    max-width: 5rem;
+    white-space: nowrap;
+  }
 }
