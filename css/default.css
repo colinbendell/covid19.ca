@@ -113,32 +113,33 @@ font-size: 2.5rem;
 
 /* TODO: cleanup */
 
+svg.sprite {
+  display: none;
+}
+#reported {
+  color: var(--green);
+}
+#canada-mapleleaf {
+  color: var(--red);
+}
+#in-progress {
+  color: var(--cyan);
+}
+#no-report-expected-today {
+  color: var(--gray);
+}
+#waiting-for-report {
+  color: var(--orange);
+}
 .province-update-status {
-  width: 16px;
-  height: 16px;
-  position: relative;
-  top: 2px;
+  width: 1rem;
+  height: 1rem;
   display: inline-block;
   margin-left: 0.125rem;
-  background-image: url("img/custom.png");
-  background-size: 16px 16px;
-  margin-right: -16px;
-}
-
-.status-reported {
-  background-image: url("img/reported.png");
-}
-
-.status-waiting-for-report {
-  background-image: url("img/waiting-for-report.png");
-}
-
-.status-in-progress {
-  background-image: url("img/in-progress.png");
-}
-
-.status-no-report-expected-today {
-  background-image: url("img/no-report-expected-today.png");
+  margin-right: -1rem;
+  margin-top: -0.125rem;
+  margin-bottom: -0.125rem;
+  overflow: visible;
 }
 
 svg.icon {
@@ -532,8 +533,8 @@ tr:not(:hover) .progressbar > .change {
     display: none;
   }
   .table>*>tr>th:first-child {
-    min-width: 5.5rem;
-    max-width: 5.5rem;
+    min-width: 6.5rem;
+    max-width: 6.5rem;
     white-space: nowrap;
   }
 }
