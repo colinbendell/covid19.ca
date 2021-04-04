@@ -74,7 +74,8 @@ eleventyNavigation:
           <svg viewBox="0 0 512 512" class="province-update-status"><use xlink:href="#{{ data.data_status | lower | replace(r/\s/gi, '-') }}"></use></svg>
         </label>
       {% else %}
-        <span>{{ data.short or data.name.en or data.name }}</span>
+      <span class="name long">{{ data.name.en or data.name }}</span>
+      <span class="name short">{{ data.short or data.name.en or data.name }}</span>
       {% endif %}
       </th>
       <td class="dose history">
@@ -174,7 +175,8 @@ eleventyNavigation:
           <svg viewBox="0 0 512 512" class="province-update-status"><use xlink:href="#{{ data.data_status | lower | replace(r/\s/gi, '-') }}"></use></svg>
         </label>
         {% else %}
-        <span>{{ data.short or data.name.en or data.name }}</span>
+        <span class="name long">{{ data.name.en or data.name }}</span>
+        <span class="name short">{{ data.short or data.name.en or data.name }}</span>
         {% endif %}
       </th>
       <td class="cases history">
