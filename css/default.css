@@ -298,7 +298,7 @@ table.infected td.infected, table.infected th.infected {
   font-style: italic;
 }
 
-.name > .label-toggle > *:first-child {
+.name > .label-toggle > span {
   border-bottom:1px dashed #000;
 }
 
@@ -528,7 +528,6 @@ tr:not(:hover) .progressbar > .change {
 }
 
 @media screen and (max-width: 800px) {
-
   .name.long {
     display: none;
   }
