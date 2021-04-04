@@ -56,7 +56,7 @@ eleventyNavigation:
           <span class="province-update-status status-{{ data.data_status | lower | replace(r/\s/gi, '-') }}"></span>
         </label>
       {% else %}
-        <span>{{ data.name.en or data.name }}</span>
+        <span>{{ data.short or data.name.en or data.name }}</span>
       {% endif %}
       </th>
       <td class="dose history">
