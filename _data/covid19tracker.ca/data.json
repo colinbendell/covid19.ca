@@ -10175,7 +10175,7 @@
         "id": 1301,
         "population": 209256,
         "province": "NB",
-        "short": "Moncton area",
+        "short": "Moncton",
         "total": {"date": "2021-04-04", "total_cases": 358, "total_fatalities": 4, "total_recoveries": 341, "total_tests": 80298},
         "updated_at": "2021-04-04T15:32:03.000Z"
       },
@@ -10563,7 +10563,7 @@
         "id": 1302,
         "population": 170537,
         "province": "NB",
-        "short": "Saint John area",
+        "short": "Saint John",
         "total": {"date": "2021-04-04", "total_cases": 231, "total_fatalities": 7, "total_recoveries": 216, "total_tests": 46948},
         "updated_at": "2021-04-04T15:32:03.000Z"
       },
@@ -10951,7 +10951,7 @@
         "id": 1303,
         "population": 174348,
         "province": "NB",
-        "short": "Fredericton area",
+        "short": "Fredericton",
         "total": {"date": "2021-04-04", "total_cases": 248, "total_fatalities": 0, "total_recoveries": 244, "total_tests": 46289},
         "updated_at": "2021-04-04T15:32:03.000Z"
       },
@@ -11339,7 +11339,7 @@
         "id": 1304,
         "population": 47775,
         "province": "NB",
-        "short": "Edmundston area",
+        "short": "Edmundston",
         "total": {"date": "2021-04-04", "total_cases": 549, "total_fatalities": 15, "total_recoveries": 419, "total_tests": 33003},
         "updated_at": "2021-04-04T15:32:03.000Z"
       },
@@ -11727,7 +11727,7 @@
         "id": 1305,
         "population": 25250,
         "province": "NB",
-        "short": "Campbellton area",
+        "short": "Campbellton",
         "total": {"date": "2021-04-04", "total_cases": 182, "total_fatalities": 4, "total_recoveries": 178, "total_tests": 20975},
         "updated_at": "2021-04-04T15:32:03.000Z"
       },
@@ -12115,7 +12115,7 @@
         "id": 1306,
         "population": 76374,
         "province": "NB",
-        "short": "Bathurst area",
+        "short": "Bathurst",
         "total": {"date": "2021-04-04", "total_cases": 29, "total_fatalities": 0, "total_recoveries": 28, "total_tests": 18858},
         "updated_at": "2021-04-04T15:32:03.000Z"
       },
@@ -12503,7 +12503,7 @@
         "id": 1307,
         "population": 43561,
         "province": "NB",
-        "short": "Miramichi area",
+        "short": "Miramichi",
         "total": {"date": "2021-04-04", "total_cases": 26, "total_fatalities": 0, "total_recoveries": 25, "total_tests": 11696},
         "updated_at": "2021-04-04T15:32:03.000Z"
       }
