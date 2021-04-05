@@ -243,12 +243,21 @@ async function getSK(hrData) {
     ["Deaths", "total_fatalities"],
     ["# of Patients with Tests Ordered", "total_hospital_tests"],
     ["# Patients Confirmed Negative", "total_hospital_neg_tests"],
+    ["Total First Vaccine Doses", "total_first_vaccination"],
+    ["Total Second Vaccine Doses", "total_vaccinated"],
+    ["Total Vaccine Doses", "total_vaccinations"],
+    ["New First Vaccine Doses", "change_first_vaccination"],
+    ["New Second Vaccine Doses", "change_vaccinated"],
+    ["New Vaccine Doses", "change_vaccines"]
   ]);
   const hrName = new Map([...hrData.values()].map(hr => [hr.name, hr]));
   const skHR = new Map();
   await Promise.all(
-    // TODO: add vaccine dashboard after 2021-04-05
-    [ "https://dashboard.saskatchewan.ca/health-wellness/covid-19/cases", "https://dashboard.saskatchewan.ca/health-wellness/covid-19-tests/tests"]
+    // TODO: https://dashboard.saskatchewan.ca/api/indicator/detail/health-wellness%3Acovid-19-vaccines%3Avaccines
+    // TODO: https://dashboard.saskatchewan.ca/api/indicator/detail/health-wellness%3Acovid-19-vaccines%3Avaccines?legacyRegions=true
+    [ "https://dashboard.saskatchewan.ca/health-wellness/covid-19/cases",
+      "https://dashboard.saskatchewan.ca/health-wellness/covid-19-tests/tests",
+      "https://dashboard.saskatchewan.ca/health-wellness/covid-19-vaccines/vaccines"]
       .map(async url => {
         const html = await get(url);
         const label = url.replace(/.*\//, '');
@@ -275,18 +284,19 @@ async function getSK(hrData) {
           }
 
           for (const region of [...skHR.values()]) {
-            for (const d of [...region.values()]) {
+            let last = null
+            for (const d of [...region.values()].sort((a,b) => Date.parse(a.date) - Date.parse(b.date))) {
               // calculate missing fields to match aggregate datasets
               d.total_hospitalizations = (d.total_inpatient || 0) + (d.total_criticals || 0);
-              // change_recoveries
-              // change_criticals
-              // change_fatalities
-              // change_hospitalizations
+              if (last) {
+                d.change_recoveries = (d.total_recoveries || 0) - (last.total_recoveries || 0);
+                d.change_criticals = (d.total_criticals || 0) - (last.total_criticals || 0);
+                d.change_fatalities = (d.total_fatalities || 0) - (last.total_fatalities || 0);
+                d.change_hospitalizations = (d.total_hospitalizations || 0) - (last.total_hospitalizations || 0);
+              }
+              last = d;
 
-              // change_vaccinated
-              // change_vaccinations
               // change_vaccines_distributed
-              // total_vaccinations
               // total_vaccines_distributed
             }
           }

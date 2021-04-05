@@ -21,7 +21,7 @@ function normalizeVaccine(data) {
       total_vaccinated: item.total_vaccinated || 0,
       total_first_vaccination: (item.total_vaccinations || 0) - (item.total_vaccinated || 0),
       available_doses: item.total_vaccines_distributed > 0 ? (item.total_vaccines_distributed || 0) - (item.total_vaccinations || 0) : null,
-      active_cases: (item.total_cases || 0) - (item.total_fatalities || 0) - (item.total_recoveries || 0),
+      active_cases: item.active_cases || ((item.total_cases || 0) - (item.total_fatalities || 0) - (item.total_recoveries || 0)),
     }))
     .map(item =>Object.assign(item, {
       activePer100k: item.active_cases >= 0 ? Math.round(item.active_cases / data.population * 100*1000) : null,
