@@ -229,40 +229,25 @@ async function getStatsCanCensus(hrData) {
 
 //Saskatchewan Actuals
 async function getSK(hrData) {
-  // "change_cases": 1154,
-  //       "change_criticals": 4,
-  //       "change_fatalities": 9,
-  //       "change_hospitalizations": 1,
-  //       "change_recoveries": 893,
-  //       "change_tests": 0,
-  //       "change_vaccinated": 0,
-  //       "change_vaccinations": 41194,
-  //       "change_vaccines_distributed": 135100,
-  //       "total_cases": 316112,
-  //       "total_criticals": 128,
-  //       "total_fatalities": 10693,
-  //       "total_hospitalizations": 502,
-  //       "total_recoveries": 295453,
-  //       "total_tests": 7619690,
-  //       "total_vaccinations": 1529541,
-  //       "total_vaccines_distributed": 2127605,
+  // convenience remapping of field names to the common form
   const keyMap = new Map([
     ["Date", "date"],
     ["New Cases", "change_cases"],
-    ["Total Cases", "total_cases"],
+    ["New Tests", "change_tests"],
     ["Active Cases", "active_cases"],
+    ["Total Cases", "total_cases"],
+    ["Total Tests", "total_tests"],
     ["Inpatient Hospitalizations", "total_inpatient"],
     ["ICU Hospitalizations", "total_criticals"],
     ["Recovered Cases", "total_recoveries"],
     ["Deaths", "total_fatalities"],
     ["# of Patients with Tests Ordered", "total_hospital_tests"],
     ["# Patients Confirmed Negative", "total_hospital_neg_tests"],
-    ["Total Tests", "total_tests"],
-    ["New Tests", "change_tests"]
   ]);
   const hrName = new Map([...hrData.values()].map(hr => [hr.name, hr]));
   const skHR = new Map();
   await Promise.all(
+    // TODO: add vaccine dashboard after 2021-04-05
     [ "https://dashboard.saskatchewan.ca/health-wellness/covid-19/cases", "https://dashboard.saskatchewan.ca/health-wellness/covid-19-tests/tests"]
       .map(async url => {
         const html = await get(url);
@@ -271,7 +256,9 @@ async function getSK(hrData) {
         if (jsonURL) {
           const data = await get(`https://dashboard.saskatchewan.ca${jsonURL}`);
           for (const row of data) {
+            // we are only going to keep the macro region details, since the reliability of the sub region data is questionable
             row.Region = row.Region.replace(/(Far North|North|Central|Saskatoon|Regina|South).*/, '$1');
+            //init data types to use the common format. For some reason SK doesn't use ISO8601 and invented their own
             row.Date = row.Date.replace(/\//g, '-');
             if (!skHR.has(row.Region)) skHR.set(row.Region, new Map());
             if (!skHR.get(row.Region).has(row.Date)) skHR.get(row.Region).set(row.Date, {date: row.Date});
@@ -280,19 +267,27 @@ async function getSK(hrData) {
             const keys = [...Object.keys(row)];
             for (const key of keys) {
               const newKey = keyMap.get(key) || key.toLowerCase().replace(/^\W+/, '').replace(/ /g, '_');
-              // delete Object.assign(row, {[newKey]: row[key] })[key];
+              // only propagate INT fields
               if (row[key] > Number.MIN_VALUE || last[newKey] > Number.MIN_VALUE) {
                 last[newKey] = (Number.parseInt(last[newKey]) || 0) + (Number.parseInt(row[key]) || 0);
               }
             }
-            // if (row.Region === 'Saskatoon' && row.Date === '2021-04-04') console.log(row, last);
-            // delete row.region;
           }
 
-          // calculate missing fields
           for (const region of [...skHR.values()]) {
             for (const d of [...region.values()]) {
+              // calculate missing fields to match aggregate datasets
               d.total_hospitalizations = (d.total_inpatient || 0) + (d.total_criticals || 0);
+              // change_recoveries
+              // change_criticals
+              // change_fatalities
+              // change_hospitalizations
+
+              // change_vaccinated
+              // change_vaccinations
+              // change_vaccines_distributed
+              // total_vaccinations
+              // total_vaccines_distributed
             }
           }
         }
