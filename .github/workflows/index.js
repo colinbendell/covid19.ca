@@ -308,6 +308,7 @@ async function getData() {
   ]);
 
   const provinces = [...data.keys()].filter(code => !['CA', 'FA', '_RC'].includes(code));
+  await Promise.all(provinces.map(code => getCovid19TrackerProvinceDaily(code, data)));
   await Promise.all(provinces.map(code => getCovid19TrackerProvinceRegions(code, data, hrData)));
   await Promise.all(provinces.map(code => getCovid19TrackerRegionDaily(code, data)));
 
