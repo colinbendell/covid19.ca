@@ -174,9 +174,20 @@ async function getCovid19TrackerProvinceRegions(code = 'ON', data = new Map(), h
 
 async function getCovid19TrackerRegionDaily(code, data) {
   await Promise.all(data.get(code).regions.map(async r => {
+    const daily = new Map(r?._daily?.map(d => [d.date, d]) || []);
     const regionDaily = await get(`https://api.covid19tracker.ca/regions/${r.id}/reports?after=2020-12-10&fill_dates=true`);
     if (regionDaily) {
-      r.daily = regionDaily.data.sort((a,b) => Date.parse(a.date) - Date.parse(b.date));
+      r.daily = regionDaily.data;
+      for (const day of r.daily) {
+        if (daily.has(day.date)) {
+          Object.assign(day, daily.get(day.date));
+          daily.delete(day.date);
+        }
+      }
+      r.daily.push(...daily.values());
+      delete r._daily;
+
+      r.daily = r.daily.sort((a,b) => Date.parse(a.date) - Date.parse(b.date));
       // api is SK centric and does not emit ISO8601 formatted fields. Fortunately SK is always GMT-6
       if (regionDaily.last_updated) r.updated_at =  new Date(regionDaily.last_updated.replace(/ (\d\d:\d\d:\d\d)$/, 'T$1-0600'));
     }
@@ -237,6 +248,7 @@ async function getSK(hrData) {
   //       "total_vaccines_distributed": 2127605,
   const keyMap = new Map([
     ["Date", "date"],
+    ["New Cases", "change_cases"],
     ["Total Cases", "total_cases"],
     ["Active Cases", "active_cases"],
     ["Inpatient Hospitalizations", "total_inpatient"],
@@ -287,7 +299,7 @@ async function getSK(hrData) {
       })
   );
   for (const region of skHR.keys()) {
-    hrName.get(region)._data = [...skHR.get(region).values()];
+    hrName.get(region)._daily = [...skHR.get(region).values()];
   }
 }
 
