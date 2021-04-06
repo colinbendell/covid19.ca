@@ -54,9 +54,9 @@ module.exports = function(eleventyConfig) {
     if (yesterday === d) return 'Yesterday';
 
     const [year, month, day] = d.split('-');
-    if (today.startsWith(year)) return `${ISO_3_LETTER_MONTH[Number.parseInt(month) - 1]} ${day}`;
+    if (today.startsWith(year)) return `${ISO_3_LETTER_MONTH[Number.parseInt(month) - 1]}-${day}`;
 
-    return `${year} ${ISO_3_LETTER_MONTH[Number.parseInt(month) - 1]} ${day}`;
+    return `${year}-${ISO_3_LETTER_MONTH[Number.parseInt(month) - 1]}-${day}`;
   });
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
