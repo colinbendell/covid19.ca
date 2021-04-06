@@ -19,6 +19,7 @@
     "@11ty/eleventy-navigation": "^0.1.6",
     "@adobe/helix-fetch": "^2.2.0",
     "clean-css": "^5.1.2",
+    "html-minifier": "^4.0.0",
     "luxon": "^1.26.0"
   }
 }

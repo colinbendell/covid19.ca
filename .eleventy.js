@@ -1,6 +1,7 @@
 const fs = require("fs");
 const CleanCSS = require("clean-css");
 const pluginNavigation = require("@11ty/eleventy-navigation");
+const htmlmin = require("html-minifier");
 
 const formatter = new Intl.NumberFormat('en-CA');
 function format(value) {
@@ -105,6 +106,20 @@ module.exports = function(eleventyConfig) {
   //
   //   return [...tagSet];
   // });
+
+  eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
+    // Eleventy 1.0+: use this.inputPath and this.outputPath instead
+    if( outputPath && outputPath.endsWith(".html") ) {
+      let minified = htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true
+      });
+      return minified;
+    }
+
+    return content;
+  });
 
   // Copy the `img` and `css` folders to the output
   eleventyConfig.addPassthroughCopy("img");
