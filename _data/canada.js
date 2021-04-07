@@ -48,7 +48,7 @@ function normalizeVaccine(data) {
   }
 
   const previousWeeks = chunkArray(data.daily.slice(0, -1), 7).map(item => {
-    const [first] = item.slice(1);
+    const [first] = item.slice(0, 1);
     const [last] = item.slice(-1);
     const avg = {
       start: item[0].date,
