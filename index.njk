@@ -8,9 +8,19 @@ eleventyNavigation:
 
 {% set css %}
   {%- for province in canada %}
-    #vaccine-{{ province.iso3166 }}:checked ~ table.vaccine tr.healthregion.{{ province.iso3166 }}, #infection-{{ province.iso3166 }}:checked ~ table.infection tr.healthregion.{{ province.iso3166 }} { display: table-row; }
-    #vaccine-{{ province.iso3166 }}:checked ~ table.vaccine tr.province.{{ province.iso3166 }} th.toggle label, #infection-{{ province.iso3166 }}:checked ~ table.infection tr.province.{{ province.iso3166 }} th.toggle label { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='currentColor' d='M443.5 162.6l-7.1-7.1c-4.7-4.7-12.3-4.7-17 0L224 351 28.5 155.5c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17l211 211.1c4.7 4.7 12.3 4.7 17 0l211-211.1c4.8-4.7 4.8-12.3.1-17z'/%3E%3C/svg%3E%0A"); }
+    {% if province.regions and province.regions.length > 0 %}
+      #vaccine-{{ province.iso3166 }}:checked ~ table.vaccine tr.healthregion.{{ province.iso3166 }},
+      #infection-{{ province.iso3166 }}:checked ~ table.infection tr.healthregion.{{ province.iso3166 }},
+    {% endif %}
   {%- endfor %}
+  #noop { display: table-row; }
+  {%- for province in canada %}
+    {% if province.regions and province.regions.length > 0 %}
+      #vaccine-{{ province.iso3166 }}:checked ~ table.vaccine tr.province.{{ province.iso3166 }} th.toggle label,
+      #infection-{{ province.iso3166 }}:checked ~ table.infection tr.province.{{ province.iso3166 }} th.toggle label,
+    {% endif %}
+  {%- endfor %}
+  #noop { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='currentColor' d='M443.5 162.6l-7.1-7.1c-4.7-4.7-12.3-4.7-17 0L224 351 28.5 155.5c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17l211 211.1c4.7 4.7 12.3 4.7 17 0l211-211.1c4.8-4.7 4.8-12.3.1-17z'/%3E%3C/svg%3E%0A"); }
 {%  endset %}
 <style>{{ css | cssmin | safe }}</style>
 <svg xmlns="http://www.w3.org/2000/svg" class="sprite" aria-hidden="true">
