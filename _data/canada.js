@@ -118,8 +118,9 @@ function normalizeVaccine(data) {
   const changeInCasesRate = today.change_cases > 0 ? Math.max(Math.min(Math.round((today.change_cases - lastWeekExclusive.active_cases_avg) / (lastWeekExclusive.active_cases_avg+0.001)*100), 100), -100) : 0;
 
   const maxVaccinations = Math.max(...previousWeeks.slice(-8).map(w => w.change_vaccinations_avg || 0), ...previous7Days.map(v => v.change_vaccinations).map(v => v || 0), today.change_vaccinations || 0, 0);
-  const maxChangeCases = Math.max(...previousWeeks.slice(-8).map(w => w.change_cases_avg || 0), ...previous7Days.map(v => v.change_cases).map(v => v || 0), data.total.change_cases || 0, 0);
-  const maxActiveCases = Math.max(...previousWeeks.slice(-8).map(w => w.active_cases_avg || 0), ...previous7Days.map(v => v.active_cases).map(v => v || 0), data.total.active_cases || 0, 0);
+  const maxChangeCases = Math.max(...previousWeeks.slice(-8).map(w => w.change_cases_avg || 0), ...previous7Days.map(v => v.change_cases).map(v => v || 0), today.change_cases || 0, 0);
+  const maxActiveCases = Math.max(...previousWeeks.slice(-8).map(w => w.active_cases_avg || 0), ...previous7Days.map(v => v.active_cases).map(v => v || 0), today.active_cases || 0, 0);
+  const maxAvailableDoses = Math.max(...previousWeeks.slice(-8).map(w => w.available_doses_avg || 0), ...previous7Days.map(v => v.available_doses).map(v => v || 0), today.available_doses || 0, 0);
  return {
    previousWeeks,
    lastWeekExclusive,
@@ -134,7 +135,8 @@ function normalizeVaccine(data) {
      daysToFirstVaccinations,
      daysToFullVaccinated,
      completeDate,
-     maxVaccinations
+     maxVaccinations,
+     maxAvailableDoses,
    },
    infection: {
      changeInCasesRate,

@@ -71,26 +71,26 @@ button, [type=button], [type=reset], [type=submit] {
   background-color: white;
 }
 
-.table > thead > tr > th:first-child {
+.table > thead > tr > th:nth-child(2) {
   position: sticky;
   left: 0;
   z-index: 11;
 }
-.table > tbody > tr > th:first-child {
+.table > tbody > tr > th:nth-child(2) {
   position: -webkit-sticky;
   position: sticky;
   z-index: 9;
   left: 0;
   background-color: white;
 }
-.table > tfoot > tr > th:first-child {
+.table > tfoot > tr > th:nth-child(2) {
   position: -webkit-sticky;
   position: sticky;
   z-index: 9;
   left: 0;
   background-color: white;
 }
-.table > tbody > tr:hover > th:first-child {
+.table > tbody > tr:hover > th:nth-child(2) {
   background-color: #f2f2f2;
 }
 
@@ -166,16 +166,19 @@ main {
   /*min-width: 8rem;*/
   max-width: 11rem;
 }
-.table > * > tr > th:first-child {
+.table > * > tr > th:nth-child(2) {
   /*width: 100%;*/
-  min-width: 13rem;
+  min-width: 11rem;
   max-width: 15rem;
   font-weight: normal;
   font-style: italic;
 }
 
+.table > * > tr > th.toggle {
+  padding-right: 0;
+}
 .table > * > tr > th.name {
-  padding-left: 1.5rem;
+  padding-left: 0.125rem;
 }
 
 .vaccine > tbody > tr > td, .vaccine > tfoot > tr > td {
@@ -293,7 +296,7 @@ table.infected td.infected, table.infected th.infected {
 }
 
 .name > .label-toggle {
-  margin-left: -1rem;
+  /*margin-left: -1rem;*/
   /*color: var(--black);*/
   font-style: italic;
 }
@@ -349,7 +352,10 @@ tr.healthregion > th:first-child > span {
   width: 7rem;
 }
 
-.history table.column td {
+.history table.column:not(.stacked) td {
+  margin-inline-start: 1px;
+}
+.history table.column.stacked tr {
   margin-inline-start: 1px;
 }
 
@@ -360,32 +366,51 @@ tr.healthregion > th:first-child > span {
 
 .dose.history table.column {
   --color-1: rgba(0, 123, 255, 0.2);
-  --color-2: rgba(0, 123, 255, 0.6);
+  --color-2: var(--gray);
 }
 
-.cases.history table.column {
+.dose.history table.column tr:nth-child(n+8):not(:last-child) {
+  --color-1: rgba(0, 123, 255, 0.6);
+  --color-2: var(--gray);
+}
+
+.dose.history table tr:last-child {
+  --color-1: var(--blue);
+  --color-2: var(--gray-dark);
+}
+
+.supply.history table.column td{
+  --color-1: rgba(108, 117, 125, 0.2);
+}
+
+.supply.history table.column td:nth-child(n+8):not(:last-child) {
+  --color-1: rgba(108, 117, 125, 0.6);
+}
+
+.supply.history table td:last-child {
+  --color-1: var(--gray);
+}
+
+.cases.history table.column td:not(:nth-child(n+8)) {
   --color-1: rgba(220, 53, 69, 0.2);
-  --color-2: rgba(220, 53, 69, 0.6);
 }
-.dose.history table tbody tr:last-child td:last-child {
-  --color: var(--blue);
+.cases.history table.column td:nth-child(n+8):not(:last-child) {
+  --color-1: rgba(220, 53, 69, 0.6);
 }
-
-.cases.history table.column {
-  --color-1: rgba(220, 53, 69, 0.2);
-  --color-2: rgba(220, 53, 69, 0.6);
-}
-.cases.history table tbody tr:last-child td:last-child {
-  --color: var(--red);
+.cases.history table.column td:last-child {
+  --color-1: var(--red);
 }
 
-.activecases.history table.column {
+.activecases.history table.column td {
   --color-1: rgba(253, 126, 20, 0.2);
-  --color-2: rgba(253, 126, 20, 0.6);
 }
 
-.activecases.history table tbody tr:last-child td:last-child {
-  --color: var(--orange);
+.activecases.history table.column td:nth-child(n+8):not(:last-child) {
+  --color-1: rgba(253, 126, 20, 0.6);
+}
+
+.activecases.history table.column td:last-child {
+  --color-1: var(--orange);
 }
 
 td[data-rate].activecases::after {
@@ -531,9 +556,9 @@ tr:not(:hover) .progressbar > .change {
   .name.long {
     display: none;
   }
-  .table>*>tr>th:first-child {
-    min-width: 6.5rem;
-    max-width: 6.5rem;
+  .table>*>tr>th:nth-child(2) {
+    min-width: 3.5rem;
+    max-width: 10rem;
     white-space: nowrap;
   }
 }
