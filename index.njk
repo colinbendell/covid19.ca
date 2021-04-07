@@ -144,12 +144,12 @@ eleventyNavigation:
             <tbody>
             <tr>
               {%- for week in data.previousWeeks | head(-8) | head(7) %}
-                <td style="--size:{{ (week.available_doses_avg / data.vaccine.maxAvailableDoses) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>Avg: {{ week.available_doses_avg | formatNumber }}/day<br/>Total: {{ week.available_doses_sum | d(0) | formatNumber }}</span></td>
+                <td style="--size:{{ (week.available_doses_avg / data.vaccine.maxAvailableDoses) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>Avg in freezer: {{ week.available_doses_avg | formatNumber }}/day</span></td>
               {%- endfor %}
               {%- for day in data.previous7Days %}
-                <td style="--size:{{ (day.available_doses / data.vaccine.maxAvailableDoses) | max(0.03) | format }};"><span class="tooltip">{{ day.date | readableDate }}<br/>Total: {{ day.available_doses | d(0) | formatNumber }}</span></td>
+                <td style="--size:{{ (day.available_doses / data.vaccine.maxAvailableDoses) | max(0.03) | format }};"><span class="tooltip">{{ day.date | readableDate }}<br/>In Freezer: {{ day.available_doses | d(0) | formatNumber }}</span></td>
               {%- endfor %}
-              <td style="--size:{{ (data.today.available_doses / data.vaccine.maxAvailableDoses) | max(0.03) | format }};"><span class="tooltip">{{ data.today.date | readableDate }}<br/>Total: {{ data.today.available_doses | d(0) | formatNumber }}</span></td>
+              <td style="--size:{{ (data.today.available_doses / data.vaccine.maxAvailableDoses) | max(0.03) | format }};"><span class="tooltip">{{ data.today.date | readableDate }}<br/>In Freezer: {{ data.today.available_doses | d(0) | formatNumber }}</span></td>
             </tr>
             </tbody>
           </table>
