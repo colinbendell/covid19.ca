@@ -48,6 +48,7 @@ function normalizeVaccine(data) {
   }
 
   const previousWeeks = chunkArray(data.daily.slice(0, -1), 7).map(item => {
+    const [first] = item.slice(1);
     const [last] = item.slice(-1);
     const avg = {
       start: item[0].date,
@@ -55,8 +56,8 @@ function normalizeVaccine(data) {
       sumChangeTests: item.map(i => i.change_tests || 0).reduce((p, c) => p + c),
       sumChangeCases: item.map(i => i.change_cases || 0).reduce((p, c) => p + c),
     };
-    for (const key of Object.keys(last)) {
-      if (Number.isFinite(last[key])) {
+    for (const key of [...new Set([...Object.keys(last), ...Object.keys(first)])]) {
+      if (Number.isFinite(last[key]) || Number.isFinite(first[key])) {
         avg[key + "_avg"] = Math.round(item.map(i => i[key] || 0).reduce((p, c) => p + c) / item.length + 0.5);
         avg[key + "_sum"] = item.map(i => i[key] || 0).reduce((p, c) => p + c);
       }
