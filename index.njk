@@ -205,7 +205,7 @@ eleventyNavigation:
     <tr class="infection {{ type }} {{ data.iso3166 if data.iso3166 else data.province }}" title="Total: {{ data.total.total_cases | format }} ({{ data.total.date | readableDate }}: {{ data.total.change_cases | format }}, {{ data.yesterday.date | readableDate }}: {{ data.yesterday.change_cases | format }}) Population: {{ data.population | format }}">
       <th class="toggle">
         {% if type === 'province' and data.regions.length > 0 %}
-          <label for="vaccine-{{ data.iso3166 }}" class="label-toggle"></label>
+          <label for="infection-{{ data.iso3166 }}" class="label-toggle"></label>
         {% endif %}
       </th>
       <th class="name" title="{{ data.data_status }} @ {{ data.updated_at }}">
