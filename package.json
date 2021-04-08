@@ -20,6 +20,8 @@
     "@adobe/helix-fetch": "^2.2.0",
     "clean-css": "^5.1.2",
     "html-minifier": "^4.0.0",
-    "luxon": "^1.26.0"
+    "luxon": "^1.26.0",
+    "posthtml": "^0.12.3",
+    "posthtml-minify-classnames": "^0.2.3"
   }
 }

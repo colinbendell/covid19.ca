@@ -2,6 +2,8 @@ const fs = require("fs");
 const CleanCSS = require("clean-css");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const htmlmin = require("html-minifier");
+const uglify = require("posthtml-minify-classnames")
+const posthtml = require("posthtml")
 
 const formatter = new Intl.NumberFormat('en-CA');
 function format(value) {
@@ -107,10 +109,11 @@ module.exports = function(eleventyConfig) {
   //   return [...tagSet];
   // });
 
-  eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
+  eleventyConfig.addTransform("htmlmin", async function(content, outputPath) {
     // Eleventy 1.0+: use this.inputPath and this.outputPath instead
     if( outputPath && outputPath.endsWith(".html") ) {
-      let minified = htmlmin.minify(content, {
+      const {html} = await posthtml().use(uglify()).process(content);
+      const minified = htmlmin.minify(html, {
         useShortDoctype: true,
         removeComments: true,
         collapseWhitespace: true
