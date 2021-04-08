@@ -6,11 +6,10 @@
     <title>{{ title or metadata.title }}</title>
     <meta name="description" content="{{ description or metadata.description }}">
 {#    <link rel="stylesheet" href="{{ 'css/default.css' | url }}">#}
-{#    <link rel="stylesheet" href="{{ 'css/chartsCSS-0.9.0.css' | url }}">#}
+    <link rel="stylesheet" href="{{ 'css/chartsCSS-0.9.0.css' | url }}" media="print" onload="this.media='all'">
     <!-- capture the CSS content as a Nunjucks variable -->
     {% set css %}
       {% include "css/reset.css" %}
-      {% include "css/chartsCSS-0.9.0.css" %}
       {% include "css/toggle.css" %}
       {% include "css/progressbar.css" %}
       {% include "css/default.css" %}
