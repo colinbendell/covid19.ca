@@ -391,6 +391,28 @@ tr.healthregion > th:first-child > span {
   --color-1: var(--gray);
 }
 
+*:hover > .history *[data-trendline]::before {
+  position: absolute;
+  content: attr(data-trendline);
+  font-size: 0.7rem;
+  color: var(--gray-dark);
+  bottom: calc(100%*var(--size));
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+  z-index: 1;
+}
+
+*:hover > .history *[data-trendline]::after {
+  position: absolute;
+  content: " ";
+  border-bottom: var(--red);
+  font-size: 0.7rem;
+  width: 100%;
+  min-height: 3px;
+  border-bottom-style: dashed;
+  border-bottom-width: 1px;
+  bottom: calc(100%*var(--size));
+}
+
 .cases.history table.column td:not(:nth-child(n+8)) {
   --color-1: rgba(220, 53, 69, 0.2);
 }
