@@ -76,7 +76,10 @@ eleventyNavigation:
     <tr class="vaccine {{ type }} {{ data.iso3166 or data.province }}"  title="Total: {{ data.today.total_vaccinations | d(0) | format }} ({{ data.today.date | readableDate }}: {{ data.today.change_vaccinations | format}}, {{ data.yesterday.date | readableDate }}: {{ data.yesterday.change_vaccinations | format }}) Population: {{ data.population | format }}">
       <th class="toggle">
         {% if type === 'province' and data.regions.length > 0 %}
+          {% set regionLength %}{% for region in data.regions %}{% if region.today.total_vaccinations > 0 %}1{% endif %}{% endfor %}{% endset %}
+          {% if regionLength > 0 %}
         <label for="vaccine-{{ data.iso3166 }}" class="label-toggle"></label>
+          {% endif %}
         {% endif %}
       </th>
       <th class="name" title="{{ data.data_status }} @ {{ data.updated_at }}">
@@ -98,7 +101,7 @@ eleventyNavigation:
       </th>
       <td class="dose history">
         <div>
-          <table class="charts-css column multiple stacked">
+          <table class="charts-css column multiple stacked" style="--size: {{ (data.lastWeekExclusive.change_vaccinations_avg / data.vaccine.maxVaccinations) | format }}" data-trendline="{{ data.lastWeekExclusive.change_vaccinations_avg |formatNumber }}">
             <tbody>
             {%- for week in data.previousWeeks | head(-8) | head(7) %}
             <tr>
@@ -115,10 +118,11 @@ eleventyNavigation:
             {%- endfor %}
             <tr>
               <th scope="row">{{ data.today.date | readableDate }}</th>
-              <td style="--size:{{ (data.today.change_first_vaccination / data.vaccine.maxVaccinations) | max(0.03) | format }};"><span class="tooltip">{{ data.vaccine.maxVaccinations }} {{ data.today.date | readableDate }}{% if data.today.change_first_vaccination > data.today.change_vaccinations %}<br/>1st: {{ data.today.change_first_vaccination | d(0) | formatNumber }}<br/>2nd: {{ data.today.change_vaccinationed | d(0) | formatNumber }}{% endif %}<br/>Total: {{ data.today.change_vaccinations | d(0) | formatNumber }}</span></td>
+              <td style="--size:{{ (data.today.change_first_vaccination / data.vaccine.maxVaccinations) | max(0.03) | format }};"><span class="tooltip">{{ data.today.date | readableDate }}{% if data.today.change_first_vaccination > data.today.change_vaccinations %}<br/>1st: {{ data.today.change_first_vaccination | d(0) | formatNumber }}<br/>2nd: {{ data.today.change_vaccinationed | d(0) | formatNumber }}{% endif %}<br/>Total: {{ data.today.change_vaccinations | d(0) | formatNumber }}</span></td>
               <td style="--size:{{ (data.today.change_vaccinated / data.vaccine.maxVaccinations) | max() | format }};"></td>
             </tr>
             </tbody></table>
+
         </div>
       </td>
       <td class="dose today" data-rate="{{ data.vaccine.changeInVaccinationRate }}">{{ (data.today.change_vaccinations if data.today.change_vaccinations > 0 else data.lastWeekExclusive.change_vaccinations_avg) | formatNumber }}</td>
@@ -143,7 +147,7 @@ eleventyNavigation:
       <td class="supply history">
         {% if data.today.available_doses > 0 %}
         <div>
-          <table class="charts-css column">
+          <table class="charts-css column" style="--size: {{ (data.lastWeekExclusive.available_doses_avg / data.vaccine.maxAvailableDoses) | format }}" data-trendline="{{ data.lastWeekExclusive.available_doses_avg |formatNumber }}">
             <tbody>
             <tr>
               {%- for week in data.previousWeeks | head(-8) | head(7) %}
@@ -234,7 +238,7 @@ eleventyNavigation:
       </th>
       <td class="cases history">
         <div>
-          <table class="charts-css column">
+          <table class="charts-css column" style="--size: {{ (data.lastWeekExclusive.change_cases_avg / data.infection.maxChangeCases) | format }}" data-trendline="{{ data.lastWeekExclusive.change_cases_avg |formatNumber }}">
             <tbody>
             <tr>
               {%- for week in data.previousWeeks | head(-8) | head(7) %}
@@ -250,7 +254,7 @@ eleventyNavigation:
         </div>
       </td>
       <td class="activecases today" data-rate="{{ data.infection.changeInCasesRate }}">{{ (data.today.change_cases if data.today.change_cases > 0 else data.lastWeekExclusive.change_cases_avg) | formatNumber }}</td>
-      <td class="activecases history">
+      <td class="activecases history" style="--size: {{ (data.lastWeekExclusive.active_cases_avg / data.infection.maxActiveCases) | format }}" data-trendline="{{ data.lastWeekExclusive.active_cases_avg |formatNumber }}">
         <div>
           <table class="charts-css column">
             <tbody>
