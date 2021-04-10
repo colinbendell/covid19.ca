@@ -101,7 +101,7 @@ eleventyNavigation:
       </th>
       <td class="dose history">
         <div>
-          <table class="charts-css column multiple stacked" style="--size: {{ (data.lastWeekExclusive.change_vaccinations_avg / data.vaccine.maxVaccinations) | format }}" data-trendline="{{ data.lastWeekExclusive.change_vaccinations_avg |formatNumber }}">
+          <table class="charts-css column multiple stacked" style="--size: {{ (data.lastWeekExclusive.change_vaccinations_avg / data.vaccine.maxVaccinations) | format }}" data-trendline="{{ data.lastWeekExclusive.change_vaccinations_avg |formatNumber }} /day">
             <tbody>
             {%- for week in data.previousWeeks | head(-8) | head(7) %}
             <tr>
@@ -147,7 +147,7 @@ eleventyNavigation:
       <td class="supply history">
         {% if data.today.available_doses > 0 %}
         <div>
-          <table class="charts-css column" style="--size: {{ (data.lastWeekExclusive.available_doses_avg / data.vaccine.maxAvailableDoses) | format }}" data-trendline="{{ data.lastWeekExclusive.available_doses_avg |formatNumber }}">
+          <table class="charts-css column" style="--size: {{ (data.lastWeekExclusive.available_doses_avg / data.vaccine.maxAvailableDoses) | format }}" data-trendline="{{ data.lastWeekExclusive.available_doses_avg |formatNumber }} /day">
             <tbody>
             <tr>
               {%- for week in data.previousWeeks | head(-8) | head(7) %}
@@ -238,7 +238,7 @@ eleventyNavigation:
       </th>
       <td class="cases history">
         <div>
-          <table class="charts-css column" style="--size: {{ (data.lastWeekExclusive.change_cases_avg / data.infection.maxChangeCases) | format }}" data-trendline="{{ data.lastWeekExclusive.change_cases_avg |formatNumber }}">
+          <table class="charts-css column" style="--size: {{ (data.lastWeekExclusive.change_cases_avg / data.infection.maxChangeCases) | format }}" data-trendline="{{ data.lastWeekExclusive.change_cases_avg |formatNumber }} /day">
             <tbody>
             <tr>
               {%- for week in data.previousWeeks | head(-8) | head(7) %}
@@ -254,9 +254,9 @@ eleventyNavigation:
         </div>
       </td>
       <td class="activecases today" data-rate="{{ data.infection.changeInCasesRate }}">{{ (data.today.change_cases if data.today.change_cases > 0 else data.lastWeekExclusive.change_cases_avg) | formatNumber }}</td>
-      <td class="activecases history" style="--size: {{ (data.lastWeekExclusive.active_cases_avg / data.infection.maxActiveCases) | format }}" data-trendline="{{ data.lastWeekExclusive.active_cases_avg |formatNumber }}">
+      <td class="activecases history">
         <div>
-          <table class="charts-css column">
+          <table class="charts-css column" style="--size: {{ (data.lastWeekExclusive.active_cases_avg / data.infection.maxActiveCases) | format }}" data-trendline="{{ data.lastWeekExclusive.active_cases_avg |formatNumber }} /day">
             <tbody>
             <tr>
               {%- for week in data.previousWeeks | head(-8) | head(7) %}
