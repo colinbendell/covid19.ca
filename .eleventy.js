@@ -116,15 +116,13 @@ module.exports = function(eleventyConfig) {
   // });
 
   eleventyConfig.addTransform("htmlmin", async function(content, outputPath) {
-    // Eleventy 1.0+: use this.inputPath and this.outputPath instead
     if( outputPath && outputPath.endsWith(".html") ) {
-      // const {html} = await posthtml().use(uglify()).process(content);
-      const minified = htmlmin.minify(content, {
+      const {html} = await posthtml().use(uglify()).process(content);
+      return htmlmin.minify(html, {
         useShortDoctype: true,
         removeComments: true,
         collapseWhitespace: true
       });
-      return minified;
     }
 
     return content;

@@ -42,27 +42,39 @@ eleventyNavigation:
   <input id="vaccine-{{ province.iso3166 }}" class="toggle" type="checkbox" style="display: none">
   <input id="infection-{{ province.iso3166 }}" class="toggle" type="checkbox" style="display: none">
 {%- endfor %}
+<section id="main">
+  <div class="summary">
+    {%- for country in canada | filterProp("name", "eq", "Canada") %}
+      <p>In Canada, as of <span data-time="{{ country.updated_at }}" class="date">{{ country.updated_at | readableTime }} {{ country.updated_at | readableDate | lower}}</span>,
+        over <strong><span class="number">{{ country.total.total_cases |format }}</span> have tested positive</strong> for COVID-19,
+        or nearly <span class="number ratio">1 in {{ (((country.population / country.today.total_cases ) * 2 / 10) | int)/2*10 }}</span> people. Sadly, <strong><span class="number">{{ country.today.total_fatalities | format}}</span> have died</strong>.
+        Put differently, of those infected, <strong><span class="number ratio">1 in {{ (((country.today.total_cases / country.today.total_fatalities) * 2 / 10) | int)/2*10 }}</span> have died</strong>. In the last day, <strong><span class="number">{{ country.today.change_cases | format }}</span> new cases</strong> have been confirmed with <strong><span class="number">{{ country.today.change_fatalities }}</span> deaths</strong>.
+        This is trending <strong><span class="editorial {{ "negative" if country.infection.changeInCasesRate > 0 else "positive" }}">{{ "downwards" if country.infection.changeInCasesRate < 0 else "upwards" }}</span></strong>
+        over the last 7 days.</p>
+      <p>Fortunately, <strong><span class="number">{{ country.today.total_vaccinations | format }}</span> doses</strong> of the vaccine have been administered.
+        Over <span class="number">{{ country.today.vaccinationsPerCapita | format}}%</span> have their 1st shot and <span class="number">{{ country.today.vaccinationsCompletePerCapita | format}}%</span> are fully vaccinated!
+        Vaccination is <span class="editorial {{ "positive" if country.today.change_vaccinationsPerCapita > 0 else "negative" }}">{{ "speeding up" if country.today.change_vaccinationsPerCapita > 0 else "slowing down" }}</span>,
+        with <strong><span class="number">{{ country.today.available_doses | format }}</span> doses in the freezer</strong>.
+        The current vaccination rate of <strong><span class="number">{{ country.lastWeekExclusive.available_doses_avg | format }}</span> per day</strong>,
+        is too slow. It will take <strong><span class="number">{{ country.vaccine.daysToZeroVaccines | format }}</span> days</strong> to exhaust current supply.</p>
+{#      <p>At this rate, it will be <span class="number">{{ country.vaccine.completeDate | readableDate }}</span> for everyone to receive the first dose of the vaccine.</p>#}
+    {%- endfor %}
+</div>
+</section>
 <section id="vaccinations">
+  <h2><a href="#vaccinations">Vaccine Status</a></h2>
 <table class="vaccine table table-hover" width="100%" cellspacing="0">
   <thead>
   <tr>
     <th></th>
     <th></th>
-    <th colspan="6">Vaccinations</th>
-    <th></th>
-    <th colspan="2">Doses Available</th>
-    <th></th>
-  </tr>
-  <tr>
-    <th></th>
-    <th></th>
     <th>In Arms<br/>(60 days)</th>
     <th>In Arms<br/>Today</th>
-    <th>Projected Completion</th>
+    <th>Projected<br/>Completion</th>
     <th>Total</th>
-    <th>1 Dose / Population</th>
-    <th>Fully Vacc. / Population</th>
-    <th>Infected / Population</th>
+    <th>1 Dose /<br/>Population</th>
+    <th>Fully Vacc. /<br/>Population</th>
+    <th>Infected /<br/>Population</th>
     <th>In Freezers<br/>(60 Days)</th>
     <th>In Freezers<br/>Today</th>
   </tr>
@@ -183,15 +195,9 @@ eleventyNavigation:
 </table>
 </section>
 <section id="infections">
+  <h2><a href="#infections">Infection Status</a></h2>
 <table class="infection table table-hover" width="100%" cellspacing="0">
   <thead>
-  <tr>
-    <th></th>
-    <th></th>
-    <th colspan="6">Infections</th>
-    <th></th>
-    <th></th>
-  </tr>
   <tr>
     <th></th>
     <th></th>
