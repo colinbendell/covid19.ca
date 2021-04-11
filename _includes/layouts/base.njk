@@ -7,7 +7,6 @@
     <meta name="description" content="{{ description or metadata.description }}">
 {#    <link rel="stylesheet" href="{{ 'css/default.css' | url }}">#}
 {#    <link rel="stylesheet" href="{{ 'css/chartsCSS-0.9.0.css' | url }}" media="print" onload="this.media='all'">#}
-    <!-- capture the CSS content as a Nunjucks variable -->
     {% set css %}
       {% include "css/reset.css" %}
       {% include "css/chartsCSS-0.9.0.css" %}
@@ -15,7 +14,6 @@
       {% include "css/progressbar.css" %}
       {% include "css/default.css" %}
     {% endset %}
-    <!-- feed it through our cssmin filter to minify -->
     <style>
       {{ css | cssmin | safe }}
     </style>
@@ -31,21 +29,17 @@
       </a>
       <a href="/data.json" title="{raw} source data"><img src="img/analytics.svg" width="64" height="64" alt=""></a>
       </span>
-{#      #}{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-{#      <ul class="nav">#}
-{#      {%- for entry in collections.all | eleventyNavigation %}#}
-{#        <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>#}
-{#      {%- endfor %}#}
-{#      </ul>#}
     </header>
     <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
       {{ content | safe }}
     </main>
-
     <footer>
-
+      <p class="fineprint">This is for informational purposes only. It relies on community efforts like <a href="https://covid19tracker.ca">covid19tracker.ca</a> to aggregate government data sources.</p>
+      <div class="bling">
+        <span>built by <a href="https://twitter.com/colinbendell">Colin</a></span>
+        <span>Proudly &lt;noscript&gt;</span>
+      </div>
     </footer>
-
     <!-- Current page: {{ page.url | url }} -->
   </body>
 </html>
