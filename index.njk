@@ -1,5 +1,5 @@
 ---
-title: COVID-19 Vaccination Tracker
+title: COVID-19 Status
 layout: layouts/home.njk
 eleventyNavigation:
   key: Home
@@ -9,24 +9,21 @@ eleventyNavigation:
 {% set css %}
   {%- for province in canada %}
     {% if province.regions and province.regions.length > 0 %}
-      #vaccine-{{ province.iso3166 }}:checked ~ table.vaccine tr.healthregion.{{ province.iso3166 }},
-      #infection-{{ province.iso3166 }}:checked ~ table.infection tr.healthregion.{{ province.iso3166 }},
+      #vaccine-{{ province.iso3166 }}:checked ~ section > table.vaccine tr.healthregion.{{ province.iso3166 }},
+      #infection-{{ province.iso3166 }}:checked ~ section > table.infection tr.healthregion.{{ province.iso3166 }},
     {% endif %}
   {%- endfor %}
   #noop { display: table-row; }
   {%- for province in canada %}
     {% if province.regions and province.regions.length > 0 %}
-      #vaccine-{{ province.iso3166 }}:checked ~ table.vaccine tr.province.{{ province.iso3166 }} th.toggle label,
-      #infection-{{ province.iso3166 }}:checked ~ table.infection tr.province.{{ province.iso3166 }} th.toggle label,
+      #vaccine-{{ province.iso3166 }}:checked ~ section > table.vaccine tr.province.{{ province.iso3166 }} th.toggle label,
+      #infection-{{ province.iso3166 }}:checked ~ section > table.infection tr.province.{{ province.iso3166 }} th.toggle label,
     {% endif %}
   {%- endfor %}
   #noop { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='currentColor' d='M443.5 162.6l-7.1-7.1c-4.7-4.7-12.3-4.7-17 0L224 351 28.5 155.5c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17l211 211.1c4.7 4.7 12.3 4.7 17 0l211-211.1c4.8-4.7 4.8-12.3.1-17z'/%3E%3C/svg%3E%0A"); }
 {%  endset %}
 <style>{{ css | cssmin | safe }}</style>
-<svg xmlns="http://www.w3.org/2000/svg" class="sprite" aria-hidden="true">
-  <g id="canada-mapleleaf" viewBox="0 0 512 512">
-    <path fill="currentColor" d="M383.8 351.7c2.5-2.5 105.2-92.4 105.2-92.4l-17.5-7.5c-10-4.9-7.4-11.5-5-17.4 2.4-7.6 20.1-67.3 20.1-67.3s-47.7 10-57.7 12.5c-7.5 2.4-10-2.5-12.5-7.5s-15-32.4-15-32.4-52.6 59.9-55.1 62.3c-10 7.5-20.1 0-17.6-10 0-10 27.6-129.6 27.6-129.6s-30.1 17.4-40.1 22.4c-7.5 5-12.6 5-17.6-5C293.5 72.3 255.9 0 255.9 0s-37.5 72.3-42.5 79.8c-5 10-10 10-17.6 5-10-5-40.1-22.4-40.1-22.4S183.3 182 183.3 192c2.5 10-7.5 17.5-17.6 10-2.5-2.5-55.1-62.3-55.1-62.3S98.1 167 95.6 172s-5 9.9-12.5 7.5C73 177 25.4 167 25.4 167s17.6 59.7 20.1 67.3c2.4 6 5 12.5-5 17.4L23 259.3s102.6 89.9 105.2 92.4c5.1 5 10 7.5 5.1 22.5-5.1 15-10.1 35.1-10.1 35.1s95.2-20.1 105.3-22.6c8.7-.9 18.3 2.5 18.3 12.5S241 512 241 512h30s-5.8-102.7-5.8-112.8 9.5-13.4 18.4-12.5c10 2.5 105.2 22.6 105.2 22.6s-5-20.1-10-35.1 0-17.5 5-22.5z"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none" aria-hidden="true">
   <g id="in-progress" viewBox="0 0 512 512">
     <path fill="currentColor" d="M497 273L329 441c-15 15-41 4.5-41-17v-96H152c-13.3 0-24-10.7-24-24v-96c0-13.3 10.7-24 24-24h136V88c0-21.4 25.9-32 41-17l168 168c9.3 9.4 9.3 24.6 0 34zM192 436v-40c0-6.6-5.4-12-12-12H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h84c6.6 0 12-5.4 12-12V76c0-6.6-5.4-12-12-12H96c-53 0-96 43-96 96v192c0 53 43 96 96 96h84c6.6 0 12-5.4 12-12z"/>
   </g>
@@ -40,12 +37,12 @@ eleventyNavigation:
     <path fill="currentColor" d="M256,8C119,8,8,119,8,256S119,504,256,504,504,393,504,256,393,8,256,8Zm92.49,313h0l-20,25a16,16,0,0,1-22.49,2.5h0l-67-49.72a40,40,0,0,1-15-31.23V112a16,16,0,0,1,16-16h32a16,16,0,0,1,16,16V256l58,42.5A16,16,0,0,1,348.49,321Z"/>
   </g>
 </svg>
-<h1><svg class="icon" aria-hidden="true" viewBox="0 0 512 512"><use href="#canada-mapleleaf"></use></svg>COVID-19 Status</h1>
 
 {%- for province in canada %}
-  <input id="vaccine-{{ province.iso3166 }}" class="toggle" type="checkbox">
-  <input id="infection-{{ province.iso3166 }}" class="toggle" type="checkbox">
+  <input id="vaccine-{{ province.iso3166 }}" class="toggle" type="checkbox" style="display: none">
+  <input id="infection-{{ province.iso3166 }}" class="toggle" type="checkbox" style="display: none">
 {%- endfor %}
+<section id="vaccinations">
 <table class="vaccine table table-hover" width="100%" cellspacing="0">
   <thead>
   <tr>
@@ -184,7 +181,8 @@ eleventyNavigation:
   {%- endfor %}
   </tfoot>
 </table>
-
+</section>
+<section id="infections">
 <table class="infection table table-hover" width="100%" cellspacing="0">
   <thead>
   <tr>
@@ -311,9 +309,10 @@ eleventyNavigation:
     {%- endfor %}
   {%- endfor %}
   </tbody>
-  <tfoot id="casesProvinceTableFooter">
+  <tfoot>
   {%- for province in canada | filterProp("name", "eq", "Canada")  %}
     {{ infectionRow(province, "country") }}
   {%- endfor %}
   </tfoot>
 </table>
+</section>

@@ -105,7 +105,7 @@ button, [type=button], [type=reset], [type=submit] {
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-font-size: 2.5rem;
+  font-size: 2.5rem;
   margin-bottom: 0.5rem;
   font-weight: 500;
   line-height: 1.2;
@@ -113,9 +113,82 @@ font-size: 2.5rem;
 
 /* TODO: cleanup */
 
+header {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  background-color: var(--gray-dark);
+  color: var(--light);
+  min-width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+header h1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  display: inline-block;
+  font-size: 1.5rem;
+}
+
+header h1::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='red' d='M383.8 351.7c2.5-2.5 105.2-92.4 105.2-92.4l-17.5-7.5c-10-4.9-7.4-11.5-5-17.4 2.4-7.6 20.1-67.3 20.1-67.3s-47.7 10-57.7 12.5c-7.5 2.4-10-2.5-12.5-7.5s-15-32.4-15-32.4-52.6 59.9-55.1 62.3c-10 7.5-20.1 0-17.6-10 0-10 27.6-129.6 27.6-129.6s-30.1 17.4-40.1 22.4c-7.5 5-12.6 5-17.6-5C293.5 72.3 255.9 0 255.9 0s-37.5 72.3-42.5 79.8c-5 10-10 10-17.6 5-10-5-40.1-22.4-40.1-22.4S183.3 182 183.3 192c2.5 10-7.5 17.5-17.6 10-2.5-2.5-55.1-62.3-55.1-62.3S98.1 167 95.6 172s-5 9.9-12.5 7.5C73 177 25.4 167 25.4 167s17.6 59.7 20.1 67.3c2.4 6 5 12.5-5 17.4L23 259.3s102.6 89.9 105.2 92.4c5.1 5 10 7.5 5.1 22.5-5.1 15-10.1 35.1-10.1 35.1s95.2-20.1 105.3-22.6c8.7-.9 18.3 2.5 18.3 12.5S241 512 241 512h30s-5.8-102.7-5.8-112.8 9.5-13.4 18.4-12.5c10 2.5 105.2 22.6 105.2 22.6s-5-20.1-10-35.1 0-17.5 5-22.5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  background-position-y: 0.25em;
+  min-width: 1.5em;
+  min-height: 1.75em;
+  display: inline-block;
+  margin-bottom: -.4em;
+  margin-left: -0.5em;
+  margin-right: 0.25em;
+  content: "";
+}
+
+header .links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.links img {
+  min-height: 1.5rem;
+  max-height: 1.5rem;
+  min-width: 1.5rem;
+  max-width: 1.5rem;
+  margin-left: 0.5rem;
+  display: inline-block;
+  opacity: 0.6;
+}
+
+a  {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 svg.sprite {
   display: none;
 }
+
+.summary {
+  font-weight: lighter;
+  font-size: 1.3rem;
+}
+.number {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.summary p + p {
+  padding-top: 0.75em;
+}
+.fineprint {
+  font-size: 0.75rem;
+}
+
+#vaccinations, #infections {
+  overflow: scroll;
+  margin-top: 1rem;
+}
+
 #reported {
   color: var(--green);
 }
@@ -165,6 +238,10 @@ main {
   /*width: 100%;*/
   /*min-width: 8rem;*/
   max-width: 11rem;
+}
+.table > thead > tr:first-child > th {
+  text-align: left;
+  font-weight: bold;
 }
 .table > * > tr > th:nth-child(2) {
   /*width: 100%;*/
@@ -332,7 +409,7 @@ tr.healthregion > th:first-child > span {
   border-left: 0;
   border-right: 0;
   width: 28px;
-  text-align: center !important;
+  text-align: center;
 }
 
 .table > thead > tr:last-child > th:not(:first-child)::after {
@@ -580,7 +657,7 @@ tr:not(:hover) .progressbar > .change {
   }
   .table>*>tr>th:nth-child(2) {
     min-width: 3.5rem;
-    max-width: 10rem;
-    white-space: nowrap;
+    max-width: 7rem;
+    /*white-space: nowrap;*/
   }
 }

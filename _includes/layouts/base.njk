@@ -22,8 +22,15 @@
   </head>
   <body>
     <header>
-{#      <h1 class="home"><a href="{{ '/' | url }}">{{ title or metadata.title }}</a></h1>#}
-
+      <h1 class="home">
+        <a href="{{ '/' | url }}">{{ title or metadata.title }}</a>
+      </h1>
+      <span class="links">
+      <a href="https://github.com/colinbendell/covid19.ca/" title="Github Source">
+        <img src="img/github.svg" width="64" height="64" alt="">
+      </a>
+      <a href="/data.json" title="{raw} source data"><img src="img/analytics.svg" width="64" height="64" alt=""></a>
+      </span>
 {#      #}{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
 {#      <ul class="nav">#}
 {#      {%- for entry in collections.all | eleventyNavigation %}#}

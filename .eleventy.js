@@ -61,6 +61,12 @@ module.exports = function(eleventyConfig) {
     return `${year}-${ISO_3_LETTER_MONTH[Number.parseInt(month) - 1]}-${day}`;
   });
 
+  eleventyConfig.addFilter("readableTime", (dateObj, tzOffset = -8) => {
+    if (!dateObj) return '';
+
+    return new Date(dateObj)?.toLocaleTimeString().replace(/:\d\d|\./g, '');
+  });
+
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   // eleventyConfig.addFilter('htmlDateString', (dateObj) => {
   //   return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
@@ -112,8 +118,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addTransform("htmlmin", async function(content, outputPath) {
     // Eleventy 1.0+: use this.inputPath and this.outputPath instead
     if( outputPath && outputPath.endsWith(".html") ) {
-      const {html} = await posthtml().use(uglify()).process(content);
-      const minified = htmlmin.minify(html, {
+      // const {html} = await posthtml().use(uglify()).process(content);
+      const minified = htmlmin.minify(content, {
         useShortDoctype: true,
         removeComments: true,
         collapseWhitespace: true
@@ -127,6 +133,7 @@ module.exports = function(eleventyConfig) {
   // Copy the `img` and `css` folders to the output
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addPassthroughCopy({'_data/covid19tracker.ca': '/'});
 
   // Customize Markdown library and settings:
   // let markdownLibrary = markdownIt({
