@@ -192,7 +192,7 @@ section h2 {
 }
 
 .summary {
-  font-weight: lighter;
+  /*font-weight: lighter;*/
   font-size: 1.3rem;
 }
 .number {
@@ -204,7 +204,7 @@ section h2 {
 }
 .fineprint {
   padding-left: 1.5rem;
-  font-weight: lighter;
+  /*font-weight: lighter;*/
   font-size: 0.75rem;
 }
 
