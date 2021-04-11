@@ -75,7 +75,7 @@ async function getCovid19TrackerProvinces(data = new Map()) {
       data.set(code, prov);
     }
   }
-  data.set('CA', {name: "Canada", population: 38008005});
+  data.set('CA', {name: "Canada", population: 38048738});
   data.delete('_RC');
   data.delete('FA');
 }
