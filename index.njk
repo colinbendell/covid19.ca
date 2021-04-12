@@ -1,5 +1,5 @@
 ---
-title: COVID-19 Status
+title: "COVID-19 by the Numbers"
 layout: layouts/home.njk
 eleventyNavigation:
   key: Home
@@ -43,23 +43,50 @@ eleventyNavigation:
   <input id="infection-{{ province.iso3166 }}" class="toggle" type="checkbox" style="display: none">
 {%- endfor %}
 <section id="main">
-  <div class="summary">
     {%- for country in canada | filterProp("name", "eq", "Canada") %}
-      <p>In Canada, as of <span data-time="{{ country.updated_at }}" class="date">{{ country.updated_at | readableTime }} {{ country.updated_at | readableDate | lower}}</span>,
-        over <strong><span class="number">{{ country.total.total_cases |format }}</span> have tested positive</strong> for COVID-19,
-        or nearly <span class="number ratio">1 in {{ (((country.population / country.today.total_cases ) * 2 / 10) | int)/2*10 }}</span> people. Sadly, <strong><span class="number">{{ country.today.total_fatalities | format}}</span> have died</strong>.
-        Put differently, of those infected, <strong><span class="number ratio">1 in {{ (((country.today.total_cases / country.today.total_fatalities) * 2 / 10) | int)/2*10 }}</span> have died</strong>. In the last day, <strong><span class="number">{{ country.today.change_cases | format }}</span> new cases</strong> have been confirmed with <strong><span class="number">{{ country.today.change_fatalities }}</span> deaths</strong>.
-        This is trending <strong><span class="editorial {{ "negative" if country.infection.changeInCasesRate > 0 else "positive" }}">{{ "downwards" if country.infection.changeInCasesRate < 0 else "upwards" }}</span></strong>
-        over the last 7 days.</p>
-      <p>Fortunately, <strong><span class="number">{{ country.today.total_vaccinations | format }}</span> doses</strong> of the vaccine have been administered.
-        Over <span class="number">{{ country.today.vaccinationsPerCapita | format}}%</span> have their 1st shot and <span class="number">{{ country.today.vaccinationsCompletePerCapita | format}}%</span> are fully vaccinated!
-        Vaccination is <span class="editorial {{ "positive" if country.today.change_vaccinationsPerCapita > 0 else "negative" }}">{{ "speeding up" if country.today.change_vaccinationsPerCapita > 0 else "slowing down" }}</span>,
-        with <strong><span class="number">{{ country.today.available_doses | format }}</span> doses in the freezer</strong>.
-        The current vaccination rate of <strong><span class="number">{{ country.lastWeekExclusive.available_doses_avg | format }}</span> per day</strong>,
-        is too slow. It will take <strong><span class="number">{{ country.vaccine.daysToZeroVaccines | format }}</span> days</strong> to exhaust current supply.</p>
-{#      <p>At this rate, it will be <span class="number">{{ country.vaccine.completeDate | readableDate }}</span> for everyone to receive the first dose of the vaccine.</p>#}
+    <div class="summary">
+      <p>
+        As of <span data-time="{{ country.updated_at }}" class="date">{{ country.updated_at | readableTime }} {{ country.updated_at | readableDate | lower}}</span>,
+        over <strong><span class="number"><a href="#infections">{{ country.total.total_cases |format }}</a></span> Canadians have tested positive</strong> for COVID-19,
+        or <span class="number ratio"><a href="#infections">{{ (((country.today.total_cases / country.population * 100 * 10) | round) / 10 )| format }} %</a></span> of the population.
+        Sadly, <strong><span class="number"><a href="#infections">{{ country.today.total_fatalities | format}}</a></span> have died</strong>.
+      </p>
+      <p>
+        In the last day, there were <strong><span class="number"><a href="#vaccinations">{{ country.today.change_cases | format }}</a></span> new cases</strong>
+        with <strong><span class="number"><a href="#vaccinations">{{ country.today.change_fatalities }}</a></span> deaths</strong>.
+        This is trending <strong><span class="editorial {{ "negative" if country.infection.changeInCasesRate > 0 else "positive" }}">{{ "downwards" if country.infection.changeInCasesRate < 0 else "upwards" }}</span></strong>.
+      </p>
+      <p>
+        Fortunately, <strong><span class="number"><a href="#vaccinations">{{ country.today.total_vaccinations | format }}</a></span> doses</strong> of the vaccine have been administered.
+        Over <span class="number"><a href="#vaccinations">{{ country.today.vaccinationsHalfPerCapita | format}}%</a></span> have their 1st shot and <span class="number"><a href="#vaccinations">{{ country.today.vaccinationsCompletePerCapita | format}}%</a></span> are fully vaccinated!
+      </p>
+      <p>
+        Vaccination is <span class="editorial {{ "positive" if country.today.change_vaccinationsHalfPerCapita > 0 else "negative" }}">{{ "speeding up" if country.today.change_vaccinationsHalfPerCapita > 0 else "slowing down" }}</span>,
+        but there are <strong><span class="number"><a href="#vaccinations">{{ country.today.available_doses | format }}</a></span> doses in the freezer</strong>.
+        At the current rate of <strong><span class="number"><a href="#vaccinations">{{ country.lastWeekExclusive.change_vaccinations_avg | format }}</a></span> doses per day</strong>,
+        it will take ~<strong><span class="number"><a href="#vaccinations">{{ country.vaccine.daysToZeroVaccines | format }}</a></span> days</strong> to use these vaccines.
+        All adult Canadians should have the first dose by <span class="number"><a href="#vaccinations">{{ country.vaccine.completeDate | readableDate }}</a></span>.
+      </p>
+  </div>
+  <ul class="stats flex nowrap">
+    <li>
+      <h3 ><strong>1 in {{ (((country.population / country.today.total_cases ) * 2 / 10) | int)/2*10 }}</strong> have<br>been infected</h3>
+      <div style="--county: 5; --countx:{{ (((country.population / country.today.total_cases ) * 2 / 10) | int)/2*10 /5 }}" class="oneinx"></div>
+    </li>
+    <li>
+      <h3 ><strong>1 in {{ (((country.today.total_cases / country.today.total_fatalities) * 2 / 10) | int)/2*10 }}</strong> have died<br>from COVID-19</h3>
+      <div style="--county: 5; --countx:{{ (((country.today.total_cases / country.today.total_fatalities) * 2 / 10) | int)/2*10 /5}}" class="oneinx"></div>
+    </li>
+    <li>
+      <h3 ><strong>1 in {{ (((country.population / country.today.total_vaccinated) * 2 / 10) | int)/2*10}}</strong> are fully<br>Vaccinated!</h3>
+      <div style="--county: 5; --countx:{{ (((country.population / country.today.total_vaccinated) * 2 / 10) | int)/2*10 /5 }}" class="oneinx"></div>
+    </li>
+    <li>
+      <h3 ><strong>1 in {{ (((country.population / country.today.total_first_vaccination) * 2 / 10) | int)/2*10}}</strong> have<br>1st Dose</h3>
+      <div style="--county: 1; --countx:{{ (((country.population / country.today.total_first_vaccination) * 2 / 10) | int)/2*10}}" class="oneinx"></div>
+    </li>
+  </ul>
     {%- endfor %}
-</div>
 </section>
 <section id="vaccinations">
   <h2><a href="#vaccinations">Vaccine Status</a></h2>
@@ -74,7 +101,7 @@ eleventyNavigation:
     <th>Total</th>
     <th>1 Dose /<br/>Population</th>
     <th>Fully Vacc. /<br/>Population</th>
-    <th>Infected /<br/>Population</th>
+    <th>Infected /<br>Population</th>
     <th>In Freezers<br/>(60 Days)</th>
     <th>In Freezers<br/>Today</th>
   </tr>
@@ -138,9 +165,9 @@ eleventyNavigation:
       <td class="supply complete {{ "bad" if data.vaccine.daysToFirstVaccinations > 15 else ( "ok" if data.vaccine.daysToFirstVaccinations > 5 else "good") }}">{{ data.vaccine.completeDate | readableDate if data.vaccine.daysToFirstVaccinations > 0 }}</td>
       <td class="dose total" >{{ data.today.total_vaccinations | d(0) | formatNumber }}</td>
       <td class="dose one">
-        <div class="progressbar" role="progressbar" aria-valuenow="{{ data.today.vaccinationsPerCapita or "N/A" }}" data-value="{{ data.today.total_first_vaccination | max(0) | formatNumber }}">
-          <span class="value" aria-hidden="true" style="width: {{ data.today.vaccinationsPerCapita}}%"></span>
-          {% if data.today.change_vaccinationsPerCapita > 0 %}<span class="change percent" data-value="{{ data.today.change_vaccinationsPerCapita | format }}"></span>{% endif %}
+        <div class="progressbar" role="progressbar" aria-valuenow="{{ data.today.vaccinationsHalfPerCapita or "N/A" }}" data-value="{{ data.today.total_first_vaccination | max(0) | formatNumber }}">
+          <span class="value" aria-hidden="true" style="width: {{ data.today.vaccinationsHalfPerCapita}}%"></span>
+          {% if data.today.change_vaccinationsHalfPerCapita > 0 %}<span class="change percent" data-value="{{ data.today.change_vaccinationsHalfPerCapita | format }}"></span>{% endif %}
           {% if data.today.change_first_vaccination > 0 %}<span class="change absolute" data-value="{{ data.today.change_first_vaccination | format }}"></span>{% endif %}
         </div>
       </td>
@@ -204,12 +231,12 @@ eleventyNavigation:
     <th>New Cases<br/>(60 days)</th>
     <th>New Cases<br/>Today</th>
     <th>Active Cases<br/>(60 days)</th>
-    <th>Active/₁₀₀ₖ</th>
-    <th>Hospital/₁₀₀₀ₖ</th>
-    <th>Deaths/₁₀₀ₖ</th>
+    <th>Current<br>Active/₁₀₀ₖ</th>
+    <th>Current<br>Hospital/₁₀₀₀ₖ</th>
+    <th>Total<br>Deaths/₁₀₀ₖ</th>
     <th>Test-Positivity<br/>Rate (7 days)</th>
-    <th class="infected">Infected / Population</th>
-    <th class="infected">Death Rate <br/>(of Infected)</th>
+    <th class="infected">Infected /<br>Population</th>
+    <th class="infected">Death Rate <br>(of Infected)</th>
   </tr>
   </thead>
   <tbody id="casesProvinceTable">
