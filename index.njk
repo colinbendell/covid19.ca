@@ -74,7 +74,7 @@ eleventyNavigation:
       <div style="--county: 5; --countx:{{ (((country.population / country.today.total_cases ) * 2 / 10) | int)/2*10 /5 }}" class="oneinx"></div>
     </li>
     <li>
-      <h3 ><strong>1 in {{ (((country.today.total_cases / country.today.total_fatalities) * 2 / 10) | int)/2*10 }}</strong> have died<br>from COVID-19</h3>
+      <h3 ><strong>1 in {{ (((country.today.total_cases / country.today.total_fatalities) * 2 / 10) | int)/2*10 }}</strong> of infected<br>have died</h3>
       <div style="--county: 5; --countx:{{ (((country.today.total_cases / country.today.total_fatalities) * 2 / 10) | int)/2*10 /5}}" class="oneinx"></div>
     </li>
     <li>
