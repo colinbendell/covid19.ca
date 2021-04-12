@@ -240,7 +240,7 @@ ul.flex {
   min-height: calc(1.4rem*var(--county));
   max-height: calc(1.4rem*var(--county));
   display: block;
-  background-color: var(--gray);
+  background-color: rgba(108, 117, 125, 0.2);
   mask-image: url(img/male.svg);
   -webkit-mask-image: url(img/male.svg);
   mask-repeat: round;
