@@ -46,7 +46,7 @@ eleventyNavigation:
     {%- for country in canada | filterProp("name", "eq", "Canada") %}
     <div class="summary">
       <p>
-        As of <span data-time="{{ country.updated_at }}" class="date">{{ country.updated_at | readableTime }} {{ country.updated_at | readableDate | lower}}</span>,
+        As of <span data-time="{{ country.updated_at }}" class="date">{{ country.updated_at | readableTime }} PT {{ country.updated_at | readableDate | lower}}</span>,
         over <strong><span class="number"><a href="#infections">{{ country.total.total_cases |format }}</a></span> Canadians have tested positive</strong> for COVID-19,
         or <span class="number ratio"><a href="#infections">{{ (((country.today.total_cases / country.population * 100 * 10) | round) / 10 )| format }} %</a></span> of the population.
         Sadly, <strong><span class="number"><a href="#infections">{{ country.today.total_fatalities | format}}</a></span> have died</strong>.

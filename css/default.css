@@ -216,6 +216,9 @@ header a, h2 a {
   padding-top: 0.75em;
 }
 
+.summary .date {
+  font-style: italic;
+}
 .flex {
   padding: 0;
   margin: 0;

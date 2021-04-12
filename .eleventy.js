@@ -45,11 +45,15 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("readableDate", (dateObj, tzOffset = -8) => {
     if (!dateObj) return '';
 
-    const d = new Date(dateObj)?.toJSON().split('T')[0];
-    if (!d) return ''; // un parseable
+    let srcDate = new Date(dateObj);
+    if (!srcDate) return ''; // unparseable
+    // special case where we only had a date object (2021-01-01) where we don't want to timezone shift
+    if (!/00:00:00.000Z/.test(srcDate.toJSON())) {
+      srcDate = new Date(srcDate.getTime() + (tzOffset||0)*60*60*1000);
+    }
 
+    const d = srcDate.toJSON().split('T')[0];
     const today = new Date(Date.now() + (tzOffset||0)*60*60*1000).toJSON().split('T')[0];
-
     const yesterday = new Date(Date.now() - 24*60*60*1000 + (tzOffset||0)*60*60*1000).toJSON().split('T')[0];
 
     if (today === d) return 'Today';
@@ -63,8 +67,12 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addFilter("readableTime", (dateObj, tzOffset = -8) => {
     if (!dateObj) return '';
+    const srcDate = new Date(dateObj);
+    if (!srcDate) return ''; // unparseable
 
-    return new Date(dateObj)?.toLocaleTimeString().replace(/:\d\d|\./g, '');
+    const adjDate = new Date(srcDate.getTime() + (tzOffset||0)*60*60*1000);
+
+    return adjDate.toLocaleTimeString().replace(/(\d+:\d+):\d\d|\.| /g, '$1');
   });
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
