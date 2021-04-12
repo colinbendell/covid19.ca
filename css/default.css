@@ -241,27 +241,17 @@ ul.flex {
   max-height: calc(1.4rem*var(--county));
   display: block;
   background-color: var(--gray);
-  /*mask-image: url(img/male.svg);*/
-  /*-webkit-mask-image: url(img/male.svg);*/
-  mask-image: url(img/male-solid.svg);
-  -webkit-mask-image: url(img/male-solid.svg);
+  mask-image: url(img/male.svg);
+  -webkit-mask-image: url(img/male.svg);
   mask-repeat: round;
   -webkit-mask-repeat: round;
   mask-size: calc(100%/var(--countx)) calc(100%/var(--county));
   -webkit-mask-size: calc(100%/var(--countx)) calc(100%/var(--county));
-  /*background-image: url(img/male.svg);*/
-  /*background-repeat: round;*/
-  /*background-size: calc(100%/var(--countx)) calc(100%/var(--county));*/
 }
 .stats .oneinx::after {
-  /*mask-type: unset;*/
   background-color: var(--pink);
-  /*mask-image: url(img/male-solid.svg);*/
-  /*-webkit-mask-image: url(img/male-solid.svg);*/
   mask-repeat: no-repeat;
   -webkit-mask-repeat: no-repeat;
-  /*mask-size: calc(100%/var(--countx)) calc(100%/var(--county));*/
-  /*-webkit-mask-size: calc(100%/var(--countx)) calc(100%/var(--county));*/
 }
 
 .stats h3 {
