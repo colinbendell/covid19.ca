@@ -772,4 +772,8 @@ tr:not(:hover) .progressbar > .change {
     max-width: 7rem;
     /*white-space: nowrap;*/
   }
+  main {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
 }
