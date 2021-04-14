@@ -248,7 +248,7 @@ async function getSK(hrData) {
     ["Total Vaccine Doses", "total_vaccinations"],
     ["New First Vaccine Doses", "change_first_vaccination"],
     ["New Second Vaccine Doses", "change_vaccinated"],
-    ["New Vaccine Doses", "change_vaccines"]
+    ["New Vaccine Doses", "change_vaccinations"]
   ]);
   const hrName = new Map([...hrData.values()].map(hr => [hr.name, hr]));
   const skHR = new Map();
