@@ -1,128 +1,16 @@
 [
-  {
-    "date": "2021-01-01",
-    "name": "Canada",
-    "code": "CA",
-    "population": 38048738,
-    "0-14": 15.9,
-    "15-64": 66.1,
-    "65-": 18
-  },
-  {
-    "date": "2021-01-01",
-    "name": "Nunavut",
-    "code": "NU",
-    "population": 39407,
-    "0-14": 31.7,
-    "15-64": 64.3,
-    "65-": 4.0
-  },
-  {
-    "date": "2021-01-01",
-    "name": "Northwest Territories",
-    "code": "NT",
-    "population": 45136,
-    "0-14": 20,
-    "15-64": 71.1,
-    "65-": 8.8
-  },
-  {
-    "date": "2021-01-01",
-    "name": "Yukon",
-    "code": "YT",
-    "population": 42192,
-    "0-14": 17,
-    "15-64": 69.6,
-    "65-": 13.3
-  },
-  {
-    "date": "2021-01-01",
-    "name": "British Columbia",
-    "code": "BC",
-    "population": 5153039,
-    "0-14": 14,
-    "15-64": 66.9,
-    "65-": 19.2
-  },
-  {
-    "date": "2021-01-01",
-    "name": "Alberta",
-    "code": "AB",
-    "population": 4436258,
-    "0-14": 18.6,
-    "15-64": 67.6,
-    "65-": 13.8
-  },
-  {
-    "date": "2021-01-01",
-    "name": "Saskatchewan",
-    "code": "SK",
-    "population": 1178832,
-    "0-14": 19.6,
-    "15-64": 64.2,
-    "65-": 16.2
-  },
-  {
-    "date": "2021-01-01",
-    "name": "Manitoba",
-    "code": "MB",
-    "population": 1380935,
-    "0-14": 18.9,
-    "15-64": 65,
-    "65-": 16.1
-  },
-  {
-    "date": "2021-01-01",
-    "name": "Ontario",
-    "code": "ON",
-    "population": 14755211,
-    "0-14": 15.5,
-    "15-64": 66.9,
-    "65-": 17.6
-  },
-  {
-    "date": "2021-01-01",
-    "name": "Quebec",
-    "code": "QC",
-    "population": 8575944,
-    "0-14": 15.8,
-    "15-64": 64.5,
-    "65-": 19.7
-  },
-  {
-    "date": "2021-01-01",
-    "name": "New Brunswick",
-    "code": "NB",
-    "population": 782078,
-    "0-14": 14.3,
-    "15-64": 63.7,
-    "65-": 21.9
-  },
-  {
-    "date": "2021-01-01",
-    "name": "Nova Scotia",
-    "code": "NS",
-    "population": 979449,
-    "0-14": 14,
-    "15-64": 64.7,
-    "65-": 21.3
-  },
-  {
-    "date": "2021-01-01",
-    "name": "Prince Edward Island",
-    "code": "PE",
-    "population": 159819,
-    "0-14": 15.3,
-    "15-64": 64.7,
-    "65-": 20
-  },
-  {
-    "date": "2021-01-01",
-    "name": "Newfoundland and Labrador",
-    "code": "NL",
-    "population": 520438,
-    "0-14": 13.4,
-    "15-64": 64.3,
-    "65-": 22.3
-  }
+  {"name": "Canada", "date": "2021-01-01", "0-14": 15.9, "15-64": 66.1, "65-": 18, "code": "CA", "population": 38048738},
+  {"name": "Alberta", "date": "2021-01-01", "0-14": 18.6, "15-64": 67.6, "65-": 13.8, "code": "AB", "population": 4436258},
+  {"name": "British Columbia", "date": "2021-01-01", "0-14": 14, "15-64": 66.9, "65-": 19.2, "code": "BC", "population": 5153039},
+  {"name": "Manitoba", "date": "2021-01-01", "0-14": 18.9, "15-64": 65, "65-": 16.1, "code": "MB", "population": 1380935},
+  {"name": "New Brunswick", "date": "2021-01-01", "0-14": 14.3, "15-64": 63.7, "65-": 21.9, "code": "NB", "population": 782078},
+  {"name": "Newfoundland and Labrador", "date": "2021-01-01", "0-14": 13.4, "15-64": 64.3, "65-": 22.3, "code": "NL", "population": 520438},
+  {"name": "Northwest Territories", "date": "2021-01-01", "0-14": 20, "15-64": 71.1, "65-": 8.8, "code": "NT", "population": 45136},
+  {"name": "Nova Scotia", "date": "2021-01-01", "0-14": 14, "15-64": 64.7, "65-": 21.3, "code": "NS", "population": 979449},
+  {"name": "Nunavut", "date": "2021-01-01", "0-14": 31.7, "15-64": 64.3, "65-": 4, "code": "NU", "population": 39407},
+  {"name": "Ontario", "date": "2021-01-01", "0-14": 15.5, "15-64": 66.9, "65-": 17.6, "code": "ON", "population": 14755211},
+  {"name": "Prince Edward Island", "date": "2021-01-01", "0-14": 15.3, "15-64": 64.7, "65-": 20, "code": "PE", "population": 159819},
+  {"name": "Quebec", "date": "2021-01-01", "0-14": 15.8, "15-64": 64.5, "65-": 19.7, "code": "QC", "population": 8575944},
+  {"name": "Saskatchewan", "date": "2021-01-01", "0-14": 19.6, "15-64": 64.2, "65-": 16.2, "code": "SK", "population": 1178832},
+  {"name": "Yukon", "date": "2021-01-01", "0-14": 17, "15-64": 69.6, "65-": 13.3, "code": "YT", "population": 42192}
 ]
