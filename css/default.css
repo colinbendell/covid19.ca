@@ -626,7 +626,7 @@ tr.province td button:focus {
   --color-1: var(--red);
 }
 
-.cases.history table.column td.delayed:last-child {
+.cases.history table.column td:last-child {
   --color-1: repeating-linear-gradient(
     135deg,
     var(--red),
@@ -648,7 +648,7 @@ tr.province td button:focus {
   --color-1: var(--orange);
 }
 
-.activecases.history table.column  td.delayed:last-child {
+.activecases.history table.column td:last-child {
   --color-1: repeating-linear-gradient(
     135deg,
     var(--orange),
