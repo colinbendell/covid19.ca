@@ -114,6 +114,8 @@ function normalizeVaccine(data) {
   const daysToFullVaccinated = Math.min(daysToFullVaccinatedCurrentRate, daysToFullVaccinatedAssume2Dose);
 
   const completeDate = new Date(Date.now() + (Math.min(daysToFullVaccinated, daysToFirstVaccinations) * 7*24*60*60*1000)).toJSON().split('T')[0];
+  const fullVaccinatedDate = new Date(Date.now() + (daysToFullVaccinated * 7*24*60*60*1000)).toJSON().split('T')[0];
+  const firstVaccinationsDate = new Date(Date.now() + (daysToFirstVaccinations * 7*24*60*60*1000)).toJSON().split('T')[0];
   const daysToZeroVaccines = today.available_doses > 0 ? Math.max(Math.round(today.available_doses / (lastWeekInclusive.change_vaccinations_avg-0.001) + 0.5),0) : null;
 
   const changeCaseBase = (data.complete ? today.change_cases : yesterday.change_cases);
@@ -137,6 +139,8 @@ function normalizeVaccine(data) {
      daysToFirstVaccinations,
      daysToFullVaccinated,
      completeDate,
+     fullVaccinatedDate,
+     firstVaccinationsDate,
      maxVaccinations,
      maxAvailableDoses,
    },

@@ -58,7 +58,7 @@ eleventyNavigation:
       </p>
       <p>
         Fortunately, <strong><span class="number"><a href="#vaccinations">{{ country.today.total_vaccinations | format }}</a></span> doses</strong> of the vaccine have been administered.
-        Of those 15yrs and older, <span class="number"><a href="#vaccinations">{{ (country.today.total_first_vaccination / country.population15plus * 100) | round(1) }}%</a></span> have their 1st shot
+        Of those 16 years and older, <span class="number"><a href="#vaccinations">{{ (country.today.total_first_vaccination / country.population15plus * 100) | round(1) }}%</a></span> have their 1st shot
         and <span class="number"><a href="#vaccinations">{{ (country.today.total_vaccinated / country.population15plus * 100) | round(1) }}%</a></span> are fully vaccinated!
       </p>
       <p>
@@ -66,7 +66,7 @@ eleventyNavigation:
         but there are <strong><span class="number"><a href="#vaccinations">{{ country.today.available_doses | format }}</a></span> doses in the freezer</strong>.
         At the current rate of <strong><span class="number"><a href="#vaccinations">{{ country.lastWeekExclusive.change_vaccinations_avg | format }}</a></span> doses per day</strong>,
         it will take ~<strong><span class="number"><a href="#vaccinations">{{ country.vaccine.daysToZeroVaccines | format }}</a></span> days</strong> to use these vaccines.
-        All adult Canadians should have the first dose by <span class="number"><a href="#vaccinations">{{ country.vaccine.completeDate | readableDate }}</a></span>.
+        All adult Canadians should have the first dose by <span class="number"><a href="#vaccinations">{{ country.vaccine.firstVaccinationsDate | readableDate }}</a></span>. There is no approved vaccine for children aged 15 or younger.
       </p>
   </div>
   <ul class="stats flex nowrap">
@@ -208,7 +208,7 @@ eleventyNavigation:
   {%- endfor %}
   {%- for province in canada | filterProp("name", "neq", "Canada") | sort(true, attr="population") %}
   {{ vaccineRow(province) }}
-    {%- for region in province.regions | sort(true, attr="population")%}
+    {%- for region in province.regions | sort(true, attr="population") %}
       {{ vaccineRow(region, "healthregion") }}
     {%- endfor %}
   {%- endfor %}
@@ -331,7 +331,7 @@ eleventyNavigation:
   {%- endfor %}
   {%- for province in canada | filterProp("name", "neq", "Canada") | sort(true, attr="population") %}
     {{ infectionRow(province) }}
-    {%- for region in province.regions | sort(true, attr="population")%}
+    {%- for region in province.regions | sort(true, attr="population") %}
       {{ infectionRow(region, "healthregion") }}
     {%- endfor %}
   {%- endfor %}
