@@ -83,13 +83,7 @@ button, [type=button], [type=reset], [type=submit] {
   left: 0;
   background-color: white;
 }
-.table > tfoot > tr > th:nth-child(2) {
-  position: -webkit-sticky;
-  position: sticky;
-  z-index: 9;
-  left: 0;
-  background-color: white;
-}
+
 .table > tbody > tr:hover > th:nth-child(2) {
   background-color: #f2f2f2;
 }
@@ -381,21 +375,16 @@ main {
   padding-left: 0.125rem;
 }
 
-.vaccine > tbody > tr > td, .vaccine > tfoot > tr > td {
-  white-space: nowrap;
-  font-weight: normal;
-  /*font-style: italic;*/
-}
-.infection > tbody > tr > td, .infection > tfoot > tr > td {
+table.status > tbody > tr > td {
   white-space: nowrap;
   font-weight: normal;
   /*font-style: italic;*/
 }
 
-.vaccine > tfoot > tr > *, .infection > tfoot > tr > * {
-  font-weight: bold !important;
-  font-style: italic !important;
-  white-space: nowrap !important;
+table.status > tbody > tr.country * {
+  font-weight: bold;
+  /*font-style: italic;*/
+  /*white-space: nowrap;*/
 }
 
 td[data-rate]::after {

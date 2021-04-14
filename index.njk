@@ -58,7 +58,8 @@ eleventyNavigation:
       </p>
       <p>
         Fortunately, <strong><span class="number"><a href="#vaccinations">{{ country.today.total_vaccinations | format }}</a></span> doses</strong> of the vaccine have been administered.
-        Over <span class="number"><a href="#vaccinations">{{ country.today.vaccinationsHalfPerCapita | format}}%</a></span> have their 1st shot and <span class="number"><a href="#vaccinations">{{ country.today.vaccinationsCompletePerCapita | format}}%</a></span> are fully vaccinated!
+        Of those 15yrs and older, <span class="number"><a href="#vaccinations">{{ (country.today.total_first_vaccination / country.population15plus * 100) | round(1) }}%</a></span> have their 1st shot
+        and <span class="number"><a href="#vaccinations">{{ (country.today.total_vaccinated / country.population15plus * 100) | round(1) }}%</a></span> are fully vaccinated!
       </p>
       <p>
         Vaccination is <span class="editorial {{ "positive" if country.today.change_vaccinationsHalfPerCapita > 0 else "negative" }}">{{ "speeding up" if country.today.change_vaccinationsHalfPerCapita > 0 else "slowing down" }}</span>,
@@ -78,19 +79,19 @@ eleventyNavigation:
       <div style="--county: 5; --countx:{{ (((country.today.total_cases / country.today.total_fatalities) * 2 / 10) | round)/2*10 /5}}" class="oneinx"></div>
     </li>
     <li>
-      <h3><strong>1 in {{ (((country.population / country.today.total_vaccinated) * 2 / 10) | round)/2*10}}</strong> are fully<br>Vaccinated!</h3>
-      <div style="--county: 5; --countx:{{ (((country.population / country.today.total_vaccinated) * 2 / 10) | round)/2*10 /5 }}" class="oneinx"></div>
+      <h3><strong>1 in {{ (((country.population * (1-country["0-14"]/100)/ country.today.total_vaccinated) * 2 / 10) | round)/2*10}}</strong> (15+) are <br>Vaccinated!</h3>
+      <div style="--county: 5; --countx:{{ (((country.population15plus/ country.today.total_vaccinated) * 2 / 10) | round)/2*10 /5 }}" class="oneinx"></div>
     </li>
     <li>
-      <h3><strong>1 in {{ (((country.population / country.today.total_first_vaccination) * 2 / 10) | round)/2*10}}</strong> have<br>1st Dose</h3>
-      <div style="--county: 1; --countx:{{ (((country.population / country.today.total_first_vaccination) * 2 / 10) | round)/2*10}}" class="oneinx"></div>
+      <h3><strong>1 in {{ (((country.population * (1-country["0-14"]/100)/ country.today.total_first_vaccination) * 2 / 10) | round)/2*10}}</strong> (15+) have<br>1st Dose</h3>
+      <div style="--county: 1; --countx:{{ (((country.population15plus / country.today.total_first_vaccination) * 2 / 10) | round)/2*10}}" class="oneinx"></div>
     </li>
   </ul>
     {%- endfor %}
 </section>
 <section id="vaccinations">
   <h2><a href="#vaccinations">Vaccine Status</a></h2>
-<table class="vaccine table table-hover" width="100%" cellspacing="0">
+<table class="status vaccine table table-hover" width="100%" cellspacing="0">
   <thead>
   <tr>
     <th></th>
@@ -121,11 +122,6 @@ eleventyNavigation:
       <th class="name" title="{{ data.data_status }} @ {{ data.updated_at | readableTime }} PT {{ data.updated_at | readableDate | lower}}">
       {% if type === 'province' or type === 'country' %}
         <label for="vaccine-{{ data.iso3166 }}" class="label-toggle">
-{#          <span class="balloon">#}
-{#Status: <b>{{ data.data_status }}</b><br>#}
-{#Last updated: <b>${updatedAt}</b><br>#}
-{#Update expected by: <b>${expectedTime(data.iso3166)}</b>#}
-{#          </span>#}
           <span class="name long" data-short="{{ data.iso3166 or data.name.en }}">{{ data.name.en or data.name }}</span>
           <span class="name short">{{ data.iso3166 or data.name.en }}</span>
           <svg viewBox="0 0 512 512" class="province-update-status"><use href="#{{ data.data_status | lower | replace(r/\s/gi, '-') }}"></use></svg>
@@ -165,14 +161,14 @@ eleventyNavigation:
       <td class="supply complete {{ "bad" if data.vaccine.daysToFirstVaccinations > 15 else ( "ok" if data.vaccine.daysToFirstVaccinations > 5 else "good") }}">{{ data.vaccine.completeDate | readableDate if data.vaccine.daysToFirstVaccinations > 0 }}</td>
       <td class="dose total" >{{ data.today.total_vaccinations | d(0) | formatNumber }}</td>
       <td class="dose one">
-        <div class="progressbar" role="progressbar" aria-valuenow="{{ data.today.vaccinationsHalfPerCapita or "N/A" }}" data-value="{{ data.today.total_first_vaccination | max(0) | formatNumber }}">
+        <div class="progressbar" role="progressbar" aria-valuenow="{{ (data.today.total_first_vaccination / data.population15plus * 100) | round(1) or "N/A" }}" data-value="{{ data.today.total_first_vaccination | max(0) | formatNumber }}">
           <span class="value" aria-hidden="true" style="width: {{ data.today.vaccinationsHalfPerCapita}}%"></span>
           {% if data.today.change_vaccinationsHalfPerCapita > 0 %}<span class="change percent" data-value="{{ data.today.change_vaccinationsHalfPerCapita | format }}"></span>{% endif %}
           {% if data.today.change_first_vaccination > 0 %}<span class="change absolute" data-value="{{ data.today.change_first_vaccination | format }}"></span>{% endif %}
         </div>
       </td>
       <td class="dose full">
-        <div class="progressbar" role="progressbar" aria-valuenow="{{ data.today.vaccinationsCompletePerCapita or "N/A" }}" data-value="{{ data.today.total_vaccinated | formatNumber }}"><span class="value" aria-hidden="true" style="width: {{ data.today.vaccinationsCompletePerCapita or 0 }}%"></span>
+        <div class="progressbar" role="progressbar" aria-valuenow="{{ (data.today.total_vaccinated / data.population15plus * 100) | round(1) or "N/A" }}" data-value="{{ data.today.total_vaccinated | formatNumber }}"><span class="value" aria-hidden="true" style="width: {{ data.today.vaccinationsCompletePerCapita or 0 }}%"></span>
           {% if data.today.change_vaccinationsCompletePerCapita > 0 %}<span class="change percent" data-value="{{ data.today.change_vaccinationsCompletePerCapita | format }}"></span>{% endif %}
           {% if data.today.change_vaccinated > 0 %}<span class="change absolute" data-value="{{ data.today.change_vaccinated | format }}"></span>{% endif %}
         </div>
@@ -207,23 +203,23 @@ eleventyNavigation:
     </tr>
   {%  endif %}
   {%  endmacro %}
+  {%- for province in canada | filterProp("name", "eq", "Canada")  %}
+    {{ vaccineRow(province, "country") }}
+  {%- endfor %}
   {%- for province in canada | filterProp("name", "neq", "Canada") | sort(true, attr="population") %}
   {{ vaccineRow(province) }}
-    {%- for region in province.regions %}
+    {%- for region in province.regions | sort(true, attr="population")%}
       {{ vaccineRow(region, "healthregion") }}
     {%- endfor %}
   {%- endfor %}
   </tbody>
   <tfoot id="vaccinationsProvinceTableFooter">
-  {%- for province in canada | filterProp("name", "eq", "Canada")  %}
-    {{ vaccineRow(province, "country") }}
-  {%- endfor %}
   </tfoot>
 </table>
 </section>
 <section id="infections">
   <h2><a href="#infections">Infection Status</a></h2>
-<table class="infection table table-hover" width="100%" cellspacing="0">
+<table class="status infection table table-hover" width="100%" cellspacing="0">
   <thead>
   <tr>
     <th></th>
@@ -253,11 +249,6 @@ eleventyNavigation:
       <th class="name" title="{{ data.data_status }} @ {{ data.updated_at | readableTime }} PT {{ data.updated_at | readableDate | lower}}">
         {% if type === 'province' or type === 'country' %}
         <label for="infection-{{ data.iso3166 }}" class="label-toggle">
-          {#          <span class="balloon">#}
-          {#Status: <b>{{ data.data_status }}</b><br>#}
-          {#Last updated: <b>${updatedAt}</b><br>#}
-          {#Update expected by: <b>${expectedTime(data.iso3166)}</b>#}
-          {#          </span>#}
           <span class="name long">{{ data.name.en or data.name }}</span>
           <span class="name short">{{ data.iso3166 or data.name.en }}</span>
           <svg viewBox="0 0 512 512" class="province-update-status"><use href="#{{ data.data_status | lower | replace(r/\s/gi, '-') }}"></use></svg>
@@ -335,17 +326,17 @@ eleventyNavigation:
     </tr>
   {%  endmacro %}
 
+  {%- for province in canada | filterProp("name", "eq", "Canada")  %}
+    {{ infectionRow(province, "country") }}
+  {%- endfor %}
   {%- for province in canada | filterProp("name", "neq", "Canada") | sort(true, attr="population") %}
     {{ infectionRow(province) }}
-    {%- for region in province.regions %}
+    {%- for region in province.regions | sort(true, attr="population")%}
       {{ infectionRow(region, "healthregion") }}
     {%- endfor %}
   {%- endfor %}
   </tbody>
   <tfoot>
-  {%- for province in canada | filterProp("name", "eq", "Canada")  %}
-    {{ infectionRow(province, "country") }}
-  {%- endfor %}
   </tfoot>
 </table>
 </section>
