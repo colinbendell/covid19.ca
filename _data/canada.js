@@ -195,6 +195,7 @@ module.exports = async function() {
       Object.assign(region, normalizeVaccine(region));
       if (region.population > 0) region.population15plus = region.population * (100-(prov["0-14"] || 0)) / 100;
     }
+    prov.regions = prov.regions?.sort((a,b) => b.population - a.population);
     if (/Reported/.test(prov.data_status) && prov.total.date !== new Date(Date.now() - 7*60*60*1000).toJSON().split('T')[0]) {
       prov.data_status = "Waiting For Report";
     }
