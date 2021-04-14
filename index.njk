@@ -70,20 +70,20 @@ eleventyNavigation:
   </div>
   <ul class="stats flex nowrap">
     <li>
-      <h3 ><strong>1 in {{ (((country.population / country.today.total_cases ) * 2 / 10) | int)/2*10 }}</strong> have<br>been infected</h3>
-      <div style="--county: 5; --countx:{{ (((country.population / country.today.total_cases ) * 2 / 10) | int)/2*10 /5 }}" class="oneinx"></div>
+      <h3><strong>1 in {{ (((country.population / country.today.total_cases ) * 2 / 10) | round)/2*10 }}</strong> have<br>been infected</h3>
+      <div style="--county: 5; --countx:{{ (((country.population / country.today.total_cases ) * 2 / 10) | round)/2*10 /5 }}" class="oneinx"></div>
     </li>
     <li>
-      <h3 ><strong>1 in {{ (((country.today.total_cases / country.today.total_fatalities) * 2 / 10) | int)/2*10 }}</strong> of infected<br>have died</h3>
-      <div style="--county: 5; --countx:{{ (((country.today.total_cases / country.today.total_fatalities) * 2 / 10) | int)/2*10 /5}}" class="oneinx"></div>
+      <h3><strong>1 in {{ (((country.today.total_cases / country.today.total_fatalities) * 2 / 10) | round)/2*10 }}</strong> of infected<br>have died</h3>
+      <div style="--county: 5; --countx:{{ (((country.today.total_cases / country.today.total_fatalities) * 2 / 10) | round)/2*10 /5}}" class="oneinx"></div>
     </li>
     <li>
-      <h3 ><strong>1 in {{ (((country.population / country.today.total_vaccinated) * 2 / 10) | int)/2*10}}</strong> are fully<br>Vaccinated!</h3>
-      <div style="--county: 5; --countx:{{ (((country.population / country.today.total_vaccinated) * 2 / 10) | int)/2*10 /5 }}" class="oneinx"></div>
+      <h3><strong>1 in {{ (((country.population / country.today.total_vaccinated) * 2 / 10) | round)/2*10}}</strong> are fully<br>Vaccinated!</h3>
+      <div style="--county: 5; --countx:{{ (((country.population / country.today.total_vaccinated) * 2 / 10) | round)/2*10 /5 }}" class="oneinx"></div>
     </li>
     <li>
-      <h3 ><strong>1 in {{ (((country.population / country.today.total_first_vaccination) * 2 / 10) | int)/2*10}}</strong> have<br>1st Dose</h3>
-      <div style="--county: 1; --countx:{{ (((country.population / country.today.total_first_vaccination) * 2 / 10) | int)/2*10}}" class="oneinx"></div>
+      <h3><strong>1 in {{ (((country.population / country.today.total_first_vaccination) * 2 / 10) | round)/2*10}}</strong> have<br>1st Dose</h3>
+      <div style="--county: 1; --countx:{{ (((country.population / country.today.total_first_vaccination) * 2 / 10) | round)/2*10}}" class="oneinx"></div>
     </li>
   </ul>
     {%- endfor %}
@@ -109,7 +109,7 @@ eleventyNavigation:
   <tbody id="vaccinationsProvinceTable">
   {% macro vaccineRow(data, type='province') %}
     {% if data.today.total_vaccinations > 0 %}
-    <tr class="vaccine {{ type }} {{ data.iso3166 or data.province }}"  title="Total: {{ data.today.total_vaccinations | d(0) | format }} ({{ data.today.date | readableDate }}: {{ data.today.change_vaccinations | format}}, {{ data.yesterday.date | readableDate }}: {{ data.yesterday.change_vaccinations | format }}) Population: {{ data.population | format }}">
+    <tr class="vaccine {{ type }} {{ data.iso3166 or data.province }} {{ data.today.date | readableDate | lower }}"  title="Total: {{ data.today.total_vaccinations | d(0) | format }} ({{ data.today.date | readableDate }}: {{ data.today.change_vaccinations | format}}, {{ data.yesterday.date | readableDate }}: {{ data.yesterday.change_vaccinations | format }}) Population: {{ data.population | format }}">
       <th class="toggle">
         {% if type === 'province' and data.regions.length > 0 %}
           {% set regionLength %}{% for region in data.regions %}{% if region.today.total_vaccinations > 0 %}1{% endif %}{% endfor %}{% endset %}
@@ -118,8 +118,8 @@ eleventyNavigation:
           {% endif %}
         {% endif %}
       </th>
-      <th class="name" title="{{ data.data_status }} @ {{ data.updated_at }}">
-      {% if type === 'province'  %}
+      <th class="name" title="{{ data.data_status }} @ {{ data.updated_at | readableTime }} PT {{ data.updated_at | readableDate | lower}}">
+      {% if type === 'province' or type === 'country' %}
         <label for="vaccine-{{ data.iso3166 }}" class="label-toggle">
 {#          <span class="balloon">#}
 {#Status: <b>{{ data.data_status }}</b><br>#}
@@ -161,7 +161,7 @@ eleventyNavigation:
 
         </div>
       </td>
-      <td class="dose today" data-rate="{{ data.vaccine.changeInVaccinationRate }}">{{ (data.today.change_vaccinations if data.today.change_vaccinations > 0 else data.lastWeekExclusive.change_vaccinations_avg) | formatNumber }}</td>
+      <td class="dose current" data-rate="{{ data.vaccine.changeInVaccinationRate }}">{{ (data.today.change_vaccinations if data.today.change_vaccinations > 0 else data.lastWeekExclusive.change_vaccinations_avg) | formatNumber }}</td>
       <td class="supply complete {{ "bad" if data.vaccine.daysToFirstVaccinations > 15 else ( "ok" if data.vaccine.daysToFirstVaccinations > 5 else "good") }}">{{ data.vaccine.completeDate | readableDate if data.vaccine.daysToFirstVaccinations > 0 }}</td>
       <td class="dose total" >{{ data.today.total_vaccinations | d(0) | formatNumber }}</td>
       <td class="dose one">
@@ -244,14 +244,14 @@ eleventyNavigation:
   {% macro selectBase(data) %}{{ 10 if data < 10 else (25 if data < 25 else (40 if data < 40 else (100 if data < 100 else 150))) }}{% endmacro %}
 
   {% macro infectionRow(data, type='province') %}
-    <tr class="infection {{ type }} {{ data.iso3166 if data.iso3166 else data.province }}" title="Total: {{ data.total.total_cases | format }} ({{ data.total.date | readableDate }}: {{ data.total.change_cases | format }}, {{ data.yesterday.date | readableDate }}: {{ data.yesterday.change_cases | format }}) Population: {{ data.population | format }}">
+    <tr class="infection {{ type }} {{ data.iso3166 if data.iso3166 else data.province }} {{ data.today.date | readableDate | lower }}" title="Total: {{ data.total.total_cases | format }} ({{ data.total.date | readableDate }}: {{ data.total.change_cases | format }}, {{ data.yesterday.date | readableDate }}: {{ data.yesterday.change_cases | format }}) Population: {{ data.population | format }}">
       <th class="toggle">
         {% if type === 'province' and data.regions.length > 0 %}
           <label for="infection-{{ data.iso3166 }}" class="label-toggle"></label>
         {% endif %}
       </th>
-      <th class="name" title="{{ data.data_status }} @ {{ data.updated_at }}">
-        {% if type === 'province' %}
+      <th class="name" title="{{ data.data_status }} @ {{ data.updated_at | readableTime }} PT {{ data.updated_at | readableDate | lower}}">
+        {% if type === 'province' or type === 'country' %}
         <label for="infection-{{ data.iso3166 }}" class="label-toggle">
           {#          <span class="balloon">#}
           {#Status: <b>{{ data.data_status }}</b><br>#}
@@ -284,7 +284,7 @@ eleventyNavigation:
           </table>
         </div>
       </td>
-      <td class="activecases today" data-rate="{{ data.infection.changeInCasesRate }}">{{ (data.today.change_cases if data.today.change_cases > 0 else data.lastWeekExclusive.change_cases_avg) | formatNumber }}</td>
+      <td class="activecases current" data-rate="{{ data.infection.changeInCasesRate }}">{{ (data.today.change_cases if data.today.change_cases > 0 else data.lastWeekExclusive.change_cases_avg) | formatNumber }}</td>
       <td class="activecases history">
         <div>
           <table class="charts-css column" style="--size: {{ (data.lastWeekExclusive.active_cases_avg / data.infection.maxActiveCases) | format }}" data-trendline="{{ data.lastWeekExclusive.active_cases_avg |formatNumber }} /day">
