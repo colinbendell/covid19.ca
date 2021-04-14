@@ -541,7 +541,7 @@ tr.province td button:focus {
   width: 7rem;
 }
 
-.history table.column:not(.stacked) td {
+.history table.column:not(.stacked) td:not(:first-child) {
   margin-inline-start: 1px;
 }
 .history table.column.stacked tr {
@@ -563,9 +563,25 @@ tr.province td button:focus {
   --color-2: var(--gray);
 }
 
-.dose.history table tr:last-child {
+.today:not(.delayed) .dose.history table tr:last-child {
   --color-1: var(--blue);
   --color-2: var(--gray-dark);
+}
+.dose.history table tr:last-child {
+  --color-1: repeating-linear-gradient(
+    135deg,
+    var(--blue),
+    var(--blue) 3px,
+    var(--light) 3px,
+    var(--light) 5px
+  );
+  --color-2: repeating-linear-gradient(
+    135deg,
+    var(--gray-dark),
+    var(--gray-dark) 3px,
+    var(--light) 3px,
+    var(--light) 5px
+  );
 }
 
 .supply.history table.column td{
@@ -576,8 +592,17 @@ tr.province td button:focus {
   --color-1: rgba(108, 117, 125, 0.6);
 }
 
-.supply.history table td:last-child {
+.today:not(.delayed) .supply.history table td:last-child {
   --color-1: var(--gray);
+}
+.supply.history table td:last-child {
+  --color-1: repeating-linear-gradient(
+    135deg,
+    var(--gray),
+    var(--gray) 3px,
+    var(--light) 3px,
+    var(--light) 5px
+  );
 }
 
 *:hover > .history *[data-trendline]::before {
@@ -608,8 +633,18 @@ tr.province td button:focus {
 .cases.history table.column td:nth-child(n+8):not(:last-child) {
   --color-1: rgba(220, 53, 69, 0.6);
 }
-.cases.history table.column td:last-child {
+.today:not(.delayed) .cases.history table.column td:last-child {
   --color-1: var(--red);
+}
+
+.cases.history table.column td.delayed:last-child {
+  --color-1: repeating-linear-gradient(
+    135deg,
+    var(--red),
+    var(--red) 3px,
+    var(--light) 3px,
+    var(--light) 5px
+  );
 }
 
 .activecases.history table.column td {
@@ -620,8 +655,18 @@ tr.province td button:focus {
   --color-1: rgba(253, 126, 20, 0.6);
 }
 
-.activecases.history table.column td:last-child {
+.today:not(.delayed) .activecases.history table.column td:last-child {
   --color-1: var(--orange);
+}
+
+.activecases.history table.column  td.delayed:last-child {
+  --color-1: repeating-linear-gradient(
+    135deg,
+    var(--orange),
+    var(--orange) 3px,
+    var(--light) 3px,
+    var(--light) 5px
+  );
 }
 
 td[data-rate].activecases::after {
@@ -631,6 +676,15 @@ td[data-rate ^= "-"].activecases::after {
   color: var(--blue);
 }
 
+tr:not(.today) .current {
+  background: repeating-linear-gradient(
+    135deg,
+    white,
+    white 10px,
+    var(--light) 10px,
+    var(--light) 20px
+  );
+}
 .supply.zero:not(:empty)::before {
   content: " (~";
 }
@@ -668,7 +722,7 @@ td[data-rate ^= "-"].activecases::after {
 .dose.total:empty + .dose.one::after {
   content: "";
 }
-.dose.today:empty::after {
+.dose.current:empty::after {
   content: "N/A";
   font-weight: lighter;
 }
@@ -770,7 +824,9 @@ tr:not(:hover) .progressbar > .change {
   .table>*>tr>th:nth-child(2) {
     min-width: 3.5rem;
     max-width: 7rem;
-    /*white-space: nowrap;*/
+  }
+  .table>*>tr.province>th:nth-child(2) {
+    white-space: nowrap;
   }
   main {
     padding-left: 0.25rem;
