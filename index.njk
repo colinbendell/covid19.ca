@@ -79,11 +79,11 @@ eleventyNavigation:
       <div style="--county: 5; --countx:{{ (((country.today.total_cases / country.today.total_fatalities) * 2 / 10) | round)/2*10 /5}}" class="oneinx"></div>
     </li>
     <li>
-      <h3><strong>1 in {{ (((country.population * (1-country["0-14"]/100)/ country.today.total_vaccinated) * 2 / 10) | round)/2*10}}</strong> (15+) are <br>Vaccinated!</h3>
+      <h3><strong>1 in {{ (((country.population15plus/ country.today.total_vaccinated) * 2 / 10) | round)/2*10}}</strong> Adults <br>Vaccinated!</h3>
       <div style="--county: 5; --countx:{{ (((country.population15plus/ country.today.total_vaccinated) * 2 / 10) | round)/2*10 /5 }}" class="oneinx"></div>
     </li>
     <li>
-      <h3><strong>1 in {{ (((country.population * (1-country["0-14"]/100)/ country.today.total_first_vaccination) * 2 / 10) | round)/2*10}}</strong> (15+) have<br>1st Dose</h3>
+      <h3><strong>1 in {{ (((country.population15plus/ country.today.total_first_vaccination) * 2 / 10) | round)/2*10}}</strong> Adults<br>have 1st Dose</h3>
       <div style="--county: 1; --countx:{{ (((country.population15plus / country.today.total_first_vaccination) * 2 / 10) | round)/2*10}}" class="oneinx"></div>
     </li>
   </ul>
