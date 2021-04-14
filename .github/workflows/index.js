@@ -194,7 +194,7 @@ async function getCovid19TrackerRegionDaily(code, data) {
   }));
 }
 
-async function getStatsCanCensus(hrData) {
+async function getStatsCanCensus(data, hrData) {
   // const statsCanData = new Map();
   // const statcanGeosProvinces = await get('https://www12.statcan.gc.ca/rest/census-recensement/CR2016Geo.json?geos=PR');
   // for (const prov of statcanGeosProvinces?.DATA || []) {
@@ -224,6 +224,10 @@ async function getStatsCanCensus(hrData) {
   const statsCanadaHR = JSON.parse(fs.readFileSync('_data/statcan.gc.ca/statscanada-hr2017.json', 'utf-8'));
   for (const hr of statsCanadaHR) {
     hrData.set(Number.parseInt(hr.id), hr);
+  }
+  const statsCanada = JSON.parse(fs.readFileSync('_data/statcan.gc.ca/1710000901.json', 'utf-8'));
+  for (const prov of statsCanada) {
+    data.set(prov.code, Object.assign(data.get(prov.code) || {}, prov));
   }
 }
 
@@ -313,7 +317,7 @@ async function getData() {
   const hrData = new Map();
 
   await getCovid19TrackerProvinces(data);
-  await getStatsCanCensus(hrData);
+  await getStatsCanCensus(data, hrData);
   await getSK(hrData);
 
   await Promise.all([

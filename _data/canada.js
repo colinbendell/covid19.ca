@@ -27,7 +27,7 @@ function normalizeVaccine(data) {
       activePer100k: item.active_cases >= 0 ? Math.round(item.active_cases / data.population * 100*1000) : null,
       fatalitiesPer100k: item.total_fatalities >= 0 ? Math.round(item.total_fatalities / data.population * 100*1000) : null,
       hospitalizedPer1000k: item.total_hospitalizations >= 0 ? Math.round(item.total_hospitalizations / data.population * 1000*1000) : null,
-      vaccinationsHalfPerCapita: Math.round(((item.total_vaccinations - (item.total_vaccinated || 0))/ data.population) * 1000) / 10,
+      vaccinationsHalfPerCapita: Math.round((item.total_first_vaccination / data.population) * 1000) / 10,
       vaccinationsCompletePerCapita: item.total_vaccinated > 0 ? Math.round((item.total_vaccinated / data.population) * 1000) / 10 : 0,
       casesPerCapita: Math.round((item.total_cases / data.population) * 1000) / 10,
       deathsPerCase: Math.round((item.total_fatalities / item.total_cases) * 1000) / 10,
@@ -171,6 +171,7 @@ module.exports = async function() {
 
     prov.total = prov.daily[prov.daily.length - 1];
     Object.assign(prov, normalizeVaccine(prov))
+    if (prov.population > 0) prov.population15plus = prov.population * (100-(prov["0-14"] || 0)) / 100;
 
     // only real health regions
     prov.regions = prov.regions?.filter(r => r.daily && !['NT', 'NU', 'PE', 'YT'].includes(r.province)) || [];
@@ -192,8 +193,8 @@ module.exports = async function() {
       region.total = region.daily[region.daily.length - 1];
 
       Object.assign(region, normalizeVaccine(region));
+      if (region.population > 0) region.population15plus = region.population * (100-(prov["0-14"] || 0)) / 100;
     }
-    prov.regions = prov.regions?.sort((a,b) => b.population - a.population);
     if (/Reported/.test(prov.data_status) && prov.total.date !== new Date(Date.now() - 7*60*60*1000).toJSON().split('T')[0]) {
       prov.data_status = "Waiting For Report";
     }
