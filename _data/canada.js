@@ -104,13 +104,13 @@ function normalizeVaccine(data) {
   const [yesterday] = previous7Days.slice(-1);
 
   const changeInVaccinationRate = today.change_vaccinations > 0 && yesterday?.change_vaccinations > 0 ? Math.round((today.change_vaccinations - lastWeekExclusive.change_vaccinations_avg) / lastWeekExclusive.change_vaccinations_avg*100) : 0;
-  const daysToFirstVaccinations = lastWeekExclusive.change_first_vaccination_avg > 0 ? Math.max(Math.round((data.population - today.total_first_vaccination) / Math.max(lastWeekExclusive.change_first_vaccination_avg, lastWeekInclusive.change_first_vaccination_avg) / 7 + 0.5),0) : 0;
+  const daysToFirstVaccinations = lastWeekExclusive.change_first_vaccination_avg > 0 ? Math.max(Math.round((data.population15plus - today.total_first_vaccination) / Math.max(lastWeekExclusive.change_first_vaccination_avg, lastWeekInclusive.change_first_vaccination_avg) / 7 + 0.5),0) : 0;
 
   // Most provinces have opted to focus on first dose, this skews the rate of full vaccination.
   // to account for this, we assume full vaccinations require 2 doses and use the current total doses rate
   const changeInFullVaccinatedRate = lastWeekInclusive.change_vaccinated_avg > 0 && yesterday?.change_vaccinated > 0 ? Math.round((today.change_vaccinated - lastWeekExclusive.change_vaccinated_avg) / lastWeekExclusive.change_vaccinated_avg*100) : 0;
-  const daysToFullVaccinatedCurrentRate = lastWeekExclusive.change_vaccinated_avg > 0 ? Math.max(Math.round((data.population - today.total_vaccinated) / Math.max(lastWeekExclusive.change_vaccinated_avg, lastWeekInclusive.change_vaccinated_avg) / 7 + 0.5),0) : 0;
-  const daysToFullVaccinatedAssume2Dose = lastWeekExclusive.change_vaccinations_avg > 0 ? Math.max(Math.round(((data.population*2) - today.total_first_vaccination - today.total_vaccinated) / Math.max(lastWeekExclusive.change_vaccinations_avg, lastWeekInclusive.change_vaccinations_avg) / 7 + 0.5),0) : 0;
+  const daysToFullVaccinatedCurrentRate = lastWeekExclusive.change_vaccinated_avg > 0 ? Math.max(Math.round((data.population15plus - today.total_vaccinated) / Math.max(lastWeekExclusive.change_vaccinated_avg, lastWeekInclusive.change_vaccinated_avg) / 7 + 0.5),0) : 0;
+  const daysToFullVaccinatedAssume2Dose = lastWeekExclusive.change_vaccinations_avg > 0 ? Math.max(Math.round(((data.population15plus*2) - today.total_first_vaccination - today.total_vaccinated) / Math.max(lastWeekExclusive.change_vaccinations_avg, lastWeekInclusive.change_vaccinations_avg) / 7 + 0.5),0) : 0;
   const daysToFullVaccinated = Math.min(daysToFullVaccinatedCurrentRate, daysToFullVaccinatedAssume2Dose);
 
   const completeDate = new Date(Date.now() + (Math.min(daysToFullVaccinated, daysToFirstVaccinations) * 7*24*60*60*1000)).toJSON().split('T')[0];
@@ -170,8 +170,8 @@ module.exports = async function() {
     }
 
     prov.total = prov.daily[prov.daily.length - 1];
-    Object.assign(prov, normalizeVaccine(prov))
     if (prov.population > 0) prov.population15plus = prov.population * (100-(prov["0-14"] || 0)) / 100;
+    Object.assign(prov, normalizeVaccine(prov))
 
     // only real health regions
     prov.regions = prov.regions?.filter(r => r.daily && !['NT', 'NU', 'PE', 'YT'].includes(r.province)) || [];
@@ -191,9 +191,8 @@ module.exports = async function() {
       // if (!region.total?.change_cases) {
       }
       region.total = region.daily[region.daily.length - 1];
-
-      Object.assign(region, normalizeVaccine(region));
       if (region.population > 0) region.population15plus = region.population * (100-(prov["0-14"] || 0)) / 100;
+      Object.assign(region, normalizeVaccine(region));
     }
     prov.regions = prov.regions?.sort((a,b) => b.population - a.population);
     if (/Reported/.test(prov.data_status) && prov.total.date !== new Date(Date.now() - 7*60*60*1000).toJSON().split('T')[0]) {
