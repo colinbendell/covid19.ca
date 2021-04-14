@@ -116,7 +116,8 @@ function normalizeVaccine(data) {
   const completeDate = new Date(Date.now() + (Math.min(daysToFullVaccinated, daysToFirstVaccinations) * 7*24*60*60*1000)).toJSON().split('T')[0];
   const daysToZeroVaccines = today.available_doses > 0 ? Math.max(Math.round(today.available_doses / (lastWeekInclusive.change_vaccinations_avg-0.001) + 0.5),0) : null;
 
-  const changeInCasesRate = today.change_cases > 0 ? Math.max(Math.min(Math.round((today.change_cases - lastWeekExclusive.change_cases_avg) / (lastWeekExclusive.change_cases_avg+0.001)*100), 100), -100) : 0;
+  const changeCaseBase = (data.complete ? today.change_cases : yesterday.change_cases);
+  const changeInCasesRate = today.change_cases > 0 ? Math.max(Math.min(Math.round((changeCaseBase - lastWeekExclusive.change_cases_avg) / (lastWeekExclusive.change_cases_avg+0.001)*100), 100), -100) : 0;
 
   const maxVaccinations = Math.max(...previousWeeks.slice(-8).map(w => w.change_vaccinations_avg || 0), ...previous7Days.map(v => v.change_vaccinations).map(v => v || 0), today.change_vaccinations || 0, 0);
   const maxChangeCases = Math.max(...previousWeeks.slice(-8).map(w => w.change_cases_avg || 0), ...previous7Days.map(v => v.change_cases).map(v => v || 0), today.change_cases || 0, 0);
@@ -152,9 +153,15 @@ module.exports = async function() {
   //   type: "json" // also supports "text" or "buffer"
   // });
   const fullData = JSON.parse(fs.readFileSync('_data/covid19tracker.ca/data.json', 'utf-8'));
+  fullData['CA'].data_status = [...Object.keys(fullData)]
+                                .filter(k => k !== 'CA')
+                                .map(k => fullData[k].data_status)
+                                .filter(s => !/reported|no report/i.test(s))
+                                .reduce((p, c) => /In Progress/i.test(p + c) ? "In Progress" : "Waiting For Report", null) || "Reported";
   const data = Object.keys(fullData).map(k => Object.assign(fullData[k], {code: k, iso3166: k === 'PE' ? 'PEI' : k === 'NT' ? 'NWT' : k }));
   for (const prov of data) {
-    if (prov.data_status && !/reported/i.test(prov.data_status)) {
+    prov.complete = /reported/i.test(prov.data_status);
+    if (!prov.data_status || !/reported/i.test(prov.data_status)) {
       if (prov.total?.date === new Date().toJSON().split('T')[0]) {
         if (!prov.total?.change_cases) {
           prov.daily.pop();
@@ -172,6 +179,8 @@ module.exports = async function() {
     prov.regions = prov.regions?.filter(r => Number.isInteger(r.total?.total_vaccinations) ||  Number.isInteger(r.total?.total_cases)) || [];
 
     for (const region of prov.regions) {
+      region.complete = prov.complete;
+      region.data_status = prov.data_status;
       if (prov.data_status && !/reported/i.test(prov.data_status)) {
         if (region.total?.date === new Date().toJSON().split('T')[0]) {
           if (!region.total?.change_cases) {
@@ -184,6 +193,7 @@ module.exports = async function() {
 
       Object.assign(region, normalizeVaccine(region));
     }
+    prov.regions = prov.regions?.sort((a,b) => b.population - a.population);
     if (/Reported/.test(prov.data_status) && prov.total.date !== new Date(Date.now() - 7*60*60*1000).toJSON().split('T')[0]) {
       prov.data_status = "Waiting For Report";
     }
