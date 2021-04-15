@@ -165,7 +165,7 @@ module.exports = async function() {
   const data = Object.keys(fullData).map(k => Object.assign(fullData[k], {code: k, iso3166: k === 'PE' ? 'PEI' : k === 'NT' ? 'NWT' : k }));
   for (const prov of data) {
     prov.complete = /reported/i.test(prov.data_status);
-    if (!prov.data_status || !/reported/i.test(prov.data_status)) {
+    if (!prov.data_status || !/reported|progress/i.test(prov.data_status)) {
       if (prov.total?.date === new Date().toJSON().split('T')[0]) {
         if (!prov.total?.change_cases) {
           prov.daily.pop();
@@ -186,7 +186,7 @@ module.exports = async function() {
     for (const region of prov.regions) {
       region.complete = prov.complete;
       region.data_status = prov.data_status;
-      if (prov.data_status && !/reported/i.test(prov.data_status)) {
+      if (prov.data_status && !/reported|progress/i.test(prov.data_status)) {
         if (region.total?.date === new Date().toJSON().split('T')[0]) {
           if (!region.total?.change_cases) {
             region.daily.pop();
