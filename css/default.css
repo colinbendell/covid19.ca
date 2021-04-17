@@ -387,24 +387,24 @@ table.status > tbody > tr.country * {
   /*white-space: nowrap;*/
 }
 
-td[data-rate]::after {
+.data-rate[data-rate]::after {
   color: var(--blue);
   content: " (▲" attr(data-rate) "%)"
 }
 
-td[data-rate ^= "-"]::after {
+.data-rate[data-rate ^= "-"]::after {
   color: var(--red);
   content: " (▼" attr(data-rate) "%)"
 }
-td[data-rate = "0"]::after, td[data-rate = ""]::after {
+.data-rate[data-rate = "0"]::after, .data-rate[data-rate = ""]::after {
   content: "/day";
   color: var(--dark);
   font-weight: lighter;
 }
-td[data-rate = "0"]:not(:empty)::before, td[data-rate = ""]:not(:empty)::before {
+.data-rate[data-rate = "0"]:not(:empty)::before, .data-rate[data-rate = ""]:not(:empty)::before {
   content: "~"
 }
-td[data-rate]:empty::after {
+.data-rate[data-rate]:empty::after {
   content: "N/A"
 }
 
@@ -798,6 +798,15 @@ tr:not(:hover) .progressbar > .change {
 }
 .positivity .progressbar > .change.percent:not([data-value ^= "-"]):before {
   content: "+" attr(data-value) "%";
+}
+
+.small-detail {
+  font-size: 0.7rem;
+  /*font-weight: lighter;*/
+  font-style: italic;
+}
+tr:not(:hover) .reveal-on-hover {
+  visibility: hidden;
 }
 
 @media screen and (min-width: 800px) {
