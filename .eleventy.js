@@ -5,26 +5,6 @@ const htmlmin = require("html-minifier");
 const uglify = require("posthtml-minify-classnames")
 const posthtml = require("posthtml")
 
-const formatter = new Intl.NumberFormat('en-CA');
-function format(value) {
-  const formattedValue = formatter.format(value);
-  // this safely returns any values that aren't numbers, such a 'N/A'
-  if (formattedValue === 'NaN') return value;
-  // otherwise return the number as a string with commas in it
-  return formattedValue;
-}
-
-function formatNumber(value) {
-  if (Number.parseInt(value) > 1000) {
-    if (value < 100*1000) {
-      return format(Math.round(value/100)/10) + "k";
-    }
-    return format(Math.round(value/1000)) + "k";
-  }
-  if (Number.isFinite(value)) return value; //ensures that "0" properly returns
-  return value || '';
-}
-
 const ISO_3_LETTER_MONTH = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 module.exports = function(eleventyConfig) {
@@ -42,7 +22,7 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addShortcode("today", () => `${new Date().toJSON().split('T')[0]}`)
 
-  eleventyConfig.addFilter("readableDate", (dateObj, tzOffset = -8) => {
+  eleventyConfig.addFilter("readableDate", (dateObj, hideCurrentYear= true, tzOffset = -8) => {
     if (!dateObj) return '';
 
     let srcDate = new Date(dateObj);
@@ -60,7 +40,7 @@ module.exports = function(eleventyConfig) {
     if (yesterday === d) return 'Yesterday';
 
     const [year, month, day] = d.split('-');
-    if (today.startsWith(year)) return `${ISO_3_LETTER_MONTH[Number.parseInt(month) - 1]}-${day}`;
+    if (hideCurrentYear && today.startsWith(year)) return `${ISO_3_LETTER_MONTH[Number.parseInt(month) - 1]}-${day}`;
 
     return `${year}-${ISO_3_LETTER_MONTH[Number.parseInt(month) - 1]}-${day}`;
   });
@@ -81,8 +61,28 @@ module.exports = function(eleventyConfig) {
   // });
 
   // Get the first `n` elements of a collection.
-  eleventyConfig.addFilter("format", value => format(value));
-  eleventyConfig.addFilter("formatNumber", value => formatNumber(value));
+  eleventyConfig.addFilter("format", value => {
+    if (Number.parseFloat(value)) {
+      const formatter = new Intl.NumberFormat('en-CA');
+      return formatter.format(value);
+    }
+    return value;
+  });
+
+  eleventyConfig.addFilter("formatNumber", (value, si=true, max=1) => {
+    if (Number.parseFloat(value)) {
+      const SI_SUFFIX = ["", "k", "m", "g"];
+      const WORD_SUFFIX = ["", "thousand", "million", "billion"];
+      const formatter = new Intl.NumberFormat('en-CA');
+
+      const divisor = Math.min(Math.floor(Math.log10(value) / 3), max);
+      const sigDig = Math.floor(Math.log10(value) / 3) <= max ? 2 - Math.floor(Math.log10(value)) % 3 : 0;
+      const simpleValue = formatter.format(Math.round(value / Math.pow(10, divisor * 3 - sigDig)) / Math.pow(10, sigDig));
+      const suffix = si ? SI_SUFFIX[divisor] : WORD_SUFFIX[divisor];
+      return `${simpleValue}${suffix}`;
+    }
+    return value || '';
+  });
 
   eleventyConfig.addFilter("head", (array, n) => {
     if( n < 0 ) {
@@ -125,8 +125,9 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addTransform("htmlmin", async function(content, outputPath) {
     if( outputPath && outputPath.endsWith(".html") ) {
-      const {html} = await posthtml().use(uglify()).process(content);
-      return htmlmin.minify(html, {
+      // const {html} = await posthtml().use(uglify()).process(content);
+      // return htmlmin.minify(html, {
+      return htmlmin.minify(content, {
         useShortDoctype: true,
         removeComments: true,
         collapseWhitespace: true

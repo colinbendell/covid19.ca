@@ -71,19 +71,19 @@ eleventyNavigation:
   </div>
   <ul class="stats flex nowrap">
     <li>
-      <h3><strong>1 in {{ (((country.population / country.today.total_cases ) * 2 / 10) | round)/2*10 }}</strong> have<br>been infected</h3>
+      <h3><strong>1 in {{ ((((country.population / country.today.total_cases ) * 2 / 10) | round)/2*10) | round }}</strong> have<br>been infected</h3>
       <div style="--county: 5; --countx:{{ (((country.population / country.today.total_cases ) * 2 / 10) | round)/2*10 /5 }}" class="oneinx"></div>
     </li>
     <li>
-      <h3><strong>1 in {{ (((country.today.total_cases / country.today.total_fatalities) * 2 / 10) | round)/2*10 }}</strong> of infected<br>have died</h3>
+      <h3><strong>1 in {{ ((((country.today.total_cases / country.today.total_fatalities) * 2 / 10) | round)/2*10 ) | round }}</strong> of infected<br>have died</h3>
       <div style="--county: 5; --countx:{{ (((country.today.total_cases / country.today.total_fatalities) * 2 / 10) | round)/2*10 /5}}" class="oneinx"></div>
     </li>
     <li>
-      <h3><strong>1 in {{ (((country.population15plus/ country.today.total_vaccinated) * 2 / 10) | round)/2*10}}</strong> Adults <br>Vaccinated!</h3>
+      <h3><strong>1 in {{ ((((country.population15plus/ country.today.total_vaccinated) * 2 / 10) | round)/2*10) | round }}</strong> Adults <br>Vaccinated!</h3>
       <div style="--county: 5; --countx:{{ (((country.population15plus/ country.today.total_vaccinated) * 2 / 10) | round)/2*10 /5 }}" class="oneinx"></div>
     </li>
     <li>
-      <h3><strong>1 in {{ (((country.population15plus / country.today.total_first_vaccination) * 2 / 10) | round(1))/2*10}}</strong> Adults<br>have 1st Dose</h3>
+      <h3><strong>1 in {{ ((((country.population15plus / country.today.total_first_vaccination) * 2 / 10) | round(1))/2*10) | round}}</strong> Adults<br>have 1st Dose</h3>
       <div style="--county: 1; --countx:{{ (((country.population15plus / country.today.total_first_vaccination) * 2 / 10) | round(1) )/2*10}}" class="oneinx"></div>
     </li>
   </ul>
@@ -99,7 +99,7 @@ eleventyNavigation:
     <th>In Arms<br/>(60 days)</th>
     <th>In Arms<br/>Today</th>
     <th>Projected<br/>Completion</th>
-    <th>Total</th>
+{#    <th>Total</th>#}
     <th>1 Dose /<br/>Population</th>
     <th>Fully Vacc. /<br/>Population</th>
     <th>Infected /<br>Population</th>
@@ -110,7 +110,8 @@ eleventyNavigation:
   <tbody id="vaccinationsProvinceTable">
   {% macro vaccineRow(data, type='province') %}
     {% if data.today.total_vaccinations > 0 %}
-    <tr class="vaccine {{ type }} {{ data.iso3166 or data.province }} {{ data.today.date | readableDate | lower }}"  title="Total: {{ data.today.total_vaccinations | d(0) | format }} ({{ data.today.date | readableDate }}: {{ data.today.change_vaccinations | format}}, {{ data.yesterday.date | readableDate }}: {{ data.yesterday.change_vaccinations | format }}) Population: {{ data.population | format }}">
+    <tr class="vaccine {{ type }} {{ data.iso3166 or data.province }} {{ data.today.date | readableDate | lower }}"
+        title="Total: {{ data.today.total_vaccinations | d(0) | format }} ({{ data.today.date | readableDate }}: {{ data.today.change_vaccinations | format}}, {{ data.yesterday.date | readableDate }}: {{ data.yesterday.change_vaccinations | format }}) Population: {{ data.population | format }}">
       <th class="toggle">
         {% if type === 'province' and data.regions.length > 0 %}
           {% set regionLength %}{% for region in data.regions %}{% if region.today.total_vaccinations > 0 %}1{% endif %}{% endfor %}{% endset %}
@@ -157,17 +158,29 @@ eleventyNavigation:
 
         </div>
       </td>
-      <td class="dose current" data-rate="{{ data.vaccine.changeInVaccinationRate }}">{{ (data.today.change_vaccinations if data.today.change_vaccinations > 0 else data.lastWeekExclusive.change_vaccinations_avg) | formatNumber }}</td>
-      <td class="supply complete {{ "bad" if data.vaccine.daysToFirstVaccinations > 15 else ( "ok" if data.vaccine.daysToFirstVaccinations > 5 else "good") }}">{{ data.vaccine.completeDate | readableDate if data.vaccine.daysToFirstVaccinations > 0 }}</td>
-      <td class="dose total" >{{ data.today.total_vaccinations | d(0) | formatNumber }}</td>
-      <td class="dose one">
-        <div class="progressbar" role="progressbar" aria-valuenow="{{ (data.today.total_first_vaccination / data.population15plus * 100) | round(1) or "N/A" }}" data-value="{{ data.today.total_first_vaccination | max(0) | formatNumber }}">
+      <td class="dose current"
+          title="There were {{ (data.today.change_vaccinations | format) if data.today.change_vaccinations else "NO"}} doses {{ data.today.date | readableDate | lower }}. With a 7 day average of {{ data.lastWeekExclusive.change_vaccinations_avg | format }} doses per day."
+        >
+        <div class="data-rate" data-rate="{{ data.vaccine.changeInVaccinationRate }}">{{ (data.today.change_vaccinations if data.today.change_vaccinations > 0 else data.lastWeekExclusive.change_vaccinations_avg) | formatNumber }}</div>
+        <div class="small-detail reveal-on-hover">Total: {{ data.today.total_vaccinations | d(0) | formatNumber }}</div>
+      </td>
+      <td class="supply complete {{ "bad" if data.vaccine.daysToFirstVaccinations > 15 else ( "ok" if data.vaccine.daysToFirstVaccinations > 5 else "good") }}"
+          title="First dose expected to be completed at {{ data.vaccine.firstVaccinationsDate | readableDate(false) }} and full vaccination completed at {{ data.vaccine.fullVaccinatedDate | readableDate(false) }} based on a trailing average of {{ data.lastWeekExclusive.change_first_vaccination_avg | formatNumber }} and {{ data.lastWeekExclusive.change_vaccinated_avg | formatNumber }} doses per day, respectively."
+        >{{ data.vaccine.firstVaccinationsDate | readableDate(false) if data.vaccine.daysToFirstVaccinations > 0 }}</td>
+{#      <td class="dose total"#}
+{#          title=""#}
+{#        >{{ data.today.total_vaccinations | d(0) | formatNumber }}</td>#}
+      <td class="dose one"
+        title="{{ ((data.today.total_first_vaccination / data.population15plus * 100) | round(1)) or "N/A" }}% of {{ data.population15plus | formatNumber(false, 99) }} eligible adults have their first dose.">
+        <div class="progressbar" role="progressbar" aria-valuenow="{{ (data.today.total_first_vaccination / data.population15plus * 100) | round(1) or "N/A" }}"
+             data-value="{{ data.today.total_first_vaccination | max(0) | formatNumber }}">
           <span class="value" aria-hidden="true" style="width: {{ data.today.vaccinationsHalfPerCapita}}%"></span>
           {% if data.today.change_vaccinationsHalfPerCapita > 0 %}<span class="change percent" data-value="{{ data.today.change_vaccinationsHalfPerCapita | format }}"></span>{% endif %}
           {% if data.today.change_first_vaccination > 0 %}<span class="change absolute" data-value="{{ data.today.change_first_vaccination | format }}"></span>{% endif %}
         </div>
       </td>
-      <td class="dose full">
+      <td class="dose full"
+          title="{{ ((data.today.total_vaccinated / data.population15plus * 100) | round(1)) or "N/A" }}% of {{ data.population15plus | formatNumber }} eligible adults are fully vaccinated.">
         <div class="progressbar" role="progressbar" aria-valuenow="{{ (data.today.total_vaccinated / data.population15plus * 100) | round(1) or "N/A" }}" data-value="{{ data.today.total_vaccinated | formatNumber }}"><span class="value" aria-hidden="true" style="width: {{ data.today.vaccinationsCompletePerCapita or 0 }}%"></span>
           {% if data.today.change_vaccinationsCompletePerCapita > 0 %}<span class="change percent" data-value="{{ data.today.change_vaccinationsCompletePerCapita | format }}"></span>{% endif %}
           {% if data.today.change_vaccinated > 0 %}<span class="change absolute" data-value="{{ data.today.change_vaccinated | format }}"></span>{% endif %}
@@ -179,7 +192,7 @@ eleventyNavigation:
       <td class="supply history">
         {% if data.today.available_doses > 0 %}
         <div>
-          <table class="charts-css column" style="--size: {{ (data.lastWeekExclusive.available_doses_avg / data.vaccine.maxAvailableDoses) | format }}" data-trendline="{{ data.lastWeekExclusive.available_doses_avg |formatNumber }} /day">
+          <table class="charts-css column" style="--size: {{ (data.lastWeekExclusive.available_doses_avg / data.vaccine.maxAvailableDoses) | format }}" data-trendline="{{ data.lastWeekExclusive.available_doses_avg |formatNumber }}">
             <tbody>
             <tr>
               {%- for week in data.previousWeeks | head(-8) | head(7) %}
@@ -275,7 +288,12 @@ eleventyNavigation:
           </table>
         </div>
       </td>
-      <td class="activecases current" data-rate="{{ data.infection.changeInCasesRate }}">{{ (data.today.change_cases if data.today.change_cases > 0 else data.lastWeekExclusive.change_cases_avg) | formatNumber }}</td>
+      <td class="activecases current"
+          title="There were {{ (data.today.change_cases | format) if data.today.change_cases else "NO"}} cases {{ data.today.date | readableDate | lower }}. With a 7 day average of {{ data.lastWeekExclusive.change_cases_avg | format }} cases per day. {{ (data.today.change_recoveries or data.lastWeekExclusive.change_recoveries_avg) | format }} cases were closed."
+      >
+        <div class="data-rate" data-rate="{{ data.infection.changeInCasesRate }}">{{ (data.today.change_cases if data.today.change_cases > 0 else data.lastWeekExclusive.change_cases_avg) | formatNumber }}</div>
+        <div class="small-detail reveal-on-hover">Closed: {{ (data.today.change_recoveries or data.lastWeekExclusive.change_recoveries_avg) | formatNumber }}</div>
+      </td>
       <td class="activecases history">
         <div>
           <table class="charts-css column" style="--size: {{ (data.lastWeekExclusive.active_cases_avg / data.infection.maxActiveCases) | format }}" data-trendline="{{ data.lastWeekExclusive.active_cases_avg |formatNumber }} /day">
