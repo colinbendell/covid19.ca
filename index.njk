@@ -212,9 +212,10 @@ eleventyNavigation:
         {% endif %}
       </td>
       <td class='supply available'>{{ data.today.available_doses | formatNumber }}
-        {% if data.today.available_doses > 0 %}
-        <span class="supply zero {{ "bad" if data.vaccine.daysToZeroVaccines > 10 else ( "ok" if data.vaccine.daysToZeroVaccines >= 7 else "good") }}">{{ data.vaccine.daysToZeroVaccines }}</span>
-        {% endif %}
+      {% if data.today.available_doses > 0 %}
+        {% set vaccineDays %}{{ (data.lastWeekInclusive.available_doses_sum / data.lastWeekInclusive.change_vaccinations_sum + 0.5) | round }}{% endset %}
+        <span class="supply zero {{ "bad" if vaccineDays > 10 else ( "ok" if vaccineDays >= 7 else "good") }}">{{ vaccineDays | format }}</span>
+      {% endif %}
       </td>
     </tr>
   {%  endif %}
