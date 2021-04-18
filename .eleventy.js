@@ -71,8 +71,8 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addFilter("formatNumber", (value, si=true, max=1) => {
     if (Number.parseFloat(value)) {
-      const SI_SUFFIX = ["", "k", "m", "g"];
-      const WORD_SUFFIX = ["", "thousand", "million", "billion"];
+      const SI_SUFFIX = ["", "k", "M", "G"];
+      const WORD_SUFFIX = ["", "thousand", "million", "billion", "trillion"];
       const formatter = new Intl.NumberFormat('en-CA');
 
       const divisor = Math.min(Math.floor(Math.log10(value) / 3), max);

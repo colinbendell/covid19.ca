@@ -36,69 +36,81 @@ function normalizeVaccine(data) {
 
   const [today] = data.daily.slice(-1);
 
-  const keys = Object.keys(today).filter(k => Number.isFinite(today[k]));
-  for (const i of Array(data.daily.length).keys()) {
-    if (i > 0) {
-      const last = data.daily[i -1];
-      const curr = data.daily[i];
-      for (const key of keys) {
-        curr["change_" + key] = (curr[key] || 0) - (last[key] || 0);
+  if (today) {
+    //calculate the rate ot change between days
+    const keys = Object.keys(today).filter(k => Number.isFinite(today[k]));
+    for (const i of Array(data.daily.length).keys()) {
+      if (i > 0) {
+        const last = data.daily[i - 1];
+        const curr = data.daily[i];
+        for (const key of keys) {
+          curr["change_" + key] = (curr[key] || 0) - (last[key] || 0);
+        }
       }
     }
   }
 
   const previousWeeks = chunkArray(data.daily.slice(0, -1), 7).map(item => {
-    const [first] = item.slice(0, 1);
     const [last] = item.slice(-1);
-    const avg = {
+    const week = {
       start: item[0].date,
       end: last.date,
-      sumChangeTests: item.map(i => i.change_tests || 0).reduce((p, c) => p + c),
-      sumChangeCases: item.map(i => i.change_cases || 0).reduce((p, c) => p + c),
     };
-    for (const key of [...new Set([...Object.keys(last), ...Object.keys(first)])]) {
-      if (Number.isFinite(last[key]) || Number.isFinite(first[key])) {
-        avg[key + "_avg"] = Math.round(item.map(i => i[key] || 0).reduce((p, c) => p + c) / item.length + 0.5);
-        avg[key + "_sum"] = item.map(i => i[key] || 0).reduce((p, c) => p + c);
+    const keys = new Set(item.map(i => Object.keys(i)).flat());
+    for (const key of keys) {
+      // only numeric values; assume that periodic entries are numeric. worst case they will add to zero or NaN
+      if (Number.isFinite(last[key]) || !last[key] ) {
+        week[key + "_avg"] = Math.round(item.map(i => i[key] || 0).reduce((p, c) => p + c) / item.length + 0.5);
+        week[key + "_sum"] = item.map(i => i[key] || 0).reduce((p, c) => p + c);
       }
     }
-    return avg;
-  }).map(item => Object.assign(item, {
-    weekPositivityRate: item.sumChangeTests > 0 ? Math.round(item.sumChangeCases / item.sumChangeTests * 1000) / 10 : null,
-  }));
+    if (week.change_tests_sum > 0) {
+      week.positivity_rate = Math.round(week.change_cases_sum / week.change_tests_sum * 1000) / 10;
+    }
+    return week;
+  });
 
   const [lastWeekExclusive] = previousWeeks.slice(-1);
 
-  keys.splice(0, keys.length);
-  keys.concat(...Object.keys(lastWeekExclusive).filter(k => Number.isFinite(lastWeekExclusive[k])));
-  for (const i of Array(previousWeeks.length).keys()) {
-    if (i > 0) {
-      const last = previousWeeks[i -1];
-      const curr = previousWeeks[i];
-      for (const key of keys) {
-        curr["change_" + key] = (curr[key] || 0) - (last[key] || 0);
+  const [lastWeekInclusive] = [data.daily.slice(-7)].map(item => {
+    const [last] = item.slice(-1);
+    const week = {
+      start: item[0].date,
+      end: last.date,
+    };
+    const keys = new Set(item.map(i => Object.keys(i)).flat());
+    for (const key of keys) {
+      // only numeric values; assume that periodic entries are numeric. worst case they will add to zero or NaN
+      if (Number.isFinite(last[key]) || !last[key] ) {
+        week[key + "_avg"] = Math.round(item.map(i => i[key] || 0).reduce((p, c) => p + c) / item.length + 0.5);
+        week[key + "_sum"] = item.map(i => i[key] || 0).reduce((p, c) => p + c);
+      }
+    }
+    if (week.change_tests_sum > 0) {
+      week.positivity_rate = Math.round(week.change_cases_sum / week.change_tests_sum * 1000) / 10;
+    }
+    return week;
+  });
+
+  if (lastWeekExclusive) {
+    //calculate the rate ot change between weeks
+    const keys = Object.keys(lastWeekExclusive).filter(k => Number.isFinite(lastWeekExclusive[k]));
+    for (const i of Array(previousWeeks.length).keys()) {
+      if (i > 0) {
+        const last = previousWeeks[i -1];
+        const curr = previousWeeks[i];
+        for (const key of keys) {
+          curr["change_" + key] = (curr[key] || 0) - (last[key] || 0);
+
+          //special case where we want to also apply the change_ calculation to lastWeekInclusive as well
+          if (curr === lastWeekExclusive) {
+            lastWeekInclusive["change_" + key] = (lastWeekInclusive[key] || 0) - (last[key] || 0);
+          }
+        }
       }
     }
   }
 
-  const [lastWeekInclusive] = [data.daily.slice(-7)].map(item => {
-    const [last] = item.slice(-1);
-    const avg = {
-      start: item[0].date,
-      end: last.date,
-      sumChangeTests: item.map(i => i.change_tests || 0).reduce((p, c) => p + c),
-      sumChangeCases: item.map(i => i.change_cases || 0).reduce((p, c) => p + c),
-    };
-    for (const key of Object.keys(last)) {
-      if (Number.isFinite(last[key])) {
-        avg[key + "_avg"] = Math.round(item.map(i => i[key] || 0).reduce((p, c) => p + c) / item.length + 0.5);
-        avg[key + "_sum"] = item.map(i => i[key] || 0).reduce((p, c) => p + c);
-      }
-    }
-    return avg;
-  }).map(item => Object.assign(item, {
-    weekPositivityRate: item.sumChangeTests > 0 ? Math.round(item.sumChangeCases / item.sumChangeTests * 1000) / 10 : null,
-  }));
 
   const previous7Days = data.daily.slice(-8, -1);
   const [yesterday] = previous7Days.slice(-1);

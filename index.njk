@@ -52,8 +52,8 @@ eleventyNavigation:
         Sadly, <strong><span class="number"><a href="#infections">{{ country.today.total_fatalities | format}}</a></span> have died</strong>.
       </p>
       <p>
-        In the last day, there were <strong><span class="number"><a href="#vaccinations">{{ country.today.change_cases | format }}</a></span> new cases</strong>
-        with <strong><span class="number"><a href="#vaccinations">{{ country.today.change_fatalities }}</a></span> deaths</strong>.
+        In the last day, there were <strong><span class="number"><a href="#vaccinations">{{ (country.today.change_cases or country.yesterday.change_cases) | format }}</a></span> new cases</strong>
+        with <strong><span class="number"><a href="#vaccinations">{{ country.today.change_fatalities or country.yesterday.change_fatalities }}</a></span> deaths</strong>.
         This is trending <strong><span class="editorial {{ "negative" if country.infection.changeInCasesRate > 0 else "positive" }}">{{ "downwards" if country.infection.changeInCasesRate < 0 else "upwards" }}</span></strong>.
       </p>
       <p>
@@ -64,9 +64,12 @@ eleventyNavigation:
       <p>
         Vaccination is <span class="editorial {{ "positive" if country.today.change_vaccinationsHalfPerCapita > 0 else "negative" }}">{{ "speeding up" if country.today.change_vaccinationsHalfPerCapita > 0 else "slowing down" }}</span>,
         but there are <strong><span class="number"><a href="#vaccinations">{{ country.today.available_doses | format }}</a></span> doses in the freezer</strong>.
+        It currently takes ~<strong><span class="number"><a href="#vaccinations">{{ (country.lastWeekExclusive.available_doses_sum / country.lastWeekExclusive.change_vaccinations_sum + 0.5) | round | format }}</a></span> days</strong>
+        for new deliveries to get into arms.
         At the current rate of <strong><span class="number"><a href="#vaccinations">{{ country.lastWeekExclusive.change_vaccinations_avg | format }}</a></span> doses per day</strong>,
-        it will take ~<strong><span class="number"><a href="#vaccinations">{{ country.vaccine.daysToZeroVaccines | format }}</a></span> days</strong> to use these vaccines.
-        All adult Canadians should have the first dose by <span class="number"><a href="#vaccinations">{{ country.vaccine.firstVaccinationsDate | readableDate }}</a></span>. There is no approved vaccine for children aged 15 or younger.
+        all adult Canadians should have the first dose by <span class="number"><a href="#vaccinations">{{ country.vaccine.firstVaccinationsDate | readableDate }}</a></span>
+        and fully vaccinated by <span class="number"><a href="#vaccinations">{{ country.vaccine.fullVaccinatedDate | readableDate }}</a></span>.
+        There is no approved vaccine for children aged 15 or younger.
       </p>
   </div>
   <ul class="stats flex nowrap">
@@ -125,7 +128,7 @@ eleventyNavigation:
         <label for="vaccine-{{ data.iso3166 }}" class="label-toggle">
           <span class="name long" data-short="{{ data.iso3166 or data.name.en }}">{{ data.name.en or data.name }}</span>
           <span class="name short">{{ data.iso3166 or data.name.en }}</span>
-          <svg viewBox="0 0 512 512" class="province-update-status"><use href="#{{ data.data_status | lower | replace(r/\s/gi, '-') }}"></use></svg>
+          <svg viewBox="0 0 512 512" class="province-update-status"><use href="#{{ data.data_status | lower | replace(r/ /gi, '-') }}"></use></svg>
         </label>
       {% else %}
       <span class="name long">{{ data.name.en or data.name }}</span>
@@ -264,7 +267,7 @@ eleventyNavigation:
         <label for="infection-{{ data.iso3166 }}" class="label-toggle">
           <span class="name long">{{ data.name.en or data.name }}</span>
           <span class="name short">{{ data.iso3166 or data.name.en }}</span>
-          <svg viewBox="0 0 512 512" class="province-update-status"><use href="#{{ data.data_status | lower | replace(r/\s/gi, '-') }}"></use></svg>
+          <svg viewBox="0 0 512 512" class="province-update-status"><use href="#{{ data.data_status | lower | replace(r/ /gi, '-') }}"></use></svg>
         </label>
         {% else %}
         <span class="name long">{{ data.name.en or data.name }}</span>
@@ -334,9 +337,9 @@ eleventyNavigation:
         </div>
       </td>
       <td class="positivity">
-        <div class="progressbar" role="progressbar" aria-valuenow="{{ data.lastWeekInclusive.weekPositivityRate if data.lastWeekInclusive.change_tests_sum >= 0 else "N/A" }}" data-value="{{ data.today.change_tests | formatNumber }}" data-change="{{ data.today.change_tests | format }}">
-          <span class="value" aria-hidden="true" style="width: {{ ((data.lastWeekInclusive.weekPositivityRate or 0)/10*100) | min(100) }}%"></span>
-          <span class="change percent" data-value="{{ (data.lastWeekInclusive.weekPositivityRate - ((data.previousWeeks | head(-2) | head(1))[0].weekPositivityRate) | d(0)) | format }}"></span>
+        <div class="progressbar" role="progressbar" aria-valuenow="{{ data.lastWeekInclusive.positivity_rate if data.lastWeekInclusive.change_tests_sum >= 0 else "N/A" }}" data-value="{{ data.today.change_tests | formatNumber }}" data-change="{{ data.today.change_tests | format }}">
+          <span class="value" aria-hidden="true" style="width: {{ ((data.lastWeekInclusive.positivity_rate or 0)/10*100) | min(100) }}%"></span>
+          <span class="change percent" data-value="{{ data.lastWeekInclusive.change_positivity_rate | d(0) | format }}"></span>
         </div>
       </td>
       <td class="infected percapita"><div class="progressbar infection" role="progressbar" aria-valuenow="{{ data.today.casesPerCapita }}" data-value="{{ data.today.total_cases | formatNumber }}"><span class="value" aria-hidden="true" style="width: {{ (data.today.casesPerCapita/10*100) | d(0) | min(100) }}%"></span></div></td>
