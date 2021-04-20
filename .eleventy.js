@@ -69,16 +69,17 @@ module.exports = function(eleventyConfig) {
     return value;
   });
 
-  eleventyConfig.addFilter("formatNumber", (value, si=true, max=1) => {
+  eleventyConfig.addFilter("formatNumber", (value, useSI=true, max=999999) => {
     if (Number.parseFloat(value)) {
+      if (!max) max = Number.MAX_VALUE;
       const SI_SUFFIX = ["", "k", "M", "G"];
       const WORD_SUFFIX = ["", "thousand", "million", "billion", "trillion"];
       const formatter = new Intl.NumberFormat('en-CA');
 
-      const divisor = Math.min(Math.floor(Math.log10(value) / 3), max);
-      const sigDig = Math.floor(Math.log10(value) / 3) <= max ? 2 - Math.floor(Math.log10(value)) % 3 : 0;
-      const simpleValue = formatter.format(Math.round(value / Math.pow(10, divisor * 3 - sigDig)) / Math.pow(10, sigDig));
-      const suffix = si ? SI_SUFFIX[divisor] : WORD_SUFFIX[divisor];
+      const divisor = Math.floor(Math.log10(Math.min(value, max)) / 3);
+      const sigDig = value > max ? 0 : 2 - Math.floor(Math.log10(value)) % 3;
+      const simpleValue = formatter.format(Math.round(Math.round(value / Math.pow(10, divisor * 3 - sigDig)) / Math.pow(10, sigDig) * 10)/10);
+      const suffix = useSI ? SI_SUFFIX[divisor] : WORD_SUFFIX[divisor];
       return `${simpleValue}${suffix}`;
     }
     return value || '';

@@ -27,8 +27,8 @@ function normalizeVaccine(data) {
       activePer100k: item.active_cases >= 0 ? Math.round(item.active_cases / data.population * 100*1000) : null,
       fatalitiesPer100k: item.total_fatalities >= 0 ? Math.round(item.total_fatalities / data.population * 100*1000) : null,
       hospitalizedPer1000k: item.total_hospitalizations >= 0 ? Math.round(item.total_hospitalizations / data.population * 1000*1000) : null,
-      vaccinationsHalfPerCapita: Math.round((item.total_first_vaccination / data.population) * 1000) / 10,
-      vaccinationsCompletePerCapita: item.total_vaccinated > 0 ? Math.round((item.total_vaccinated / data.population) * 1000) / 10 : 0,
+      vaccinationsHalfPerCapita: Math.round((item.total_first_vaccination / data.population15plus) * 1000) / 10,
+      vaccinationsCompletePerCapita: item.total_vaccinated > 0 ? Math.round((item.total_vaccinated / data.population15plus) * 1000) / 10 : 0,
       casesPerCapita: Math.round((item.total_cases / data.population) * 1000) / 10,
       deathsPerCase: Math.round((item.total_fatalities / item.total_cases) * 1000) / 10,
       positivityRate: item.change_tests > 0 ? Math.round(item.change_cases / item.change_tests * 1000) / 10 : null,
@@ -177,9 +177,10 @@ module.exports = async function() {
   const data = Object.keys(fullData).map(k => Object.assign(fullData[k], {code: k, iso3166: k === 'PE' ? 'PEI' : k === 'NT' ? 'NWT' : k }));
   for (const prov of data) {
     prov.complete = /reported/i.test(prov.data_status);
+    const [provTotal] = prov.daily.slice(-1);
     if (!prov.data_status || !/reported|progress/i.test(prov.data_status)) {
-      if (prov.total?.date === new Date().toJSON().split('T')[0]) {
-        if (!prov.total?.change_cases) {
+      if (provTotal?.date === new Date().toJSON().split('T')[0]) {
+        if (!provTotal?.change_cases) {
           prov.daily.pop();
         }
       }
@@ -193,14 +194,15 @@ module.exports = async function() {
     prov.regions = prov.regions?.filter(r => r.daily && !['NT', 'NU', 'PE', 'YT'].includes(r.province)) || [];
 
     // that have total values
-    prov.regions = prov.regions?.filter(r => Number.isInteger(r.total?.total_vaccinations) ||  Number.isInteger(r.total?.total_cases)) || [];
+    prov.regions = prov.regions?.filter(r => Number.isInteger(r.daily[r.daily.length - 1]?.total_vaccinations) ||  Number.isInteger(r.daily[r.daily.length - 1]?.total_cases)) || [];
 
     for (const region of prov.regions) {
       region.complete = prov.complete;
       region.data_status = prov.data_status;
+      const [regionTotal] = region.daily.slice(-1);
       if (prov.data_status && !/reported|progress/i.test(prov.data_status)) {
-        if (region.total?.date === new Date().toJSON().split('T')[0]) {
-          if (!region.total?.change_cases) {
+        if (regionTotal?.date === new Date().toJSON().split('T')[0]) {
+          if (!regionTotal?.change_cases) {
             region.daily.pop();
           }
         }

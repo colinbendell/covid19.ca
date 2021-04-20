@@ -134,6 +134,7 @@ eleventyNavigation:
       <span class="name long">{{ data.name.en or data.name }}</span>
       <span class="name short">{{ data.iso3166 or data.short or data.name.en or data.name }}</span>
       {% endif %}
+        <div class="small-detail reveal-on-hover">~{{ data.population | formatNumber(false, 0) }}</div>
       </th>
       <td class="dose history">
         <div>
@@ -174,7 +175,7 @@ eleventyNavigation:
 {#          title=""#}
 {#        >{{ data.today.total_vaccinations | d(0) | formatNumber }}</td>#}
       <td class="dose one"
-        title="{{ ((data.today.total_first_vaccination / data.population15plus * 100) | round(1)) or "N/A" }}% of {{ data.population15plus | formatNumber(false, 99) }} eligible adults have their first dose.">
+        title="{{ ((data.today.total_first_vaccination / data.population15plus * 100) | round(1)) or "N/A" }}% of {{ data.population15plus | formatNumber(false, 0) }} eligible adults have their first dose.">
         <div class="progressbar" role="progressbar" aria-valuenow="{{ (data.today.total_first_vaccination / data.population15plus * 100) | round(1) or "N/A" }}"
              data-value="{{ data.today.total_first_vaccination | max(0) | formatNumber }}">
           <span class="value" aria-hidden="true" style="width: {{ data.today.vaccinationsHalfPerCapita}}%"></span>
@@ -190,7 +191,10 @@ eleventyNavigation:
         </div>
       </td>
       <td class="infected percapita">
-        <div class="progressbar infection" role="progressbar" aria-valuenow="{{ data.today.casesPerCapita }}" data-value="{{ data.total.total_cases | formatNumber }}"><span class="value" aria-hidden="true" style="width: {{ (data.today.casesPerCapita/10*100) | min (100) }}%"></span></div>
+        <div class="progressbar infection" role="progressbar" aria-valuenow="{{ data.today.casesPerCapita }}" data-value="{{ data.total.total_cases | formatNumber }}"><span class="value" aria-hidden="true" style="width: {{ (data.today.casesPerCapita/10*100) | min (100) }}%"></span>
+          {% if data.today.change_casesPerCapita > 0 %}<span class="change percent" data-value="{{ data.today.change_casesPerCapita | format }}"></span>{% endif %}
+          {% if data.today.change_cases > 0 %}<span class="change absolute" data-value="{{ data.today.change_cases | formatNumber }}"></span>{% endif %}
+        </div>
       </td>
       <td class="supply history">
         {% if data.today.available_doses > 0 %}
@@ -213,7 +217,7 @@ eleventyNavigation:
       </td>
       <td class='supply available'>{{ data.today.available_doses | formatNumber }}
       {% if data.today.available_doses > 0 %}
-        {% set vaccineDays %}{{ (data.lastWeekInclusive.available_doses_sum / data.lastWeekInclusive.change_vaccinations_sum + 0.5) | round }}{% endset %}
+        {% set vaccineDays %}{{ (data.lastWeekExclusive.available_doses_sum / data.lastWeekExclusive.change_vaccinations_sum + 0.5) | round }}{% endset %}
         <span class="supply zero {{ "bad" if vaccineDays > 10 else ( "ok" if vaccineDays >= 7 else "good") }}">{{ vaccineDays | format }}</span>
       {% endif %}
       </td>
@@ -274,6 +278,7 @@ eleventyNavigation:
         <span class="name long">{{ data.name.en or data.name }}</span>
         <span class="name short">{{ data.iso3166 or data.short or data.name.en or data.name }}</span>
         {% endif %}
+        <div class="small-detail reveal-on-hover">~{{ data.population | formatNumber(false, 0) }}</div>
       </th>
       <td class="cases history">
         <div>
