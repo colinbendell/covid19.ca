@@ -321,9 +321,9 @@ async function getData() {
   await getSK(hrData);
 
   await Promise.all([
-    getCovid19TrackerCanadaTotals(data),
-    getCovid19TrackerProvincesTotals(data),
-    getCovid19TrackerRegionTotals(hrData),
+    // getCovid19TrackerCanadaTotals(data),
+    // getCovid19TrackerProvincesTotals(data),
+    // getCovid19TrackerRegionTotals(hrData),
     getCovid19TrackerCanadaDaily(data),
     getCovid19TrackerSources(hrData),
   ]);
@@ -332,6 +332,18 @@ async function getData() {
   await Promise.all(provinces.map(code => getCovid19TrackerProvinceDaily(code, data)));
   await Promise.all(provinces.map(code => getCovid19TrackerProvinceRegions(code, data, hrData)));
   await Promise.all(provinces.map(code => getCovid19TrackerRegionDaily(code, data)));
+
+  for (const prov of data.values()) {
+    if (prov.regions && prov.population && prov.population2016) {
+      const adjPopulationRate = prov.population / prov.population2016;
+      for (const hr of prov.regions) {
+        if (hr.population) {
+          hr.population = Math.round(hr.population * adjPopulationRate);
+        }
+      }
+    }
+    delete prov.population2016;
+  }
 
   const json = stringify(removeEmpty(Object.fromEntries(data.entries())), 2, 200);
   fs.writeFileSync('_data/covid19tracker.ca/data.json', json);
