@@ -76,8 +76,9 @@ module.exports = function(eleventyConfig) {
       const WORD_SUFFIX = ["", "thousand", "million", "billion", "trillion"];
       const formatter = new Intl.NumberFormat('en-CA');
 
-      const divisor = Math.floor(Math.log10(Math.min(value, max)) / 3);
-      const sigDig = value > max ? 0 : 2 - Math.floor(Math.log10(value)) % 3;
+      const divisor = Math.floor(Math.log10(Math.min(Math.abs(value), max)) / 3);
+      if (divisor < 0) return formatter.format(Math.round(value*10)/10);
+      const sigDig = value > max ? 0 : 2 - Math.floor(Math.log10(Math.abs(value))) % 3;
       const simpleValue = formatter.format(Math.round(Math.round(value / Math.pow(10, divisor * 3 - sigDig)) / Math.pow(10, sigDig) * 10)/10);
       const suffix = useSI ? SI_SUFFIX[divisor] : WORD_SUFFIX[divisor];
       return `${simpleValue}${suffix}`;
