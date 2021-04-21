@@ -772,6 +772,13 @@ tr:not(:hover) .progressbar > .change {
   font-weight: lighter;
 }
 
+.progressbar > .change.percent:before {
+  content: attr(data-value) "%";
+}
+.progressbar > .change.percent:not([data-value ^= "-"]):before {
+  content: "+" attr(data-value) "%";
+}
+
 .per100k .progressbar > .change.percent:before {
   content: attr(data-value) "/₁₀₀ₖ";
 }
@@ -784,20 +791,6 @@ tr:not(:hover) .progressbar > .change {
 }
 .per1000k .progressbar > .change.percent:not([data-value ^= "-"]):before {
   content: "+" attr(data-value) "/₁₀₀₀ₖ";
-}
-
-.dose .progressbar > .change.percent:before {
-  content: attr(data-value) "%";
-}
-.dose .progressbar > .change.percent:not([data-value ^= "-"]):before {
-  content: "+" attr(data-value) "%";
-}
-
-.positivity .progressbar > .change.percent:before {
-  content: attr(data-value) "%";
-}
-.positivity .progressbar > .change.percent:not([data-value ^= "-"]):before {
-  content: "+" attr(data-value) "%";
 }
 
 .small-detail {
