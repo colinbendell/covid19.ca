@@ -60,7 +60,7 @@ function normalizeVaccine(data) {
     for (const key of keys) {
       // only numeric values; assume that periodic entries are numeric. worst case they will add to zero or NaN
       if (Number.isFinite(last[key]) || !last[key] ) {
-        week[key + "_avg"] = Math.round(item.map(i => i[key] || 0).reduce((p, c) => p + c) / item.length + 0.5);
+        week[key + "_avg"] = Math.round(item.map(i => i[key] || 0).reduce((p, c) => p + c) / item.length * 10)/10;
         week[key + "_sum"] = item.map(i => i[key] || 0).reduce((p, c) => p + c);
       }
     }
@@ -82,7 +82,7 @@ function normalizeVaccine(data) {
     for (const key of keys) {
       // only numeric values; assume that periodic entries are numeric. worst case they will add to zero or NaN
       if (Number.isFinite(last[key]) || !last[key] ) {
-        week[key + "_avg"] = Math.round(item.map(i => i[key] || 0).reduce((p, c) => p + c) / item.length + 0.5);
+        week[key + "_avg"] = Math.round(item.map(i => i[key] || 0).reduce((p, c) => p + c) / item.length * 10) / 10;
         week[key + "_sum"] = item.map(i => i[key] || 0).reduce((p, c) => p + c);
       }
     }
