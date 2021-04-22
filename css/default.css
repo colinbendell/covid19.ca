@@ -412,39 +412,38 @@ table.status > tbody > tr.country * {
   background-color: var(--blue);
 }
 
-.per100k .progressbar > .value, .per1000k .progressbar > .value {
+.progressbar.darkgray > .value {
   background-color: var(--gray-dark);
 }
-.per100k .progressbar.green > .value, .per1000k .progressbar.green > .value {
+.progressbar.green > .value {
   background-color: var(--green);
 }
-.per100k .progressbar.yellow > .value, .per1000k .progressbar.yellow > .value {
+.progressbar.yellow > .value {
   background-color: var(--yellow);
 }
-.per100k .progressbar.orange > .value, .per1000k .progressbar.orange > .value {
+.progressbar.orange > .value {
   background-color: var(--orange);
 }
-.per100k .progressbar.red > .value, .per1000k .progressbar.red > .value {
+.progressbar.red > .value {
   background-color: var(--red);
 }
 
-.progressbar.infection > .value {
-  background-color: var(--orange);
-}
-.progressbar.death > .value {
-  background-color: var(--red);
-}
 
-.per100k .progressbar:not([data-value="N/A"]):not([data-value="0"])::after, .per1000k .progressbar:not([data-value="N/A"]):not([data-value="0"])::after {
+.progressbar.per100k:not([data-value="N/A"]):not([data-value="0"])::after, .progressbar.per1000k:not([data-value="N/A"]):not([data-value="0"])::after {
   content: attr(data-value);
 }
 
-.per100k .progressbar:not([aria-valuenow="N/A"])::before {
+ .progressbar.per100k:not([aria-valuenow="N/A"])::before {
   content: attr(aria-valuenow) "/₁₀₀ₖ";
 }
 
-.per1000k .progressbar:not([aria-valuenow="N/A"])::before {
+.progressbar.per1000k:not([aria-valuenow="N/A"])::before {
   content: attr(aria-valuenow) "/₁₀₀₀ₖ";
+}
+
+.progressbar.days:not([aria-valuenow="N/A"])::before {
+  content: attr(aria-valuenow) " days";
+  font-weight: normal;
 }
 
 .dose.total, .dose.one, .dose.full, .activecases.per100k, .hospitalized.per1000k, td.positivity, td.infection, td.death, td.infected {
@@ -779,17 +778,24 @@ tr:not(:hover) .progressbar > .change {
   content: "+" attr(data-value) "%";
 }
 
-.per100k .progressbar > .change.percent:before {
+.progressbar > .change.days:before {
+  content: attr(data-value) " days";
+}
+.progressbar > .change.days:not([data-value ^= "-"]):before {
+  content: "+" attr(data-value) " days";
+}
+
+.progressbar > .change.per100k:before {
   content: attr(data-value) "/₁₀₀ₖ";
 }
-.per100k .progressbar > .change.percent:not([data-value ^= "-"]):before {
+.progressbar > .change.per100k:not([data-value ^= "-"]):before {
   content: "+" attr(data-value) "/₁₀₀ₖ";
 }
 
-.per1000k .progressbar > .change.percent:before {
+.progressbar > .change.per1000k:before {
   content: attr(data-value) "/₁₀₀₀ₖ";
 }
-.per1000k .progressbar > .change.percent:not([data-value ^= "-"]):before {
+.progressbar > .change.per1000k:not([data-value ^= "-"]):before {
   content: "+" attr(data-value) "/₁₀₀₀ₖ";
 }
 
