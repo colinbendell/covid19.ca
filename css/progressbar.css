@@ -79,10 +79,6 @@
   content: "+" attr(data-value);
 }
 
-.change.percent[data-value="0"], .change.percent[data-value="0"]:not([data-value]) {
+.change[data-value="0"], .change:not([data-value]) {
   display: none !important;
 }
-.change.absolute[data-value="0"], .change.absolute[data-value="0"]:not([data-value]) {
-  display: none !important;
-}
-
