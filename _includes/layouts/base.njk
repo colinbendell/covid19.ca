@@ -13,6 +13,7 @@
       {% include "css/toggle.css" %}
       {% include "css/progressbar.css" %}
       {% include "css/default.css" %}
+      {% include "css/one-in-x.css" %}
     {% endset %}
     <style>
       {{ css | cssmin | safe }}
@@ -21,7 +22,7 @@
   <body>
     <header>
       <h1 class="home">
-        <a href="{{ '/' | url }}">{{ title or metadata.title }}</a>
+        <a href="{{ '/' | url }}">{{ title or metadata.title }}</a><a href="#vaccinations"> 💉 </a><a href="#infections"> 🦠 </a>
       </h1>
       <span class="links">
       <a href="https://github.com/colinbendell/covid19.ca/" title="Github Source">

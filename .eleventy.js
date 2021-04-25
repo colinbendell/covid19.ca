@@ -73,7 +73,7 @@ module.exports = function(eleventyConfig) {
     if (Number.parseFloat(value)) {
       if (!max) max = Number.MAX_VALUE;
       const SI_SUFFIX = ["", "k", "M", "G"];
-      const WORD_SUFFIX = ["", "thousand", "million", "billion", "trillion"];
+      const WORD_SUFFIX = ["", " thousand", " million", " billion", " trillion"];
       const formatter = new Intl.NumberFormat('en-CA');
 
       const divisor = Math.floor(Math.log10(Math.min(Math.abs(value), max)) / 3);

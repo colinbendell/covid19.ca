@@ -47,26 +47,26 @@ eleventyNavigation:
     <div class="summary">
       <p>
         As of <span data-time="{{ country.updated_at }}" class="date">{{ country.updated_at | readableTime }} PT {{ country.updated_at | readableDate | lower}}</span>,
-        over <strong><span class="number"><a href="#infections">{{ country.total.total_cases |format }}</a></span> Canadians have tested positive</strong> for COVID-19,
-        or <span class="number ratio"><a href="#infections">{{ (((country.today.total_cases / country.population * 100 * 10) | round) / 10 )| format }} %</a></span> of the population.
-        Sadly, <strong><span class="number"><a href="#infections">{{ country.today.total_fatalities | format}}</a></span> have died</strong>.
+        over <strong><span class="number" title="{{ country.total.total_cases | format }}"><a href="#infections">{{ country.total.total_cases | formatNumber(false, 0) }}</a></span> Canadians have tested positive</strong> for COVID-19.
+{#        or <span class="number ratio"><a href="#infections">{{ (((country.today.total_cases / country.population * 100 * 10) | round) / 10 )| format }} %</a></span> of the population.#}
+        Sadly, <strong><span class="number" title="{{ country.today.total_fatalities | format }}"><a href="#infections">{{ country.today.total_fatalities | formatNumber(false, 0) }}</a></span> have died</strong>.
       </p>
       <p>
-        In the last day, there were <strong><span class="number"><a href="#vaccinations">{{ (country.today.change_cases or country.yesterday.change_cases) | format }}</a></span> new cases</strong>
-        with <strong><span class="number"><a href="#vaccinations">{{ country.today.change_fatalities or country.yesterday.change_fatalities }}</a></span> deaths</strong>.
+        In the last day, <strong><span class="number" title="{{ (country.today.change_cases or country.yesterday.change_cases) | format }}"><a href="#vaccinations">{{ (country.today.change_cases or country.yesterday.change_cases) | formatNumber(false, 0) }}</a></span> new infections</strong>
+        have been reported and <strong><span class="number"><a href="#vaccinations">{{ country.today.change_fatalities or country.yesterday.change_fatalities }}</a></span> deaths</strong>.
         This is trending <strong><span class="editorial {{ "negative" if country.infection.changeInCasesRate > 0 else "positive" }}">{{ "downwards" if country.infection.changeInCasesRate < 0 else "upwards" }}</span></strong>.
       </p>
       <p>
-        Fortunately, <strong><span class="number"><a href="#vaccinations">{{ country.today.total_vaccinations | format }}</a></span> doses</strong> of the vaccine have been administered.
+        Fortunately, <strong><span class="number" title="{{ country.today.total_vaccinations | format }}"><a href="#vaccinations">{{ country.today.total_vaccinations | formatNumber(false, 0) }}</a></span> doses</strong> of the vaccine have been administered.
         Of those 16 years and older, <span class="number"><a href="#vaccinations">{{ (country.today.total_first_vaccination / country.population15plus * 100) | round(1) }}%</a></span> have their 1st shot
         and <span class="number"><a href="#vaccinations">{{ (country.today.total_vaccinated / country.population15plus * 100) | round(1) }}%</a></span> are fully vaccinated!
       </p>
       <p>
         Vaccination is <span class="editorial {{ "positive" if country.today.change_vaccinationsHalfPerCapita > 0 else "negative" }}">{{ "speeding up" if country.today.change_vaccinationsHalfPerCapita > 0 else "slowing down" }}</span>,
-        but there are <strong><span class="number"><a href="#vaccinations">{{ country.today.available_doses | format }}</a></span> doses in the freezer</strong>.
+        but there are <strong><span class="number" title="{{ country.today.available_doses | format }}"><a href="#vaccinations">{{ country.today.available_doses | formatNumber(false, 0) }}</a></span> doses in the freezer</strong>.
         It currently takes ~<strong><span class="number"><a href="#vaccinations">{{ (country.lastWeekExclusive.available_doses_sum / country.lastWeekExclusive.change_vaccinations_sum + 0.5) | round | format }}</a></span> days</strong>
         for new deliveries to get into arms.
-        At the current rate of <strong><span class="number"><a href="#vaccinations">{{ country.lastWeekExclusive.change_vaccinations_avg | format }}</a></span> doses per day</strong>,
+        At the current rate of <strong><span class="number" title="{{ country.lastWeekExclusive.change_vaccinations_avg | round | format }}"><a href="#vaccinations">{{ country.lastWeekExclusive.change_vaccinations_avg | formatNumber(false, 0) }}</a></span> doses per day</strong>,
         all adult Canadians should have the first dose by <span class="number"><a href="#vaccinations">{{ country.vaccine.firstVaccinationsDate | readableDate }}</a></span>
         and fully vaccinated by <span class="number"><a href="#vaccinations">{{ country.vaccine.fullVaccinatedDate | readableDate }}</a></span>.
         There is no approved vaccine for children aged 15 or younger.
@@ -74,20 +74,60 @@ eleventyNavigation:
   </div>
   <ul class="stats flex nowrap">
     <li>
-      <h3><strong>1 in {{ ((((country.population / country.today.total_cases ) * 2 / 10) | round)/2*10) | round }}</strong> have<br>been infected</h3>
-      <div style="--county: 5; --countx:{{ (((country.population / country.today.total_cases ) * 2 / 10) | round)/2*10 /5 }}" class="oneinx"></div>
+      {% set vaccinatedPerPopulation = (country.today.total_vaccinated / country.population15plus * 100) | round %}
+      {% set firstDoesPerPopulation = (country.today.total_first_vaccination / country.population15plus * 100) | round %}
+      {% set potentialFirstDoesPerPopulation = (( country.today.total_first_vaccination + country.today.available_doses ) / country.population15plus * 100) | round %}
+      <h3>{{ vaccinatedPerPopulation }} in 100 are fully vaccinated<br>{{ firstDoesPerPopulation }} in 100 have 1st dose<br><span style="color: var(--gray-dark);">{{ potentialFirstDoesPerPopulation - firstDoesPerPopulation }} in 100</span> additional doses in freezers</h3>
+      <div style="--repeat-y: 5; --repeat-x:20" class="ratiostats">
+        <div style="position: absolute; --repeat-y: 5; --repeat-x:{{ (potentialFirstDoesPerPopulation / 5) | int}}; --repeat-color: repeating-linear-gradient( 135deg, var(--gray-dark), var(--gray-dark) 1px, var(--light) 1px, var(--light) 2px );" class="ratiostats"></div>
+        <div style="position: absolute; --repeat-y: {{ potentialFirstDoesPerPopulation % 5 }}; --repeat-x:{{ (potentialFirstDoesPerPopulation / 5 + 0.5) | round}}; --repeat-color: repeating-linear-gradient( 135deg, var(--gray-dark), var(--gray-dark) 1px, var(--light) 1px, var(--light) 2px );" class="ratiostats"></div>
+        <div style="position: absolute; --repeat-y: 5; --repeat-x:{{ (firstDoesPerPopulation / 5) | int}}; --repeat-color: repeating-linear-gradient( 135deg, var(--blue), var(--blue) 1px, var(--light) 1px, var(--light) 2px );" class="ratiostats"></div>
+        <div style="position: absolute; --repeat-y: {{ firstDoesPerPopulation % 5 }}; --repeat-x:{{ (firstDoesPerPopulation / 5 + 0.5) | round}}; --repeat-color: repeating-linear-gradient( 135deg, var(--blue), var(--blue) 1px, var(--light) 1px, var(--light) 2px );" class="ratiostats"></div>
+        <div style="position: absolute; --repeat-y: 1; --repeat-x:{{ vaccinatedPerPopulation }}; --repeat-color: var(--blue);" class="ratiostats"></div>
+      </div>
     </li>
+    {#    <li>#}
+    {#      {% set casesPerPopulation = (((country.population / country.today.total_cases) * 2 / 10) | round)/2 * 10 %}#}
+    {#      {% set deathPerCase = ((((country.today.total_cases / country.today.total_fatalities) * 2 / 10) | round)/2*10 ) %}#}
+    {#      <h3><br><strong>{{ (100 / casesPerPopulation) |round}} in 100</strong> Have Been Infected</h3>#}
+    {#      <div style="--repeat-y: 5; --repeat-x:20" class="ratiostats">#}
+    {#        <div style="--repeat-y: 1; --repeat-x:{{ (100 / casesPerPopulation ) | round}}; --repeat-color: var(--pink);" class="ratiostats">#}
+    {#        </div>#}
+    {#      </div>#}
+    {#    </li>#}
+    {#    <li>#}
+{#      {% set maxVal = country.today.total_hospitalizations %}#}
+{#      {%- for week in country.previousWeeks %}#}
+{#        {% set maxVal %}{{ week.total_hospitalizations_avg | max(maxVal) }}{% endset %}#}
+{#      {%- endfor %}#}
+{#      <h3 style="position:absolute;">{{ country.today.total_hospitalizations | d(0) | format }} Hospitalized</h3>#}
+{#      <table class="charts-css column" style="--color-1: var(--orange); --size: {{ (country.lastWeekExclusive.total_hospitalizations_avg / maxVal) | format }}" data-trendline="{{ country.lastWeekExclusive.total_hospitalizations_avg |formatNumber }} /day">#}
+{#        <tbody>#}
+{#          <tr>#}
+{#            {%- for week in country.previousWeeks %}#}
+{#            <td style="--size:{{ (week.total_hospitalizations_avg/ maxVal) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>Hospitalized avg: {{ week.total_hospitalizations_avg | formatNumber }}/day<br/>In ICU Avg: {{ week.total_criticals_avg | formatNumber }}/day</span></td>#}
+{#            {%- endfor %}#}
+{#            <td style="--size:{{ (country.today.total_hospitalizations / maxVal) | max(0.03) | format }};"><span class="tooltip">{{ country.today.date | readableDate }}<br/>Total: {{ country.today.total_hospitalizations | d(0) | formatNumber }}</span></td>#}
+{#          </tr>#}
+{#        </tbody>#}
+{#      </table>#}
+{#    </li>#}
     <li>
-      <h3><strong>1 in {{ ((((country.today.total_cases / country.today.total_fatalities) * 2 / 10) | round)/2*10 ) | round }}</strong> of infected<br>have died</h3>
-      <div style="--county: 5; --countx:{{ (((country.today.total_cases / country.today.total_fatalities) * 2 / 10) | round)/2*10 /5}}" class="oneinx"></div>
-    </li>
-    <li>
-      <h3><strong>1 in {{ ((((country.population15plus/ country.today.total_vaccinated) * 2 / 10) | round)/2*10) | round }}</strong> Adults <br>Vaccinated!</h3>
-      <div style="--county: 5; --countx:{{ (((country.population15plus/ country.today.total_vaccinated) * 2 / 10) | round)/2*10 /5 }}" class="oneinx"></div>
-    </li>
-    <li>
-      <h3><strong>1 in {{ ((((country.population15plus / country.today.total_first_vaccination) * 2 / 10) | round(1))/2*10) | round}}</strong> Adults<br>have 1st Dose</h3>
-      <div style="--county: 1; --countx:{{ (((country.population15plus / country.today.total_first_vaccination) * 2 / 10) | round(1) )/2*10}}" class="oneinx"></div>
+      {% set maxVal = country.today.total_criticals %}
+      {%- for week in country.previousWeeks %}
+        {% set maxVal %}{{ week.total_criticals_avg | max(maxVal) }}{% endset %}
+      {%- endfor %}
+      <h3 style="position:absolute;">{{ country.today.total_criticals | d(0) | format }} in ICU</h3>
+      <table class="charts-css column" style="--color-1: var(--pink); --size: {{ (country.lastWeekExclusive.active_cases_avg / country.infection.maxActiveCases) | format }}" data-trendline="{{ country.lastWeekExclusive.active_cases_avg |formatNumber }} /day">
+        <tbody>
+        <tr>
+          {%- for week in country.previousWeeks  %}
+            <td style="--size:{{ (week.total_criticals_avg / maxVal) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>Hospitalized avg: {{ week.total_hospitalizations_avg | formatNumber }}/day<br/>In ICU Avg: {{ week.total_criticals_avg | formatNumber }}/day</span></td>
+          {%- endfor %}
+          <td style="--size:{{ (country.today.total_criticals / maxVal) | max(0.03) | format }};"><span class="tooltip">{{ country.today.date | readableDate }}<br/>Hospitalization: {{ country.today.total_hospitalizations | d(0) | formatNumber }}<br/>in ICU: {{ country.today.total_criticals | d(0) | formatNumber }}</span></td>
+        </tr>
+        </tbody>
+      </table>
     </li>
   </ul>
     {%- endfor %}
