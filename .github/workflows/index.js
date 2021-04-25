@@ -126,7 +126,7 @@ async function getCovid19TrackerSources(data = new Map()) {
 }
 async function getCovid19TrackerCanadaDaily(data = new Map()) {
   // fill in the historical daily data for the country
-  const res = await get('https://api.covid19tracker.ca/reports?after=2020-12-10&fill_dates=true').catch(e => null);
+  const res = await get('https://api.covid19tracker.ca/reports?after=2020-03-01&fill_dates=true').catch(e => null);
   if (res) {
     data.get('CA').daily = res.data.sort((a,b) => Date.parse(a.date) - Date.parse(b.date));
     // api is SK centric and does not emit ISO8601 formatted fields. Fortunately SK is always GMT-6
