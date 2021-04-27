@@ -350,6 +350,7 @@ main {
 }
 
 .table > * > tr > th.toggle {
+  padding-left: 0;
   padding-right: 0;
 }
 .table > * > tr > th.name {
