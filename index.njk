@@ -20,7 +20,7 @@ eleventyNavigation:
       #infection-{{ province.iso3166 }}:checked ~ section > table.infection tr.province.{{ province.iso3166 }} th.toggle label,
     {% endif %}
   {%- endfor %}
-  #noop { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='currentColor' d='M443.5 162.6l-7.1-7.1c-4.7-4.7-12.3-4.7-17 0L224 351 28.5 155.5c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17l211 211.1c4.7 4.7 12.3 4.7 17 0l211-211.1c4.8-4.7 4.8-12.3.1-17z'/%3E%3C/svg%3E%0A"); }
+  #noop { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='currentColor' d='M400 64c8.8 0 16 7.2 16 16v352c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16V80c0-8.8 7.2-16 16-16h352m0-32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-60 242c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12H108c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h232z'/%3E%3C/svg%3E%0A"); }
 {%  endset %}
 <style>{{ css | cssmin | safe }}</style>
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none" aria-hidden="true">
@@ -77,7 +77,9 @@ eleventyNavigation:
       {% set vaccinatedPerPopulation = (country.today.total_vaccinated / country.population15plus * 100) | round %}
       {% set firstDoesPerPopulation = (country.today.total_first_vaccination / country.population15plus * 100) | round %}
       {% set potentialFirstDoesPerPopulation = (( country.today.total_first_vaccination + country.today.available_doses ) / country.population15plus * 100) | round %}
-      <h3>{{ vaccinatedPerPopulation }} in 100 are fully vaccinated<br>{{ firstDoesPerPopulation }} in 100 have 1st dose<br><span style="color: var(--gray-dark);">{{ potentialFirstDoesPerPopulation - firstDoesPerPopulation }} in 100</span> additional doses in freezers</h3>
+      <h3>{{ vaccinatedPerPopulation }} in 100 adults are vaccinated
+        <br>{{ firstDoesPerPopulation }} in 100 have a 1st dose
+        <br><span style="color: var(--gray-dark);">{{ potentialFirstDoesPerPopulation - firstDoesPerPopulation }} in 100</span> potential from freezers</h3>
       <div style="--repeat-y: 5; --repeat-x:20" class="ratiostats">
         <div style="position: absolute; --repeat-y: 5; --repeat-x:{{ (potentialFirstDoesPerPopulation / 5) | int}}; --repeat-color: repeating-linear-gradient( 135deg, var(--gray-dark), var(--gray-dark) 1px, var(--light) 1px, var(--light) 2px );" class="ratiostats"></div>
         <div style="position: absolute; --repeat-y: {{ potentialFirstDoesPerPopulation % 5 }}; --repeat-x:{{ (potentialFirstDoesPerPopulation / 5 + 0.5) | round}}; --repeat-color: repeating-linear-gradient( 135deg, var(--gray-dark), var(--gray-dark) 1px, var(--light) 1px, var(--light) 2px );" class="ratiostats"></div>
