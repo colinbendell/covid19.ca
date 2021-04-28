@@ -88,32 +88,6 @@ eleventyNavigation:
         <div style="position: absolute; --repeat-y: 1; --repeat-x:{{ vaccinatedPerPopulation }}; --repeat-color: var(--blue);" class="ratiostats"></div>
       </div>
     </li>
-    {#    <li>#}
-    {#      {% set casesPerPopulation = (((country.population / country.today.total_cases) * 2 / 10) | round)/2 * 10 %}#}
-    {#      {% set deathPerCase = ((((country.today.total_cases / country.today.total_fatalities) * 2 / 10) | round)/2*10 ) %}#}
-    {#      <h3><br><strong>{{ (100 / casesPerPopulation) |round}} in 100</strong> Have Been Infected</h3>#}
-    {#      <div style="--repeat-y: 5; --repeat-x:20" class="ratiostats">#}
-    {#        <div style="--repeat-y: 1; --repeat-x:{{ (100 / casesPerPopulation ) | round}}; --repeat-color: var(--pink);" class="ratiostats">#}
-    {#        </div>#}
-    {#      </div>#}
-    {#    </li>#}
-    {#    <li>#}
-{#      {% set maxVal = country.today.total_hospitalizations %}#}
-{#      {%- for week in country.previousWeeks %}#}
-{#        {% set maxVal %}{{ week.total_hospitalizations_avg | max(maxVal) }}{% endset %}#}
-{#      {%- endfor %}#}
-{#      <h3 style="position:absolute;">{{ country.today.total_hospitalizations | d(0) | format }} Hospitalized</h3>#}
-{#      <table class="charts-css column" style="--color-1: var(--orange); --size: {{ (country.lastWeekExclusive.total_hospitalizations_avg / maxVal) | format }}" data-trendline="{{ country.lastWeekExclusive.total_hospitalizations_avg |formatNumber }} /day">#}
-{#        <tbody>#}
-{#          <tr>#}
-{#            {%- for week in country.previousWeeks %}#}
-{#            <td style="--size:{{ (week.total_hospitalizations_avg/ maxVal) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>Hospitalized avg: {{ week.total_hospitalizations_avg | formatNumber }}/day<br/>In ICU Avg: {{ week.total_criticals_avg | formatNumber }}/day</span></td>#}
-{#            {%- endfor %}#}
-{#            <td style="--size:{{ (country.today.total_hospitalizations / maxVal) | max(0.03) | format }};"><span class="tooltip">{{ country.today.date | readableDate }}<br/>Total: {{ country.today.total_hospitalizations | d(0) | formatNumber }}</span></td>#}
-{#          </tr>#}
-{#        </tbody>#}
-{#      </table>#}
-{#    </li>#}
     <li>
       {% set maxVal = country.today.total_criticals %}
       {%- for week in country.previousWeeks %}
