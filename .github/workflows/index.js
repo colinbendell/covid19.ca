@@ -375,10 +375,15 @@ async function getON(data, hrData) {
             // d.change_criticals = (d.total_criticals || 0) - (last.total_criticals || 0);
             d.change_fatalities = (d.total_fatalities || 0) - (last.total_fatalities || 0);
             // d.change_hospitalizations = (d.total_hospitalizations || 0) - (last.total_hospitalizations || 0);
-            d.change_cases = (d.active_cases || 0) - (last.active_cases || 0) + d.change_recoveries + d.change_fatalities;
+            d.change_cases = (d.active_cases || 0) - ((last.active_cases || 0) - d.change_recoveries - d.change_fatalities);
           }
-          delete d.active_cases;
           last = d;
+        }
+      }
+      //cleanup
+      for (const phu of phuData.values()) {
+        for (const d of phu.daily) {
+          delete d.active_cases;
         }
       }
       // fs.writeFileSync('_data/data.ontario.ca/d1bfe1ad-6575-4352-8302-09ca81f7ddfc.json', stringify([...phuData.values()], 2, 200));
