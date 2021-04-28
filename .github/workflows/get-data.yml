@@ -1,4 +1,4 @@
-name: synchronize data from api.covid19tracker.ca
+name: Synchronize data
 
 on:
   workflow_dispatch:
