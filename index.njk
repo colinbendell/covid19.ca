@@ -148,8 +148,8 @@ eleventyNavigation:
           <svg viewBox="0 0 512 512" class="province-update-status"><use href="#{{ data.data_status | lower | replace(r/ /gi, '-') }}"></use></svg>
         </label>
       {% else %}
-      <span class="name long">{{ data.name.en or data.name }}</span>
-      <span class="name short">{{ data.iso3166 or data.short or data.name.en or data.name }}</span>
+{#      <span class="name long">{{ data.name.en or data.name }}</span>#}
+      <span class="name">{{ data.iso3166 or data.short or data.name.en or data.name }}</span>
       {% endif %}
         <div class="small-detail reveal-on-hover">{{ data.population | formatNumber(false, 0) }}</div>
       </th>
@@ -314,8 +314,8 @@ eleventyNavigation:
           <svg viewBox="0 0 512 512" class="province-update-status"><use href="#{{ data.data_status | lower | replace(r/ /gi, '-') }}"></use></svg>
         </label>
         {% else %}
-        <span class="name long">{{ data.name.en or data.name }}</span>
-        <span class="name short">{{ data.iso3166 or data.short or data.name.en or data.name }}</span>
+{#        <span class="name long">{{ data.name.en or data.name }}</span>#}
+        <span class="name">{{ data.iso3166 or data.short or data.name.en or data.name }}</span>
         {% endif %}
         <div class="small-detail reveal-on-hover">{{ data.population | formatNumber(false, 0) }}</div>
       </th>
