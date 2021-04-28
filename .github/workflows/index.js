@@ -21,6 +21,28 @@ function removeEmpty(obj) {
     );
 }
 
+function mergeDaily(srcDaily = [], newDaily = [], force = false) {
+  if (!srcDaily) srcDaily = [];
+  if (!newDaily) newDaily = [];
+
+  const [lastDate] = srcDaily.map(d => d.date).sort((a, b) => Date.parse(a) - Date.parse(b)).slice(-1);
+
+  for (const newDay of newDaily) {
+    const srcDay = srcDaily.filter(r => r.date === newDay.date)[0];
+    if (srcDay) {
+      if (force || newDay.date === lastDate) {
+        for (const key of Object.keys(newDay).filter(n => !srcDay[n])) {
+          srcDay[key] = newDay[key];
+        }
+      }
+    }
+    else {
+      srcDaily.push(newDay);
+    }
+  }
+  return srcDaily;
+}
+
 async function get(url) {
     try {
         const res =  await fetch(url,
@@ -128,7 +150,7 @@ async function getCovid19TrackerCanadaDaily(data = new Map()) {
   // fill in the historical daily data for the country
   const res = await get('https://api.covid19tracker.ca/reports?after=2020-03-01&fill_dates=true').catch(e => null);
   if (res) {
-    data.get('CA').daily = res.data.sort((a,b) => Date.parse(a.date) - Date.parse(b.date));
+    data.get('CA').daily = mergeDaily(res.data, data.get('CA').daily).sort((a,b) => Date.parse(a.date) - Date.parse(b.date));
     // api is SK centric and does not emit ISO8601 formatted fields. Fortunately SK is always GMT-6
     if (res.last_updated) data.get('CA').updated_at = new Date(res.last_updated.replace(/ (\d\d:\d\d:\d\d)$/, 'T$1-0600'));
   }
@@ -137,7 +159,7 @@ async function getCovid19TrackerProvinceDaily(code = 'ON', data = new Map()) {
   // fill in the historical daily data per province
   const res = await get(`https://api.covid19tracker.ca/reports/province/${code}?after=2020-12-10&fill_dates=true`);
   if (res) {
-    data.get(code).daily = res.data;
+    data.get(code).daily = mergeDaily(res.data, data.get(code).daily).sort((a,b) => Date.parse(a.date) - Date.parse(b.date));
     // api is SK centric and does not emit ISO8601 formatted fields. Fortunately SK is always GMT-6
     if (res.last_updated) data.get(code).updated_at = new Date(res.last_updated.replace(/ (\d\d:\d\d:\d\d)$/, 'T$1-0600'));
   }
@@ -177,7 +199,7 @@ async function getCovid19TrackerRegionDaily(code, data) {
     const daily = new Map(r?._daily?.map(d => [d.date, d]) || []);
     const regionDaily = await get(`https://api.covid19tracker.ca/regions/${r.id}/reports?after=2020-12-10&fill_dates=true`);
     if (regionDaily) {
-      r.daily = regionDaily.data;
+      r.daily = mergeDaily(regionDaily.data, r.daily);
       for (const day of r.daily) {
         if (daily.has(day.date)) {
           Object.assign(day, daily.get(day.date));
@@ -231,7 +253,9 @@ async function getStatsCanCensus(data, hrData) {
   }
 }
 
-//Saskatchewan Actuals
+/**
+ * Saskatchewan Actuals
+ */
 async function getSK(hrData) {
   // convenience remapping of field names to the common form
   const keyMap = new Map([
@@ -312,6 +336,123 @@ async function getSK(hrData) {
   }
 }
 
+/**
+ * Ontario Actuals
+ */
+async function getON(data, hrData) {
+  const onDaily = [];
+  await Promise.all([
+    async () => {
+      // cases by health region
+      const res = await get('https://data.ontario.ca/api/3/action/datastore_search?resource_id=d1bfe1ad-6575-4352-8302-09ca81f7ddfc&limit=999999');
+      const phuData = new Map();
+      for (const hr of hrData.values()) {
+        if (hr.phu_id) phuData.set(hr.phu_id, hr);
+      }
+
+      for (const r of res?.result?.records) {
+        // some null values in the recordset
+        if (r.PHU_NUM) {
+          if (!phuData.has(r.PHU_NUM)) phuData.set(r.PHU_NUM, {id: r.PHU_NUM, name: r.PHU_NAME});
+          const phu = phuData.get(r.PHU_NUM);
+          if (!phu.daily) phu.daily = [];
+
+          phu.daily.push({
+            date: r.FILE_DATE.split('T')[0],
+            active_cases: r.ACTIVE_CASES,
+            total_recoveries: r.RESOLVED_CASES,
+            total_fatalities: r.DEATHS});
+        }
+      }
+
+      for (const phu of phuData.values()) {
+        let last = null
+        for (const d of phu.daily.sort((a,b) => Date.parse(a.date) - Date.parse(b.date))) {
+          // calculate missing fields to match aggregate datasets
+          // d.total_hospitalizations = (d.total_inpatient || 0) + (d.total_criticals || 0);
+          if (last) {
+            d.change_recoveries = (d.total_recoveries || 0) - (last.total_recoveries || 0);
+            // d.change_criticals = (d.total_criticals || 0) - (last.total_criticals || 0);
+            d.change_fatalities = (d.total_fatalities || 0) - (last.total_fatalities || 0);
+            // d.change_hospitalizations = (d.total_hospitalizations || 0) - (last.total_hospitalizations || 0);
+            d.change_cases = (d.active_cases || 0) - (last.active_cases || 0) + d.change_recoveries + d.change_fatalities;
+          }
+          delete d.active_cases;
+          last = d;
+        }
+      }
+      // fs.writeFileSync('_data/data.ontario.ca/d1bfe1ad-6575-4352-8302-09ca81f7ddfc.json', stringify([...phuData.values()], 2, 200));
+    },
+    async () => {
+      const res = await get('https://data.ontario.ca/api/3/action/datastore_search?resource_id=8a89caa9-511c-4568-af89-7f2174b4378c&limit=9999');
+      const daily = [];
+      for (const r of res?.result?.records) {
+        daily.push({
+          date: r.report_date.split('T')[0],
+          change_vaccinations: Number.parseInt(r.previous_day_doses_administered?.replace(/,/g, '')),
+          total_vaccinations: Number.parseInt(r.total_doses_administered?.replace(/,/g, '')),
+          total_vaccinated: Number.parseInt(r.total_individuals_fully_vaccinated?.replace(',', ''))
+        });
+      }
+
+      let last = null;
+      for (const d of daily.sort((a,b) => Date.parse(a.date) - Date.parse(b.date))) {
+        if (last) {
+          d.change_vaccinated = (d.total_vaccinated || 0) - (last.total_vaccinated || 0);
+        }
+        last = d;
+      }
+
+      mergeDaily(onDaily, daily, true);
+      // fs.writeFileSync('_data/data.ontario.ca/8a89caa9-511c-4568-af89-7f2174b4378c.json', stringify(daily, 2, 200));
+    },
+    async () => {
+      const res = await get('https://data.ontario.ca/api/3/action/datastore_search?resource_id=ed270bb8-340b-41f9-a7c6-e8ef587e6d11&limit=9999');
+      const daily = [];
+      for (const r of res?.result?.records) {
+        if (r["Total Cases"]) {
+          daily.push({
+            date: r["Reported Date"].split('T')[0],
+            total_cases: r["Total Cases"],
+            total_recoveries: r["Resolved"],
+            total_fatalities: r["Deaths"],
+            total_hospitalizations: r["Number of patients hospitalized with COVID-19"],
+            total_criticals: r["Number of patients in ICU due to COVID-19"],
+            total_tests: r["Total patients approved for testing as of Reporting Date"],
+            change_tests: r["Total tests completed in the last day"],
+          });
+        }
+      }
+
+      let last = null;
+      for (const d of daily.sort((a,b) => Date.parse(a.date) - Date.parse(b.date))) {
+        if (last) {
+          d.change_cases = (d.total_cases || 0) - (last.total_cases || 0);
+          d.change_recoveries = (d.total_recoveries || 0) - (last.total_recoveries || 0);
+          d.change_fatalities = (d.total_fatalities || 0) - (last.total_fatalities || 0);
+          d.change_hospitalizations = (d.total_hospitalizations || 0) - (last.total_hospitalizations || 0);
+          d.change_criticals = (d.total_criticals || 0) - (last.total_criticals || 0);
+        }
+        last = d;
+      }
+
+      mergeDaily(onDaily, daily, true);
+      // fs.writeFileSync('_data/data.ontario.ca/ed270bb8-340b-41f9-a7c6-e8ef587e6d11.json', stringify(daily, 2, 200));
+    }
+  ].map(async p => await p()));
+
+  const onData = data.get('ON');
+  if (!onData.daily) onData.daily = [];
+  mergeDaily(onData.daily, onDaily);
+
+  // vaccine for ontario
+  // https://data.ontario.ca/api/3/action/datastore_search?resource_id=8a89caa9-511c-4568-af89-7f2174b4378c&limit=9999
+
+
+  // Test Data
+  // https://data.ontario.ca/dataset/ontario-covid-19-testing-metrics-by-public-health-unit-phu/resource/07bc0e21-26b5-4152-b609-c1958cb7b227
+}
+
 async function getData() {
   const data = new Map();
   const hrData = new Map();
@@ -319,6 +460,7 @@ async function getData() {
   await getCovid19TrackerProvinces(data);
   await getStatsCanCensus(data, hrData);
   await getSK(hrData);
+  await getON(data, hrData);
 
   await Promise.all([
     // getCovid19TrackerCanadaTotals(data),
@@ -340,6 +482,7 @@ async function getData() {
         if (hr.population) {
           hr.population = Math.round(hr.population * adjPopulationRate);
         }
+        delete hr.phu_id;
       }
     }
     delete prov.population2016;
