@@ -77,9 +77,6 @@ eleventyNavigation:
       {% set vaccinatedPerPopulation = (country.today.total_vaccinated / country.population15plus * 100) | round %}
       {% set firstDoesPerPopulation = (country.today.total_first_vaccination / country.population15plus * 100) | round %}
       {% set potentialFirstDoesPerPopulation = (( country.today.total_first_vaccination + country.today.available_doses ) / country.population15plus * 100) | round %}
-      <h3>{{ vaccinatedPerPopulation }} in 100 adults are vaccinated
-        <br>{{ firstDoesPerPopulation }} in 100 have a 1st dose
-        <br><span style="color: var(--gray-dark);">{{ potentialFirstDoesPerPopulation - firstDoesPerPopulation }} in 100</span> potential from freezers</h3>
       <div style="--repeat-y: 5; --repeat-x:20" class="ratiostats">
         <div style="position: absolute; --repeat-y: 5; --repeat-x:{{ (potentialFirstDoesPerPopulation / 5) | int}}; --repeat-color: repeating-linear-gradient( 135deg, var(--gray-dark), var(--gray-dark) 1px, var(--light) 1px, var(--light) 2px );" class="ratiostats"></div>
         <div style="position: absolute; --repeat-y: {{ potentialFirstDoesPerPopulation % 5 }}; --repeat-x:{{ (potentialFirstDoesPerPopulation / 5 + 0.5) | round}}; --repeat-color: repeating-linear-gradient( 135deg, var(--gray-dark), var(--gray-dark) 1px, var(--light) 1px, var(--light) 2px );" class="ratiostats"></div>
@@ -87,13 +84,15 @@ eleventyNavigation:
         <div style="position: absolute; --repeat-y: {{ firstDoesPerPopulation % 5 }}; --repeat-x:{{ (firstDoesPerPopulation / 5 + 0.5) | round}}; --repeat-color: repeating-linear-gradient( 135deg, var(--blue), var(--blue) 1px, var(--light) 1px, var(--light) 2px );" class="ratiostats"></div>
         <div style="position: absolute; --repeat-y: 1; --repeat-x:{{ vaccinatedPerPopulation }}; --repeat-color: var(--blue);" class="ratiostats"></div>
       </div>
+      <div style="max-width:20rem;line-height: 1; padding-top: 0.25rem"><strong style="color: var(--blue);">{{ vaccinatedPerPopulation }} in 100</strong> adults are vaccinated,
+        <br/><strong style="color: var(--blue);">{{ firstDoesPerPopulation }} in 100</strong> have a 1st dose and
+        <strong style="color: #000;">{{ potentialFirstDoesPerPopulation - firstDoesPerPopulation }} in 100</strong> more could receive a dose from freezer</div>
     </li>
     <li>
       {% set maxVal = country.today.total_criticals %}
       {%- for week in country.previousWeeks %}
         {% set maxVal %}{{ week.total_criticals_avg | max(maxVal) }}{% endset %}
       {%- endfor %}
-      <h3 style="position:absolute;">{{ country.today.total_criticals | d(0) | format }} in ICU</h3>
       <table class="charts-css column" style="--color-1: var(--pink); --size: {{ (country.lastWeekExclusive.active_cases_avg / country.infection.maxActiveCases) | format }}" data-trendline="{{ country.lastWeekExclusive.active_cases_avg |formatNumber }} /day">
         <tbody>
         <tr>
@@ -104,6 +103,7 @@ eleventyNavigation:
         </tr>
         </tbody>
       </table>
+      <div>{{ country.today.total_criticals | d(0) | format }} in ICU ({{ country.today.total_hospitalizations | d(0) | format }} in the hospital)</div>
     </li>
   </ul>
     {%- endfor %}
