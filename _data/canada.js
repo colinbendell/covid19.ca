@@ -130,7 +130,7 @@ function normalizeVaccine(data) {
   const firstVaccinationsDate = new Date(Date.now() + (daysToFirstVaccinations * 7*24*60*60*1000)).toJSON().split('T')[0];
   const daysToZeroVaccines = today.available_doses > 0 ? Math.max(Math.round(today.available_doses / (lastWeekInclusive.change_vaccinations_avg-0.001) + 0.5),0) : null;
 
-  const changeCaseBase = (data.complete ? today.change_cases : yesterday.change_cases);
+  const changeCaseBase = data.complete || Math.abs(today.change_cases / yesterday.change_cases) > 0.75  ? today.change_cases : yesterday.change_cases;
   const changeInCasesRate = today.change_cases > 0 ? Math.max(Math.min(Math.round((changeCaseBase - lastWeekExclusive.change_cases_avg) / (lastWeekExclusive.change_cases_avg+0.001)*100), 100), -100) : 0;
 
   const maxVaccinations = Math.max(...previousWeeks.slice(-8).map(w => w.change_vaccinations_avg || 0), ...previous7Days.map(v => v.change_vaccinations).map(v => v || 0), today.change_vaccinations || 0, 0);
