@@ -389,6 +389,12 @@ table.status > tbody > tr.country * {
 .data-rate[data-rate]:empty::after {
   content: "N/A"
 }
+.data-rate.golf[data-rate]::after {
+  color: var(--red);
+}
+.data-rate.golf[data-rate ^= "-"]::after {
+  color: var(--blue);
+}
 
 .progressbar > .value {
   background-color: var(--blue);
@@ -409,7 +415,6 @@ table.status > tbody > tr.country * {
 .progressbar.red > .value {
   background-color: var(--red);
 }
-
 
 .progressbar.per100k:not([data-value="N/A"]):not([data-value="0"])::after, .progressbar.per1000k:not([data-value="N/A"]):not([data-value="0"])::after {
   content: attr(data-value);
@@ -640,13 +645,6 @@ table.charts-css.column:not(.stacked) td:not(:first-child) {
     var(--light) 3px,
     var(--light) 5px
   );
-}
-
-td[data-rate].activecases::after {
-  color: var(--red);
-}
-td[data-rate ^= "-"].activecases::after {
-  color: var(--blue);
 }
 
 tr:not(.today) .current {
