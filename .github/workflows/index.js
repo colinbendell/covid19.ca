@@ -216,6 +216,88 @@ async function getCovid19TrackerRegionDaily(code, data) {
   }));
 }
 
+async function getVaccineScheduleCanada() {
+  const lookup = new Map([
+    ['Total forecasted allocations','CA'],
+    ['Alberta','AB'],
+    ['British Columbia','BC'],['Manitoba','MB'],['New Brunswick','NB'],['Newfoundland and Labrador','NL'],
+    ['Nova Scotia','NS'],['Northwest Territories','NT'],['Nunavut','NU'],['Ontario','ON'],['Prince Edward Island','PE'],['Quebec','QC'],['Saskatchewan','SK'],['Yukon','YT']
+  ])
+  const newValues = {};
+  const res = await get('https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks/covid-19-vaccine-treatment/vaccine-rollout.html');
+
+  for (const tableMatch of res.matchAll(/<h2 id="a4[a-z][^<]*?<\/h2>.*?<table.*?<\/table>/isg)) {
+    const table = new Map();
+    const [match] = tableMatch || [];
+
+    let lastModified;
+    if (/Total COVID-19 vaccine confirmed distribution as of /.test(match)) {
+      const [,lastModifiedDate, lastModifiedTime] = /Total COVID-19 vaccine confirmed distribution as of (.*?) at (\d+:\d+ \S+)/i.exec(match);
+      // lastModified = new Date(`${new Date(lastModifiedDate).toISOString().split('T')[0]} ${lastModifiedTime.replace('.', '')} EDT`);
+      lastModified = (new Date(lastModifiedDate) || new Date()).toISOString().split('T')[0];
+    }
+
+    const [,title] = /<h2[^>]+>([^<]+)<\/h2>/i.exec(match) || [];
+    const titleClean = title.replace(/(?: vaccine)? forecasted allocation/i, '').replace(/ distribution/i, '');
+    const [thead] = /<thead[^>]*>.*?<\/thead>/ism.exec(match) || [];
+
+    const header = [];
+    for (const thMatch of thead.matchAll(/<th[^>]*>([^<]+)<\/th>/g)) {
+      const [,th] = thMatch;
+      const thClean = th.trim()
+                        .replace(/Pfizer.*/, 'Pfizer')
+                        .replace(/Distribution location/, 'name')
+                        .replace(/Vaccine distribution/, 'name')
+                        .replace(/Total forecasted allocations/, 'total')
+                        .replace(/^(\d+)(?:\s*-\s*\d+)?\s*([a-z]+).*/i, '2021-$2-$1');
+      header.push(Date.parse(thClean) ? new Date(thClean)?.toISOString()?.split('T')[0] : thClean);
+    }
+
+    const [tbody] = /<tbody[^>]*>.*?<\/tbody>/is.exec(match) || [];
+    for (const trMatch of tbody.matchAll(/<tr[^>]*>.*?<\/tr>/isg)) {
+      const [tr] = trMatch || "";
+      let i = 0;
+      const row = {};
+      for (const tdMatch of tr.matchAll(/<td[^>]*>(.*?)<\/td>/ig)) {
+        const [,td] = tdMatch || "";
+        const tdClean = td.replace(/<.*/, '').replace(/\s+/g, ' ').trim()
+          .replace(/Federal allocation.*/, 'FA')
+          .replace(/Total distributed in Canada/, 'CA')
+          .replace(',', '');
+        row[header[i++]] = lookup.get(tdClean) || Number.parseInt(tdClean) || (tdClean === "0" ? 0 : tdClean);
+      }
+
+      const name = row.name;
+      delete row.name;
+      table.set(name, row);
+    }
+
+    // blech this is gross. TODO: cleanup
+    if (titleClean !== 'Vaccine') {
+      // we need to reorganize
+      const newRow = new Map();
+      for (const [name, row] of [...table.entries()]) {
+        for (const [date, value] of Object.entries(row)) {
+          if (!table.has(date)) table.set(date, {date: date});
+          table.get(date)[name] = value;
+        }
+        table.delete(name);
+      }
+      newValues[titleClean] = [...table.values()];
+    }
+    else {
+      newValues.daily = [Object.assign(Object.fromEntries(table.entries()), {date: lastModified})];
+    }
+  }
+
+  const dataFilename = '_data/canada.ca/vaccine-rollout.json';
+  if (fs.existsSync(dataFilename)) {
+    const oldValues = JSON.parse(fs.readFileSync(dataFilename, 'utf-8'));
+    newValues.daily.push(...oldValues.daily.filter(d => d.date !== newValues?.daily[0].date));
+  }
+  fs.writeFileSync('_data/canada.ca/vaccine-rollout.json', stringify(newValues, 2, 200));
+}
+
 async function getStatsCanCensus(data, hrData) {
   // const statsCanData = new Map();
   // const statcanGeosProvinces = await get('https://www12.statcan.gc.ca/rest/census-recensement/CR2016Geo.json?geos=PR');
@@ -462,6 +544,7 @@ async function getData() {
   const data = new Map();
   const hrData = new Map();
 
+  await getVaccineScheduleCanada();
   await getCovid19TrackerProvinces(data);
   await getStatsCanCensus(data, hrData);
   await getSK(hrData);

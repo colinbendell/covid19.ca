@@ -143,6 +143,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy({'_data/covid19tracker.ca': '/'});
+  eleventyConfig.addPassthroughCopy({'_data/canada.ca': '/'});
 
   // Customize Markdown library and settings:
   // let markdownLibrary = markdownIt({

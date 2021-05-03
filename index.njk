@@ -82,7 +82,8 @@ eleventyNavigation:
         <div style="position: absolute; --repeat-y: {{ potentialFirstDoesPerPopulation % 5 }}; --repeat-x:{{ (potentialFirstDoesPerPopulation / 5 + 0.5) | round}}; --repeat-color: repeating-linear-gradient( 135deg, var(--gray-dark), var(--gray-dark) 1px, var(--light) 1px, var(--light) 2px );" class="ratiostats"></div>
         <div style="position: absolute; --repeat-y: 5; --repeat-x:{{ (firstDoesPerPopulation / 5) | int}}; --repeat-color: repeating-linear-gradient( 135deg, var(--blue), var(--blue) 1px, var(--light) 1px, var(--light) 2px );" class="ratiostats"></div>
         <div style="position: absolute; --repeat-y: {{ firstDoesPerPopulation % 5 }}; --repeat-x:{{ (firstDoesPerPopulation / 5 + 0.5) | round}}; --repeat-color: repeating-linear-gradient( 135deg, var(--blue), var(--blue) 1px, var(--light) 1px, var(--light) 2px );" class="ratiostats"></div>
-        <div style="position: absolute; --repeat-y: 1; --repeat-x:{{ vaccinatedPerPopulation }}; --repeat-color: var(--blue);" class="ratiostats"></div>
+        <div style="position: absolute; --repeat-y: 5; --repeat-x:{{ (vaccinatedPerPopulation / 5) | int }}; --repeat-color: var(--blue);" class="ratiostats"></div>
+        <div style="position: absolute; --repeat-y: {{ vaccinatedPerPopulation % 5 }}; --repeat-x:{{ (vaccinatedPerPopulation / 5 + 0.5) | round}}; --repeat-color: var(--blue);" class="ratiostats"></div>
       </div>
       <div style="max-width:20rem;line-height: 1; padding-top: 0.25rem"><strong style="color: var(--blue);">{{ vaccinatedPerPopulation }} in 100</strong> adults are vaccinated,
         <br/><strong style="color: var(--blue);">{{ firstDoesPerPopulation }} in 100</strong> have a 1st dose and
