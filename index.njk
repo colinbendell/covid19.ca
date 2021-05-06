@@ -150,7 +150,9 @@ eleventyNavigation:
         </label>
       {% else %}
 {#      <span class="name long">{{ data.name.en or data.name }}</span>#}
-      <span class="name">{{ data.iso3166 or data.short or data.name.en or data.name }}</span>
+        <label class="label-toggle">
+          <span class="name">{{ data.iso3166 or data.short or data.name.en or data.name }}</span>
+        </label>
       {% endif %}
         <div class="small-detail reveal-on-hover">{{ data.population | formatNumber(false, 0) }}</div>
       </th>
@@ -316,7 +318,9 @@ eleventyNavigation:
         </label>
         {% else %}
 {#        <span class="name long">{{ data.name.en or data.name }}</span>#}
-        <span class="name">{{ data.iso3166 or data.short or data.name.en or data.name }}</span>
+        <label class="label-toggle">
+          <span class="name">{{ data.iso3166 or data.short or data.name.en or data.name }}</span>
+        </label>
         {% endif %}
         <div class="small-detail reveal-on-hover">{{ data.population | formatNumber(false, 0) }}</div>
       </th>
@@ -363,23 +367,23 @@ eleventyNavigation:
       <td class="activecases per100k">
         <div class="progressbar per100k {{ selectColour(data.today.activePer100k)  }}" aria-valuenow="{{ data.today.activePer100k }}" data-value="{{ data.today.active_cases | formatNumber }}" data-change="{{ data.today.change_active_cases | format }}">
           <span class="value" aria-hidden="true" style="width: {{ (data.today.activePer100k/selectBase(data.today.activePer100k)*100) | min(100) }}%"></span>
-          {% if data.today.change_activePer100k > 0 %}<span class="change percent per100k" data-value="{{ data.today.change_activePer100k | format }}"></span>{% endif %}
-          {% if data.today.change_active_cases > 0 %}<span class="change absolute" data-value="{{ data.today.change_active_cases | format }}"></span>{% endif %}
+          {% if data.today.change_activePer100k != 0 %}<span class="change percent per100k" data-value="{{ data.today.change_activePer100k | format }}"></span>{% endif %}
+          {% if data.today.change_active_cases != 0 %}<span class="change absolute" data-value="{{ data.today.change_active_cases | format }}"></span>{% endif %}
         </div>
       </td>
       <td class="hospitalized per1000k">
         <div class="progressbar per1000k {{ selectColour(data.today.hospitalizedPer1000k) }}" aria-valuenow="{{ data.today.hospitalizedPer1000k if data.today.total_hospitalizations >= 0 else "N/A"}}" data-value="{{ data.today.total_hospitalizations | formatNumber }}">
           {% if data.today.total_hospitalizations > 0 %}
           <span class="value" aria-hidden="true" style="width: {{ (data.today.hospitalizedPer1000k/selectBase(data.today.hospitalizedPer1000k)*100) | min(100) }}%"></span>
-          {% if data.today.change_hospitalizedPer1000k > 0 %}<span class="change percent per1000k" data-value="{{ data.today.change_hospitalizedPer1000k | format }}"></span>{% endif %}
-          {% if data.today.change_hospitalizations > 0 %}<span class="change absolute" data-value="{{ data.today.change_hospitalizations | format }}"></span>{% endif %}
+          {% if data.today.change_hospitalizedPer1000k != 0 %}<span class="change percent per1000k" data-value="{{ data.today.change_hospitalizedPer1000k | format }}"></span>{% endif %}
+          {% if data.today.change_hospitalizations != 0 %}<span class="change absolute" data-value="{{ data.today.change_hospitalizations | format }}"></span>{% endif %}
           {% endif %}
         </div>
       </td>
       <td class="death per100k">
         <div class="progressbar per100k red" role="progressbar" aria-valuenow="{{ data.today.fatalitiesPer100k }}" data-value="{{ data.today.total_fatalities | formatNumber }}"><span class="value" aria-hidden="true" style="width: {{ data.today.fatalitiesPer100k | min(100) }}%"></span>
-          {% if data.today.change_fatalitiesPer100k > 0 %}<span class="change percent per100k" data-value="{{ data.today.change_fatalitiesPer100k | format }}"></span>{% endif %}
-          {% if data.today.change_fatalities > 0 %}<span class="change absolute" data-value="{{ data.today.change_fatalities | format }}"></span>{% endif %}
+          {% if data.today.change_fatalitiesPer100k != 0 %}<span class="change percent per100k" data-value="{{ data.today.change_fatalitiesPer100k | format }}"></span>{% endif %}
+          {% if data.today.change_fatalities != 0  %}<span class="change absolute" data-value="{{ data.today.change_fatalities | format }}"></span>{% endif %}
         </div>
       </td>
       <td class="positivity">
