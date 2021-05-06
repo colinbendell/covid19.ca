@@ -187,7 +187,11 @@ module.exports = async function() {
     }
 
     prov.total = prov.daily[prov.daily.length - 1];
-    if (prov.population > 0) prov.population15plus = prov.population * (100-(prov["0-14"] || 0)) / 100;
+    if (prov.population > 0) {
+      prov.population15plus = prov.population * (100-(prov["0-14"] || 0)) / 100;
+      prov.population12plus = prov.population * (100-(prov["0-11"] || 0)) / 100;
+      prov.population18plus = prov.population * (100-(prov["0-11"] || 0)-(prov["12-17"] || 0)) / 100;
+    }
     Object.assign(prov, normalizeVaccine(prov))
 
     // only real health regions
