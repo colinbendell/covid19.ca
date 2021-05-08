@@ -27,10 +27,16 @@ function normalizeVaccine(data) {
       activePer100k: item.active_cases >= 0 ? Math.round(item.active_cases / data.population * 100*1000) : null,
       fatalitiesPer100k: item.total_fatalities >= 0 ? Math.round(item.total_fatalities / data.population * 100*1000) : null,
       hospitalizedPer1000k: item.total_hospitalizations >= 0 ? Math.round(item.total_hospitalizations / data.population * 1000*1000) : null,
-      vaccinationsHalfPerCapita: Math.round((item.total_first_vaccination / data.population15plus) * 1000) / 10,
-      vaccinationsCompletePerCapita: item.total_vaccinated > 0 ? Math.round((item.total_vaccinated / data.population15plus) * 1000) / 10 : 0,
-      casesPerCapita: Math.round((item.total_cases / data.population) * 1000) / 10,
-      deathsPerCase: Math.round((item.total_fatalities / item.total_cases) * 1000) / 10,
+      first_vaccination_per_person: Math.round((item.total_first_vaccination / data.population) * 1000) / 10,
+      first_vaccination_per_2plus: Math.round((item.total_first_vaccination / data.population2plus) * 1000) / 10,
+      first_vaccination_per_12plus: Math.round((item.total_first_vaccination / data.population12plus) * 1000) / 10,
+      first_vaccination_per_18plus: Math.round((item.total_first_vaccination / data.population18plus) * 1000) / 10,
+      vaccinated_per_person: item.total_vaccinated > 0 ? Math.round((item.total_vaccinated / data.population) * 1000) / 10 : 0,
+      vaccinated_per_2plus: item.total_vaccinated > 0 ? Math.round((item.total_vaccinated / data.population2plus) * 1000) / 10 : 0,
+      vaccinated_per_12plus: item.total_vaccinated > 0 ? Math.round((item.total_vaccinated / data.population12plus) * 1000) / 10 : 0,
+      vaccinated_per_18plus: item.total_vaccinated > 0 ? Math.round((item.total_vaccinated / data.population18plus) * 1000) / 10 : 0,
+      total_cases_per_person: Math.round((item.total_cases / data.population) * 1000) / 10,
+      total_fatalities_per_person: Math.round((item.total_fatalities / item.total_cases) * 1000) / 10,
       positivityRate: item.change_tests > 0 ? Math.round(item.change_cases / item.change_tests * 1000) / 10 : null,
     }));
 
@@ -70,6 +76,7 @@ function normalizeVaccine(data) {
     return week;
   });
 
+  const [twoWeeksAgo] = previousWeeks.slice(-2);
   const [lastWeekExclusive] = previousWeeks.slice(-1);
 
   const [lastWeekInclusive] = [data.daily.slice(-7)].map(item => {
@@ -111,32 +118,101 @@ function normalizeVaccine(data) {
     }
   }
 
-
   const previous7Days = data.daily.slice(-8, -1);
   const [yesterday] = previous7Days.slice(-1);
 
-  const changeInVaccinationRate = today.change_vaccinations > 0 && yesterday?.change_vaccinations > 0 ? Math.round((today.change_vaccinations - lastWeekExclusive.change_vaccinations_avg) / lastWeekExclusive.change_vaccinations_avg*100) : 0;
-  const daysToFirstVaccinations = lastWeekExclusive.change_first_vaccination_avg > 0 ? Math.max(Math.round((data.population15plus - today.total_first_vaccination) / Math.max(lastWeekExclusive.change_first_vaccination_avg, lastWeekInclusive.change_first_vaccination_avg) / 7 + 0.5),0) : 0;
+  // change in vaccinations relative to the previous  week
+  let changeInVaccinationRate = 0;
+  if (today.change_vaccinations > 0 && yesterday?.change_vaccinations > 0) {
+    changeInVaccinationRate = Math.round((today.change_vaccinations - lastWeekExclusive.change_vaccinations_avg) / lastWeekExclusive.change_vaccinations_avg*100);
+  }
+
+  // change in cases relative to the previous week
+  let changeInCasesRate = 0;
+  if (today.change_cases > 0) {
+    let changeCaseBase = yesterday.change_cases;
+    if (data.complete || Math.abs(today.change_cases / yesterday.change_cases) > 0.75) {
+      changeCaseBase = today.change_cases;
+    }
+    changeInCasesRate = Math.max(Math.min(Math.round((changeCaseBase - lastWeekExclusive.change_cases_avg) / (lastWeekExclusive.change_cases_avg+0.001)*100), 100), -100);
+  }
+
+  const vaccinationPopulation = data.population12plus;
+  // calculate time to everyone getting the first dose using the trend rate
+  let daysToFirstVaccinations = 0;
+  if (lastWeekExclusive.change_first_vaccination_sum > 0) {
+    const optimisticChangeAvg = Math.max(lastWeekExclusive.change_first_vaccination_sum, lastWeekInclusive.change_first_vaccination_sum);
+    const accel = (optimisticChangeAvg - twoWeeksAgo.change_first_vaccination_sum )/2;
+    if (accel > 0 && twoWeeksAgo.change_first_vaccination_sum > 0) {
+      // d = v1t + 1/2at^2
+      // 0 = 1/2at^2 + v2t - d
+      let a = (1/2) * accel;
+      let b = optimisticChangeAvg;
+      let c = -(vaccinationPopulation - today.total_first_vaccination);
+      //(-b + ((b^2 -4ac)^(1/2)) / 2a
+      daysToFirstVaccinations = Math.round((-b + Math.sqrt((b*b) - (4*a*c)))/(2*a));
+      daysToFirstVaccinations = Math.max(Math.round(daysToFirstVaccinations),0) * 7;
+    }
+    else {
+      // if (!daysToFirstVaccinations) console.log(data.name, optimisticChangeAvg, twoWeeksAgo.change_first_vaccination_avg);
+      daysToFirstVaccinations = Math.max(Math.round((vaccinationPopulation - today.total_first_vaccination) / optimisticChangeAvg),0) * 7;
+    }
+  }
+  const firstVaccinationsDate = new Date(Date.now() + (daysToFirstVaccinations *24*60*60*1000)).toJSON().split('T')[0];
 
   // Most provinces have opted to focus on first dose, this skews the rate of full vaccination.
   // to account for this, we assume full vaccinations require 2 doses and use the current total doses rate
-  const changeInFullVaccinatedRate = lastWeekInclusive.change_vaccinated_avg > 0 && yesterday?.change_vaccinated > 0 ? Math.round((today.change_vaccinated - lastWeekExclusive.change_vaccinated_avg) / lastWeekExclusive.change_vaccinated_avg*100) : 0;
-  const daysToFullVaccinatedCurrentRate = lastWeekExclusive.change_vaccinated_avg > 0 ? Math.max(Math.round((data.population15plus - today.total_vaccinated) / Math.max(lastWeekExclusive.change_vaccinated_avg, lastWeekInclusive.change_vaccinated_avg) / 7 + 0.5),0) : 0;
-  const daysToFullVaccinatedAssume2Dose = lastWeekExclusive.change_vaccinations_avg > 0 ? Math.max(Math.round(((data.population15plus*2) - today.total_first_vaccination - today.total_vaccinated) / Math.max(lastWeekExclusive.change_vaccinations_avg, lastWeekInclusive.change_vaccinations_avg) / 7 + 0.5),0) : 0;
+
+  let daysToFullVaccinatedCurrentRate = 0;
+  let daysToFullVaccinatedAssume2Dose = 0;
+  if (lastWeekExclusive.change_vaccinated_sum > 0) {
+    const optimisticChangeAvg = Math.max(lastWeekExclusive.change_vaccinated_sum, lastWeekInclusive.change_vaccinated_sum);
+    // a = (v2 - v1) / t
+    const accel = (optimisticChangeAvg - twoWeeksAgo.change_vaccinated_sum )/2;
+    if (accel > 0 && twoWeeksAgo.change_vaccinated_sum > 0) {
+      // d = v1t + 1/2at^2
+      // 0 = 1/2at^2 + v2t - d
+      let a = (1/2) * accel;
+      let b = optimisticChangeAvg;
+      let c = -(vaccinationPopulation - today.total_vaccinated);
+      //(-b + ((b^2 -4ac)^(1/2)) / 2a
+      daysToFullVaccinatedCurrentRate = Math.round((-b + Math.sqrt((b*b) - (4*a*c)))/(2*a));
+      daysToFullVaccinatedCurrentRate = Math.max(Math.round(daysToFullVaccinatedCurrentRate),0) * 7;
+    }
+    else {
+      // if (!daysToFullVaccinatedCurrentRate) console.log(data.name, optimisticChangeAvg, twoWeeksAgo.change_vaccinated_avg);
+      daysToFullVaccinatedCurrentRate = Math.max(Math.round((vaccinationPopulation - today.total_vaccinated) / optimisticChangeAvg),0) * 7;
+    }
+  }
+  if (lastWeekExclusive.change_vaccinations_sum > 0) {
+    const optimisticChangeAvg = Math.max(lastWeekExclusive.change_vaccinations_sum, lastWeekInclusive.change_vaccinations_sum);
+    // a = (v2 - v1) / t
+    const accel = (optimisticChangeAvg - twoWeeksAgo.change_vaccinations_sum )/2;
+    if (accel > 0 && twoWeeksAgo.change_vaccinations_sum > 0) {
+      // d = v1t + 1/2at^2
+      // 0 = 1/2at^2 + v2t - d
+      let a = (1/2) * accel;
+      let b = optimisticChangeAvg;
+      let c = -((vaccinationPopulation*2) - today.total_vaccinations);
+      //(-b + ((b^2 -4ac)^(1/2)) / 2a
+      daysToFullVaccinatedAssume2Dose = Math.round((-b + Math.sqrt((b*b) - (4*a*c)))/(2*a));
+      daysToFullVaccinatedAssume2Dose = Math.max(Math.round(daysToFullVaccinatedAssume2Dose),0) * 7;
+    }
+    else {
+      daysToFullVaccinatedAssume2Dose = Math.max(Math.round(((vaccinationPopulation*2) - today.total_vaccinations) / optimisticChangeAvg),0) * 7;
+    }
+  }
   const daysToFullVaccinated = Math.min(daysToFullVaccinatedCurrentRate, daysToFullVaccinatedAssume2Dose);
+  const fullVaccinatedDate = new Date(Date.now() + (daysToFullVaccinated * 24*60*60*1000)).toJSON().split('T')[0];
 
-  const completeDate = new Date(Date.now() + (Math.min(daysToFullVaccinated, daysToFirstVaccinations) * 7*24*60*60*1000)).toJSON().split('T')[0];
-  const fullVaccinatedDate = new Date(Date.now() + (daysToFullVaccinated * 7*24*60*60*1000)).toJSON().split('T')[0];
-  const firstVaccinationsDate = new Date(Date.now() + (daysToFirstVaccinations * 7*24*60*60*1000)).toJSON().split('T')[0];
-  const daysToZeroVaccines = today.available_doses > 0 ? Math.max(Math.round(today.available_doses / (lastWeekInclusive.change_vaccinations_avg-0.001) + 0.5),0) : null;
-
-  const changeCaseBase = data.complete || Math.abs(today.change_cases / yesterday.change_cases) > 0.75  ? today.change_cases : yesterday.change_cases;
-  const changeInCasesRate = today.change_cases > 0 ? Math.max(Math.min(Math.round((changeCaseBase - lastWeekExclusive.change_cases_avg) / (lastWeekExclusive.change_cases_avg+0.001)*100), 100), -100) : 0;
-
-  const maxVaccinations = Math.max(...previousWeeks.slice(-8).map(w => w.change_vaccinations_avg || 0), ...previous7Days.map(v => v.change_vaccinations).map(v => v || 0), today.change_vaccinations || 0, 0);
-  const maxChangeCases = Math.max(...previousWeeks.slice(-8).map(w => w.change_cases_avg || 0), ...previous7Days.map(v => v.change_cases).map(v => v || 0), today.change_cases || 0, 0);
-  const maxActiveCases = Math.max(...previousWeeks.slice(-8).map(w => w.active_cases_avg || 0), ...previous7Days.map(v => v.active_cases).map(v => v || 0), today.active_cases || 0, 0);
-  const maxAvailableDoses = Math.max(...previousWeeks.slice(-8).map(w => w.available_doses_avg || 0), ...previous7Days.map(v => v.available_doses).map(v => v || 0), today.available_doses || 0, 0);
+  //convenience checks for maximums
+  const [maxVaccinations, maxChangeCases, maxActiveCases, maxAvailableDoses] = ["change_vaccinations", "change_cases", "active_cases", "available_doses"].map(name => {
+    return Math.max(...previousWeeks.slice(-8).map(weekData => weekData[name + "_avg"] || 0), ...previous7Days.map(dayData => dayData[name]).map(v => v || 0), today[name] || 0, 0);
+  })
+  // const maxVaccinations = Math.max(...previousWeeks.slice(-8).map(w => w.change_vaccinations_avg || 0), ...previous7Days.map(v => v.change_vaccinations).map(v => v || 0), today.change_vaccinations || 0, 0);
+  // const maxChangeCases = Math.max(...previousWeeks.slice(-8).map(w => w.change_cases_avg || 0), ...previous7Days.map(v => v.change_cases).map(v => v || 0), today.change_cases || 0, 0);
+  // const maxActiveCases = Math.max(...previousWeeks.slice(-8).map(w => w.active_cases_avg || 0), ...previous7Days.map(v => v.active_cases).map(v => v || 0), today.active_cases || 0, 0);
+  // const maxAvailableDoses = Math.max(...previousWeeks.slice(-8).map(w => w.available_doses_avg || 0), ...previous7Days.map(v => v.available_doses).map(v => v || 0), today.available_doses || 0, 0);
  return {
    previousWeeks,
    lastWeekExclusive,
@@ -146,13 +222,10 @@ function normalizeVaccine(data) {
    today,
    vaccine: {
      changeInVaccinationRate,
-     changeInFullVaccinatedRate,
-     daysToZeroVaccines,
      daysToFirstVaccinations,
      daysToFullVaccinated,
-     completeDate,
-     fullVaccinatedDate,
      firstVaccinationsDate,
+     fullVaccinatedDate,
      maxVaccinations,
      maxAvailableDoses,
    },
@@ -189,8 +262,9 @@ module.exports = async function() {
     prov.total = prov.daily[prov.daily.length - 1];
     if (prov.population > 0) {
       prov.population15plus = prov.population * (100-(prov["0-14"] || 0)) / 100;
-      prov.population12plus = prov.population * (100-(prov["0-11"] || 0)) / 100;
-      prov.population18plus = prov.population * (100-(prov["0-11"] || 0)-(prov["12-17"] || 0)) / 100;
+      prov.population2plus = prov.population * (100-(prov["0-1"] || 0)) / 100;
+      prov.population12plus = prov.population * (100-(prov["0-1"] || 0)-(prov["2-11"] || 0)) / 100;
+      prov.population18plus = prov.population * (100-(prov["0-1"] || 0)-(prov["2-11"] || 0)-(prov["12-17"] || 0)) / 100;
     }
     Object.assign(prov, normalizeVaccine(prov))
 
@@ -213,7 +287,12 @@ module.exports = async function() {
       // if (!region.total?.change_cases) {
       }
       region.total = region.daily[region.daily.length - 1];
-      if (region.population > 0) region.population15plus = region.population * (100-(prov["0-14"] || 0)) / 100;
+      if (region.population > 0) {
+        region.population15plus = region.population * (100-(prov["0-14"] || 0)) / 100;
+        region.population2plus = region.population * (100-(prov["0-1"] || 0)) / 100;
+        region.population12plus = region.population * (100-(prov["0-1"] || 0)-(prov["2-11"] || 0)) / 100;
+        region.population18plus = region.population * (100-(prov["0-1"] || 0)-(prov["2-11"] || 0)-(prov["12-17"] || 0)) / 100;
+      }
       Object.assign(region, normalizeVaccine(region));
     }
     prov.regions = prov.regions?.sort((a,b) => b.population - a.population);
