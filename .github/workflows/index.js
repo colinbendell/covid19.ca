@@ -263,7 +263,7 @@ async function getVaccineScheduleCanada() {
         const tdClean = td.replace(/<.*/, '').replace(/\s+/g, ' ').trim()
           .replace(/Federal allocation.*/, 'FA')
           .replace(/Total distributed in Canada/, 'CA')
-          .replace(',', '');
+          .replace(/,/g, '');
         row[header[i++]] = lookup.get(tdClean) || Number.parseInt(tdClean) || (tdClean === "0" ? 0 : tdClean);
       }
 
