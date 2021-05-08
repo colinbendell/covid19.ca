@@ -54,12 +54,12 @@ eleventyNavigation:
       </p>
       <p>
         In the last day, <strong><span class="number" title="{{ (country.today.change_cases or country.yesterday.change_cases) | format }}"><a href="#vaccinations">{{ (country.today.change_cases or country.yesterday.change_cases) | formatNumber(false, 0) }}</a></span> new infections</strong>
-        have been reported and <strong><span class="number"><a href="#vaccinations">{{ country.today.change_fatalities or country.yesterday.change_fatalities }}</a></span> deaths</strong>.
+        were reported and <strong><span class="number"><a href="#vaccinations">{{ country.today.change_fatalities or country.yesterday.change_fatalities }}</a></span> deaths</strong>.
         This is trending <strong><span class="editorial {{ "negative" if country.infection.changeInCasesRate > 0 else "positive" }}">{{ "downwards" if country.infection.changeInCasesRate < 0 else "upwards" }}</span></strong>.
       </p>
       <p>
         Fortunately, <strong><span class="number" title="{{ country.today.total_vaccinations | format }}"><a href="#vaccinations">{{ country.today.total_vaccinations | formatNumber(false, 0) }}</a></span> doses</strong> of the vaccine have been administered.
-        Of those 12 years and older, <span class="number"><a href="#vaccinations">{{ (country.today.total_first_vaccination / vaccinePopulation * 100) | round(1) }}%</a></span> have their 1st shot
+        For those 12 years and older, <span class="number"><a href="#vaccinations">{{ (country.today.total_first_vaccination / vaccinePopulation * 100) | round(1) }}%</a></span> have their 1st shot
         and <span class="number"><a href="#vaccinations">{{ (country.today.total_vaccinated / vaccinePopulation * 100) | round(1) }}%</a></span> are fully vaccinated!
       </p>
       <p>
@@ -67,8 +67,7 @@ eleventyNavigation:
         but there are <strong><span class="number" title="{{ country.today.available_doses | format }}"><a href="#vaccinations">{{ country.today.available_doses | formatNumber(false, 0) }}</a></span> doses in the freezer</strong>.
         It currently takes ~<strong><span class="number"><a href="#vaccinations">{{ (country.lastWeekExclusive.available_doses_sum / country.lastWeekExclusive.change_vaccinations_sum + 0.5) | round | format }}</a></span> days</strong>
         for new deliveries to get into arms.
-        At the current rate of <strong><span class="number" title="{{ country.lastWeekExclusive.change_vaccinations_avg | round | format }}"><a href="#vaccinations">{{ country.lastWeekExclusive.change_vaccinations_avg | formatNumber(false, 0) }}</a></span> doses per day</strong>,
-        all Canadians aged 12+ should have the first dose by <span class="number"><a href="#vaccinations">{{ country.vaccine.firstVaccinationsDate | readableDate }}</a></span>
+        At the current rate, all Canadians aged 12+ should have the first dose by <span class="number"><a href="#vaccinations">{{ country.vaccine.firstVaccinationsDate | readableDate }}</a></span>
         and fully vaccinated by <span class="number"><a href="#vaccinations">{{ country.vaccine.fullVaccinatedDate | readableDate }}</a></span>.
         There is no approved vaccine for children aged 11 or younger.
       </p>
@@ -174,7 +173,7 @@ eleventyNavigation:
           <span class="name">{{ data.iso3166 or data.short or data.name.en or data.name }}</span>
         </label>
       {% endif %}
-        <div class="small-detail reveal-on-hover">{{ data.population | formatNumber(false, 0) }}</div>
+        <div class="small-detail reveal-on-hover">{{ vaccinePopulation | formatNumber(false, 0) }} (of {{ data.population | formatNumber(false, 0) }})</div>
       </th>
       <td class="dose history">
         <div>

@@ -236,7 +236,7 @@ ul.flex {
 .stats > * {
   /*margin-left: 1rem;*/
   min-width: 20rem;
-  min-height: 6.5rem;
+  min-height: 10rem;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   margin-bottom: 1rem;
