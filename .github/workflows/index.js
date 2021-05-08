@@ -478,7 +478,7 @@ async function getON(data, hrData) {
           date: r.report_date.split('T')[0],
           change_vaccinations: Number.parseInt(r.previous_day_doses_administered?.toString()?.replace(/,/g, '')),
           total_vaccinations: Number.parseInt(r.total_doses_administered?.toString()?.replace(/,/g, '')),
-          total_vaccinated: Number.parseInt(r.total_individuals_fully_vaccinated?.toString()?.replace(',', ''))
+          total_vaccinated: Number.parseInt(r.total_individuals_fully_vaccinated?.toString()?.replace(/,/g, ''))
         });
       }
 
