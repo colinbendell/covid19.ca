@@ -137,104 +137,66 @@ function normalizeVaccine(data) {
     changeInCasesRate = Math.max(Math.min(Math.round((changeCaseBase - lastWeekExclusive.change_cases_avg) / (lastWeekExclusive.change_cases_avg+0.001)*100), 100), -100);
   }
 
-  const vaccinationPopulation = data.population12plus;
-  // calculate time to everyone getting the first dose using the trend rate
-  let daysToFirstVaccinations = 0;
-  if (lastWeekExclusive.change_first_vaccination_sum > 0) {
-    const optimisticChangeAvg = Math.max(lastWeekExclusive.change_first_vaccination_sum, lastWeekInclusive.change_first_vaccination_sum);
-    const accel = (optimisticChangeAvg - twoWeeksAgo.change_first_vaccination_sum )/2;
-    if (accel > 0 && twoWeeksAgo.change_first_vaccination_sum > 0) {
-      // d = v1t + 1/2at^2
-      // 0 = 1/2at^2 + v2t - d
-      let a = (1/2) * accel;
-      let b = optimisticChangeAvg;
-      let c = -(vaccinationPopulation - today.total_first_vaccination);
-      //(-b + ((b^2 -4ac)^(1/2)) / 2a
-      daysToFirstVaccinations = Math.round((-b + Math.sqrt((b*b) - (4*a*c)))/(2*a));
-      daysToFirstVaccinations = Math.max(Math.round(daysToFirstVaccinations),0) * 7;
+  const calculateWeeks = function(population_dose, rateOfChangeExclusive = 0, rateOfChangeInclusive = 0, rateOfChangeTwoWeeksAgo = 0) {
+    let daysToDose = 0;
+    if (rateOfChangeExclusive > 0) {
+      const optimisticChangeAvg = Math.max(rateOfChangeExclusive, rateOfChangeInclusive);
+      const accelerationRate = (optimisticChangeAvg - rateOfChangeTwoWeeksAgo )/2;
+      if (accelerationRate > 0 && rateOfChangeTwoWeeksAgo > 0) {
+        // d = v1t + 1/2at^2
+        // 0 = 1/2at^2 + v2t - d
+        let a = (1/2) * accelerationRate;
+        let b = optimisticChangeAvg;
+        let c = -(population_dose);
+        //(-b + ((b^2 -4ac)^(1/2)) / 2a
+        daysToDose = Math.round((-b + Math.sqrt((b*b) - (4*a*c)))/(2*a));
+        daysToDose = Math.max(Math.round(daysToDose + 0.5),0) * 7;
+      }
+      else {
+        // if (!daysToFirstVaccinations) console.log(data.name, optimisticChangeAvg, twoWeeksAgo.change_first_vaccination_avg);
+        daysToDose = Math.max(Math.round(population_dose / optimisticChangeAvg + 0.5),0) * 7;
+      }
     }
-    else {
-      // if (!daysToFirstVaccinations) console.log(data.name, optimisticChangeAvg, twoWeeksAgo.change_first_vaccination_avg);
-      daysToFirstVaccinations = Math.max(Math.round((vaccinationPopulation - today.total_first_vaccination) / optimisticChangeAvg),0) * 7;
-    }
+    return new Date(Date.now() + (daysToDose *24*60*60*1000)).toJSON().split('T')[0];
   }
-  const firstVaccinationsDate = new Date(Date.now() + (daysToFirstVaccinations *24*60*60*1000)).toJSON().split('T')[0];
+  const vaccinationPopulation = data.population12plus;
+  const firstVaccinationsDate = calculateWeeks(vaccinationPopulation - today.total_first_vaccination, lastWeekExclusive.change_first_vaccination_sum, lastWeekInclusive.change_first_vaccination_sum, twoWeeksAgo.change_first_vaccination_sum);
+  const daysToFirstVaccinations = Math.round((new Date(firstVaccinationsDate).getTime() - Date.now()) / 24/60/60/1000);
 
   // Most provinces have opted to focus on first dose, this skews the rate of full vaccination.
   // to account for this, we assume full vaccinations require 2 doses and use the current total doses rate
-
-  let daysToFullVaccinatedCurrentRate = 0;
-  let daysToFullVaccinatedAssume2Dose = 0;
-  if (lastWeekExclusive.change_vaccinated_sum > 0) {
-    const optimisticChangeAvg = Math.max(lastWeekExclusive.change_vaccinated_sum, lastWeekInclusive.change_vaccinated_sum);
-    // a = (v2 - v1) / t
-    const accel = (optimisticChangeAvg - twoWeeksAgo.change_vaccinated_sum )/2;
-    if (accel > 0 && twoWeeksAgo.change_vaccinated_sum > 0) {
-      // d = v1t + 1/2at^2
-      // 0 = 1/2at^2 + v2t - d
-      let a = (1/2) * accel;
-      let b = optimisticChangeAvg;
-      let c = -(vaccinationPopulation - today.total_vaccinated);
-      //(-b + ((b^2 -4ac)^(1/2)) / 2a
-      daysToFullVaccinatedCurrentRate = Math.round((-b + Math.sqrt((b*b) - (4*a*c)))/(2*a));
-      daysToFullVaccinatedCurrentRate = Math.max(Math.round(daysToFullVaccinatedCurrentRate),0) * 7;
-    }
-    else {
-      // if (!daysToFullVaccinatedCurrentRate) console.log(data.name, optimisticChangeAvg, twoWeeksAgo.change_vaccinated_avg);
-      daysToFullVaccinatedCurrentRate = Math.max(Math.round((vaccinationPopulation - today.total_vaccinated) / optimisticChangeAvg),0) * 7;
-    }
+  let fullVaccinatedDate = calculateWeeks(vaccinationPopulation - today.total_vaccinated, lastWeekExclusive.change_vaccinated_sum, lastWeekInclusive.change_vaccinated_sum, twoWeeksAgo.change_vaccinated_sum);
+  const fullVaccinatedByDosesDate = calculateWeeks((vaccinationPopulation*2) - today.total_vaccinations, lastWeekExclusive.change_vaccinations_sum, lastWeekInclusive.change_vaccinations_sum, twoWeeksAgo.change_vaccinations_sum);
+  if (new Date(fullVaccinatedDate).getTime() > new Date(fullVaccinatedByDosesDate).getTime()) {
+    fullVaccinatedDate = fullVaccinatedByDosesDate;
   }
-  if (lastWeekExclusive.change_vaccinations_sum > 0) {
-    const optimisticChangeAvg = Math.max(lastWeekExclusive.change_vaccinations_sum, lastWeekInclusive.change_vaccinations_sum);
-    // a = (v2 - v1) / t
-    const accel = (optimisticChangeAvg - twoWeeksAgo.change_vaccinations_sum )/2;
-    if (accel > 0 && twoWeeksAgo.change_vaccinations_sum > 0) {
-      // d = v1t + 1/2at^2
-      // 0 = 1/2at^2 + v2t - d
-      let a = (1/2) * accel;
-      let b = optimisticChangeAvg;
-      let c = -((vaccinationPopulation*2) - today.total_vaccinations);
-      //(-b + ((b^2 -4ac)^(1/2)) / 2a
-      daysToFullVaccinatedAssume2Dose = Math.round((-b + Math.sqrt((b*b) - (4*a*c)))/(2*a));
-      daysToFullVaccinatedAssume2Dose = Math.max(Math.round(daysToFullVaccinatedAssume2Dose),0) * 7;
-    }
-    else {
-      daysToFullVaccinatedAssume2Dose = Math.max(Math.round(((vaccinationPopulation*2) - today.total_vaccinations) / optimisticChangeAvg),0) * 7;
-    }
-  }
-  const daysToFullVaccinated = Math.min(daysToFullVaccinatedCurrentRate, daysToFullVaccinatedAssume2Dose);
-  const fullVaccinatedDate = new Date(Date.now() + (daysToFullVaccinated * 24*60*60*1000)).toJSON().split('T')[0];
 
   //convenience checks for maximums
   const [maxVaccinations, maxChangeCases, maxActiveCases, maxAvailableDoses] = ["change_vaccinations", "change_cases", "active_cases", "available_doses"].map(name => {
     return Math.max(...previousWeeks.slice(-8).map(weekData => weekData[name + "_avg"] || 0), ...previous7Days.map(dayData => dayData[name]).map(v => v || 0), today[name] || 0, 0);
   })
-  // const maxVaccinations = Math.max(...previousWeeks.slice(-8).map(w => w.change_vaccinations_avg || 0), ...previous7Days.map(v => v.change_vaccinations).map(v => v || 0), today.change_vaccinations || 0, 0);
-  // const maxChangeCases = Math.max(...previousWeeks.slice(-8).map(w => w.change_cases_avg || 0), ...previous7Days.map(v => v.change_cases).map(v => v || 0), today.change_cases || 0, 0);
-  // const maxActiveCases = Math.max(...previousWeeks.slice(-8).map(w => w.active_cases_avg || 0), ...previous7Days.map(v => v.active_cases).map(v => v || 0), today.active_cases || 0, 0);
-  // const maxAvailableDoses = Math.max(...previousWeeks.slice(-8).map(w => w.available_doses_avg || 0), ...previous7Days.map(v => v.available_doses).map(v => v || 0), today.available_doses || 0, 0);
- return {
-   previousWeeks,
-   lastWeekExclusive,
-   lastWeekInclusive,
-   previous7Days,
-   yesterday,
-   today,
-   vaccine: {
-     changeInVaccinationRate,
-     daysToFirstVaccinations,
-     daysToFullVaccinated,
-     firstVaccinationsDate,
-     fullVaccinatedDate,
-     maxVaccinations,
-     maxAvailableDoses,
-   },
-   infection: {
-     changeInCasesRate,
-     maxChangeCases,
-     maxActiveCases,
-   }
- }
+
+  return {
+    previousWeeks,
+    lastWeekExclusive,
+    lastWeekInclusive,
+    previous7Days,
+    yesterday,
+    today,
+    vaccine: {
+      changeInVaccinationRate,
+      daysToFirstVaccinations,
+      firstVaccinationsDate,
+      fullVaccinatedDate,
+      maxVaccinations,
+      maxAvailableDoses,
+    },
+    infection: {
+      changeInCasesRate,
+      maxChangeCases,
+      maxActiveCases,
+    }
+  }
 }
 module.exports = async function() {
   // const fullData  = await Cache("https://colinbendell.github.io/covid19data.ca/data.json", {

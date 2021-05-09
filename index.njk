@@ -92,18 +92,23 @@ eleventyNavigation:
         <br/><strong style="color: var(--blue);">{{ firstDoesPerPopulation }} in 100</strong> have a 1st dose and
         <strong style="color: #000;">{{ potentialFirstDoesPerPopulation - firstDoesPerPopulation }} in 100</strong> more could receive a dose from freezer</div>
     </li>
-    <li style="display: grid">
+    <li class="grid hospitalized">
       {% set maxVal = country.today.total_hospitalizations %}
       {%- for week in country.previousWeeks %}
         {% set maxVal %}{{ week.total_hospitalizations_avg | max(maxVal) }}{% endset %}
       {%- endfor %}
-      <table class="charts-css column" style="grid-area: 1/1; padding-bottom: 1.5rem; --color-1: lightgray; --size: {{ (country.lastWeekExclusive.active_cases_avg / country.infection.maxActiveCases) | format }}" data-trendline="{{ country.lastWeekExclusive.total_hospitalizations_avg |formatNumber }} /day">
+      <table class="charts-css column onexone" style="--size: {{ (country.lastWeekExclusive.active_cases_avg / country.infection.maxActiveCases) | format }}"
+             data-trendline="{{ country.lastWeekExclusive.total_hospitalizations_avg |formatNumber }} /day">
         <tbody>
         <tr>
           {%- for week in country.previousWeeks  %}
-            <td style="--size:{{ (week.total_hospitalizations_avg / maxVal) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>Hospitalized avg: {{ week.total_hospitalizations_avg | formatNumber }}/day<br/>In ICU Avg: {{ week.total_criticals_avg | formatNumber }}/day</span></td>
+            <td style="--size:{{ (week.total_hospitalizations_avg / maxVal) | max(0.03) | format}};">
+              <span class="tooltip">Week of {{ week.start | readableDate }}<br/>Hospitalized avg: {{ week.total_hospitalizations_avg | formatNumber }}/day<br/>In ICU Avg: {{ week.total_criticals_avg | formatNumber }}/day</span>
+            </td>
           {%- endfor %}
-          <td style="--size:{{ (country.today.total_hospitalizations / maxVal) | max(0.03) | format }};"><span class="tooltip">{{ country.today.date | readableDate }}<br/>Hospitalization: {{ country.today.total_hospitalizations | d(0) | formatNumber }}<br/>in ICU: {{ country.today.total_criticals | d(0) | formatNumber }}</span></td>
+          <td style="--size:{{ (country.today.total_hospitalizations / maxVal) | max(0.03) | format }};">
+            <span class="tooltip">{{ country.today.date | readableDate }}<br/>Hospitalization: {{ country.today.total_hospitalizations | d(0) | formatNumber }}<br/>in ICU: {{ country.today.total_criticals | d(0) | formatNumber }}</span>
+          </td>
         </tr>
         </tbody>
       </table>
@@ -112,17 +117,22 @@ eleventyNavigation:
       {%- for week in country.previousWeeks %}
         {% set maxVal %}{{ week.total_criticals_avg | max(maxVal) }}{% endset %}
       {%- endfor %}
-      <table class="charts-css column" style="grid-area: 1/1; height: 50%; align-self: end; padding-bottom: 1.5rem; --color-1: var(--pink); --size: {{ (country.lastWeekExclusive.active_cases_avg / country.infection.maxActiveCases) | format }}" data-trendline="{{ country.lastWeekExclusive.active_cases_avg |formatNumber }} /day">
+      <table class="charts-css column onexone alignend icu" style="--size: {{ (country.lastWeekExclusive.active_cases_avg / country.infection.maxActiveCases) | format }}"
+             data-trendline="{{ country.lastWeekExclusive.active_cases_avg |formatNumber }} /day">
         <tbody>
         <tr>
           {%- for week in country.previousWeeks  %}
-            <td style="--size:{{ (week.total_criticals_avg / maxVal) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>Hospitalized avg: {{ week.total_hospitalizations_avg | formatNumber }}/day<br/>In ICU Avg: {{ week.total_criticals_avg | formatNumber }}/day</span></td>
+            <td style="--size:{{ (week.total_criticals_avg / maxVal) | max(0.03) | format}};">
+              <span class="tooltip">Week of {{ week.start | readableDate }}<br/>Hospitalized avg: {{ week.total_hospitalizations_avg | formatNumber }}/day<br/>In ICU Avg: {{ week.total_criticals_avg | formatNumber }}/day</span>
+            </td>
           {%- endfor %}
-          <td style="--size:{{ (country.today.total_criticals / maxVal) | max(0.03) | format }};"><span class="tooltip">{{ country.today.date | readableDate }}<br/>Hospitalization: {{ country.today.total_hospitalizations | d(0) | formatNumber }}<br/>in ICU: {{ country.today.total_criticals | d(0) | formatNumber }}</span></td>
+          <td style="--size:{{ (country.today.total_criticals / maxVal) | max(0.03) | format }};">
+            <span class="tooltip">{{ country.today.date | readableDate }}<br/>Hospitalization: {{ country.today.total_hospitalizations | d(0) | formatNumber }}<br/>in ICU: {{ country.today.total_criticals | d(0) | formatNumber }}</span>
+          </td>
         </tr>
         </tbody>
       </table>
-      <div style="grid-area: 1/1; align-self: end;" >{{ country.today.total_criticals | d(0) | format }} in ICU ({{ country.today.total_hospitalizations | d(0) | format }} in the hospital)</div>
+      <div class="onexone alignend">{{ country.today.total_criticals | d(0) | format }} in ICU ({{ country.today.total_hospitalizations | d(0) | format }} in the hospital)</div>
     </li>
   </ul>
     {%- endfor %}
@@ -173,7 +183,7 @@ eleventyNavigation:
           <span class="name">{{ data.iso3166 or data.short or data.name.en or data.name }}</span>
         </label>
       {% endif %}
-        <div class="small-detail reveal-on-hover">{{ vaccinePopulation | formatNumber(false, 0) }} (of {{ data.population | formatNumber(false, 0) }})</div>
+        <div class="small-detail reveal-on-hover">{{ vaccinePopulation | formatNumber(false, 0) }} (12+)</div>
       </th>
       <td class="dose history">
         <div>
@@ -209,7 +219,10 @@ eleventyNavigation:
       </td>
       <td class="supply complete {{ "bad" if data.vaccine.daysToFirstVaccinations > 10*7 else ( "ok" if data.vaccine.daysToFirstVaccinations > 5*7 else "good") }}"
           title="First dose expected to be completed around {{ data.vaccine.firstVaccinationsDate | readableDate }} and full vaccination around {{ data.vaccine.fullVaccinatedDate | readableDate }} based on a trailing average of {{ data.lastWeekExclusive.change_first_vaccination_avg | formatNumber }} and {{ data.lastWeekExclusive.change_vaccinated_avg | formatNumber }} doses per day, respectively."
-        >{{ data.vaccine.firstVaccinationsDate | readableDate(false) if data.vaccine.daysToFirstVaccinations > 0 }}</td>
+        >
+        <div>{{ data.vaccine.firstVaccinationsDate | readableDate(false) if data.vaccine.daysToFirstVaccinations > 0 }}</div>
+        <div class="small-detail reveal-on-hover">({{ data.vaccine.fullVaccinatedDate | readableDate(false) if data.vaccine.daysToFirstVaccinations > 0 }})</div>
+      </td>
       <td class="dose total center"
           title="Total doses administered: {{ data.today.total_vaccinations | d(0) | formatNumber }}"
         >{{ data.today.total_vaccinations | d(0) | formatNumber }}</td>
