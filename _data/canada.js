@@ -152,7 +152,8 @@ function normalizeVaccine(data) {
         daysToDose = Math.round((-b + Math.sqrt((b*b) - (4*a*c)))/(2*a));
         daysToDose = Math.max(Math.round(daysToDose + 0.5),0) * 7;
       }
-      else {
+
+      if (!daysToDose) {
         // if (!daysToFirstVaccinations) console.log(data.name, optimisticChangeAvg, twoWeeksAgo.change_first_vaccination_avg);
         daysToDose = Math.max(Math.round(population_dose / optimisticChangeAvg + 0.5),0) * 7;
       }
