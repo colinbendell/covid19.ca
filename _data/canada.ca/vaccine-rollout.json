@@ -1,6 +1,24 @@
 {
   "daily": [
     {
+      "date": "2021-05-12",
+      "AB": {"AstraZeneca": 270800, "Moderna": 487600, "Pfizer": 1596855, "Total": 2355255},
+      "BC": {"AstraZeneca": 315000, "Moderna": 572700, "Pfizer": 1852890, "Total": 2740590},
+      "CA": {"AstraZeneca": 2318480, "Moderna": 4551610, "Pfizer": 13655442, "Total": 20525532},
+      "FA": {"AstraZeneca": 460, "Moderna": 148830, "Pfizer": 0, "Total": 149290},
+      "MB": {"AstraZeneca": 84260, "Moderna": 176800, "Pfizer": 498810, "Total": 759870},
+      "NB": {"AstraZeneca": 48000, "Moderna": 84990, "Pfizer": 282945, "Total": 415935},
+      "NL": {"AstraZeneca": 32100, "Moderna": 60100, "Pfizer": 186810, "Total": 279010},
+      "NS": {"AstraZeneca": 60000, "Moderna": 106600, "Pfizer": 352950, "Total": 519550},
+      "NT": {"AstraZeneca": 0, "Moderna": 60000, "Pfizer": 0, "Total": 60000},
+      "NU": {"AstraZeneca": 0, "Moderna": 45100, "Pfizer": 0, "Total": 45100},
+      "ON": {"AstraZeneca": 901800, "Moderna": 1631200, "Pfizer": 5310825, "Total": 7843825},
+      "PE": {"AstraZeneca": 9600, "Moderna": 17400, "Pfizer": 57915, "Total": 84915},
+      "QC": {"AstraZeneca": 524340, "Moderna": 962790, "Pfizer": 3090927, "Total": 4578057},
+      "SK": {"AstraZeneca": 72100, "Moderna": 140500, "Pfizer": 424515, "Total": 637115},
+      "YT": {"AstraZeneca": 20, "Moderna": 57000, "Pfizer": 0, "Total": 57020}
+    },
+    {
       "date": "2021-05-11",
       "AB": {"AstraZeneca": 270800, "Moderna": 487600, "Pfizer": 1360515, "Total": 2118915},
       "BC": {"AstraZeneca": 315000, "Moderna": 572700, "Pfizer": 1769820, "Total": 2657520},
@@ -79,8 +97,8 @@
       "SK": 31000, "YT": 1100
     },
     {
-      "date": "2021-05-17", "AB": 120600, "BC": 140100, "CA": 1046400, "FA": 11400, "MB": 37600, "NB": 21300, "NL": 14200, "NS": 26600, "NT": 1200, "NU": 1100, "ON": 401200, "PE": 4300, "QC": 233500,
-      "SK": 32100, "YT": 1200
+      "date": "2021-05-17", "AB": 120600, "BC": 142500, "CA": 1046400, "FA": 12500, "MB": 37600, "NB": 21300, "NL": 14200, "NS": 26600, "NT": 0, "NU": 0, "ON": 401200, "PE": 4300, "QC": 233500,
+      "SK": 32100, "YT": 0
     }
   ],
   "Pfizer": [
@@ -95,10 +113,11 @@
       "YT": 0
     },
     {
-      "date": "2021-05-24", "AB": 236340, "BC": 274950, "CA": 2026440, "MB": 73710, "NB": 42120, "NL": 28080, "NS": 52650, "NT": 0, "NU": 0, "ON": 788580, "PE": 8190, "QC": 458640, "SK": 63180, "YT": 0
+      "date": "2021-05-24", "AB": 236340, "BC": 273780, "CA": 2026440, "MB": 73710, "NB": 42120, "NL": 28080, "NS": 52650, "NT": 0, "NU": 0, "ON": 788580, "PE": 8190, "QC": 458640, "SK": 63180,
+      "YT": 1170
     },
     {
-      "date": "2021-05-31", "AB": 281970, "BC": 328770, "CA": 2413710, "MB": 87750, "NB": 49140, "NL": 32760, "NS": 62010, "NT": 0, "NU": 0, "ON": 939510, "PE": 10530, "QC": 546390, "SK": 74880,
+      "date": "2021-05-31", "AB": 281970, "BC": 327600, "CA": 2413710, "MB": 87750, "NB": 49140, "NL": 32760, "NS": 62010, "NT": 1170, "NU": 0, "ON": 939510, "PE": 10530, "QC": 546390, "SK": 74880,
       "YT": 0
     },
     {
