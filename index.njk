@@ -35,7 +35,7 @@ eleventyNavigation:
 
 <style>{{ cssSort('#sort-infect-name', false, 'details', 'name')}}</style>
 <style>{{ cssSort('#sort-infect-trend', true, 'details', 'lastWeekExclusive.change_cases_avg')}}</style>
-<style>{{ cssSort('#sort-infect-today', true, 'details', 'today.change_cases')}}</style>
+<style>{{ cssSort('#sort-infect-today', true, 'details', 'today.sort_change_cases_per_1000k')}}</style>
 <style>{{ cssSort('#sort-active-trend', true, 'details', 'lastWeekExclusive.active_cases_avg')}}</style>
 {#<style>{{ cssSort('#sort-active', true, 'details', 'today.activePer100k')}}</style>#}
 <style>{{ cssSort('#sort-hospital', true, 'details', 'today.hospitalizedPer1000k')}}</style>
@@ -380,7 +380,7 @@ eleventyNavigation:
     <div class="th toggle"></div>
     <div class="th name"><label class="sort" for="sort-infect-name"><br/><br/></label></div>
     <div class="th history"><label class="sort" for="sort-infect-trend">New Cases<br/>Last 60days</label></div>
-    <div class="th"><label class="sort" for="sort-infect-today">New Cases<br/>Today</label></div>
+    <div class="th"><label class="sort" for="sort-infect-today">New Cases<br/>Today/₁₀₀₀ₖ</label></div>
     <div class="th history"><label class="sort" for="sort-active-trend">Active Cases<br/>Last 60days</label></div>
     <div class="th"><label class="sort" for="sort-active">Current<br>Active/₁₀₀ₖ</label></div>
     <div class="th"><label class="sort" for="sort-hospital">Current<br>Hospital/₁₀₀₀ₖ</label></div>
@@ -404,7 +404,7 @@ eleventyNavigation:
         </label>
         {% else %}
 {#        <span class="name long">{{ data.name.en or data.name }}</span>#}
-        <label for="dumy" class="label-toggle">
+        <label for="dummy" class="label-toggle">
           <span class="name">{{ data.iso3166 or data.short or data.name.en or data.name }}</span>
         </label>
         {% endif %}
@@ -430,8 +430,20 @@ eleventyNavigation:
       <div class="td activecases current"
           title="There were {{ (data.today.change_cases | format) if data.today.change_cases else "NO"}} cases {{ data.today.date | readableDate | lower }}. With a 7 day average of {{ data.lastWeekExclusive.change_cases_avg | format }} cases per day. {{ (data.today.change_recoveries or data.lastWeekExclusive.change_recoveries_avg) | round | format }} cases were closed."
       >
-        <div class="data-rate golf" data-rate="{{ data.infection.changeInCasesRate }}">{{ (data.today.change_cases if data.today.change_cases > 0 else data.lastWeekExclusive.change_cases_avg) | formatNumber }}</div>
-        <div class="small-detail reveal-on-hover">Closed: {{ (data.today.change_recoveries or data.lastWeekExclusive.change_recoveries_avg) | round | formatNumber }}</div>
+{#        <div class="data-rate golf" data-rate="{{ data.infection.changeInCasesRate }}">{{ (data.today.change_cases if data.today.change_cases > 0 else data.lastWeekExclusive.change_cases_avg) | formatNumber }}</div>#}
+{#        <div class="small-detail reveal-on-hover">Closed: {{ (data.today.change_recoveries or data.lastWeekExclusive.change_recoveries_avg) | round | formatNumber }}</div>#}
+        {% if data.today.change_cases > 0 %}
+        <div class="progressbar per1000k {{ selectColour(data.today.change_cases_per_1000k)  }}" aria-valuenow="{{ data.today.change_cases_per_1000k }}" data-value="{{ data.today.change_cases | formatNumber }}">
+          <span class="value" aria-hidden="true" style="width: {{ (data.today.change_cases_per_1000k/selectBase(data.today.change_cases_per_1000k)*100) | min(100) }}%"></span>
+          {% if data.today.change_change_cases_per_1000k != 0 %}<span class="change percent per100k" data-value="{{ data.today.change_change_cases_per_1000k | format }}"></span>{% endif %}
+          {% if data.today.change_change_cases != 0 %}<span class="change absolute" data-value="{{ data.today.change_change_cases | format }}"></span>{% endif %}
+        </div>
+        {% else %}
+        <div class="progressbar per1000k {{ selectColour(data.lastWeekExclusive.change_cases_per_1000k_avg)  }}" aria-valuenow="~{{ (data.lastWeekExclusive.change_cases_per_1000k_avg + 0.5) | round }}">
+          <span class="value" aria-hidden="true" style="width: {{ (data.lastWeekExclusive.change_cases_per_1000k_avg/selectBase(data.lastWeekExclusive.change_cases_per_1000k_avg)*100) | min(100) }}%"></span>
+          {% if data.today.change_change_cases_per_1000k_avg != 0 %}<span class="change percent per100k" data-value="{{ (data.lastWeekExclusive.change_change_cases_per_1000k_avg + 0.5) | round | format }}"></span>{% endif %}
+        </div>
+        {% endif %}
       </div>
       <div class="td activecases history">
         <div>
