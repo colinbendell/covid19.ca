@@ -360,60 +360,60 @@ main {
   background-color: #f2f2f2;
 }
 
-.tr > .th > label.sort:after {
-  /*content: '▲ △';*/
-  content: '△ ▽';
-  width: 0;
-  display: grid;
-  white-space: break-spaces;
-  text-align: left;
-  line-height: 0.5rem;
-  min-height: 1.5rem;
-  font-weight: 100;
-  margin-left:0.25rem;
-  font-size: 0.75rem;
-  color: var(--gray);
-}
+/*.tr > .th > label.sort:after {*/
+/*  !*content: '▲ △';*!*/
+/*  content: '△ ▽';*/
+/*  width: 0;*/
+/*  display: grid;*/
+/*  white-space: break-spaces;*/
+/*  text-align: left;*/
+/*  line-height: 0.5rem;*/
+/*  min-height: 1.5rem;*/
+/*  font-weight: 100;*/
+/*  margin-left:0.25rem;*/
+/*  font-size: 0.75rem;*/
+/*  color: var(--gray);*/
+/*}*/
 .tr > .th > label.sort {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-end;
-  vertical-align: middle;
+  display: block;
+  margin-right: -0.75rem;
+  margin-left: -0.75rem;
+  background-repeat: no-repeat;
+  background-position: left .25rem bottom .5rem;
+  background-size: .65em 2em;
 }
+
 .flex.tr > .th.name > label.sort {
   justify-content: left;
+  padding-left: .75rem;
 }
-#sort-vacc-name:checked ~ .tr.thead label[for=sort-vacc-name]:after,
-#sort-complete:checked ~ .tr.thead label[for=sort-complete]:after,
-#sort-time-to-arm:checked ~ .tr.thead label[for=sort-time-to-arm]:after {
-  content: '▲ ▽'; font-weight: normal;
+#sort-complete:checked ~ .tr.thead label[for=sort-complete],
+#sort-time-to-arm:checked ~ .tr.thead label[for=sort-time-to-arm] {
+  background-image: url('img/long-arrow-up.svg');
 }
-#sort-vacc-trend:checked ~ .tr.thead label[for=sort-vacc-trend]:after,
-#sort-vacc-today:checked ~ .tr.thead label[for=sort-vacc-today]:after,
-#sort-vacc-total:checked ~ .tr.thead label[for=sort-vacc-total]:after,
-#sort-half:checked ~ .tr.thead label[for=sort-half]:after,
-#sort-full:checked ~ .tr.thead label[for=sort-full]:after,
-#sort-freezer-trend:checked ~ .tr.thead label[for=sort-freezer-trend]:after,
-#sort-freezer-today:checked ~ .tr.thead label[for=sort-freezer-today]:after,
-#sort-freezer-population:checked ~ .tr.thead label[for=sort-freezer-population]:after {
-  content: '△ ▼'; font-weight: normal;
-}
-
-#sort-infect-name:checked ~ .tr.thead label[for=sort-infect-name]:after {
-  content: '▲ ▽'; font-weight: normal;
+#sort-vacc-name:checked ~ .tr.thead label[for=sort-vacc-name],
+#sort-vacc-trend:checked ~ .tr.thead label[for=sort-vacc-trend],
+#sort-vacc-today:checked ~ .tr.thead label[for=sort-vacc-today],
+#sort-vacc-total:checked ~ .tr.thead label[for=sort-vacc-total],
+#sort-half:checked ~ .tr.thead label[for=sort-half],
+#sort-full:checked ~ .tr.thead label[for=sort-full],
+#sort-freezer-trend:checked ~ .tr.thead label[for=sort-freezer-trend],
+#sort-freezer-today:checked ~ .tr.thead label[for=sort-freezer-today],
+#sort-freezer-population:checked ~ .tr.thead label[for=sort-freezer-population] {
+  background-image: url('img/long-arrow-down.svg');
 }
 
-#sort-infect-trend:checked ~ .tr.thead label[for=sort-infect-trend]:after,
-#sort-infect-today:checked ~ .tr.thead label[for=sort-infect-today]:after,
-#sort-active-trend:checked ~ .tr.thead label[for=sort-active-trend]:after,
-#sort-active:checked ~ .tr.thead label[for=sort-active]:after,
-#sort-hospital:checked ~ .tr.thead label[for=sort-hospital]:after,
-#sort-death:checked ~ .tr.thead label[for=sort-death]:after,
-#sort-test:checked ~ .tr.thead label[for=sort-test]:after,
-#sort-infect:checked ~ .tr.thead label[for=sort-infect]:after,
-#sort-death-rate:checked ~ .tr.thead label[for=sort-death-rate]:after {
-  content: '△ ▼'; font-weight: normal;
+#sort-infect-name:checked ~ .tr.thead label[for=sort-infect-name],
+#sort-infect-trend:checked ~ .tr.thead label[for=sort-infect-trend],
+#sort-infect-today:checked ~ .tr.thead label[for=sort-infect-today],
+#sort-active-trend:checked ~ .tr.thead label[for=sort-active-trend],
+#sort-active:checked ~ .tr.thead label[for=sort-active],
+#sort-hospital:checked ~ .tr.thead label[for=sort-hospital],
+#sort-death:checked ~ .tr.thead label[for=sort-death],
+#sort-test:checked ~ .tr.thead label[for=sort-test],
+#sort-infect:checked ~ .tr.thead label[for=sort-infect],
+#sort-death-rate:checked ~ .tr.thead label[for=sort-death-rate] {
+  background-image: url('img/long-arrow-down.svg');
 }
 
 details > summary > .tr > .toggle {
@@ -619,6 +619,8 @@ table.infected td.infected, table.infected th.infected {
 .history > div {
   height: 2.3rem;
   width: 7rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 table.charts-css.column:not(.stacked) td:not(:first-child) {

@@ -21,11 +21,11 @@ eleventyNavigation:
   {% endset %}
   {{ css | cssmin | safe }}
 {% endmacro %}
-{# <style>{{ cssSort('#sort-vacc-name', false, 'details', 'population')}}</style>#}
+ <style>{{ cssSort('#sort-vacc-name', true, 'details', 'population')}}</style>
 <style>{{ cssSort('#sort-vacc-trend', true, 'details', 'lastWeekExclusive.change_vaccinations_avg') }}</style>
 <style>{{ cssSort('#sort-vacc-today', true, 'details', 'today.change_vaccinations')}}</style>
 <style>{{ cssSort('#sort-complete', false, 'details', 'vaccine.daysToFirstVaccinations')}}</style>
-<style>{{ cssSort('#sort-vacc-total', true, 'details', 'today.total_vaccinations')}}</style>
+{#<style>{{ cssSort('#sort-vacc-total', true, 'details', 'today.total_vaccinations')}}</style>#}
 <style>{{ cssSort('#sort-half', true, 'details', 'today.first_vaccination_per_12plus')}}</style>
 <style>{{ cssSort('#sort-full', true, 'details', 'today.vaccinated_per_12plus')}}</style>
 <style>{{ cssSort('#sort-freezer-trend', true, 'details', 'lastWeekExclusive.available_doses_avg')}}</style>
@@ -33,11 +33,11 @@ eleventyNavigation:
 <style>{{ cssSort('#sort-freezer-population', true, 'details', 'today.available_doses_per_12plus')}}</style>
 <style>{{ cssSort('#sort-time-to-arm', false, 'details', 'lastWeekInclusive.available_doses_days')}}</style>
 
-{#<style>{{ cssSort('#sort-infect-name', false, 'details', 'population')}}</style>#}
+<style>{{ cssSort('#sort-infect-name', true, 'details', 'population')}}</style>
 <style>{{ cssSort('#sort-infect-trend', true, 'details', 'lastWeekExclusive.change_cases_avg')}}</style>
 <style>{{ cssSort('#sort-infect-today', true, 'details', 'today.change_cases')}}</style>
 <style>{{ cssSort('#sort-active-trend', true, 'details', 'lastWeekExclusive.active_cases_avg')}}</style>
-<style>{{ cssSort('#sort-active', true, 'details', 'today.activePer100k')}}</style>
+{#<style>{{ cssSort('#sort-active', true, 'details', 'today.activePer100k')}}</style>#}
 <style>{{ cssSort('#sort-hospital', true, 'details', 'today.hospitalizedPer1000k')}}</style>
 <style>{{ cssSort('#sort-death', true, 'details', 'today.fatalitiesPer100k')}}</style>
 <style>{{ cssSort('#sort-test', true, 'details', 'lastWeekInclusive.positivity_rate')}}</style>
@@ -182,11 +182,11 @@ eleventyNavigation:
 
 <section id="vaccinations">
   <h2><a href="#vaccinations">Vaccine Status</a></h2>
-  <input id="sort-vacc-name" name="vaccine-sort" type="radio" style="display: none;" checked>
+  <input id="sort-vacc-name" name="vaccine-sort" type="radio" style="display: none;">
   <input id="sort-vacc-trend" name="vaccine-sort" type="radio" style="display: none;">
   <input id="sort-vacc-today" name="vaccine-sort" type="radio" style="display: none;">
   <input id="sort-complete" name="vaccine-sort" type="radio" style="display: none;">
-  <input id="sort-vacc-total" name="vaccine-sort" type="radio"style="display: none;">
+  <input id="sort-vacc-total" name="vaccine-sort" type="radio"style="display: none;" checked>
   <input id="sort-half" name="vaccine-sort" type="radio" style="display: none;">
   <input id="sort-full" name="vaccine-sort" type="radio" style="display: none;">
   <input id="sort-freezer-trend" name="vaccine-sort" type="radio" style="display: none;">
@@ -195,14 +195,14 @@ eleventyNavigation:
   <input id="sort-time-to-arm" name="vaccine-sort" type="radio" style="display: none;">
   <div class="flex tr thead">
     <div class="th toggle"></div>
-    <div class="th name"><label class="sort" for="sort-vacc-name"><br/>Name</label></div>
-    <div class="th history"><label class="sort" for="sort-vacc-trend">Doses In Arms<br/>Past 60 Days</label></div>
+    <div class="th name"><label class="sort" for="sort-vacc-name"><br/><br/></label></div>
+    <div class="th history"><label class="sort" for="sort-vacc-trend">Doses In Arms<br/>Last 60days</label></div>
     <div class="th"><label class="sort" for="sort-vacc-today">Doses In Arms<br/>Today</label></div>
     <div class="th complete"><label class="sort" for="sort-complete">Projected<br/>Completion</label></div>
     <div class="th total"><label class="sort" for="sort-vacc-total">Total<br/>Doses</label></div>
     <div class="th"><label class="sort" for="sort-half">1st Dose /<br/>Population</label></div>
     <div class="th"><label class="sort" for="sort-full">Fully Vacc. /<br/>Population</label></div>
-    <div class="th history"><label class="sort" for="sort-freezer-trend">In Freezers<br/>Past 60 Days</label></div>
+    <div class="th history"><label class="sort" for="sort-freezer-trend">In Freezers<br/>Last 60days</label></div>
     <div class="th today"><label class="sort" for="sort-freezer-today">In Freezers<br/>Today</label></div>
     <div class="th"><label class="sort" for="sort-freezer-population">In Freezers /<br/>Population</label></div>
     <div class="th"><label class="sort" for="sort-time-to-arm">Time to Arm<br/>from Delivery</label></div>
@@ -346,7 +346,7 @@ eleventyNavigation:
   {%- endfor %}
     </summary>
     <div class="flex column">
-  {%- for province in canada | filterProp("name", "neq", "Canada") | sort(true, attribute="population") %}
+  {%- for province in canada | filterProp("name", "neq", "Canada") | sort(true, attribute="today.total_vaccinations") %}
     {% set regionLength %}{% for region in province.regions %}{% if region.today.total_vaccinations > 0 %}1{% endif %}{% endfor %}{% endset %}
     {% if regionLength > 0 %}
       <details class="province {{ province.iso3166 | lower}}"><summary>{{ vaccineRow(province) }}</summary>
@@ -366,11 +366,11 @@ eleventyNavigation:
 
 <section id="infections">
   <h2><a href="#infections">Infection Status</a></h2>
-  <input id="sort-infect-name" name="infection-sort" type="radio" style="display: none;" checked>
+  <input id="sort-infect-name" name="infection-sort" type="radio" style="display: none;">
   <input id="sort-infect-trend" name="infection-sort" type="radio" style="display: none;">
   <input id="sort-infect-today" name="infection-sort" type="radio" style="display: none;">
   <input id="sort-active-trend" name="infection-sort" type="radio" style="display: none;">
-  <input id="sort-active" name="infection-sort" type="radio" style="display: none;">
+  <input id="sort-active" name="infection-sort" type="radio" style="display: none;" chcked>
   <input id="sort-hospital" name="infection-sort" type="radio" style="display: none;">
   <input id="sort-death" name="infection-sort" type="radio" style="display: none;">
   <input id="sort-test" name="infection-sort" type="radio" style="display: none;">
@@ -378,10 +378,10 @@ eleventyNavigation:
   <input id="sort-death-rate" name="infection-sort" type="radio" style="display: none;">
   <div class="flex tr thead">
     <div class="th toggle"></div>
-    <div class="th name"><label class="sort" for="sort-infect-name"><br/>Name</label></div>
-    <div class="th history"><label class="sort" for="sort-infect-trend">New Cases<br/>(60 days)</label></div>
+    <div class="th name"><label class="sort" for="sort-infect-name"><br/><br/></label></div>
+    <div class="th history"><label class="sort" for="sort-infect-trend">New Cases<br/>Last 60days</label></div>
     <div class="th"><label class="sort" for="sort-infect-today">New Cases<br/>Today</label></div>
-    <div class="th history"><label class="sort" for="sort-active-trend">Active Cases<br/>(60 days)</label></div>
+    <div class="th history"><label class="sort" for="sort-active-trend">Active Cases<br/>Last 60days</label></div>
     <div class="th"><label class="sort" for="sort-active">Current<br>Active/₁₀₀ₖ</label></div>
     <div class="th"><label class="sort" for="sort-hospital">Current<br>Hospital/₁₀₀₀ₖ</label></div>
     <div class="th"><label class="sort" for="sort-death">Total<br>Deaths/₁₀₀ₖ</label></div>
@@ -500,7 +500,7 @@ eleventyNavigation:
   <details open><summary>{{ infectionRow(province, "country") }}</summary>
     {%- endfor %}
     <div class="flex column">
-    {%- for province in canada | filterProp("name", "neq", "Canada") | sort(true, attribute="population") %}
+    {%- for province in canada | filterProp("name", "neq", "Canada") | sort(true, attribute="today.activePer100k") %}
       {% set regionLength %}{% for region in province.regions %}1{% endfor %}{% endset %}
       {% if regionLength > 0 %}
         <details class="province {{ province.iso3166 | lower}}"><summary>{{ infectionRow(province) }}</summary>
