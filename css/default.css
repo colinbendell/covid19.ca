@@ -408,6 +408,7 @@ main {
 }
 
 #sort-infect-trend:checked ~ .tr.thead label[for=sort-infect-trend],
+#sort-infect-pop:checked ~ .tr.thead label[for=sort-infect-pop],
 #sort-infect-today:checked ~ .tr.thead label[for=sort-infect-today],
 #sort-active-trend:checked ~ .tr.thead label[for=sort-active-trend],
 #sort-active:checked ~ .tr.thead label[for=sort-active],
