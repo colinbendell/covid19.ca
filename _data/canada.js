@@ -189,6 +189,7 @@ function normalizeVaccine(data) {
   })
 
   today.sort_change_cases_per_1000k = today.change_cases_per_1000k || lastWeekExclusive.change_cases_per_1000k_avg;
+  today.sort_change_cases = today.change_cases || lastWeekExclusive.change_cases_avg;
 
   return {
     previousWeeks,
