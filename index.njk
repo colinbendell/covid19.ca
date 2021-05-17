@@ -21,7 +21,7 @@ eleventyNavigation:
   {% endset %}
   {{ css | cssmin | safe }}
 {% endmacro %}
- <style>{{ cssSort('#sort-vacc-name', true, 'details', 'population')}}</style>
+<style>{{ cssSort('#sort-vacc-name', false, 'details', 'name')}}</style>
 <style>{{ cssSort('#sort-vacc-trend', true, 'details', 'lastWeekExclusive.change_vaccinations_avg') }}</style>
 <style>{{ cssSort('#sort-vacc-today', true, 'details', 'today.change_vaccinations')}}</style>
 <style>{{ cssSort('#sort-complete', false, 'details', 'vaccine.daysToFirstVaccinations')}}</style>
@@ -33,7 +33,7 @@ eleventyNavigation:
 <style>{{ cssSort('#sort-freezer-population', true, 'details', 'today.available_doses_per_12plus')}}</style>
 <style>{{ cssSort('#sort-time-to-arm', false, 'details', 'lastWeekInclusive.available_doses_days')}}</style>
 
-<style>{{ cssSort('#sort-infect-name', true, 'details', 'population')}}</style>
+<style>{{ cssSort('#sort-infect-name', false, 'details', 'name')}}</style>
 <style>{{ cssSort('#sort-infect-trend', true, 'details', 'lastWeekExclusive.change_cases_avg')}}</style>
 <style>{{ cssSort('#sort-infect-today', true, 'details', 'today.change_cases')}}</style>
 <style>{{ cssSort('#sort-active-trend', true, 'details', 'lastWeekExclusive.active_cases_avg')}}</style>

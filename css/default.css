@@ -387,11 +387,11 @@ main {
   justify-content: left;
   padding-left: .75rem;
 }
+#sort-vacc-name:checked ~ .tr.thead label[for=sort-vacc-name],
 #sort-complete:checked ~ .tr.thead label[for=sort-complete],
 #sort-time-to-arm:checked ~ .tr.thead label[for=sort-time-to-arm] {
   background-image: url('img/long-arrow-up.svg');
 }
-#sort-vacc-name:checked ~ .tr.thead label[for=sort-vacc-name],
 #sort-vacc-trend:checked ~ .tr.thead label[for=sort-vacc-trend],
 #sort-vacc-today:checked ~ .tr.thead label[for=sort-vacc-today],
 #sort-vacc-total:checked ~ .tr.thead label[for=sort-vacc-total],
@@ -403,7 +403,10 @@ main {
   background-image: url('img/long-arrow-down.svg');
 }
 
-#sort-infect-name:checked ~ .tr.thead label[for=sort-infect-name],
+#sort-infect-name:checked ~ .tr.thead label[for=sort-infect-name] {
+  background-image: url('img/long-arrow-up.svg');
+}
+
 #sort-infect-trend:checked ~ .tr.thead label[for=sort-infect-trend],
 #sort-infect-today:checked ~ .tr.thead label[for=sort-infect-today],
 #sort-active-trend:checked ~ .tr.thead label[for=sort-active-trend],
