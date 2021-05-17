@@ -611,6 +611,10 @@ table.infected td.infected, table.infected th.infected {
 .flex.tr > .today {
   flex: 1 0 7rem;
 }
+.flex.tr > .history {
+  flex: 1 0 9rem;
+  align-content: center;
+}
 
 .history > div {
   height: 2.3rem;
@@ -879,6 +883,7 @@ table.charts-css.column:not(.stacked) td:not(:first-child) {
 
 .small-detail {
   font-size: 0.7rem;
+  white-space: nowrap;
   font-style: italic;
 }
 
@@ -895,6 +900,13 @@ table.charts-css.column:not(.stacked) td:not(:first-child) {
 @media screen and (max-width: 800px) {
   .name.long {
     display: none;
+  }
+  .flex.tr>.name {
+    flex: 1 0 5rem;
+    overflow: hidden;
+  }
+  .flex.tr.healthregion > .name {
+    font-size: 0.7rem;
   }
   .flex.tr.province>th:nth-child(2) {
     white-space: nowrap;
