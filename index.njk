@@ -178,6 +178,7 @@ eleventyNavigation:
   {%- for province in canada | filterProp("name", "neq", "Canada") %}<option value="{{ province.name }}">{%- endfor %}
   {%- for province in canada %}{%- for region in province.regions %}<option value="{{ region.short }}">{%- endfor %}{%- endfor %}
 </datalist>
+<input id="dummy" type="checkbox" style="display: none;">
 
 <section id="vaccinations">
   <h2><a href="#vaccinations">Vaccine Status</a></h2>
@@ -214,14 +215,14 @@ eleventyNavigation:
         <div class="td toggle"></div>
         <div class="td name" title="{{ data.data_status }} @ {{ data.updated_at | readableTime }} PT {{ data.updated_at | readableDate | lower}}">
           {% if type === 'province' or type === 'country' %}
-            <label for="vaccine-{{ data.iso3166 }}" class="label-toggle">
+            <label class="label-toggle">
               <span class="name long" data-short="{{ data.iso3166 or data.name.en }}">{{ data.name.en or data.name }}</span>
               <span class="name short">{{ data.iso3166 or data.name.en }}</span>
               <svg viewBox="0 0 512 512" class="province-update-status"><use href="#{{ data.data_status | lower | replace(r/ /gi, '-') }}"></use></svg>
             </label>
           {% else %}
             {#      <span class="name long">{{ data.name.en or data.name }}</span>#}
-            <label class="label-toggle">
+            <label for="dummy" class="label-toggle">
               <span class="name">{{ data.iso3166 or data.short or data.name.en or data.name }}</span>
             </label>
           {% endif %}
@@ -396,14 +397,14 @@ eleventyNavigation:
       <div class="td toggle"></div>
       <div class="td name" title="{{ data.data_status }} @ {{ data.updated_at | readableTime }} PT {{ data.updated_at | readableDate | lower}}">
         {% if type === 'province' or type === 'country' %}
-        <label for="infection-{{ data.iso3166 }}" class="label-toggle">
+        <label class="label-toggle">
           <span class="name long">{{ data.name.en or data.name }}</span>
           <span class="name short">{{ data.iso3166 or data.name.en }}</span>
           <svg viewBox="0 0 512 512" class="province-update-status"><use href="#{{ data.data_status | lower | replace(r/ /gi, '-') }}"></use></svg>
         </label>
         {% else %}
 {#        <span class="name long">{{ data.name.en or data.name }}</span>#}
-        <label class="label-toggle">
+        <label for="dumy" class="label-toggle">
           <span class="name">{{ data.iso3166 or data.short or data.name.en or data.name }}</span>
         </label>
         {% endif %}
