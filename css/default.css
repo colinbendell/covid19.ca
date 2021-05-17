@@ -45,6 +45,9 @@ body {
   background-color: #ffffff;
 }
 
+summary {list-style: none}
+summary::-webkit-details-marker {display: none; }
+
 /* TODO: cleanup from from bootstrap */
 a {
   text-decoration: none;
@@ -57,54 +60,20 @@ button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled)
 button, [type=button], [type=reset], [type=submit] {
   -webkit-appearance: button;
 }
-.table thead tr th {
-  border-top: 0;
-  border-left: 0;
-  border-right: 0;
-}
-
-.table > thead > tr > th {
-  position: -webkit-sticky;
-  position: sticky;
-  z-index: 10;
-  top: 0;
-  background-color: white;
-}
-
-.table > thead > tr > th:nth-child(2) {
-  position: sticky;
-  left: 0;
-  z-index: 11;
-}
-.table > tbody > tr > th:nth-child(2) {
-  position: -webkit-sticky;
-  position: sticky;
-  z-index: 9;
-  left: 0;
-  background-color: white;
-}
-
-.table > tbody > tr:hover > th:nth-child(2) {
-  background-color: #f2f2f2;
-}
-
-.table thead th {
-  vertical-align: bottom;
-  font-weight: bold;
-  white-space: nowrap;
-  /*border-bottom: 2px solid #dee2e6;*/
-}
-.table th, .table td {
-  padding: 0.45rem 0.75rem;
-  vertical-align: top;
-  border-top: 1px solid #dee2e6;
-}
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
   font-weight: 500;
   line-height: 1.2;
+}
+
+label:focus {
+  outline: 0;
+}
+
+label {
+  cursor: pointer;
 }
 
 /* TODO: cleanup */
@@ -225,6 +194,11 @@ header a, h2 a {
   display: flex;
 }
 
+.flex.column {
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
 .grid {
   display: grid;
 }
@@ -241,11 +215,9 @@ ul.flex {
 }
 .stats h3 {
   font-size: 1.2rem;
-  /*font-weight: lighter;*/
   color: var(--blue)
 }
 .stats > * {
-  /*margin-left: 1rem;*/
   min-width: 20rem;
   min-height: 10rem;
   margin-left: 0.5rem;
@@ -308,8 +280,13 @@ ul.flex {
 }
 
 #vaccinations, #infections {
-  /*overflow: scroll;*/
   margin-top: 1rem;
+}
+
+@media screen and (max-width: 1400px) {
+  #vaccinations, #infections {
+    width: max-content;
+  }
 }
 
 #reported {
@@ -352,44 +329,106 @@ main {
   margin-bottom: 2rem;
 }
 
-.table > tbody > tr:hover {
+.flex.tr.thead {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  background-color: white;
+}
+
+.flex.tr.thead > .name {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  z-index: 11;
+}
+.flex.tr > .name {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 9;
+  left: 0;
+  background-color: white;
+}
+.flex.tr:not(.thead):hover {
   color: #212529;
   background-color: #f2f2f2;
 }
 
-.table > * > tr > td, .table > * > tr > td {
-  /*width: 100%;*/
-  /*min-width: 8rem;*/
-  max-width: 11rem;
-}
-.table > * > tr > th:nth-child(2) {
-  /*width: 100%;*/
-  min-width: 11rem;
-  max-width: 15rem;
-  font-weight: normal;
-  font-style: italic;
+.flex.tr:not(.thead):hover > .name {
+  color: #212529;
+  background-color: #f2f2f2;
 }
 
-.table > * > tr > th.toggle {
-  padding-left: 0;
-  padding-right: 0;
+.tr > .th > label.sort:after {
+  /*content: '▲ △';*/
+  content: '△ ▽';
+  width: 0;
+  display: grid;
+  white-space: break-spaces;
+  text-align: left;
+  line-height: 0.5rem;
+  min-height: 1.5rem;
+  font-weight: 100;
+  margin-left:0.25rem;
+  font-size: 0.75rem;
+  color: var(--gray);
 }
-.table > * > tr > th.name {
-  padding-left: 0.125rem;
+.tr > .th > label.sort {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  vertical-align: middle;
+}
+.flex.tr > .th.name > label.sort {
+  justify-content: left;
+}
+#sort-vacc-name:checked ~ .tr.thead label[for=sort-vacc-name]:after,
+#sort-complete:checked ~ .tr.thead label[for=sort-complete]:after,
+#sort-time-to-arm:checked ~ .tr.thead label[for=sort-time-to-arm]:after {
+  content: '▲ ▽'; font-weight: normal;
+}
+#sort-vacc-trend:checked ~ .tr.thead label[for=sort-vacc-trend]:after,
+#sort-vacc-today:checked ~ .tr.thead label[for=sort-vacc-today]:after,
+#sort-vacc-total:checked ~ .tr.thead label[for=sort-vacc-total]:after,
+#sort-half:checked ~ .tr.thead label[for=sort-half]:after,
+#sort-full:checked ~ .tr.thead label[for=sort-full]:after,
+#sort-freezer-trend:checked ~ .tr.thead label[for=sort-freezer-trend]:after,
+#sort-freezer-today:checked ~ .tr.thead label[for=sort-freezer-today]:after,
+#sort-freezer-population:checked ~ .tr.thead label[for=sort-freezer-population]:after {
+  content: '△ ▼'; font-weight: normal;
 }
 
-table.status > tbody > tr > td {
-  white-space: nowrap;
-  font-weight: normal;
-  /*font-style: italic;*/
+#sort-infect-name:checked ~ .tr.thead label[for=sort-infect-name]:after {
+  content: '▲ ▽'; font-weight: normal;
 }
 
-table.status > tbody > tr.country * {
+#sort-infect-trend:checked ~ .tr.thead label[for=sort-infect-trend]:after,
+#sort-infect-today:checked ~ .tr.thead label[for=sort-infect-today]:after,
+#sort-active-trend:checked ~ .tr.thead label[for=sort-active-trend]:after,
+#sort-active:checked ~ .tr.thead label[for=sort-active]:after,
+#sort-hospital:checked ~ .tr.thead label[for=sort-hospital]:after,
+#sort-death:checked ~ .tr.thead label[for=sort-death]:after,
+#sort-test:checked ~ .tr.thead label[for=sort-test]:after,
+#sort-infect:checked ~ .tr.thead label[for=sort-infect]:after,
+#sort-death-rate:checked ~ .tr.thead label[for=sort-death-rate]:after {
+  content: '△ ▼'; font-weight: normal;
+}
+
+details > summary > .tr > .toggle {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M400 64c8.8 0 16 7.2 16 16v352c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16V80c0-8.8 7.2-16 16-16h352m0-32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-60 206h-98v-98c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v98h-98c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h98v98c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12v-98h98c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z'/%3E%3C/svg%3E");
+  background-position-x: center;
+  background-repeat: no-repeat;
+  background-size: 1.25rem 1.25rem;
+}
+details[open] > summary > .tr > .toggle {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='currentColor' d='M400 64c8.8 0 16 7.2 16 16v352c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16V80c0-8.8 7.2-16 16-16h352m0-32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-60 242c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12H108c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h232z'/%3E%3C/svg%3E%0A");
+}
+
+.flex.tr.country * {
   font-weight: bold;
-  /*font-style: italic;*/
-  /*white-space: nowrap;*/
 }
-
 .data-rate[data-rate]::after {
   color: var(--blue);
   content: " (▲" attr(data-rate) "%)"
@@ -484,8 +523,6 @@ table.infected td.infected, table.infected th.infected {
 }
 
 .name > .label-toggle {
-  /*margin-left: -1rem;*/
-  /*color: var(--black);*/
   font-style: italic;
 }
 
@@ -493,46 +530,86 @@ table.infected td.infected, table.infected th.infected {
   border-bottom:1px dashed #000;
 }
 
-tr.healthregion {
-  display: none
-}
-
-tr.healthregion.visible {
-  display: table-row
-}
-tr.vaccine:first-child {
+.vaccine:first-child {
   word-wrap: break-word;
 }
-tr.province td button:focus {
-  outline: 0;
+
+.flex.tr {
+  display: flex; display: -webkit-flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: row; -webkit-flex-direction: row;
+  flex-wrap: nowrap;-webkit-flex-wrap: nowrap;
+}
+.flex.tr.thead {
+  align-items: flex-end;
 }
 
-/*tr.healthregion > th > span {*/
-/*  white-space: break-spaces !important;*/
-/*}*/
-
-/*.table thead tr:first-child th:empty {*/
-/*  border-bottom: 0;*/
-/*}*/
-
-.table > thead > tr > th {
+.flex.tr > .th, .flex.tr > .td {
+  padding: .45rem .75rem;
+  vertical-align: top;
+  text-align: center;
+  white-space: nowrap;
+}
+.flex.tr > .th {
   border-top: 0;
   border-left: 0;
   border-right: 0;
-  width: 28px;
   text-align: center;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
-.table > thead > tr:last-child > th:not(:first-child)::after {
-  color: #D0E0EA;
-  content: '|';
-  float: left;
-  margin-left: -1rem;
-  vertical-align: middle;
-}
-
-.table > thead > tr:last-child > th + th:empty::after {
+.flex.tr > .th:not(.toggle)::after{
   content: '';
+  position: relative;
+  height: 1rem;
+  bottom: 0.5rem;
+  display: block;
+  margin: -0.75rem;
+  border-right: solid 2px #d0e0ea;
+  z-index: -1;
+}
+
+.flex.tr.thead {
+  border-bottom: 2px solid #dee2e6;
+  border-top: 0;
+}
+
+.flex.tr {
+  flex-grow: 0; -webkit-flex-grow: 0;
+  flex-shrink: 0; -webkit-flex-shrink: 0;
+  border-top: 1px solid #dee2e6;
+}
+
+.flex.tr > div {
+  flex: 1 0 8.5rem;
+  white-space: nowrap;
+}
+
+.flex.tr > .toggle {
+  padding-left: 0;
+  padding-right: 0;
+  flex: 0 0 1.5rem;
+  min-height: 1.5rem;
+  display: inline-block;
+  margin-top: 0.75rem;
+}
+
+.flex.tr > .name {
+  flex: 1.5 0 11rem;
+  padding-left: 0.125rem;
+  white-space: normal;
+  text-align: left !important;
+}
+.flex.tr > .complete {
+  flex: 1 0 8rem;
+}
+.flex.tr > .total {
+  flex: 1 0 6rem;
+}
+.flex.tr > .today {
+  flex: 1 0 7rem;
 }
 
 .history > div {
@@ -668,7 +745,7 @@ table.charts-css.column:not(.stacked) td:not(:first-child) {
   );
 }
 
-tr:not(.today) .current {
+.tr:not(.today) .current {
   background: repeating-linear-gradient(
     135deg,
     white,
@@ -677,6 +754,7 @@ tr:not(.today) .current {
     var(--light) 20px
   );
 }
+
 .supply.zero:not(:empty)::before {
   content: " (~";
 }
@@ -685,10 +763,6 @@ tr:not(.today) .current {
   content: " days)";
   white-space: nowrap;
 }
-/*.supply.complete:not(:empty)::after{*/
-/*  content: " weeks";*/
-/*  white-space: nowrap;*/
-/*}*/
 
 .supply.good {
   color: var(--green);
@@ -770,7 +844,7 @@ tr:not(.today) .current {
   opacity: 1;
 }
 
-tr:not(:hover) .progressbar > .change {
+.tr:not(:hover) .progressbar > .change {
   color: var(--gray);
   font-weight: lighter;
 }
@@ -805,10 +879,10 @@ tr:not(:hover) .progressbar > .change {
 
 .small-detail {
   font-size: 0.7rem;
-  /*font-weight: lighter;*/
   font-style: italic;
 }
-tr:not(:hover) .reveal-on-hover {
+
+.tr:not(:hover) .reveal-on-hover {
   visibility: hidden;
 }
 
@@ -822,11 +896,7 @@ tr:not(:hover) .reveal-on-hover {
   .name.long {
     display: none;
   }
-  .table>*>tr>th:nth-child(2) {
-    min-width: 3.5rem;
-    max-width: 7rem;
-  }
-  .table>*>tr.province>th:nth-child(2) {
+  .flex.tr.province>th:nth-child(2) {
     white-space: nowrap;
   }
   main {

@@ -35,6 +35,10 @@ function normalizeVaccine(data) {
       vaccinated_per_2plus: item.total_vaccinated > 0 ? Math.round((item.total_vaccinated / data.population2plus) * 1000) / 10 : 0,
       vaccinated_per_12plus: item.total_vaccinated > 0 ? Math.round((item.total_vaccinated / data.population12plus) * 1000) / 10 : 0,
       vaccinated_per_18plus: item.total_vaccinated > 0 ? Math.round((item.total_vaccinated / data.population18plus) * 1000) / 10 : 0,
+      available_doses_per_person: item.available_doses > 0 ? Math.round((item.available_doses / data.population) * 1000) / 10 : 0,
+      available_doses_per_2plus: item.available_doses > 0 ? Math.round((item.available_doses / data.population2plus) * 1000) / 10 : 0,
+      available_doses_per_12plus: item.available_doses > 0 ? Math.round((item.available_doses / data.population12plus) * 1000) / 10 : 0,
+      available_doses_per_18plus: item.available_doses > 0 ? Math.round((item.available_doses / data.population18plus) * 1000) / 10 : 0,
       total_cases_per_person: Math.round((item.total_cases / data.population) * 1000) / 10,
       total_fatalities_per_person: Math.round((item.total_fatalities / item.total_cases) * 1000) / 10,
       positivityRate: item.change_tests > 0 ? Math.round(item.change_cases / item.change_tests * 1000) / 10 : null,
@@ -73,6 +77,9 @@ function normalizeVaccine(data) {
     if (week.change_tests_sum > 0) {
       week.positivity_rate = Math.round(week.change_cases_sum / week.change_tests_sum * 1000) / 10;
     }
+    if (week.available_doses_sum > 0 ) {
+      week.available_doses_days = week.available_doses_sum / week.change_vaccinations_sum + 0.5;
+    }
     return week;
   });
 
@@ -95,6 +102,9 @@ function normalizeVaccine(data) {
     }
     if (week.change_tests_sum > 0) {
       week.positivity_rate = Math.round(week.change_cases_sum / week.change_tests_sum * 1000) / 10;
+    }
+    if (week.available_doses_sum > 0 ) {
+      week.available_doses_days = week.available_doses_sum / week.change_vaccinations_sum + 0.5;
     }
     return week;
   });
@@ -168,9 +178,9 @@ function normalizeVaccine(data) {
   // to account for this, we assume full vaccinations require 2 doses and use the current total doses rate
   let fullVaccinatedDate = calculateWeeks(vaccinationPopulation - today.total_vaccinated, lastWeekExclusive.change_vaccinated_sum, lastWeekInclusive.change_vaccinated_sum, twoWeeksAgo.change_vaccinated_sum);
   const fullVaccinatedByDosesDate = calculateWeeks((vaccinationPopulation*2) - today.total_vaccinations, lastWeekExclusive.change_vaccinations_sum, lastWeekInclusive.change_vaccinations_sum, twoWeeksAgo.change_vaccinations_sum);
-  if (new Date(fullVaccinatedDate).getTime() > new Date(fullVaccinatedByDosesDate).getTime()) {
+  // if (new Date(fullVaccinatedDate).getTime() > new Date(fullVaccinatedByDosesDate).getTime()) {
     fullVaccinatedDate = fullVaccinatedByDosesDate;
-  }
+  // }
 
   //convenience checks for maximums
   const [maxVaccinations, maxChangeCases, maxActiveCases, maxAvailableDoses] = ["change_vaccinations", "change_cases", "active_cases", "available_doses"].map(name => {

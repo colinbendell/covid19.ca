@@ -73,3 +73,15 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+details > summary {
+  cursor: pointer;
+  outline:none;
+}
+details > summary::marker {
+  display: inline;
+}
+
+summary::marker, summary::-webkit-details-marker {
+  color: transparent;
+}
