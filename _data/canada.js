@@ -24,6 +24,7 @@ function normalizeVaccine(data) {
       active_cases: item.active_cases || ((item.total_cases || 0) - (item.total_fatalities || 0) - (item.total_recoveries || 0)),
     }))
     .map(item =>Object.assign(item, {
+      change_vaccinations_per_10k: item.change_vaccinations >= 0 ? Math.round(item.change_vaccinations / data.population * 10*1000) : null,
       change_cases_per_1000k: item.change_cases >= 0 ? Math.round(item.change_cases / data.population * 1000*1000) : null,
       activePer100k: item.active_cases >= 0 ? Math.round(item.active_cases / data.population * 100*1000) : null,
       fatalitiesPer100k: item.total_fatalities >= 0 ? Math.round(item.total_fatalities / data.population * 100*1000) : null,
@@ -190,6 +191,8 @@ function normalizeVaccine(data) {
 
   today.sort_change_cases_per_1000k = today.change_cases_per_1000k || lastWeekExclusive.change_cases_per_1000k_avg;
   today.sort_change_cases = today.change_cases || lastWeekExclusive.change_cases_avg;
+  today.sort_change_vaccinations_per_10k = today.change_vaccinations > 0 && yesterday.change_vaccinations > 0 ? today.change_vaccinations_per_10k : lastWeekExclusive.change_vaccinations_per_10k_avg;
+  today.sort_change_vaccinations = today.change_vaccinations > 0 && yesterday.change_vaccinations > 0 ? today.change_vaccinations : lastWeekExclusive.change_vaccinations_avg;
 
   return {
     previousWeeks,

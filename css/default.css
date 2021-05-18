@@ -393,6 +393,7 @@ main {
   background-image: url('img/long-arrow-up.svg');
 }
 #sort-vacc-trend:checked ~ .tr.thead label[for=sort-vacc-trend],
+#sort-vacc-pop:checked ~ .tr.thead label[for=sort-vacc-pop],
 #sort-vacc-today:checked ~ .tr.thead label[for=sort-vacc-today],
 #sort-vacc-total:checked ~ .tr.thead label[for=sort-vacc-total],
 #sort-half:checked ~ .tr.thead label[for=sort-half],
@@ -480,8 +481,14 @@ details[open] > summary > .tr > .toggle {
   background-color: var(--red);
 }
 
-.progressbar.per100k:not([data-value="N/A"]):not([data-value="0"])::after, .progressbar.per1000k:not([data-value="N/A"]):not([data-value="0"])::after {
+.progressbar.per10k:not([data-value="N/A"]):not([data-value="0"])::after,
+.progressbar.per100k:not([data-value="N/A"]):not([data-value="0"])::after,
+.progressbar.per1000k:not([data-value="N/A"]):not([data-value="0"])::after {
   content: attr(data-value);
+}
+
+ .progressbar.per10k:not([aria-valuenow="N/A"])::before {
+  content: attr(aria-valuenow) "/₁₀ₖ";
 }
 
  .progressbar.per100k:not([aria-valuenow="N/A"])::before {
@@ -641,19 +648,16 @@ table.charts-css.column:not(.stacked) td:not(:first-child) {
 
 .dose.history table.column {
   --color-1: rgba(0, 123, 255, 0.2);
-  --color-2: var(--gray);
 }
 
-.dose.history table.column tr:nth-child(n+8):not(:last-child) {
+.dose.history table.column tr td:nth-child(n+8):not(:last-child) {
   --color-1: rgba(0, 123, 255, 0.6);
-  --color-2: var(--gray);
 }
 
-.today:not(.delayed) .dose.history table tr:last-child {
+.today:not(.delayed) .dose.history table tr td:last-child {
   --color-1: var(--blue);
-  --color-2: var(--gray-dark);
 }
-.dose.history table tr:last-child {
+.dose.history table tr td:last-child {
   --color-1: repeating-linear-gradient(
     135deg,
     var(--blue),
@@ -873,6 +877,13 @@ table.charts-css.column:not(.stacked) td:not(:first-child) {
   content: "+" attr(data-value) " days";
 }
 
+.progressbar > .change.per10k:before {
+  content: attr(data-value) "/₁₀ₖ";
+}
+.progressbar > .change.per10k:not([data-value ^= "-"]):before {
+  content: "+" attr(data-value) "/₁₀ₖ";
+}
+
 .progressbar > .change.per100k:before {
   content: attr(data-value) "/₁₀₀ₖ";
 }
@@ -914,6 +925,17 @@ table.charts-css.column:not(.stacked) td:not(:first-child) {
   .flex.tr.healthregion > .name {
     font-size: 0.7rem;
   }
+  /*.table>*>tr>th:nth-child(2) {*/
+  /*  min-width: 3.5rem;*/
+  /*  max-width: 7rem;*/
+  /*}*/
+  /*.table>*>tr.province>th:nth-child(2) {*/
+  /*  white-space: nowrap;*/
+  /*}*/
+  /*.flex.tr>.th:nth-child(2) {*/
+  /*  min-width: 3.5rem;*/
+  /*  max-width: 3.5rem;*/
+  /*}*/
   .flex.tr.province>th:nth-child(2) {
     white-space: nowrap;
   }
