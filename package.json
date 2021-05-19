@@ -16,9 +16,9 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
     "@11ty/eleventy-navigation": "^0.2.0",
-    "@adobe/helix-fetch": "^2.2.0",
+    "@adobe/helix-fetch": "^2.2.1",
     "clean-css": "^5.1.2",
     "html-minifier": "^4.0.0",
-    "luxon": "^1.26.0"
+    "luxon": "^1.27.0"
   }
 }
