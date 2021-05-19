@@ -481,13 +481,18 @@ details[open] > summary > .tr > .toggle {
   background-color: var(--red);
 }
 
+.progressbar.per1k:not([data-value="N/A"]):not([data-value="0"])::after,
 .progressbar.per10k:not([data-value="N/A"]):not([data-value="0"])::after,
 .progressbar.per100k:not([data-value="N/A"]):not([data-value="0"])::after,
 .progressbar.per1000k:not([data-value="N/A"]):not([data-value="0"])::after {
   content: attr(data-value);
 }
 
- .progressbar.per10k:not([aria-valuenow="N/A"])::before {
+ .progressbar.per1k:not([aria-valuenow="N/A"])::before {
+  content: attr(aria-valuenow) "/₁ₖ";
+}
+
+.progressbar.per10k:not([aria-valuenow="N/A"])::before {
   content: attr(aria-valuenow) "/₁₀ₖ";
 }
 
@@ -877,6 +882,12 @@ table.charts-css.column:not(.stacked) td:not(:first-child) {
   content: "+" attr(data-value) " days";
 }
 
+.progressbar > .change.per1k:before {
+  content: attr(data-value) "/₁ₖ";
+}
+.progressbar > .change.per1k:not([data-value ^= "-"]):before {
+  content: "+" attr(data-value) "/₁ₖ";
+}
 .progressbar > .change.per10k:before {
   content: attr(data-value) "/₁₀ₖ";
 }
