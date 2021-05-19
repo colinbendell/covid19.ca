@@ -38,7 +38,7 @@ eleventyNavigation:
 <style>{{ cssSort('#sort-infect-name-pop', true, 'details', 'population')}}</style>
 {#<style>{{ cssSort('#sort-infect-name', false, 'details', 'name')}}</style>#}
 <style>{{ cssSort('#sort-infect-trend', true, 'details', 'lastWeekExclusive.change_cases_avg')}}</style>
-<style>{{ cssSort('#sort-infect-pop', true, 'details', 'today.sort_change_cases_per_1000k')}}</style>
+<style>{{ cssSort('#sort-infect-pop', true, 'details', 'lastWeekInclusive.change_cases_per_1000k_sum')}}</style>
 <style>{{ cssSort('#sort-infect-today', true, 'details', 'today.sort_change_cases')}}</style>
 <style>{{ cssSort('#sort-active-trend', true, 'details', 'lastWeekExclusive.active_cases_avg')}}</style>
 <style>{{ cssSort('#sort-active', true, 'details', 'today.activePer100k')}}</style>
@@ -126,9 +126,9 @@ eleventyNavigation:
         <div style="position: absolute; --repeat-y: 5; --repeat-x:{{ (vaccinatedPerPopulation / 5) | int }}; --repeat-color: var(--blue);" class="ratiostats"></div>
         <div style="position: absolute; --repeat-y: {{ vaccinatedPerPopulation % 5 }}; --repeat-x:{{ (vaccinatedPerPopulation / 5 + 0.5) | round}}; --repeat-color: var(--blue);" class="ratiostats"></div>
       </div>
-      <div style="max-width:20rem;line-height: 1; padding-top: 0.25rem"><strong style="color: var(--blue);">{{ vaccinatedPerPopulation }} in 100</strong> aged 12+ are fully vaccinated,
-        <br/><strong style="color: var(--blue);">{{ (firstDoesPerPopulation - vaccinatedPerPopulation) }} in 100</strong> are half vaccinated and
-        <strong style="color: #000;">{{ potentialFirstDoesPerPopulation - firstDoesPerPopulation }} in 100</strong> more could receive a dose from freezer</div>
+      <div style="max-width:20rem;line-height: 1; padding-top: 0.25rem"><strong style="color: var(--blue);">{{ firstDoesPerPopulation }} in 100</strong> aged 12+ have at least one dose,
+        <br/><strong style="color: var(--blue);">{{ (vaccinatedPerPopulation) }} in 100</strong> are fully vaccinated and
+        <strong style="color: #000;">{{ potentialFirstDoesPerPopulation - firstDoesPerPopulation }} in 100</strong> more could receive a dose from the freezer</div>
     </li>
     <li class="grid hospitalized">
       {% set maxVal = country.today.total_hospitalizations %}
@@ -399,7 +399,7 @@ eleventyNavigation:
     <div class="th toggle"><label class="sort" for="sort-infect-name-pop"><br/><br/></label></div>
     <div class="th name"><label class="sort" for="sort-infect-name"><br/><br/></label></div>
     <div class="th history"><label class="sort" for="sort-infect-trend">New Cases<br/>Last 60days</label></div>
-    <div class="th"><label class="sort" for="sort-infect-pop">New Cases<br/>Today/₁₀₀₀ₖ</label></div>
+    <div class="th"><label class="sort" for="sort-infect-pop">New Cases<br/>7day avg/₁₀₀₀ₖ</label></div>
     <div class="th"><label class="sort" for="sort-infect-today">New Cases<br/>Today</label></div>
     <div class="th history"><label class="sort" for="sort-active-trend">Active Cases<br/>Last 60days</label></div>
     <div class="th"><label class="sort" for="sort-active">Current<br>Active/₁₀₀ₖ</label></div>
@@ -451,10 +451,9 @@ eleventyNavigation:
            title="There were {{ (data.today.change_cases | format) if data.today.change_cases else "NO"}} cases {{ data.today.date | readableDate | lower }}. With a 7 day average of {{ data.lastWeekExclusive.change_cases_avg | format }} cases per day. {{ (data.today.change_recoveries or data.lastWeekExclusive.change_recoveries_avg) | round | format }} cases were closed."
       >
         {% if data.today.change_cases > 0 %}
-        <div class="progressbar per1000k {{ selectColour(data.today.change_cases_per_1000k)  }}" aria-valuenow="{{ data.today.change_cases_per_1000k }}" data-value="{{ data.today.change_cases | formatNumber }}">
-          <span class="value" aria-hidden="true" style="width: {{ (data.today.change_cases_per_1000k/selectBase(data.today.change_cases_per_1000k)*100) | min(100) }}%"></span>
-          {% if data.today.change_change_cases_per_1000k != 0 %}<span class="change percent per1000k" data-value="{{ data.today.change_change_cases_per_1000k | format }}"></span>{% endif %}
-          {% if data.today.change_change_cases != 0 %}<span class="change absolute" data-value="{{ data.today.change_change_cases | format }}"></span>{% endif %}
+        <div class="progressbar per1000k {{ selectColour(data.lastWeekInclusive.change_cases_per_1000k_avg)  }}" aria-valuenow="~{{ data.lastWeekInclusive.change_cases_per_1000k_avg | round}}">
+          <span class="value" aria-hidden="true" style="width: {{ (data.lastWeekInclusive.change_cases_per_1000k_avg/selectBase(data.lastWeekInclusive.change_cases_per_1000k_avg)*100) | min(100) }}%"></span>
+          {% if data.lastWeekInclusive.change_change_cases_per_1000k_avg != 0 %}<span class="change percent per1000k" data-value="{{ data.lastWeekInclusive.change_change_cases_per_1000k_avg | round | format }}"></span>{% endif %}
         </div>
         {% else %}
         <div class="progressbar per1000k {{ selectColour(data.lastWeekExclusive.change_cases_per_1000k_avg)  }}" aria-valuenow="~{{ (data.lastWeekExclusive.change_cases_per_1000k_avg + 0.5) | round }}">
