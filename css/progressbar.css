@@ -1,5 +1,6 @@
 .progressbar {
-  display: inline-block;
+  display: grid;
+  margin: 0 auto;
   text-align: left;
   height: 1.6rem;
   width: 100%;
@@ -14,10 +15,29 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
   background-color: gray;
   vertical-align: middle;
+
+  --prefix: "";
+  --suffix: "";
+}
+
+.progressbar.darkgray > .value {
+  background-color: var(--gray-dark);
+}
+.progressbar.green > .value {
+  background-color: var(--green);
+}
+.progressbar.yellow > .value {
+  background-color: var(--yellow);
+}
+.progressbar.orange > .value {
+  background-color: var(--orange);
+}
+.progressbar.red > .value {
+  background-color: var(--red);
 }
 
 .progressbar::before {
-  content: attr(aria-valuenow) "%";
+  /*content: attr(aria-valuenow) "%";*/
   position:absolute;
   color: white;
   left:0.2rem;
@@ -25,17 +45,14 @@
   z-index: 2;
 }
 
-.progressbar[data-value]:not([data-value="N/A"]):not([data-value=""])::after {
-  content: attr(data-value);
-  vertical-align: middle;
-  position:absolute;
-  right: 0.2rem;
-  margin-top: 0.2rem;
-  color: white;
-  font-size: 0.7rem;
-}
-.progressbar[data-value="0"]:after {
-  content: "";
+.progressbar[data-change]::after {
+  grid-area: 1/1;
+  margin: .24rem .2rem;
+  text-align: right;
+  color: #fff;
+  font-size: .7rem;
+  font-weight: initial;
+  z-index: 2;
 }
 
 .progressbar[aria-valuenow="N/A"]::before {
@@ -43,42 +60,55 @@
   font-weight: lighter;
 }
 .progressbar > .value {
+  width: calc(1% * var(--width));
   position: absolute;
-  background-color: blue;
+  background-color: var(--blue, blue);
   height: 100%;
 }
 
-.progressbar {
-  display: grid !important;
-  margin: 0 auto;
-}
-.change {
-  grid-area: 1/1 !important;
+.progressbar > .absolute {
+  display: grid;
+  grid-area: 1/1;
   color: black;
   font-size: 0.7rem;
   padding: 0;
   margin-top: 1.7rem;
+  text-align: left;
+  --suffix: ""
 }
-.progressbar > .change.percent {
-  float:left;
-}
-.progressbar > .change.percent:before {
-  content: attr(data-value);
-}
-.progressbar > .change.percent:not([data-value ^= "-"]):before {
-  content: "+" attr(data-value);
+.progressbar > .absolute::before, .progressbar > .absolute::after {
+  grid-area: 1/1;
 }
 
-.progressbar > .change.absolute {
+.progressbar > .absolute::after {
   text-align: right;
 }
-.progressbar > .change.absolute:before {
-  content: attr(data-value);
+
+.progressbar > .percent, .progressbar.percent { --suffix: "%" }
+.progressbar > .perday, .progressbar.perday { --suffix: "/day" }
+.progressbar > .days, .progressbar.days { --suffix: " days" }
+.progressbar > .per1k, .progressbar.per1k { --suffix: "/₁₀₀₀" }
+.progressbar > .per10k, .progressbar.per10k { --suffix: "/₁₀ₖ" }
+.progressbar > .per100k, .progressbar.per100k { --suffix: "/₁₀₀ₖ" }
+.progressbar > .per1000k, .progressbar.per1000k { --suffix: "/₁₀₀₀ₖ" }
+/*.progressbar > .change[data-value]:not([data-value=""]):not([data-value="0"]):not([data-value ^= "-"]) { --prefix: "+" }*/
+.progressbar > [data-value]:not([data-value=""]):not([data-value="0"]):before,
+.progressbar[data-value]:not([data-value=""]):not([data-value="0"]):before {
+  content: attr(data-value) var(--suffix);
 }
-.progressbar > .change.absolute:not([data-value ^= "-"]):before {
-  content: "+" attr(data-value);
+.progressbar > [aria-valuenow]:not([aria-valuenow=""]):not([aria-valuenow="0"]):before,
+.progressbar[aria-valuenow]:not([aria-valuenowe=""]):not([aria-valuenow="0"]):before {
+  content: attr(aria-valuenow) var(--suffix);
+}
+.progressbar > [data-change]:not([data-change=""]):not([data-change="0"]):not([data-change="N/A"]):not([data-change ^= "-"]),
+.progressbar[data-change]:not([data-change=""]):not([data-change="0"]):not([data-change="N/A"]):not([data-change ^= "-"]) {
+  --prefix: "+"
+}
+.progressbar > [data-change]:not([data-change=""]):not([data-change="0"]):not([data-change="N/A"]):after,
+.progressbar[data-change]:not([data-change=""]):not([data-change="0"]):not([data-change="N/A"]):after {
+  content: var(--prefix) attr(data-change);
 }
 
-.change[data-value="0"], .change:not([data-value]) {
-  display: none !important;
+.progressbar > div:is([data-value="0"]:not([data-value])) {
+  display: none;
 }

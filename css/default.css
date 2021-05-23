@@ -421,6 +421,14 @@ main {
   background-image: url('img/long-arrow-down.svg');
 }
 
+#population:not(:checked) ~ details .dose > .progressbar.perperson { display: none; }
+#population2plus:not(:checked) ~ details .dose > .progressbar.per2plus {display: none;}
+#population12plus:not(:checked) ~ details .dose > .progressbar.per12plus {display: none;}
+#population18plus:not(:checked) ~ details .dose > .progressbar.per18plus { display: none;}
+#population40plus:not(:checked) ~ details .dose > .progressbar.per40plus { display: none;}
+/*#population ~ details .progressbar[data-all]::before { content: var(--default, var(--width)) "%";}*/
+/*#population:checked ~ details .progressbar > .value { width: var(--default, var(--width));}*/
+
 details > summary > .tr > .toggle {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M400 64c8.8 0 16 7.2 16 16v352c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16V80c0-8.8 7.2-16 16-16h352m0-32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-60 206h-98v-98c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v98h-98c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h98v98c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12v-98h98c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z'/%3E%3C/svg%3E");
   background-position-x: center;
@@ -461,25 +469,6 @@ details[open] > summary > .tr > .toggle {
   color: var(--blue);
 }
 
-.progressbar > .value {
-  background-color: var(--blue);
-}
-
-.progressbar.darkgray > .value {
-  background-color: var(--gray-dark);
-}
-.progressbar.green > .value {
-  background-color: var(--green);
-}
-.progressbar.yellow > .value {
-  background-color: var(--yellow);
-}
-.progressbar.orange > .value {
-  background-color: var(--orange);
-}
-.progressbar.red > .value {
-  background-color: var(--red);
-}
 
 .progressbar.per1k:not([data-value="N/A"]):not([data-value="0"])::after,
 .progressbar.per10k:not([data-value="N/A"]):not([data-value="0"])::after,
@@ -489,7 +478,7 @@ details[open] > summary > .tr > .toggle {
 }
 
  .progressbar.per1k:not([aria-valuenow="N/A"])::before {
-  content: attr(aria-valuenow) "/₁ₖ";
+  content: attr(aria-valuenow) "/₁₀₀₀";
 }
 
 .progressbar.per10k:not([aria-valuenow="N/A"])::before {
@@ -625,7 +614,7 @@ table.infected td.infected, table.infected th.infected {
   flex: 1 0 6rem;
 }
 .flex.tr > .today {
-  flex: 1 0 7rem;
+  flex: 1 0 7.5rem;
 }
 .flex.tr > .history {
   flex: 1 0 9rem;
@@ -655,7 +644,7 @@ table.charts-css.column:not(.stacked) td:not(:first-child) {
   --color-1: rgba(0, 123, 255, 0.2);
 }
 
-.dose.history table.column tr td:nth-child(n+8):not(:last-child) {
+.dose.history table.column tr td:nth-child(n+9):not(:last-child) {
   --color-1: rgba(0, 123, 255, 0.6);
 }
 
@@ -683,7 +672,7 @@ table.charts-css.column:not(.stacked) td:not(:first-child) {
   --color-1: rgba(108, 117, 125, 0.2);
 }
 
-.supply.history table.column td:nth-child(n+8):not(:last-child) {
+.supply.history table.column td:nth-child(n+9):not(:last-child) {
   --color-1: rgba(108, 117, 125, 0.6);
 }
 
@@ -722,10 +711,10 @@ table.charts-css.column:not(.stacked) td:not(:first-child) {
   bottom: calc(100%*var(--size));
 }
 
-.cases.history table.column td:not(:nth-child(n+8)) {
+.cases.history table.column td:not(:nth-child(n+9)) {
   --color-1: rgba(220, 53, 69, 0.2);
 }
-.cases.history table.column td:nth-child(n+8):not(:last-child) {
+.cases.history table.column td:nth-child(n+9):not(:last-child) {
   --color-1: rgba(220, 53, 69, 0.6);
 }
 .today:not(.delayed) .cases.history table.column td:last-child {
@@ -746,7 +735,7 @@ table.charts-css.column:not(.stacked) td:not(:first-child) {
   --color-1: rgba(253, 126, 20, 0.2);
 }
 
-.activecases.history table.column td:nth-child(n+8):not(:last-child) {
+.activecases.history table.column td:nth-child(n+9):not(:last-child) {
   --color-1: rgba(253, 126, 20, 0.6);
 }
 
@@ -863,52 +852,10 @@ table.charts-css.column:not(.stacked) td:not(:first-child) {
   opacity: 1;
 }
 
-.tr:not(:hover) .progressbar > .change {
+.tr:not(:hover) .progressbar > div {
   color: var(--gray);
   font-weight: lighter;
 }
-
-.progressbar > .change.percent:before {
-  content: attr(data-value) "%";
-}
-.progressbar > .change.percent:not([data-value ^= "-"]):before {
-  content: "+" attr(data-value) "%";
-}
-
-.progressbar > .change.days:before {
-  content: attr(data-value) " days";
-}
-.progressbar > .change.days:not([data-value ^= "-"]):before {
-  content: "+" attr(data-value) " days";
-}
-
-.progressbar > .change.per1k:before {
-  content: attr(data-value) "/₁ₖ";
-}
-.progressbar > .change.per1k:not([data-value ^= "-"]):before {
-  content: "+" attr(data-value) "/₁ₖ";
-}
-.progressbar > .change.per10k:before {
-  content: attr(data-value) "/₁₀ₖ";
-}
-.progressbar > .change.per10k:not([data-value ^= "-"]):before {
-  content: "+" attr(data-value) "/₁₀ₖ";
-}
-
-.progressbar > .change.per100k:before {
-  content: attr(data-value) "/₁₀₀ₖ";
-}
-.progressbar > .change.per100k:not([data-value ^= "-"]):before {
-  content: "+" attr(data-value) "/₁₀₀ₖ";
-}
-
-.progressbar > .change.per1000k:before {
-  content: attr(data-value) "/₁₀₀₀ₖ";
-}
-.progressbar > .change.per1000k:not([data-value ^= "-"]):before {
-  content: "+" attr(data-value) "/₁₀₀₀ₖ";
-}
-
 .small-detail {
   font-size: 0.7rem;
   white-space: nowrap;
