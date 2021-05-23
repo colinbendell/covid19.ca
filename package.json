@@ -20,5 +20,8 @@
     "clean-css": "^5.1.2",
     "html-minifier": "^4.0.0",
     "luxon": "^1.27.0"
+  },
+  "dependencies": {
+    "ml-regression-polynomial": "^2.1.0"
   }
 }
