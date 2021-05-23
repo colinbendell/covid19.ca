@@ -1,7 +1,7 @@
 const fs = require('fs');
 const {context} = require('@adobe/helix-fetch');
 const {fetch} = context({
-  rejectUnauthorized: false, // TODO: revert when data.ontario.ca fixes their certs
+  // rejectUnauthorized: false, // TODO: revert when data.ontario.ca fixes their certs
   h1: {keepAlive: true},
   h2: {idleSessionTimeout: 1*1000}
 })
@@ -11,9 +11,10 @@ const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 const provinces = ['CA','AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'NT', 'NU', 'ON', 'PE', 'QC', 'SK', 'YT'];
 const provinceLookup = new Map([
   ['Total forecasted allocations','CA'],
-  ['Alberta','AB'],
+  ['Alberta','AB'], ['Canada', 'CA'],
   ['British Columbia','BC'],['Manitoba','MB'],['New Brunswick','NB'],['Newfoundland and Labrador','NL'],
-  ['Nova Scotia','NS'],['Northwest Territories','NT'],['Nunavut','NU'],['Ontario','ON'],['Prince Edward Island','PE'],['Quebec','QC'],['Saskatchewan','SK'],['Yukon','YT']
+  ['Nova Scotia','NS'],['Northwest Territories','NT'],['Nunavut','NU'],['Ontario','ON'],['Prince Edward Island','PE'],
+  ['Quebec','QC'],['Saskatchewan','SK'],['Yukon','YT']
 ]);
 
 function removeEmpty(obj) {
@@ -23,6 +24,7 @@ function removeEmpty(obj) {
     return Object.fromEntries(
         Object.entries(obj)
             .filter(([_, v]) => v !== null)
+            // .filter(([k, v]) => !(/^change_/.test(k) && v === 0))
             .map(([k, v]) => [k, v === Object(v) && !(v instanceof Date) ? removeEmpty(v) : v])
     );
 }
@@ -111,16 +113,18 @@ async function getVaccineAgeBreakdown() {
     const values = row.split(/\s*,\s*/g) || [];
     if (values.length < 11) continue;
 
-    const name = values[headerIndex.get('prename')];
+    const fullName = values[headerIndex.get('prename')];
+    const name = provinceLookup.get(fullName) || fullName;
     const week = values[headerIndex.get('week_end')];
     const sex = values[headerIndex.get('sex')];
     const age = values[headerIndex.get('age')];
-    const doses = values[headerIndex.get('numtotal_atleast1dose')];
-    const half = values[headerIndex.get('numtotal_partially')];
+    const half = values[headerIndex.get('numtotal_atleast1dose')];
+    // const half = values[headerIndex.get('numtotal_partially')];
     const full = values[headerIndex.get('numtotal_fully')];
+    const doses = (Number.parseInt(half) || 0) + (Number.parseInt(full) || 0);
 
     if (!/^\d+/.test(age)) continue;
-    if (!(Number.parseInt(doses) > 0)) continue;
+    if (!(Number.parseInt(half) > 0)) continue;
 
     if (!data.has(name)) data.set(name, new Map());
     const nameData = data.get(name);
