@@ -130,21 +130,22 @@ eleventyNavigation:
         <br/><strong style="color: var(--blue);">{{ (vaccinatedPerPopulation) }} in 100</strong> are fully vaccinated and
         <strong style="color: #000;">{{ potentialFirstDoesPerPopulation - firstDoesPerPopulation }} in 100</strong> more could receive a dose from the freezer</div>
     </li>
+    {%- for province in canada | filterProp("name", "eq", "Canada")%}
     <li>
       <table cellpadding="0" cellspacing="0">
-        {% set total = country.vaccineByAge.total %}
-        {% for data in country.vaccineByAge.ages%}
+        {% set total = province.vaccineByAge.total %}
+        {% for data in province.vaccineByAge.ages %}
         {% set waffleWidth = 15 %}
-        {% set vaccinePopulation = country[data.key]/100 * country.population | round %}
-        {% set vaccinatedPerPopulation = ((data.full / total.full * country.today.total_vaccinated ) / vaccinePopulation * (country[data.key]/100) * 100) | round %}
-        {% set firstDoesPerPopulation = ((data.half / total.half * country.today.total_first_vaccination ) / vaccinePopulation * (country[data.key]/100) * 100) | round %}
+        {% set vaccinePopulation = province[data.key]/100 * province.population | round %}
+        {% set vaccinatedPerPopulation = ((data.full / total.full * province.today.total_vaccinated ) / vaccinePopulation * (province[data.key]/100) * 100) | round %}
+        {% set firstDoesPerPopulation = ((data.half / total.half * province.today.total_first_vaccination ) / vaccinePopulation * (province[data.key]/100) * 100) | round %}
         <tr>
           <td>
               {{data.key}}
           </td>
           <td>
 
-            <div a="{{firstDoesPerPopulation}}" b="{{vaccinatedPerPopulation}}" c="{{ country[data.key] }}" d="{{ vaccinePopulation }}" e="{{ data.doses }}" style="--repeat-y: {{ (country[data.key] / waffleWidth) | round | max(1) }}; --repeat-x:{{ country[data.key] | min(waffleWidth) | round}}" class="ratiostats">
+            <div a="{{firstDoesPerPopulation}}" b="{{vaccinatedPerPopulation}}" c="{{ province[data.key] }}" d="{{ vaccinePopulation }}" e="{{ data.doses }}" style="--repeat-y: {{ (province[data.key] / waffleWidth) | round | max(1) }}; --repeat-x:{{ province[data.key] | min(waffleWidth) | round}}" class="ratiostats">
               <div style="position: absolute; --repeat-y: {{ ( firstDoesPerPopulation / waffleWidth) | int }}; --repeat-x:{{ waffleWidth }}; --repeat-color: repeating-linear-gradient( 135deg, var(--blue), var(--blue) 2px, var(--light) 2px, var(--light) 3px );" class="ratiostats"></div>
               <div style="position: absolute; --repeat-y: {{ ( firstDoesPerPopulation / waffleWidth + 0.5) | round }}; --repeat-x:{{ (firstDoesPerPopulation % waffleWidth) | round}}; --repeat-color: repeating-linear-gradient( 135deg, var(--blue), var(--blue) 2px, var(--light) 2px, var(--light) 3px );" class="ratiostats"></div>
               <div style="position: absolute; --repeat-y: {{ (vaccinatedPerPopulation / waffleWidth) | int }}; --repeat-x:{{ waffleWidth }}; --repeat-color: var(--blue);" class="ratiostats"></div>
@@ -155,8 +156,9 @@ eleventyNavigation:
         </tr>
         {% endfor %}
       </table>
-      <div style="max-width:20rem;line-height: 1; padding-top: 0.25rem"><em>(Projections from {{ country.vaccineByAge.date }})</em></div>
+      <div style="max-width:20rem;line-height: 1; padding-top: 0.25rem"><strong>{{ province.name }}</strong> <em>(projected from {{ country.vaccineByAge.date.replace('2021-05-', 'May ') }})</em></div>
     </li>
+    {% endfor %}
   </ul>
     {%- endfor %}
 </section>

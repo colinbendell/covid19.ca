@@ -235,19 +235,16 @@ function projectVaccineAge(vaccineByAge, prov) {
       delete w["70-79"];
       delete w["80+"];
     }
-
-    const ageRanges = [...Object.keys(geo[lastMonth[3]])].filter(a => a !== 'total').sort();
+    //"0-11", "12-17"
+    const ageGroups = new Set(["0-17", "18-29", "30-39", "40-49", "50-59", "60-69", "70+", ...Object.keys(geo[lastMonth[3]])])
+    const ageRanges = [...ageGroups.values()].filter(a => a !== 'total').sort();
     for (const age of ageRanges) {
 
       const population = (prov[age] / 100) * geoPopulation;
 
-      for (const w of lastMonthValues) {
-        w[age].doses = w[age].half + w[age].full;
-      }
-
-      const half = lastMonthValues.map(week => week[age].half);
-      const full = lastMonthValues.map(week => week[age].full);
-      const doses = lastMonthValues.map(week => week[age].doses);
+      const half = lastMonthValues.map(week => week[age]?.half || 0);
+      const full = lastMonthValues.map(week => week[age]?.full || 0);
+      const doses = lastMonthValues.map(week => week[age]?.doses || 0);
 
       const regressionHalf = new PolynomialRegression(x, half, 2);
       const regressionFull = new PolynomialRegression(x, full, 2);
