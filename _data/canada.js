@@ -222,7 +222,7 @@ function projectVaccineAge(vaccineByAge, prov) {
     const x = lastMonth.map(d => ((new Date(d).getTime() - startDate) / 24/60/60/1000) + 1);
     const targetX = ((Date.now() - startDate) / 24/60/60/1000) + 1;
     const targetDate = new Date().toISOString().split('T')[0];
-    const result = {date: targetDate, name, total:{half: 0, full: 0, doses: 0}, ages:[]};
+    const result = {date: lastMonth[3], name, total:{half: 0, full: 0, doses: 0}, ages:[]};
 
     const geoPopulation = prov.population;
 
@@ -330,6 +330,6 @@ module.exports = async function() {
       prov.data_status = "Waiting For Report";
     }
   }
-  
+
   return data.sort((a,b) => b.population - a.population);
 };
