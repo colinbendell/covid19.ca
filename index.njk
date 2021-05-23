@@ -315,8 +315,8 @@ eleventyNavigation:
           {% for key in ["12plus"] %}
           {% set percent = data.today["vaccinated_per_" + key] | round(1)%}
           {% set percent_change = data.today["change_vaccinated_per_" + key] %}
-          {% set abs = data.today.total_first_vaccination %}
-          {% set abs_change = data.today.change_first_vaccination %}
+          {% set abs = data.today.total_vaccinated %}
+          {% set abs_change = data.today.change_vaccinated %}
           <div class="progressbar percent per{{key}}" role="progressbar"
                style="--width: {{ percent | round}}"
                aria-valuenow="{{ percent or "N/A" }}"
