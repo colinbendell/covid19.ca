@@ -413,6 +413,7 @@ main {
 #sort-infect-today:checked ~ .tr.thead label[for=sort-infect-today],
 #sort-active-trend:checked ~ .tr.thead label[for=sort-active-trend],
 #sort-active:checked ~ .tr.thead label[for=sort-active],
+#sort-recovery-days:checked ~ .tr.thead label[for=sort-recovery-days],
 #sort-hospital:checked ~ .tr.thead label[for=sort-hospital],
 #sort-death:checked ~ .tr.thead label[for=sort-death],
 #sort-test:checked ~ .tr.thead label[for=sort-test],
@@ -614,7 +615,7 @@ table.infected td.infected, table.infected th.infected {
   flex: 1 0 6rem;
 }
 .flex.tr > .today {
-  flex: 1 0 7.5rem;
+  /*flex: 1 0 7.5rem;*/
 }
 .flex.tr > .history {
   flex: 1 0 9rem;

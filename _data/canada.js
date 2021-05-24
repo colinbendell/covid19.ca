@@ -25,9 +25,9 @@ function normalizeDayData(data, item) {
   item = Object.assign(item, {
     change_vaccinations_per_1k: item.change_vaccinations >= 0 ? Math.round(item.change_vaccinations / data.population * 10*1000)/10 : null,
     change_cases_per_1000k: item.change_cases >= 0 ? Math.round(item.change_cases / data.population * 1000*1000) : null,
-    activePer100k: item.active_cases >= 0 ? Math.round(item.active_cases / data.population * 100*1000) : null,
-    fatalitiesPer100k: item.total_fatalities >= 0 ? Math.round(item.total_fatalities / data.population * 100*1000) : null,
-    hospitalizedPer1000k: item.total_hospitalizations >= 0 ? Math.round(item.total_hospitalizations / data.population * 1000*1000) : null,
+    active_cases_per_100k: item.active_cases >= 0 ? Math.round(item.active_cases / data.population * 100*1000) : null,
+    fatalities_per_100k: item.total_fatalities >= 0 ? Math.round(item.total_fatalities / data.population * 100*1000) : null,
+    hospitalizations_per_1000k: item.total_hospitalizations >= 0 ? Math.round(item.total_hospitalizations / data.population * 1000*1000) : null,
     first_vaccination_per_person: Math.round((item.total_first_vaccination / data.population) * 1000) / 10,
     first_vaccination_per_2plus: Math.round((item.total_first_vaccination / data.population2plus) * 1000) / 10,
     first_vaccination_per_12plus: Math.round((item.total_first_vaccination / data.population12plus) * 1000) / 10,
@@ -58,14 +58,14 @@ function normalizeDays(items = [], altLast) {
     const keys = Object.keys(lastItem).filter(k => Number.isFinite(lastItem[k]));
     for (const i of Array(items.length).keys()) {
       if (i > 0) {
-        const last = items[i - 1];
+        const prev = items[i - 1];
         const curr = items[i];
         for (const key of keys) {
-          curr["change_" + key] = (curr[key] || 0) - (last[key] || 0);
+          curr["change_" + key] = (curr[key] || 0) - (prev[key] || 0);
 
           //special case where we want to also apply the change_ calculation to lastWeekInclusive as well
           if (altLast && curr === lastItem) {
-            altLast["change_" + key] = (altLast[key] || 0) - (last[key] || 0);
+            altLast["change_" + key] = (altLast[key] || 0) - (prev[key] || 0);
           }
         }
       }
@@ -90,10 +90,17 @@ function normalizeWeekData(data, item) {
     }
   }
   if (week.change_tests_sum > 0) {
-    week.positivity_rate = Math.round(week.change_cases_sum / week.change_tests_sum * 1000) / 10;
+    week.positivity_rate = Math.round(week.change_cases_sum / Math.abs(week.change_tests_sum) * 1000) / 10;
   }
   if (week.available_doses_sum > 0 ) {
     week.available_doses_days = week.available_doses_sum / week.change_vaccinations_sum + 0.5;
+  }
+  if (week.change_recoveries_sum) {
+    week.cases_recovery_days = week.active_cases_sum / Math.abs(week.change_recoveries_sum) + 0.5;
+  }
+
+  if (week.change_hospitalizations_sum) {
+    week.hospitalized_days = week.total_hospitalizations_sum / Math.abs(week.change_hospitalizations_sum) + 0.5;
   }
   return week;
 }

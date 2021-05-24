@@ -41,12 +41,13 @@ eleventyNavigation:
 <style>{{ cssSort('#sort-infect-pop', true, 'details', 'lastWeekInclusive.change_cases_per_1000k_sum')}}</style>
 <style>{{ cssSort('#sort-infect-today', true, 'details', 'today.sort_change_cases')}}</style>
 <style>{{ cssSort('#sort-active-trend', true, 'details', 'lastWeekExclusive.active_cases_avg')}}</style>
-<style>{{ cssSort('#sort-active', true, 'details', 'today.activePer100k')}}</style>
-<style>{{ cssSort('#sort-hospital', true, 'details', 'today.hospitalizedPer1000k')}}</style>
-<style>{{ cssSort('#sort-death', true, 'details', 'today.fatalitiesPer100k')}}</style>
+<style>{{ cssSort('#sort-active', true, 'details', 'today.active_cases_per_100k')}}</style>
+<style>{{ cssSort('#sort-hospital', true, 'details', 'today.hospitalizations_per_1000k')}}</style>
+<style>{{ cssSort('#sort-death', true, 'details', 'today.fatalities_per_100k')}}</style>
 <style>{{ cssSort('#sort-test', true, 'details', 'lastWeekInclusive.positivity_rate')}}</style>
 <style>{{ cssSort('#sort-infect', true, 'details', 'today.total_cases_per_person')}}</style>
 <style>{{ cssSort('#sort-death-rate', true, 'details', 'today.total_fatalities_per_person')}}</style>
+<style>{{ cssSort('#sort-recovery-days', true, 'details', 'lastWeekInclusive.cases_recovery_days')}}</style>
 
 {#{% macro cssFilter(name='#sort-half', descOrder = true, section="#vaccinations", sortProperty='today.first_vaccination_per_12plus') %}#}
 {#  {% set css %}#}
@@ -163,22 +164,24 @@ eleventyNavigation:
     {%- endfor %}
 </section>
 
+{##}
+{#One day we'll figure out how to use CSS selectors on list=datalist#}
+{##}
 {#<input list="provinces" name="vaccine-search" id="vaccine-search">#}
 {#<input list="provinces" name="infection-search" id="infection-search">#}
-<datalist id="provinces">
-  {%- for province in canada | filterProp("name", "neq", "Canada") %}<option value="{{ province.name }}">{%- endfor %}
-  {%- for province in canada %}{%- for region in province.regions %}<option value="{{ region.short }}">{%- endfor %}{%- endfor %}
-</datalist>
+{#<datalist id="provinces">#}
+{#  {%- for province in canada | filterProp("name", "neq", "Canada") %}<option value="{{ province.name }}">{%- endfor %}#}
+{#  {%- for province in canada %}{%- for region in province.regions %}<option value="{{ region.short }}">{%- endfor %}{%- endfor %}#}
+{#</datalist>#}
 <input id="dummy" type="checkbox" style="display: none;">
 
 <section id="vaccinations">
 {#  <label for="population40plus">40+</label> <label for="population18plus">18+</label> <label for="population12plus">12+</label> <label for="population2plus">2+</label> <label for="population">All</label>#}
   <h2><a href="#vaccinations">Vaccine Status</a></h2>
-  <input id="population" name="vaccine-pop" type="radio" style="display: none;">
   <input id="population40plus" name="vaccine-pop" type="radio" style="display: none;">
   <input id="population18plus" name="vaccine-pop" type="radio" style="display: none;">
   <input id="population12plus" name="vaccine-pop" type="radio" style="display: none;" checked>
-  <input id="population2plus" name="vaccine-pop" type="radio" style="display: none;">
+  <input id="population" name="vaccine-pop" type="radio" style="display: none;">
   <input id="sort-vacc-name-pop" name="vaccine-sort" type="radio" style="display: none;">
   <input id="sort-vacc-name" name="vaccine-sort" type="radio" style="display: none;">
   <input id="sort-vacc-trend" name="vaccine-sort" type="radio" style="display: none;">
@@ -193,8 +196,8 @@ eleventyNavigation:
   <input id="sort-freezer-population" name="vaccine-sort" type="radio" style="display: none;">
   <input id="sort-time-to-arm" name="vaccine-sort" type="radio" style="display: none;">
   <div class="flex tr thead">
-    <div class="th toggle"><label class="sort" for="sort-vacc-name-pop"><br/><br/></label></div>
-    <div class="th name"><label class="sort" for="sort-vacc-name"><br/><br/></label></div>
+    <div class="th toggle"><label class="sort" for="sort-vacc-name-pop"><br/></label></div>
+    <div class="th name"><label class="sort" for="sort-vacc-name"><br/></label></div>
     <div class="th history"><label class="sort" for="sort-vacc-trend">Doses In Arms<br/>Last 8weeks</label></div>
     <div class="th"><label class="sort" for="sort-vacc-pop">Doses In Arms<br/>7day avg/₁₀₀₀</label></div>
     <div class="th"><label class="sort" for="sort-vacc-today">Doses In Arms<br/>Today</label></div>
@@ -248,31 +251,20 @@ eleventyNavigation:
           </div>
         </div>
         <div class="td dose current per1k"
-             title="There were {{ (data.today.change_vaccinations | format) if data.today.change_vaccinations else "NO"}} cases {{ data.today.date | readableDate | lower }}. With a 7 day average of {{ data.lastWeekExclusive.change_vaccinations_avg | format }} cases per day. {{ (data.today.change_recoveries or data.lastWeekExclusive.change_recoveries_avg) | round | format }} cases were closed."
+             title="There were {{ (data.today.change_vaccinations | format) if data.today.change_vaccinations else "NO"}} doses {{ data.today.date | readableDate | lower }}. With a 7 day average of {{ data.lastWeekExclusive.change_vaccinations_avg | format }} doses per day."
         >
-          {% if data.today.change_vaccinations > 0  %}
-          <div class="progressbar per1k green"
-               style="--width: {{ (data.lastWeekInclusive.change_vaccinations_per_1k_avg/200*100) | min(100) }}"
-               aria-valuenow="{{ data.lastWeekInclusive.change_vaccinations_per_1k_avg | round(1) }}"
-               data-change="{{ data.lastWeekInclusive.change_change_vaccinations_per_1k_avg | round | format }}"
-          >
-            <span class="value" aria-hidden="true"></span>
-            <div class="absolute perday"
-                 data-value="{{ data.lastWeekInclusive.change_vaccinations_avg | round | formatNumber }}"
-                 data-change="{{ data.lastWeekInclusive.change_change_vaccinations_avg | round | formatNumber }}"></div>
-          </div>
-          {% else %}
-          <div class="progressbar per1k green"
-               style="--width: {{ (data.lastWeekExclusive.change_vaccinations_per_1k_avg/200*100) | min(100) }}"
-               aria-valuenow="{{ (data.lastWeekExclusive.change_vaccinations_per_1k_avg + 0.5) | round }}"
-               data-change="{{ data.lastWeekExclusive.change_change_vaccinations_per_1k_avg | round | format }}"
-          >
-            <span class="value" aria-hidden="true"></span>
-            <div class="absolute perday left"
-                 data-value="{{ data.lastWeekExclusive.change_vaccinations_avg | round | formatNumber }}"
-                 data-change="{{ data.lastWeekExclusive.change_change_vaccinations_avg | round | formatNumber }}"></div>
-          </div>
+          {% set week = data.lastWeekExclusive %}
+          {% if data.today.change_vaccinations > 0 %}
+            {% set week = data.lastWeekInclusive %}
           {% endif %}
+          <div class="progressbar per1k green"
+               style="--width: {{ (week.change_vaccinations_per_1k_avg/15*100) | min(100) }}"
+               aria-valuenow="{{ week.change_vaccinations_per_1k_avg | round(1) }}"
+               data-change="{{week.change_change_vaccinations_per_1k_avg | round | format }}"
+          >
+            <span class="value" aria-hidden="true"></span>
+            <div class="absolute perday" data-value="{{ week.change_vaccinations_avg | round | formatNumber }}" data-change="{{ week.change_change_vaccinations_avg | round | formatNumber }}"></div>
+          </div>
         </div>
         <div class="td dose current"
             title="{{ data.today.date | readableDate | lower }}, {{ (data.today.change_vaccinations | format) if data.today.change_vaccinations else "NO"}} doses were administered. The 7 day average is {{ data.lastWeekExclusive.change_vaccinations_avg | format }} doses per day."
@@ -286,9 +278,6 @@ eleventyNavigation:
           <div>{{ data.today.complete_first_vaccination_date | readableDate(false) if data.today.days_to_complete_first_vaccination > 0 }}</div>
           <div class="small-detail reveal-on-hover">({{ data.today.complete_vaccinated_date | readableDate(false) if data.today.days_to_complete_first_vaccination > 0 }})</div>
         </div>
-{#        <div class="td dose total center"#}
-{#            title="Total doses administered: {{ data.today.total_vaccinations | d(0) | formatNumber }}"#}
-{#        >{{ data.today.total_vaccinations | d(0) | formatNumber }}</div>#}
         <div class="td dose one"
             title="{{ ((data.today.total_first_vaccination / vaccinePopulation * 100) | round(1)) or "N/A" }}% of {{ vaccinePopulation | formatNumber(false, 0) }} aged 12+ have their first dose.">
 {#          {% for key in ["40plus", "18plus", "12plus", "2plus", "person"] %}#}
@@ -303,9 +292,7 @@ eleventyNavigation:
                data-change="{{ percent_change | format }}"
             >
             <span class="value" aria-hidden="true"></span>
-            <div class="absolute left"
-                 data-value="{{ abs | formatNumber }}"
-                 data-change="{{ abs_change | formatNumber }}"></div>
+            <div class="absolute" data-value="{{ abs | formatNumber }}" data-change="{{ abs_change | formatNumber }}"></div>
           </div>
           {% endfor %}
         </div>
@@ -323,9 +310,7 @@ eleventyNavigation:
                data-change="{{ percent_change | format }}"
           >
             <span class="value" aria-hidden="true"></span>
-            <div class="absolute left"
-                 data-value="{{ abs | formatNumber }}"
-                 data-change="{{ abs_change | formatNumber }}"></div>
+            <div class="absolute" data-value="{{ abs | formatNumber }}" data-change="{{ abs_change | formatNumber }}"></div>
           </div>
           {% endfor %}
         </div>
@@ -363,22 +348,20 @@ eleventyNavigation:
                  title="{{ data.today.available_doses | formatNumber }} doses provides 1 dose for {{ (data.today.available_doses / vaccinePopulation * 100) | round(1) }}% of the population"
             >
               <span class="value" aria-hidden="true"></span>
-              <div class="absolute left"
-                   data-value="{{ data.today.available_doses | formatNumber }}"
-                   data-change="{{ data.today.change_available_doses | formatNumber }}"></div>
+              <div class="absolute" data-value="{{ data.today.available_doses | formatNumber }}" data-change="{{ data.today.change_available_doses | formatNumber }}"></div>
             </div>
           {% endif %}
         </div>
         <div class='td supply days'>
           {% if data.today.available_doses > 0 %}
-            {% set vaccineDays %}{{ data.lastWeekInclusive.available_doses_days | round }}{% endset %}
-            {% set previousVaccineDays %}{{ data.lastWeekExclusive.available_doses_days | round }}{% endset %}
+            {% set days %}{{ data.lastWeekInclusive.available_doses_days | round }}{% endset %}
+            {% set previousDays %}{{ data.lastWeekExclusive.available_doses_days | round }}{% endset %}
 
-            <div class="progressbar supply days {{ "red" if vaccineDays > 10 else ( "orange" if vaccineDays > 7 else "green") }}" role="progressbar"
-                 title="It takes {{ vaccineDays }} days for new vaccine deliveries to be administered to waiting arms. The target should be 7 days with regular weekly shipments."
-                 style="--width: {{ (vaccineDays/20*100) | min (100) }}"
-                 aria-valuenow="{{ vaccineDays }}"
-                 data-change="{{ (vaccineDays - previousVaccineDays) | round | format }}"
+            <div class="progressbar supply days {{ "red" if days > 10 else ( "orange" if days > 7 else "green") }}" role="progressbar"
+                 title="It takes {{ days }} days for new vaccine deliveries to be administered to waiting arms. The target should be 7 days with regular weekly shipments."
+                 style="--width: {{ (days/20*100) | min (100) }}"
+                 aria-valuenow="{{ days }}"
+                 data-change="{{ (days - previousDays) | round | format }}"
             >
               <span class="value" aria-hidden="true"></span>
             </div>
@@ -426,20 +409,21 @@ eleventyNavigation:
   <input id="sort-death" name="infection-sort" type="radio" style="display: none;">
   <input id="sort-test" name="infection-sort" type="radio" style="display: none;">
   <input id="sort-infect" name="infection-sort" type="radio" style="display: none;">
-  <input id="sort-death-rate" name="infection-sort" type="radio" style="display: none;">
+  <input id="sort-recovery-days" name="infection-sort" type="radio" style="display: none;">
+{#  <input id="sort-death-rate" name="infection-sort" type="radio" style="display: none;">#}
   <div class="flex tr thead">
     <div class="th toggle"><label class="sort" for="sort-infect-name-pop"><br/><br/></label></div>
     <div class="th name"><label class="sort" for="sort-infect-name"><br/><br/></label></div>
     <div class="th history"><label class="sort" for="sort-infect-trend">New Cases<br/>Last 8weeks</label></div>
     <div class="th"><label class="sort" for="sort-infect-pop">New Cases<br/>7day avg/₁₀₀₀ₖ</label></div>
-    <div class="th"><label class="sort" for="sort-infect-today">New Cases<br/>Today</label></div>
+    <div class="th today"><label class="sort" for="sort-infect-today">New Cases<br/>Today</label></div>
     <div class="th history"><label class="sort" for="sort-active-trend">Active Cases<br/>Last 8 weeks</label></div>
     <div class="th"><label class="sort" for="sort-active">Current<br>Active/₁₀₀ₖ</label></div>
-    <div class="th"><label class="sort" for="sort-hospital">Current<br>Hospital/₁₀₀₀ₖ</label></div>
-    <div class="th"><label class="sort" for="sort-death">Total<br>Deaths/₁₀₀ₖ</label></div>
-    <div class="th"><label class="sort" for="sort-test">Test-Positivity<br/>Rate (7 days)</label></div>
+    <div class="th hospitalized"><label class="sort" for="sort-hospital">Current<br>Hospital/₁₀₀₀ₖ</label></div>
+    <div class="th positivity"><label class="sort" for="sort-test">Test-Positivity<br/>Rate (7 days)</label></div>
     <div class="th infected"><label class="sort" for="sort-infect">Infected /<br>Population</label></div>
-    <div class="th infected"><label class="sort" for="sort-death-rate">Death Rate <br>(of Infected)</label></div>
+    <div class="th death"><label class="sort" for="sort-death">Total<br>Deaths/₁₀₀ₖ</label></div>
+    <div class="th activecases"><label class="sort" for="sort-recovery-days">Days to<br>Recover</label></div>
   </div>
   {% macro selectColour(data) %}{{ "green" if data < 10 else ("yellow" if data < 25 else ("orange" if data < 40 else ("red" if data < 100 else "darkgray"))) }}{% endmacro %}
   {% macro selectBase(data) %}{{ 10 if data < 10 else (25 if data < 25 else (40 if data < 40 else (100 if data < 100 else 150))) }}{% endmacro %}
@@ -492,9 +476,7 @@ eleventyNavigation:
              data-change="{{ week.change_change_cases_per_1000k_avg | d(0)| round | format }}"
         >
           <span class="value" aria-hidden="true"></span>
-          <div class="absolute perday left"
-               data-value="{{ week.change_cases_avg | formatNumber }}"
-               data-change="{{ week.change_change_cases_avg | formatNumber }}"></div>
+          <div class="absolute perday" data-value="{{ week.change_cases_avg | formatNumber }}" data-change="{{ week.change_change_cases_avg | formatNumber }}"></div>
         </div>
       </div>
       <div class="td cases current today"
@@ -521,41 +503,25 @@ eleventyNavigation:
         </div>
       </div>
       <div class="td activecases per100k">
-        <div class="progressbar per100k {{ selectColour(data.today.activePer100k) }}"
-             style="--width: {{ (data.today.activePer100k/selectBase(data.today.activePer100k)*100) | min(100) }}"
-             aria-valuenow="{{ data.today.activePer100k }}"
-             data-change="{{ data.today.change_activePer100k | d(0) | format }}"
+        <div class="progressbar per100k {{ selectColour(data.today.active_cases_per_100k) }}"
+             style="--width: {{ (data.today.active_cases_per_100k/selectBase(data.today.active_cases_per_100k)*100) | min(100) }}"
+             aria-valuenow="{{ data.today.active_cases_per_100k }}"
+             data-change="{{ data.today.change_active_cases_per_100k | d(0) | format }}"
         >
           <span class="value" aria-hidden="true" ></span>
-          <div class="absolute per100k left"
-               data-value="{{ data.today.active_cases | formatNumber }}"
-               data-change="{{ data.today.change_active_cases | formatNumber }}"></div>
+          <div class="absolute" data-value="{{ data.today.active_cases | formatNumber }}" data-change="{{ data.today.change_active_cases | formatNumber }}"></div>
         </div>
       </div>
       <div class="td hospitalized per1000k">
-        <div class="progressbar per1000k {{ selectColour(data.today.hospitalizedPer1000k) }}"
-             style="--width: {{ (data.today.hospitalizedPer1000k/selectBase(data.today.hospitalizedPer1000k)*100) | min(100) }}"
-             aria-valuenow="{{ data.today.hospitalizedPer1000k if data.today.total_hospitalizations >= 0 else "N/A"}}"
-             data-change="{{ data.today.change_hospitalizedPer1000k |d(0) | format }}"
+        <div class="progressbar per1000k {{ selectColour(data.today.hospitalizations_per_1000k) }}"
+             style="--width: {{ (data.today.hospitalizations_per_1000k/selectBase(data.today.hospitalizations_per_1000k)*100) | min(100) }}"
+             aria-valuenow="{{ data.today.hospitalizations_per_1000k if data.today.total_hospitalizations >= 0 else "N/A"}}"
+             data-change="{{ data.today.change_hospitalizations_per_1000k |d(0) | format }}"
         >
           {% if data.today.total_hospitalizations %}
           <span class="value" aria-hidden="true"></span>
-          <div class="absolute per1000k left"
-               data-value="{{ data.today.total_hospitalizations | formatNumber }}"
-               data-change="{{ data.today.change_hospitalizations | format }}"></div>
+          <div class="absolute" data-value="{{ data.today.total_hospitalizations | formatNumber }}" data-change="{{ data.today.change_hospitalizations | format }}"></div>
           {% endif %}
-        </div>
-      </div>
-      <div class="td death per100k">
-        <div class="progressbar per100k red" role="progressbar"
-             style="--width: {{ data.today.fatalitiesPer100k | min(100) }}"
-             aria-valuenow="{{ data.today.fatalitiesPer100k }}"
-             data-change="{{ data.today.change_fatalitiesPer100k | d(0) | format }}"
-        >
-          <span class="value" aria-hidden="true" ></span>
-          <div class="absolute left"
-               data-value="{{ data.today.total_fatalities | formatNumber}}"
-               data-change="{{ data.today.change_fatalities | format }}"></div>
         </div>
       </div>
       <div class="td positivity">
@@ -576,14 +542,30 @@ eleventyNavigation:
           <span class="value" aria-hidden="true"></span>
         </div>
       </div>
-      <div class="td infected death">
-        <div class="progressbar percent red" role="progressbar"
-             style="--width: {{ (data.today.total_fatalities_per_person/4*100) | d(0) | min(100) }}"
-             aria-valuenow="{{ data.today.total_fatalities_per_person }}"
-             data-change="{{ (data.today.total_fatalities_per_person - data.lastWeekExclusive.total_fatalities_per_person_avg ) | d(0) | format }}"
-             >
+      <div class="td death per100k">
+        <div class="progressbar per100k red" role="progressbar"
+             style="--width: {{ data.today.fatalities_per_100k | min(100) }}"
+             aria-valuenow="{{ data.today.fatalities_per_100k }}"
+             data-change="{{ data.today.change_fatalities_per_100k | d(0) | format }}"
+        >
+          <span class="value" aria-hidden="true" ></span>
+          <div class="absolute" data-value="{{ data.today.total_fatalities | formatNumber}}" data-change="{{ data.today.change_fatalities | format }}"></div>
+        </div>
+      </div>
+      <div class='td activecases days'>
+        {% if data.today.available_doses > 0 %}
+        {% set days %}{{ data.lastWeekInclusive.cases_recovery_days | round }}{% endset %}
+        {% set previousDays %}{{ data.lastWeekExclusive.cases_recovery_days | round }}{% endset %}
+
+        <div class="progressbar supply days {{ "red" if days > 10 else ( "orange" if days > 7 else "green") }}" role="progressbar"
+             title="It takes {{ days }} days to recovery after a positive covid test."
+             style="--width: {{ (days/20*100) | min (100) }}"
+             aria-valuenow="{{ days }}"
+             data-change="{{ (days - previousDays) | round | format }}"
+        >
           <span class="value" aria-hidden="true"></span>
         </div>
+        {% endif %}
       </div>
     </div>
   {%  endmacro %}
