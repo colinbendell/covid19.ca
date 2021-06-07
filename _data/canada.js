@@ -99,7 +99,7 @@ function normalizeWeekData(data, item) {
     week.cases_recovery_days = week.active_cases_sum / Math.abs(week.change_recoveries_sum) + 0.5;
   }
 
-  if (week.change_hospitalizations_sum) {
+  if (week.change_hospitalizations_sum && week.total_hospitalizations_sum) {
     week.hospitalized_days = week.total_hospitalizations_sum / Math.abs(week.change_hospitalizations_sum) + 0.5;
   }
   return week;
@@ -113,6 +113,7 @@ function normalizeVaccine(data) {
   const [twoWeeksAgo] = previousWeeks.slice(-2);
   const [lastWeekExclusive] = previousWeeks.slice(-1);
   const [lastWeekInclusive] = [data.daily.slice(-7)].map(item => normalizeWeekData(data, item));
+  const [lastMonth] = [data.daily.slice(-31).slice(30)].map(item => normalizeWeekData(data, item));
   normalizeDays(previousWeeks, lastWeekInclusive);
 
   const previous7Days = data.daily.slice(-8, -1);
@@ -227,7 +228,7 @@ function projectVaccineAge(vaccineByAge, prov) {
     const lastMonthValues = lastMonth.map(w => geo[w]);
     const startDate = new Date(lastMonth[0]).getTime();
     const x = lastMonth.map(d => ((new Date(d).getTime() - startDate) / 24/60/60/1000) + 1);
-    const targetX = ((Date.now() - startDate) / 24/60/60/1000) + 1;
+    const targetX = ((Date.now() - startDate) / 24/60/60/1000) + 2;
     const targetDate = new Date().toISOString().split('T')[0];
     const result = {date: lastMonth[3], name, total:{half: 0, full: 0, doses: 0}, ages:[]};
 
