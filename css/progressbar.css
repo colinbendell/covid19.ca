@@ -109,6 +109,9 @@
 .progressbar[data-change]:not([data-change=""]):not([data-change="0"]):not([data-change="N/A"]):after {
   content: var(--prefix) attr(data-change);
 }
+.progressbar[data-change]:is(.percent):not([data-change=""]):not([data-change="0"]):not([data-change="N/A"]):after {
+  content: var(--prefix) attr(data-change) var(--suffix);
+}
 
 .progressbar > div:is([data-value="0"]:not([data-value])) {
   display: none;
