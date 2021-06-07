@@ -282,7 +282,7 @@ eleventyNavigation:
             title="{{ ((data.today.total_first_vaccination / vaccinePopulation * 100) | round(1)) or "N/A" }}% of {{ vaccinePopulation | formatNumber(false, 0) }} aged 12+ have their first dose.">
 {#          {% for key in ["40plus", "18plus", "12plus", "2plus", "person"] %}#}
           {% for key in ["12plus"] %}
-          {% set percent = data.today["first_vaccination_per_" + key] | round(1)%}
+          {% set percent = data.today["first_vaccination_per_" + key] | round(1) | min(100) %}
           {% set percent_change = data.today["change_first_vaccination_per_" + key] %}
           {% set abs = data.today.total_first_vaccination %}
           {% set abs_change = data.today.change_first_vaccination %}
@@ -300,7 +300,7 @@ eleventyNavigation:
             title="{{ ((data.today.total_vaccinated / vaccinePopulation * 100) | round(1)) or "N/A" }}% of {{ vaccinePopulation | formatNumber(false, 0) }} aged 12+ are fully vaccinated.">
 {#          {% for key in ["40plus", "18plus", "12plus", "2plus", "person"] %}#}
           {% for key in ["12plus"] %}
-          {% set percent = data.today["vaccinated_per_" + key] | round(1)%}
+          {% set percent = data.today["vaccinated_per_" + key] | min(100) | round(1)%}
           {% set percent_change = data.today["change_vaccinated_per_" + key] %}
           {% set abs = data.today.total_vaccinated %}
           {% set abs_change = data.today.change_vaccinated %}
@@ -309,8 +309,10 @@ eleventyNavigation:
                aria-valuenow="{{ percent or "N/A" }}"
                data-change="{{ percent_change | format }}"
           >
+            {% if (percent) %}
             <span class="value" aria-hidden="true"></span>
             <div class="absolute" data-value="{{ abs | formatNumber }}" data-change="{{ abs_change | formatNumber }}"></div>
+            {% endif %}
           </div>
           {% endfor %}
         </div>
@@ -483,7 +485,9 @@ eleventyNavigation:
           title="There were {{ (data.today.change_cases | format) if data.today.change_cases else "NO"}} cases {{ data.today.date | readableDate | lower }}. With a 7 day average of {{ data.lastWeekExclusive.change_cases_avg | format }} cases per day. {{ (data.today.change_recoveries or data.lastWeekExclusive.change_recoveries_avg) | round | format }} cases were closed."
       >
         <div class="data-rate golf" data-rate="{{ data.today.change_cases_rate }}">{{ (data.today.change_cases if data.today.change_cases > 0 else data.lastWeekExclusive.change_cases_avg) | formatNumber }}</div>
+        {% if data.today.change_recoveries or data.lastWeekExclusive.change_recoveries_avg %}
         <div class="small-detail reveal-on-hover">Closed: {{ (data.today.change_recoveries or data.lastWeekExclusive.change_recoveries_avg) | round | formatNumber }}</div>
+        {% endif %}
       </div>
       <div class="td activecases history">
         <div>
@@ -530,7 +534,9 @@ eleventyNavigation:
              aria-valuenow="{{ data.lastWeekInclusive.positivity_rate if data.lastWeekInclusive.change_tests_sum >= 0 else "N/A" }}"
              data-change="{{ data.lastWeekInclusive.change_positivity_rate | d(0) | format }}"
         >
+          {% if data.lastWeekInclusive.change_tests_sum %}
           <span class="value" aria-hidden="true"></span>
+          {% endif %}
         </div>
       </div>
       <div class="td infected percapita">

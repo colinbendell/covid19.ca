@@ -181,6 +181,7 @@ function normalizeVaccine(data) {
   today.sort_change_cases = today.change_cases || lastWeekExclusive.change_cases_avg;
   today.sort_change_vaccinations_per_1k = today.change_vaccinations > 0 ? lastWeekInclusive.change_vaccinations_per_1k_avg : lastWeekExclusive.change_vaccinations_per_1k_avg;
   today.sort_change_vaccinations = today.change_vaccinations > 0 && yesterday.change_vaccinations > 0 ? today.change_vaccinations : lastWeekExclusive.change_vaccinations_avg;
+  today.sort_hospitalized_days = Math.min(lastWeekInclusive.hospitalized_days, lastWeekExclusive.hospitalized_days);
 
   data.today = today;
   data.previousWeeks = previousWeeks;
@@ -188,6 +189,8 @@ function normalizeVaccine(data) {
   data.lastWeekInclusive = lastWeekInclusive;
   data.previous7Days = previous7Days;
   data.yesterday = yesterday;
+  data.lastMonth = lastMonth;
+  data.sort_name = data.code === 'CA' ? 'ZZ_CA' : (data.code || data.name);
 
   return data;
 }
