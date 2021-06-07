@@ -87,17 +87,18 @@
 .progressbar > .percent, .progressbar.percent { --suffix: "%" }
 .progressbar > .perday, .progressbar.perday { --suffix: "/day" }
 .progressbar > .days, .progressbar.days { --suffix: " days" }
+.progressbar > .days::before, .progressbar.days::before { font-weight: normal; }
 .progressbar > .per1k, .progressbar.per1k { --suffix: "/₁₀₀₀" }
 .progressbar > .per10k, .progressbar.per10k { --suffix: "/₁₀ₖ" }
 .progressbar > .per100k, .progressbar.per100k { --suffix: "/₁₀₀ₖ" }
 .progressbar > .per1000k, .progressbar.per1000k { --suffix: "/₁₀₀₀ₖ" }
 /*.progressbar > .change[data-value]:not([data-value=""]):not([data-value="0"]):not([data-value ^= "-"]) { --prefix: "+" }*/
-.progressbar > [data-value]:not([data-value=""]):not([data-value="0"]):before,
-.progressbar[data-value]:not([data-value=""]):not([data-value="0"]):before {
+.progressbar > [data-value]:not([data-value=""]):not([data-value="0"]):not([data-value="N/A"]):before,
+.progressbar[data-value]:not([data-value=""]):not([data-value="0"]):not([data-value="N/A"]):before {
   content: attr(data-value) var(--suffix);
 }
-.progressbar > [aria-valuenow]:not([aria-valuenow=""]):not([aria-valuenow="0"]):before,
-.progressbar[aria-valuenow]:not([aria-valuenowe=""]):not([aria-valuenow="0"]):before {
+.progressbar > [aria-valuenow]:not([aria-valuenow=""]):not([aria-valuenow="N/A"]):before,
+.progressbar[aria-valuenow]:not([aria-valuenow=""]):not([aria-valuenow="N/A"]):before {
   content: attr(aria-valuenow) var(--suffix);
 }
 .progressbar > [data-change]:not([data-change=""]):not([data-change="0"]):not([data-change="N/A"]):not([data-change ^= "-"]),

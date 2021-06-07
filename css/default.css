@@ -470,38 +470,6 @@ details[open] > summary > .tr > .toggle {
   color: var(--blue);
 }
 
-
-.progressbar.per1k:not([data-value="N/A"]):not([data-value="0"])::after,
-.progressbar.per10k:not([data-value="N/A"]):not([data-value="0"])::after,
-.progressbar.per100k:not([data-value="N/A"]):not([data-value="0"])::after,
-.progressbar.per1000k:not([data-value="N/A"]):not([data-value="0"])::after {
-  content: attr(data-value);
-}
-
- .progressbar.per1k:not([aria-valuenow="N/A"])::before {
-  content: attr(aria-valuenow) "/₁₀₀₀";
-}
-
-.progressbar.per10k:not([aria-valuenow="N/A"])::before {
-  content: attr(aria-valuenow) "/₁₀ₖ";
-}
-
- .progressbar.per100k:not([aria-valuenow="N/A"])::before {
-  content: attr(aria-valuenow) "/₁₀₀ₖ";
-}
-
-.progressbar.per1000k:not([aria-valuenow="N/A"])::before {
-  content: attr(aria-valuenow) "/₁₀₀₀ₖ";
-}
-
-.progressbar.days:not([aria-valuenow="N/A"])::before {
-  content: attr(aria-valuenow) " days";
-  font-weight: normal;
-}
-
-.dose.total, .dose.one, .dose.full, .activecases.per100k, .hospitalized.per1000k, td.positivity, td.infection, td.death, td.infected {
-  text-align: center;
-}
 .center {
   text-align: center;
 }
