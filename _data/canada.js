@@ -246,8 +246,8 @@ function projectVaccineAge(vaccineByAge, prov) {
       delete w["70-79"];
       delete w["80+"];
     }
-    //"0-11", "12-17"
-    const ageGroups = new Set(["0-17", "18-29", "30-39", "40-49", "50-59", "60-69", "70+", ...Object.keys(geo[lastMonth[3]])])
+    //"0-17",
+    const ageGroups = new Set([ "0-11", "12-17", "18-29", "30-39", "40-49", "50-59", "60-69", "70+", ...Object.keys(geo[lastMonth[3]])])
     const ageRanges = [...ageGroups.values()].filter(a => a !== 'total').sort();
     for (const age of ageRanges) {
 
@@ -285,11 +285,6 @@ function projectVaccineAge(vaccineByAge, prov) {
       // if (name === 'CA') console.log(name, age, x, full, prediction.full, prediction.fullETA);
       // if (name === 'CA') console.log(name, age, x, doses, prediction.doses, prediction.dosesETA);
     }
-    result.ages.unshift({key: "0-11", full: 0, half: 0, doses: 0});
-
-  //   projectedVaccineByAge[name] = result;
-  // }
-  //
   return result;
 }
 
