@@ -202,6 +202,9 @@ header a, h2 a {
 .grid {
   display: grid;
 }
+.alignstart {
+  align-content: start;
+}
 
 .grid .onexone {
   grid-area: 1/1;
@@ -398,6 +401,7 @@ main {
 #sort-vacc-total:checked ~ .tr.thead label[for=sort-vacc-total],
 #sort-half:checked ~ .tr.thead label[for=sort-half],
 #sort-full:checked ~ .tr.thead label[for=sort-full],
+#sort-full-pop:checked ~ .tr.thead label[for=sort-full-pop],
 #sort-freezer-trend:checked ~ .tr.thead label[for=sort-freezer-trend],
 #sort-freezer-today:checked ~ .tr.thead label[for=sort-freezer-today],
 #sort-freezer-population:checked ~ .tr.thead label[for=sort-freezer-population] {
@@ -476,20 +480,6 @@ details[open] > summary > .tr > .toggle {
 
 .dose.one, .dose.total {
   border-right: hidden;
-}
-.dose.one::after {
-  content: "＋";
-  float: right;
-  margin-top: -1.6rem;
-  margin-right: -1.2rem;
-  font-weight: bold;
-}
-.dose.total::after {
-  content: "＝";
-  float: right;
-  margin-top: -0.1rem;
-  margin-right: -1.2rem;
-  font-weight: bold;
 }
 
 table.infected td.infected, table.infected th.infected {
@@ -870,4 +860,15 @@ table.charts-css.column:not(.stacked) td:not(:first-child) {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
   }
+}
+
+/*.vaccine-by-age *:target {*/
+/*  display: block;*/
+/*}*/
+.stats:not(#CA):not(:target) {
+  display: none;
+}
+
+.stats:target ~ #CA  {
+  display: none;
 }
