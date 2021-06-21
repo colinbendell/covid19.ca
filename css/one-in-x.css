@@ -1,16 +1,25 @@
 :root {
   --repeat-x: 1;
   --repeat-y: 1;
-  --repeat-color: rgba(108, 117, 125, 0.2);
+  --repeat-color: #E2E3E5;
   --ratio-color: #e83e8c;
 }
+.ratiostats.narrow {
+  min-width: calc(0.76rem*var(--repeat-x));
+  max-width: calc(0.76rem*var(--repeat-x));
+}
+
+.ratiostats.child {
+  mask-image: url(img/person-small.svg.svg);
+  -webkit-mask-image: url(img/person-small.svg);
+}
+
 .ratiostats, .ratiostats.oneinx::after {
   content: " ";
   min-width: calc(1rem*var(--repeat-x));
   max-width: calc(1rem*var(--repeat-x));
   min-height: calc(1.4rem*var(--repeat-y));
   max-height: calc(1.4rem*var(--repeat-y));
-  display: block;
   background: var(--repeat-color);
   mask-image: url(img/person.svg);
   -webkit-mask-image: url(img/person.svg);
@@ -19,6 +28,7 @@
   mask-size: calc(100%/var(--repeat-x)) calc(100%/var(--repeat-y));
   -webkit-mask-size: calc(100%/var(--repeat-x)) calc(100%/var(--repeat-y));
 }
+
 .ratiostats.oneinx::after {
   background-color: var(--ratio-color);
   mask-repeat: no-repeat;
