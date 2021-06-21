@@ -326,7 +326,7 @@ module.exports = async function() {
       region.complete = prov.complete;
       region.data_status = prov.data_status;
       normalizeTotal(region);
-      normalizePopulation(region);
+      normalizePopulation(region, prov);
       normalizeVaccine(region);
     }
     if (/Reported/.test(prov.data_status) && prov.total.date !== todayDatePST) {
