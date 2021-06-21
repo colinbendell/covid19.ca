@@ -327,10 +327,10 @@ eleventyNavigation:
           </div>
           {% endfor %}
         </div>
-        <div class="td dose population grid" style="padding-left:0; padding-right: 0;"
+        <div class="td dose population grid" style="padding-left:0; padding-right: 0;line-height: 0.75rem;"
              title="{{ data.today.first_vaccination_per_person | round}}% of the total population have at least one dose and {{ data.today.vaccinated_per_person | round}}% are fully vaccinated. {{ (((data.population - data.population12plus) / data.population) * 100) | round }}% are children under 12."
         >
-          <div class="grid" style="margin: 0.15rem auto 0.25rem; grid-area: 1 / 1 / auto / span 3;">
+          <div class="grid" style="margin: 0 auto; grid-area: 1 / 1 / auto / span 3;">
             <div style="--repeat-y: 1; --repeat-x:10; --repeat-color: rgba(0,0,0,0);" class="grid onexone ratiostats narrow">
               <div style="--repeat-y: 1; --repeat-x:{{ 10 }}; --repeat-color: #E2E3E5; " class="onexone ratiostats narrow child"></div>
               <div style="--repeat-y: 1; --repeat-x:{{ ((data.population12plus / data.population) * 10) | round }}; --repeat-color: #E2E3E5;" class="onexone ratiostats narrow"></div>
