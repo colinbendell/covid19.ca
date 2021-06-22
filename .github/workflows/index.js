@@ -193,14 +193,14 @@ async function getVaccineScheduleCanada() {
     const [thead] = /<thead[^>]*>.*?<\/thead>/ism.exec(match) || [];
 
     const header = [];
-    for (const thMatch of thead.matchAll(/<th[^>]*>([^<]+)<\/th>/g)) {
+    for (const thMatch of thead.matchAll(/<th[^>]*>(?:<[^>]+>)*([^<]+)(?:<\/[^>]+>)*<\/th>/g)) {
       const [,th] = thMatch;
       const thClean = th.trim()
         .replace(/Pfizer.*/, 'Pfizer')
         .replace(/Distribution location/, 'name')
         .replace(/Vaccine distribution/, 'name')
         .replace(/Total forecasted allocations/, 'total')
-        .replace(/^(\d+)(?:\s*-\s*\d+)?\s*([a-z]+).*/i, '2021-$2-$1');
+        .replace(/^(\d+)(?:[ –-]*\d+)?\s*([a-z]+).*/i, '2021-$2-$1');
       header.push(Date.parse(thClean) ? new Date(thClean)?.toISOString()?.split('T')[0] : thClean);
     }
 
