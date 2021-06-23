@@ -259,7 +259,7 @@ eleventyNavigation:
             </table>
           </div>
         </div>
-        <div class="td dose current per1k"
+        <div class="td dose last7d per1k"
              title="There were {{ (data.today.change_vaccinations | format) if data.today.change_vaccinations else "NO"}} doses {{ data.today.date | readableDate | lower }}. With a 7 day average of {{ data.lastWeekExclusive.change_vaccinations_avg | format }} doses per day."
         >
           {% set week = data.lastWeekExclusive %}
@@ -492,7 +492,7 @@ eleventyNavigation:
           </table>
         </div>
       </div>
-      <div class="td cases current per1000k"
+      <div class="td cases last7d per1000k"
            title="There were {{ (data.today.change_cases | format) if data.today.change_cases else "NO"}} cases {{ data.today.date | readableDate | lower }}. With a 7 day average of {{ data.lastWeekExclusive.change_cases_avg | format }} cases per day. {{ (data.today.change_recoveries or data.lastWeekExclusive.change_recoveries_avg) | round | format }} cases were closed."
       >
         {% set week = data.lastWeekExclusive %}
