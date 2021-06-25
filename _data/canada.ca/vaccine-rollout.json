@@ -1,6 +1,24 @@
 {
   "daily": [
     {
+      "date": "2021-06-24",
+      "AB": {"AstraZeneca": 315, "Moderna": 1, "Pfizer": 3, "Total": 5},
+      "BC": {"AstraZeneca": 448, "Moderna": 1, "Pfizer": 3, "Total": 5},
+      "CA": {"AstraZeneca": 2, "Moderna": 12, "Pfizer": 27, "Total": 42},
+      "FA": {"AstraZeneca": 460, "Moderna": 204910, "Pfizer": 2802, "Total": 208},
+      "MB": {"AstraZeneca": 91, "Moderna": 542, "Pfizer": 997, "Total": 1},
+      "NB": {"AstraZeneca": 61, "Moderna": 234, "Pfizer": 563, "Total": 859},
+      "NL": {"AstraZeneca": 41, "Moderna": 164, "Pfizer": 362, "Total": 567},
+      "NS": {"AstraZeneca": 60, "Moderna": 308, "Pfizer": 706, "Total": 1},
+      "NT": {"AstraZeneca": 0, "Moderna": 72, "Pfizer": 9, "Total": 82},
+      "NU": {"AstraZeneca": 0, "Moderna": 51000, "Pfizer": 9360, "Total": 60360},
+      "ON": {"AstraZeneca": 1, "Moderna": 4, "Pfizer": 10, "Total": 16},
+      "PE": {"AstraZeneca": 9, "Moderna": 47, "Pfizer": 116, "Total": 173},
+      "QC": {"AstraZeneca": 672, "Moderna": 2, "Pfizer": 6, "Total": 9},
+      "SK": {"AstraZeneca": 92, "Moderna": 365, "Pfizer": 850, "Total": 1},
+      "YT": {"AstraZeneca": 20, "Moderna": 63, "Pfizer": 2, "Total": 65}
+    },
+    {
       "date": "2021-06-22",
       "AB": {"AstraZeneca": 315800, "Moderna": 1005780, "Pfizer": 2913105, "Total": 4234685},
       "BC": {"AstraZeneca": 438000, "Moderna": 1179560, "Pfizer": 3385590, "Total": 5003150},
