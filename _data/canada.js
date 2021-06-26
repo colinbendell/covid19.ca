@@ -251,9 +251,9 @@ function projectVaccineAge(vaccineByAge, prov) {
       const full = lastMonthValues.map(week => week[age]?.full || 0);
       const doses = lastMonthValues.map(week => week[age]?.doses || 0);
 
-      const regressionHalf = new PolynomialRegression(x, half, 2);
-      const regressionFull = new PolynomialRegression(x, full, 2);
-      const regressionDoses = new PolynomialRegression(x, doses, 2);
+      const regressionHalf = new PolynomialRegression(x, half, 1);
+      const regressionFull = new PolynomialRegression(x, full, 1);
+      const regressionDoses = new PolynomialRegression(x, doses, 1);
 
       const prediction = {
         key: (age === "0-17") ? "12-17" : age,
