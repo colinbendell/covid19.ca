@@ -611,20 +611,8 @@ table.charts-css.column:not(.stacked) td:not(:first-child) {
   --color-1: var(--blue);
 }
 .dose.history table tr td:last-child {
-  --color-1: repeating-linear-gradient(
-    135deg,
-    var(--blue),
-    var(--blue) 3px,
-    var(--light) 3px,
-    var(--light) 5px
-  );
-  --color-2: repeating-linear-gradient(
-    135deg,
-    var(--gray-dark),
-    var(--gray-dark) 3px,
-    var(--light) 3px,
-    var(--light) 5px
-  );
+  --color-1: repeating-linear-gradient(135deg, var(--blue), var(--blue) 3px, var(--light) 3px, var(--light) 5px);
+  --color-2: repeating-linear-gradient(135deg, var(--gray-dark), var(--gray-dark) 3px, var(--light) 3px, var(--light) 5px);
 }
 
 .supply.history table.column td{
@@ -639,13 +627,7 @@ table.charts-css.column:not(.stacked) td:not(:first-child) {
   --color-1: var(--gray);
 }
 .supply.history table td:last-child {
-  --color-1: repeating-linear-gradient(
-    135deg,
-    var(--gray),
-    var(--gray) 3px,
-    var(--light) 3px,
-    var(--light) 5px
-  );
+  --color-1: repeating-linear-gradient(135deg, var(--gray), var(--gray) 3px, var(--light) 3px, var(--light) 5px);
 }
 
 *:hover > .history *[data-trendline]::before {
@@ -681,13 +663,7 @@ table.charts-css.column:not(.stacked) td:not(:first-child) {
 }
 
 .cases.history table.column td:last-child {
-  --color-1: repeating-linear-gradient(
-    135deg,
-    var(--red),
-    var(--red) 3px,
-    var(--light) 3px,
-    var(--light) 5px
-  );
+  --color-1: repeating-linear-gradient(135deg, var(--red), var(--red) 3px, var(--light) 3px, var(--light) 5px);
 }
 
 .activecases.history table.column td {
@@ -703,23 +679,11 @@ table.charts-css.column:not(.stacked) td:not(:first-child) {
 }
 
 .activecases.history table.column td:last-child {
-  --color-1: repeating-linear-gradient(
-    135deg,
-    var(--orange),
-    var(--orange) 3px,
-    var(--light) 3px,
-    var(--light) 5px
-  );
+  --color-1: repeating-linear-gradient(135deg, var(--orange), var(--orange) 3px, var(--light) 3px, var(--light) 5px);
 }
 
 .tr:not(.today) .current {
-  background: repeating-linear-gradient(
-    135deg,
-    white,
-    white 10px,
-    var(--light) 10px,
-    var(--light) 20px
-  );
+  background: repeating-linear-gradient(135deg, white, white 10px, var(--light) 10px, var(--light) 20px);
 }
 
 .supply.zero:not(:empty)::before {
@@ -821,6 +785,7 @@ table.charts-css.column:not(.stacked) td:not(:first-child) {
   font-style: italic;
 }
 
+.hover-parent:not(:hover) .reveal-on-hover,
 .tr:not(:hover) .reveal-on-hover {
   visibility: hidden;
 }
