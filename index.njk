@@ -5,6 +5,18 @@ eleventyNavigation:
   key: Home
   order: 1
 ---
+<header>
+  <h1 class="home">
+    <a href="{{ '/' | url }}">{{ title or metadata.title }}</a><a href="#vaccinations"> 💉 </a><a href="#infections"> 🦠 </a>
+  </h1>
+  <span class="links">
+      <a href="https://github.com/colinbendell/covid19.ca/" title="Github Source">
+        <img src="img/github.svg" width="64" height="64" alt="">
+      </a>
+      <a href="/data.json" title="{raw} source data"><img src="img/analytics.svg" width="64" height="64" alt=""></a>
+      </span>
+</header>
+<main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
 
 {% macro cssSort(name='#sort-half', descOrder = true, section="#vaccinations", sortProperty='today.first_vaccination_per_12plus') %}
   {% set css %}
@@ -113,32 +125,40 @@ eleventyNavigation:
       </p>
   </div>
   {%- for province in canada | sort(false, false, "sort_name")%}
-  <ul id="{{ province.code }}" class="stats flex nowrap">
+  <ul id="{{ province.code }}" class="stats flex nowrap hover-parent">
     <li class="grid alignstart">
       {% set vaccinePopulation = province.population %}
       {% set vaccinatedPerPopulation = (province.today.total_vaccinated / vaccinePopulation * 100) | round %}
       {% set firstDoesPerPopulation = (province.today.total_first_vaccination / vaccinePopulation * 100) | round %}
-      {% set potentialFirstDoesPerPopulation = (( province.today.total_first_vaccination + province.today.available_doses) / vaccinePopulation * 100) | round %}
-      {% set shippingFirstDoesPerPopulation = (( province.today.total_first_vaccination + province.today.available_doses +  3071000 ) / vaccinePopulation * 100) | round %}
-      {% set adultPopulation = ((province.population12plus / province.population) * 100) | round %}
+      {% set adultPopulation = ((province.population12plus / vaccinePopulation) * 100) | round %}
+      {% set potentialDoesPerPopulation = (province.today.available_doses / vaccinePopulation * 100) | round %}
+      {% set potentialFirstDoesPerPopulation = (firstDoesPerPopulation + potentialDoesPerPopulation) | min(adultPopulation)%}
+      {% set potentialSecondDoesPerPopulation = (vaccinatedPerPopulation + (potentialDoesPerPopulation - (potentialFirstDoesPerPopulation - firstDoesPerPopulation))) | min(adultPopulation)%}
       <div style="--repeat-y: 5; --repeat-x:20; --repeat-color: rgba(0,0,0,0);" class="grid onexone ratiostats">
-{#        <div style="position: absolute; --repeat-y: 5; --repeat-x:{{ (shippingFirstDoesPerPopulation / 5) | int}}; --repeat-color: repeating-linear-gradient( 135deg, var(--gray-dark), var(--gray-dark) 1px, var(--light) 1px, var(--light) 2px);" class="ratiostats"></div>#}
-{#        <div style="position: absolute; --repeat-y: {{ shippingFirstDoesPerPopulation % 5 }}; --repeat-x:{{ (shippingFirstDoesPerPopulation / 5 + 0.5) | round}}; --repeat-color: repeating-linear-gradient( 135deg, var(--gray-dark), var(--gray-dark) 1px, var(--light) 1px, var(--light) 2px);" class="ratiostats"></div>#}
         <div style="--repeat-y: 5; --repeat-x:{{ 20 }}; --repeat-color: #E2E3E5;" class="onexone ratiostats child"></div>
-        <div style="--repeat-y: 5; --repeat-x:{{ (adultPopulation / 5) | round }}; --repeat-color: #E2E3E5;" class="onexone ratiostats"></div>
-        <div style="--repeat-y: {{ adultPopulation % 5 }}; --repeat-x:{{ (adultPopulation / 5 + 0.5) | round }}; --repeat-color: #E2E3E5;" class="onexone ratiostats"></div>
-        <div style="--repeat-y: 5; --repeat-x:{{ (potentialFirstDoesPerPopulation / 5) | int}}; --repeat-color: repeating-linear-gradient( 135deg, var(--gray-dark), var(--gray-dark) 2px, var(--light) 2px, var(--light) 3px );" class="onexone ratiostats"></div>
-        <div style="--repeat-y: {{ potentialFirstDoesPerPopulation % 5 }}; --repeat-x:{{ (potentialFirstDoesPerPopulation / 5 + 0.5) | round}}; --repeat-color: repeating-linear-gradient( 135deg, var(--gray-dark), var(--gray-dark) 2px, var(--light) 2px, var(--light) 3px );" class="onexone ratiostats"></div>
-        <div style="--repeat-y: 5; --repeat-x:{{ (firstDoesPerPopulation / 5) | int}}; --repeat-color: repeating-linear-gradient( 135deg, var(--blue), var(--blue) 2px, var(--light) 2px, var(--light) 3px );" class="onexone ratiostats"></div>
-        <div style="--repeat-y: {{ firstDoesPerPopulation % 5 }}; --repeat-x:{{ (firstDoesPerPopulation / 5 + 0.5) | round}}; --repeat-color: repeating-linear-gradient( 135deg, var(--blue), var(--blue) 2px, var(--light) 2px, var(--light) 3px );" class="onexone ratiostats"></div>
+
+        <div style="--repeat-y: 5; --repeat-x:{{ (adultPopulation / 5) | int }}; --repeat-color: #E2E3E5;" class="onexone ratiostats"></div>
+        <div style="--repeat-y: {{ adultPopulation % 5 }}; --repeat-x:{{ ((adultPopulation / 5) + 0.5) | round }}; --repeat-color: #E2E3E5;" class="onexone ratiostats"></div>
+
+        <div style="--repeat-y: 5; --repeat-x:{{ (potentialFirstDoesPerPopulation / 5) | int}}; --repeat-color: repeating-linear-gradient(135deg, var(--gray-dark) 0 2px, var(--light) 2px 3px);" class="reveal-on-hover onexone ratiostats"></div>
+        <div style="--repeat-y: {{ potentialFirstDoesPerPopulation % 5 }}; --repeat-x:{{ ((potentialFirstDoesPerPopulation / 5) + 0.5) | round}}; --repeat-color: repeating-linear-gradient(135deg, var(--gray-dark) 0 2px, var(--light) 2px 3px);" class="reveal-on-hover onexone ratiostats"></div>
+
+        <div style="--repeat-y: 5; --repeat-x:{{ (firstDoesPerPopulation / 5) | int}}; --repeat-color: repeating-linear-gradient(135deg, var(--blue) 0 2px, var(--light) 2px 3px);" class="onexone ratiostats"></div>
+        <div style="--repeat-y: {{ firstDoesPerPopulation % 5 }}; --repeat-x:{{ ((firstDoesPerPopulation / 5) + 0.5) | round}}; --repeat-color: repeating-linear-gradient(135deg, var(--blue) 0 2px, var(--light) 2px 3px);" class="onexone ratiostats"></div>
+
+        {% if potentialSecondDoesPerPopulation > vaccinatedPerPopulation %}
+        <div style="--repeat-y: 5; --repeat-x:{{ (potentialSecondDoesPerPopulation / 5) | int}}; --repeat-color: repeating-linear-gradient(135deg, var(--blue) 0 2px, var(--gray-dark) 2px 4px);" class="reveal-on-hover onexone ratiostats"></div>
+        <div style="--repeat-y: {{ potentialSecondDoesPerPopulation % 5 }}; --repeat-x:{{ ((potentialSecondDoesPerPopulation / 5) + 0.5) | round}}; --repeat-color: repeating-linear-gradient(135deg, var(--blue) 0 2px, var(--gray-dark) 2px 4px);" class="reveal-on-hover onexone ratiostats"></div>
+        {% endif %}
+
         <div style="--repeat-y: 5; --repeat-x:{{ (vaccinatedPerPopulation / 5) | int }}; --repeat-color: var(--blue);" class="onexone ratiostats"></div>
-        <div style="--repeat-y: {{ vaccinatedPerPopulation % 5 }}; --repeat-x:{{ (vaccinatedPerPopulation / 5 + 0.5) | round}}; --repeat-color: var(--blue);" class="onexone ratiostats"></div>
+        <div style="--repeat-y: {{ vaccinatedPerPopulation % 5 }}; --repeat-x:{{ ((vaccinatedPerPopulation / 5) + 0.5) | round}}; --repeat-color: var(--blue);" class="onexone ratiostats"></div>
       </div>
       <div style="width:80%; border-right: 2px dashed var(--green); margin-bottom: -0.3rem; margin-top: -0.3rem; " class="onexone"></div>
 
       <div style="max-width:20rem;line-height: 1; padding-top: 0.25rem; white-space: nowrap;"><strong style="color: var(--blue);">{{ firstDoesPerPopulation }} in 100</strong> have at least one vaccine dose,
         <br/><strong style="color: var(--blue);">{{ (vaccinatedPerPopulation) }} in 100</strong> are fully vaccinated. From storage
-        <br/><strong style="color: #000;">{{ potentialFirstDoesPerPopulation - firstDoesPerPopulation }} in 100</strong> more could receive a dose.
+        <br/><strong style="color: #000;">{{ potentialDoesPerPopulation }} in 100</strong> more could receive a dose.
       </div>
       <div style="max-width:20rem;line-height: 1; padding-top: 0.25rem;">
           Herd immunity is estimated at ~<strong style="color: var(--green);">80%</strong>
@@ -168,10 +188,14 @@ eleventyNavigation:
         </tr>
         {% endfor %}
       </table>
-      <div style="max-width:20rem;line-height: 1; padding-top: 0.25rem"><strong>{{ province.name }}</strong> <em>(age data projected {{ country.vaccineByAge.date.replace('2021-06-', 'June ') }})</em></div>
-{#      {%- for province in canada | sort(false, false, "sort_name")%}#}
-{#      <a class="switch-province" href="#{{ province.code }}">{{ province.code }}</a>,#}
-{#      {% endfor %}#}
+      <div style="max-width:20rem;line-height: 1; padding-top: 0.25rem; white-space: nowrap;"><strong>{{ province.name }}</strong> <em>(age data projected {{ country.vaccineByAge.date.replace('2021-06-', 'June ') }})</em>
+        <br>
+        <span class="reveal-on-hover">
+      {%- for province in canada | sort(false, false, "sort_name")%}
+        <a class="small-detail switch-province" href="#{{ province.code }}">{{ province.code }}</a>
+      {% endfor %}
+        </span>
+      </div>
     </li>
   </ul>
   {% endfor %}
@@ -624,3 +648,11 @@ eleventyNavigation:
     </div>
   </details>
 </section>
+</main>
+<footer>
+  <p class="fineprint">This is for informational purposes only. It relies on community efforts like <a href="https://covid19tracker.ca">covid19tracker.ca</a> to aggregate government data sources.</p>
+  <div class="bling">
+    <span>built by <a href="https://twitter.com/colinbendell">Colin</a></span>
+    <span>proudly &lt;noscript&gt;</span>
+  </div>
+</footer>
