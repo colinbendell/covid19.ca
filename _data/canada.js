@@ -163,6 +163,9 @@ function normalizeVaccine(data) {
   if (new Date(today.complete_vaccinated_date || 0).getTime() > new Date(fullVaccinatedByDosesDate || 0).getTime()) {
     today.complete_vaccinated_date = fullVaccinatedByDosesDate;
   }
+  if (new Date(today.complete_first_vaccination_date || 0).getTime() > new Date(today.complete_vaccinated_date || 0).getTime()) {
+    today.complete_vaccinated_date = new Date(today.complete_first_vaccination_date.getTime() + 28*24*60*60*1000);
+  }
 
   //convenience checks for maximums
   for (const name of ["change_vaccinations", "change_cases", "active_cases", "available_doses"]) {

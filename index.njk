@@ -119,7 +119,7 @@ eleventyNavigation:
         but there are <strong><span class="number" title="{{ country.today.available_doses | format }}"><a href="#vaccinations">{{ country.today.available_doses | formatNumber(false, 0) }}</a></span> doses in the freezer</strong>.
         It currently takes ~<strong><span class="number"><a href="#vaccinations">{{ (country.lastWeekExclusive.available_doses_sum / country.lastWeekExclusive.change_vaccinations_sum + 0.5) | round | format }}</a></span> days</strong>
         for new deliveries to get into arms.
-        At the current rate, all Canadians aged 12+ should have the first dose by <span class="number"><a href="#vaccinations">{{ country.today.complete_first_vaccination_date | readableDate }}</a></span>
+        At the current rate, all Canadians aged 12+ will have the first dose by <span class="number"><a href="#vaccinations">{{ country.today.complete_first_vaccination_date | readableDate }}</a></span>
         and fully vaccinated by <span class="number"><a href="#vaccinations">{{ country.today.complete_vaccinated_date | readableDate }}</a></span>.
         There is no approved vaccine for children aged 11 or younger.
       </p>

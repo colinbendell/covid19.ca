@@ -282,6 +282,7 @@ async function getStatsCanCensus(data, hrData) {
   }
   const statsCanada = JSON.parse(fs.readFileSync('_data/statcan.gc.ca/1710000901.json', 'utf-8'));
   for (const prov of statsCanada) {
+    prov.population = Math.max(prov.population || 0, data.get(prov.code)?.population || 0)
     data.set(prov.code, Object.assign(data.get(prov.code) || {}, prov));
   }
 }
@@ -296,7 +297,7 @@ async function getCovid19TrackerProvinces(data = new Map()) {
       data.set(code, prov);
     }
   }
-  data.set('CA', {name: "Canada", population: 38048738});
+  data.set('CA', {name: "Canada", population: 38131104});
   data.delete('_RC');
   data.delete('FA');
 }
@@ -370,7 +371,7 @@ async function getCovid19TrackerProvinceRegions(code = 'ON', data = new Map(), h
   if (regions) {
     data.get(code).regions = regions.map(r => {
       if (!hrData.has(r.hr_uid)) {
-        console.log(r);
+        console.log("missing:", r);
         hrData.set(r.hr_uid, r);
       }
       else {
@@ -648,13 +649,17 @@ async function getData() {
     if (prov.regions && prov.population && prov.population2016) {
       const adjPopulationRate = prov.population / prov.population2016;
       for (const hr of prov.regions) {
-        if (hr.population) {
+        if (hr.population2021) {
+          hr.population = hr.population2021;
+        }
+        else if (hr.population) {
           hr.population = Math.round(hr.population * adjPopulationRate);
         }
         delete hr.phu_id;
       }
     }
     delete prov.population2016;
+    delete prov.population2021;
   }
 
   const json = stringify(removeEmpty(Object.fromEntries(data.entries())), 2, 200);
