@@ -59,7 +59,7 @@
   {"name": "Kingston, Frontenac, Lennox & Addington Public Health", "abbreviation": "KFLAPH", "id": "3541", "phu_id": 2241, "population": 193363, "short": "Kingston"},
   {"name": "Lambton Public Health", "id": "3542", "phu_id": 2242, "population": 126638, "short": "Lambton"},
   {"name": "Leeds, Grenville and Lanark District Health Unit", "id": "3543", "phu_id": 2243, "population": 169244, "short": "Leeds, Grenville and Lanark"},
-  {"name": "Middlesex-London Health Unit", "id": "3544", "population": 455526, "phu_id": 2244, "short": "Middlesex-London"},
+  {"name": "Middlesex-London Health Unit", "id": "3544", "population": 455526, "population2021":507525, "phu_id": 2244, "short": "Middlesex-London"},
   {"name": "Niagara Region Public Health", "id": "3546", "population": 447888, "phu_id": 2246, "short": "Niagara Region"},
   {"name": "North Bay Parry Sound District Health Unit", "id": "3547", "phu_id": 2247, "population": 123820, "short": "North Bay & Parry Sound"},
   {"name": "Northwestern Health Unit", "id": "3549", "phu_id": 2249, "population": 76455, "short": "Northwestern"},
