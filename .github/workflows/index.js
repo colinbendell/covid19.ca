@@ -177,13 +177,13 @@ async function getVaccineScheduleCanada() {
   const newValues = {};
   const res = await get('https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks/covid-19-vaccine-treatment/vaccine-rollout.html');
 
-  for (const tableMatch of res.matchAll(/<h2 id="a4[a-z][^<]*?<\/h2>.*?<table.*?<\/table>/isg)) {
+  for (const tableMatch of res.replace(/&nbsp;/g, ' ').matchAll(/<h2 id="a4[a-z][^<]*?<\/h2>.*?<table.*?<\/table>/isg)) {
     const table = new Map();
     const [match] = tableMatch || [];
 
     let lastModified;
     if (/Total COVID-19 vaccine confirmed distribution as of /.test(match)) {
-      const [,lastModifiedDate, lastModifiedTime] = /Total COVID-19 vaccine confirmed distribution as of (.*?) at (\d+:\d+ \S+)/i.exec(match);
+      const [,lastModifiedDate, lastModifiedTime] = /Total COVID-19 vaccine confirmed distribution as of (.*?) at (\d+:\d+ \S+)/i.exec(match) || [];
       // lastModified = new Date(`${new Date(lastModifiedDate).toISOString().split('T')[0]} ${lastModifiedTime.replace('.', '')} EDT`);
       lastModified = (new Date(lastModifiedDate) || new Date()).toISOString().split('T')[0];
     }
@@ -645,18 +645,17 @@ async function getData() {
   await Promise.all(provinces.map(code => getCovid19TrackerProvinceRegions(code, data, hrData)));
   await Promise.all(provinces.map(code => getCovid19TrackerRegionDaily(code, data)));
 
+  const canadaAdjPopulationRate = data.get('CA').population / data.get('CA').population2016;
   for (const prov of data.values()) {
-    if (prov.regions && prov.population && prov.population2016) {
-      const adjPopulationRate = prov.population / prov.population2016;
-      for (const hr of prov.regions) {
-        if (hr.population2021) {
-          hr.population = hr.population2021;
-        }
-        else if (hr.population) {
-          hr.population = Math.round(hr.population * adjPopulationRate);
-        }
-        delete hr.phu_id;
+    const adjPopulationRate = Math.max((prov.population / prov.population2016) || 0, canadaAdjPopulationRate) ;
+    for (const hr of prov.regions || []) {
+      if (hr.population2021) {
+        hr.population = hr.population2021;
       }
+      else if (hr.population) {
+        hr.population = Math.round(hr.population * adjPopulationRate);
+      }
+      delete hr.phu_id;
     }
     delete prov.population2016;
     delete prov.population2021;
