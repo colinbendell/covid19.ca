@@ -1,6 +1,5 @@
 const fs = require("fs");
 const CleanCSS = require("clean-css");
-const pluginNavigation = require("@11ty/eleventy-navigation");
 const htmlmin = require("html-minifier");
 // const uglify = require("posthtml-minify-classnames")
 // const posthtml = require("posthtml")
@@ -10,8 +9,6 @@ const ISO_3_LETTER_MONTH = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Au
 module.exports = function(eleventyConfig) {
   // Add plugins
   // eleventyConfig.addPlugin(pluginRss);
-  // eleventyConfig.addPlugin(pluginSyntaxHighlight);
-  eleventyConfig.addPlugin(pluginNavigation);
 
   // https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true);
