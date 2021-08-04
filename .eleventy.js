@@ -83,7 +83,9 @@ module.exports = function(eleventyConfig) {
     return value || '';
   });
 
-  eleventyConfig.addFilter("head", (array, n) => {
+  eleventyConfig.addFilter("handle", value => value?.toLocaleLowerCase()?.replace(/[^a-zA-Z]+/gi, '-'));
+
+    eleventyConfig.addFilter("head", (array, n) => {
     if( n < 0 ) {
       return array.slice(n);
     }

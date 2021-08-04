@@ -151,7 +151,7 @@ function normalizeVaccine(data) {
     today.change_cases_rate = Math.max(Math.min(Math.round((changeCaseBase - lastWeekExclusive.change_cases_avg) / (lastWeekExclusive.change_cases_avg+0.001)*100), 100), -100);
   }
 
-  const vaccinationPopulation = data.population12plus;
+  const vaccinationPopulation = Math.min(Math.round(data.population*0.8), data.population12plus);
   const last28Days = data.daily.slice(-28);
   today.complete_first_vaccination_date = projectETA(vaccinationPopulation, last28Days, "total_first_vaccination");
   today.days_to_complete_first_vaccination = Math.round((new Date(today.complete_first_vaccination_date).getTime() - Date.now()) / 24/60/60/1000);

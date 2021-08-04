@@ -22,7 +22,7 @@ layout: layouts/home.njk
     {{ name }}:checked ~ {{ section }} .province.{{ province.iso3166 | lower }} { order: {{ index }}; }
     {% set subindex = 1 %}
     {%- for region in province.regions | sort(true, false, sortProperty) %}
-      {{ name }}:checked ~ {{ section }} .healthregion.{{ (region.short or region.name) | lower | replace(r/[^a-zA-Z]+/gi, '-') }} { order: {{ subindex }}; }
+      {{ name }}:checked ~ {{ section }} .healthregion.{{ (region.short or region.name) | handle }} { order: {{ subindex }}; }
       {% set subindex = subindex + 1 %}
     {%- endfor %}
     {% set index = index + 1 %}
@@ -66,7 +66,7 @@ layout: layouts/home.njk
 {#    {{ name }}[value="{{ province.name }}"] ~ {{ section }} .province:not(.{{ province.iso3166 | lower }}) { visibility: hidden }#}
 {#{% set subindex = 1 %}#}
 {#    {%- for region in province.regions | sort(true, false, sortProperty) %}#}
-{#      {{ name }}:checked ~ {{ section }} .healthregion.{{ (region.short or region.name) | lower | replace(r/[^a-zA-Z]+/gi, '-') }} { order: {{ subindex }}; }#}
+{#      {{ name }}:checked ~ {{ section }} .healthregion.{{ (region.short or region.name) | handle }} { order: {{ subindex }}; }#}
 {#{% set subindex = subindex + 1 %}#}
 {#    {%- endfor %}#}
 {#    {% set index = index + 1 %}#}
@@ -112,12 +112,13 @@ layout: layouts/home.njk
         and <span class="number"><a href="#vaccinations">{{ (country.today.vaccinated_per_12plus) | round(1) }}%</a></span> are fully vaccinated!
       </p>
       <p>
-        Vaccination is <span class="editorial {{ "positive" if country.lastWeekInclusive.change_first_vaccination_per_person_avg > 0 else "negative" }}">{{ "speeding up" if country.lastWeekInclusive.change_first_vaccination_per_person_avg > 0 else "slowing down" }}</span>,
+        Vaccination is <span class="editorial {{ "positive" if country.lastWeekInclusive.change_change_vaccinations_avg > 0 else "negative" }}">{{ "speeding up" if country.lastWeekInclusive.change_change_vaccinations_avg > 0 else "slowing down" }}</span>,
         but there are <strong><span class="number" title="{{ country.today.available_doses | format }}"><a href="#vaccinations">{{ country.today.available_doses | formatNumber(false, 0) }}</a></span> doses in the freezer</strong>.
         It currently takes ~<strong><span class="number"><a href="#vaccinations">{{ (country.lastWeekExclusive.available_doses_sum / country.lastWeekExclusive.change_vaccinations_sum + 0.5) | round | format }}</a></span> days</strong>
         for new deliveries to get into arms.
-        At the current rate, all Canadians aged 12+ will have the first dose by <span class="number"><a href="#vaccinations">{{ country.today.complete_first_vaccination_date | readableDate }}</a></span>
-        and fully vaccinated by <span class="number"><a href="#vaccinations">{{ country.today.complete_vaccinated_date | readableDate }}</a></span>.
+      </p>
+      <p>
+        At the current rate, Canadians should achieve herd immunity around <span class="number"><a href="#vaccinations">{{ country.today.complete_vaccinated_date | readableDate }}</a></span> when 80% of the entire population is fully vaccinated.
         There is no approved vaccine for children aged 11 or younger.
       </p>
   </div>
@@ -243,7 +244,7 @@ layout: layouts/home.njk
   {% macro vaccineRow(data, type='province') %}
     {% if data.today.total_vaccinations > 0 %}
       {% set vaccinePopulation = data.population %}
-      <div class="flex tr vaccine {{ type }} {{ (data.iso3166 or data.short or data.name or data.province) | lower | replace(r/[^a-zA-Z]+/gi, '-') }} {{ data.today.date | readableDate | lower }}"
+      <div class="flex tr vaccine {{ type }} {{ (data.iso3166 or data.short or data.name or data.province) | handle }} {{ data.today.date | readableDate | lower }}"
           title="Total: {{ data.today.total_vaccinations | d(0) | format }} ({{ data.today.date | readableDate }}: {{ data.today.change_vaccinations | format}}, {{ data.yesterday.date | readableDate }}: {{ data.yesterday.change_vaccinations | format }}) Population: {{ data.population | format }}">
         <div class="td toggle"></div>
         <div class="td name" title="{{ data.data_status }} @ {{ data.updated_at | readableTime }} PT {{ data.updated_at | readableDate | lower}}">
@@ -251,7 +252,7 @@ layout: layouts/home.njk
             <label class="label-toggle">
               <span class="name long" data-short="{{ data.iso3166 or data.name.en }}">{{ data.name.en or data.name }}</span>
               <span class="name short">{{ data.iso3166 or data.name.en }}</span>
-              <svg viewBox="0 0 512 512" class="province-update-status"><use href="#{{ data.data_status | lower | replace(r/ /gi, '-') }}"></use></svg>
+              <svg viewBox="0 0 512 512" class="province-update-status"><use href="#{{ data.data_status | handle }}"></use></svg>
             </label>
           {% else %}
             {#      <span class="name long">{{ data.name.en or data.name }}</span>#}
@@ -263,7 +264,7 @@ layout: layouts/home.njk
         </div>
         <div class="td dose history">
           <div>
-            <table class="charts-css column" style="--size: {{ (data.lastWeekExclusive.change_vaccinations_avg / data.today.change_vaccinations_max) | format }}" data-trendline="{{ data.lastWeekExclusive.change_vaccinations_avg |formatNumber }} /day">
+            <table class="charts-css column" style="--size: {{ (data.lastWeekExclusive.change_vaccinations_avg / data.today.change_vaccinations_max) | format }}" data-trendline="{{ data.lastWeekInclusive.change_vaccinations_avg |formatNumber }} /day">
               <tbody>
               <tr>
               {%- for week in data.previousWeeks | head(-8) %}
@@ -367,7 +368,7 @@ layout: layouts/home.njk
         <div class="td supply history">
           {% if data.today.available_doses > 0 %}
             <div>
-              <table class="charts-css column" style="--size: {{ (data.lastWeekExclusive.available_doses_avg / data.today.available_doses_max) | format }}" data-trendline="{{ data.lastWeekExclusive.available_doses_avg |formatNumber }}">
+              <table class="charts-css column" style="--size: {{ (data.lastWeekExclusive.available_doses_avg / data.today.available_doses_max) | format }}" data-trendline="{{ data.lastWeekInclusive.available_doses_avg |formatNumber }}">
                 <tbody>
                 <tr>
                   {%- for week in data.previousWeeks | head(-8) %}
@@ -479,14 +480,14 @@ layout: layouts/home.njk
   {% macro selectBase(data) %}{{ 10 if data < 10 else (25 if data < 25 else (40 if data < 40 else (100 if data < 100 else 150))) }}{% endmacro %}
 
   {% macro infectionRow(data, type='province') %}
-    <div class="flex tr infection {{ type }} {{ (data.iso3166 or data.short or data.name or data.province) | lower | replace(r/[^a-zA-Z]+/gi, '-') }} {{ data.today.date | readableDate | lower }}" title="Total: {{ data.total.total_cases | format }} ({{ data.total.date | readableDate }}: {{ data.total.change_cases | format }}, {{ data.yesterday.date | readableDate }}: {{ data.yesterday.change_cases | format }}) Population: {{ data.population | format }}">
+    <div class="flex tr infection {{ type }} {{ (data.iso3166 or data.short or data.name or data.province) | handle }} {{ data.today.date | readableDate | lower }}" title="Total: {{ data.total.total_cases | format }} ({{ data.total.date | readableDate }}: {{ data.total.change_cases | format }}, {{ data.yesterday.date | readableDate }}: {{ data.yesterday.change_cases | format }}) Population: {{ data.population | format }}">
       <div class="td toggle"></div>
       <div class="td name" title="{{ data.data_status }} @ {{ data.updated_at | readableTime }} PT {{ data.updated_at | readableDate | lower}}">
         {% if type === 'province' or type === 'country' %}
         <label class="label-toggle">
           <span class="name long">{{ data.name.en or data.name }}</span>
           <span class="name short">{{ data.iso3166 or data.name.en }}</span>
-          <svg viewBox="0 0 512 512" class="province-update-status"><use href="#{{ data.data_status | lower | replace(r/ /gi, '-') }}"></use></svg>
+          <svg viewBox="0 0 512 512" class="province-update-status"><use href="#{{ data.data_status | handle }}"></use></svg>
         </label>
         {% else %}
 {#        <span class="name long">{{ data.name.en or data.name }}</span>#}
