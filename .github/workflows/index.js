@@ -183,7 +183,7 @@ async function getVaccineScheduleCanada() {
 
     let lastModified;
     if (/Total COVID-19 vaccine confirmed distribution as of /.test(match)) {
-      const [,lastModifiedDate, lastModifiedTime] = /Total COVID-19 vaccine confirmed distribution as of (.*?) at (\d+:\d+ \S+)/i.exec(match) || [];
+      const [,lastModifiedDate, lastModifiedTime] = /Total COVID-19 vaccine confirmed distribution as of (.*?) at (\d+: ?\d+ \S+)/i.exec(match) || [];
       // lastModified = new Date(`${new Date(lastModifiedDate).toISOString().split('T')[0]} ${lastModifiedTime.replace('.', '')} EDT`);
       lastModified = (new Date(lastModifiedDate) || new Date()).toISOString().split('T')[0];
     }
