@@ -300,6 +300,7 @@ async function getCovid19TrackerProvinces(data = new Map()) {
   data.set('CA', {name: "Canada", population: 38131104});
   data.delete('_RC');
   data.delete('FA');
+  data.delete('NFR');
 }
 async function getCovid19TrackerCanadaTotals(data = new Map()) {
   // high level totals for the country
