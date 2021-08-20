@@ -1,6 +1,24 @@
 {
   "daily": [
     {
+      "date": "2021-08-19",
+      "AB": {"AstraZeneca": 315800, "Moderna": 1911560, "Pfizer": 4540575, "Total": 6767935},
+      "BC": {"AstraZeneca": 431440, "Moderna": 1955720, "Pfizer": 5393550, "Total": 7780710},
+      "CA": {"AstraZeneca": 2999180, "Moderna": 18041170, "Pfizer": 42655584, "Total": 63695934},
+      "FA": {"AstraZeneca": 460, "Moderna": 204910, "Pfizer": 3390, "Total": 208760},
+      "MB": {"AstraZeneca": 86260, "Moderna": 808920, "Pfizer": 1521300, "Total": 2416480},
+      "NB": {"AstraZeneca": 52230, "Moderna": 407530, "Pfizer": 846255, "Total": 1306015},
+      "NL": {"AstraZeneca": 41100, "Moderna": 271280, "Pfizer": 537810, "Total": 850190},
+      "NS": {"AstraZeneca": 60060, "Moderna": 502100, "Pfizer": 1099080, "Total": 1661240},
+      "NT": {"AstraZeneca": 0, "Moderna": 72870, "Pfizer": 9360, "Total": 82230},
+      "NU": {"AstraZeneca": 0, "Moderna": 51000, "Pfizer": 9360, "Total": 60360},
+      "ON": {"AstraZeneca": 1156300, "Moderna": 7627250, "Pfizer": 17390421, "Total": 26173971},
+      "PE": {"AstraZeneca": 9900, "Moderna": 75980, "Pfizer": 186915, "Total": 272795},
+      "QC": {"AstraZeneca": 738110, "Moderna": 3469750, "Pfizer": 9836643, "Total": 14044503},
+      "SK": {"AstraZeneca": 107500, "Moderna": 617990, "Pfizer": 1278585, "Total": 2004075},
+      "YT": {"AstraZeneca": 20, "Moderna": 64310, "Pfizer": 2340, "Total": 66670}
+    },
+    {
       "date": "2021-08-11",
       "AB": {"AstraZeneca": 315800, "Moderna": 1911560, "Pfizer": 4535895, "Total": 6763255},
       "BC": {"AstraZeneca": 431440, "Moderna": 1955720, "Pfizer": 5281230, "Total": 7668390},
@@ -561,12 +579,8 @@
   ],
   "Pfizer": [
     {
-      "date": "2021-08-09", "AB": 281970, "BC": 327600, "CA": 2413710, "FA": 76050, "MB": 87750, "NB": 50310, "NL": 65520, "NS": 62010, "NT": 0, "NU": 0, "ON": 938340, "PE": 10530, "QC": 513630,
-      "SK": 0, "YT": 0
-    },
-    {
-      "date": "2021-08-16", "AB": 284310, "BC": 329940, "CA": 2432430, "FA": 0, "MB": 88920, "NB": 50310, "NL": 32760, "NS": 63180, "NT": 0, "NU": 0, "ON": 945360, "PE": 10530, "QC": 551070,
-      "SK": 76050, "YT": 0
+      "date": "2021-08-16", "AB": 0, "BC": 329940, "CA": 2432430, "FA": 911430, "MB": 88920, "NB": 50310, "NL": 32760, "NS": 63180, "NT": 0, "NU": 0, "ON": 945360, "PE": 10530, "QC": 0, "SK": 0,
+      "YT": 0
     }
   ]
 }
