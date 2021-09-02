@@ -1,6 +1,24 @@
 {
   "daily": [
     {
+      "date": "2021-09-02",
+      "AB": {"AstraZeneca": 316300, "Moderna": 1911560, "Pfizer": 4540575, "Total": 6768435},
+      "BC": {"AstraZeneca": 436240, "Moderna": 1955720, "Pfizer": 5463750, "Total": 7855710},
+      "CA": {"AstraZeneca": 3005780, "Moderna": 18046170, "Pfizer": 42759714, "Total": 63811564},
+      "FA": {"AstraZeneca": 460, "Moderna": 204910, "Pfizer": 3390, "Total": 208760},
+      "MB": {"AstraZeneca": 86460, "Moderna": 808920, "Pfizer": 1521300, "Total": 2416680},
+      "NB": {"AstraZeneca": 52230, "Moderna": 407530, "Pfizer": 846255, "Total": 1306015},
+      "NL": {"AstraZeneca": 41100, "Moderna": 276180, "Pfizer": 558870, "Total": 876150},
+      "NS": {"AstraZeneca": 60160, "Moderna": 502100, "Pfizer": 1099080, "Total": 1661340},
+      "NT": {"AstraZeneca": 0, "Moderna": 72870, "Pfizer": 9360, "Total": 82230},
+      "NU": {"AstraZeneca": 0, "Moderna": 51000, "Pfizer": 10530, "Total": 61530},
+      "ON": {"AstraZeneca": 1157300, "Moderna": 7627250, "Pfizer": 17390421, "Total": 26174971},
+      "PE": {"AstraZeneca": 9900, "Moderna": 75980, "Pfizer": 197445, "Total": 283325},
+      "QC": {"AstraZeneca": 738110, "Moderna": 3469750, "Pfizer": 9836643, "Total": 14044503},
+      "SK": {"AstraZeneca": 107500, "Moderna": 617990, "Pfizer": 1278585, "Total": 2004075},
+      "YT": {"AstraZeneca": 20, "Moderna": 64310, "Pfizer": 3510, "Total": 67840}
+    },
+    {
       "date": "2021-08-26",
       "AB": {"AstraZeneca": 316300, "Moderna": 1911560, "Pfizer": 4540575, "Total": 6768435},
       "BC": {"AstraZeneca": 436240, "Moderna": 1955720, "Pfizer": 5393550, "Total": 7785510},
@@ -595,10 +613,5 @@
       "YT": {"AstraZeneca": 20, "Moderna": 54300, "Pfizer": 0, "Total": 54320}
     }
   ],
-  "Pfizer": [
-    {
-      "date": "2021-08-16", "AB": 0, "BC": 329940, "CA": 2432430, "FA": 911430, "MB": 88920, "NB": 50310, "NL": 32760, "NS": 63180, "NT": 0, "NU": 0, "ON": 945360, "PE": 10530, "QC": 0, "SK": 0,
-      "YT": 0
-    }
-  ]
+  "Pfizer": [{"date": "2021-08-16", "AB": "", "BC": "", "CA": "", "FA": "", "MB": "", "NB": "", "NL": "", "NS": "", "NT": "", "NU": "", "ON": "", "PE": "", "QC": "", "SK": "", "YT": ""}]
 }
