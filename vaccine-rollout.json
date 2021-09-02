@@ -613,5 +613,5 @@
       "YT": {"AstraZeneca": 20, "Moderna": 54300, "Pfizer": 0, "Total": 54320}
     }
   ],
-  "Pfizer": [{"date": "2021-08-16", "AB": "", "BC": "", "CA": "", "FA": "", "MB": "", "NB": "", "NL": "", "NS": "", "NT": "", "NU": "", "ON": "", "PE": "", "QC": "", "SK": "", "YT": ""}]
+  "Pfizer": [{"date": "August 30 to September 3", "AB": 0, "BC": 0, "CA": 0, "FA": 0, "MB": 0, "NB": 0, "NL": 0, "NS": 0, "NT": 0, "NU": 0, "ON": 0, "PE": 0, "QC": 0, "SK": 0, "YT": 0}]
 }
