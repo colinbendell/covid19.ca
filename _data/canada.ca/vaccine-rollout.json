@@ -1,6 +1,24 @@
 {
   "daily": [
     {
+      "date": "2021-09-23",
+      "AB": {"AstraZeneca Vaxzevria": 316300, "Moderna SpikeVax": 1911560, "Pfizer": 4869345, "Total": 7097205},
+      "BC": {"AstraZeneca Vaxzevria": 436240, "Moderna SpikeVax": 2010320, "Pfizer": 5586600, "Total": 8033160},
+      "CA": {"AstraZeneca Vaxzevria": 3005780, "Moderna SpikeVax": 17591786, "Pfizer": 43211340, "Total": 63808906},
+      "FA": {"AstraZeneca Vaxzevria": 460, "Moderna SpikeVax": 204938, "Pfizer": 3396, "Total": 208794},
+      "MB": {"AstraZeneca Vaxzevria": 86460, "Moderna SpikeVax": 733908, "Pfizer": 1521300, "Total": 2341668},
+      "NB": {"AstraZeneca Vaxzevria": 52230, "Moderna SpikeVax": 372530, "Pfizer": 846255, "Total": 1271015},
+      "NL": {"AstraZeneca Vaxzevria": 41100, "Moderna SpikeVax": 276180, "Pfizer": 558870, "Total": 876150},
+      "NS": {"AstraZeneca Vaxzevria": 60160, "Moderna SpikeVax": 502200, "Pfizer": 1099080, "Total": 1661440},
+      "NT": {"AstraZeneca Vaxzevria": 0, "Moderna SpikeVax": 72870, "Pfizer": 9360, "Total": 82230},
+      "NU": {"AstraZeneca Vaxzevria": 0, "Moderna SpikeVax": 51000, "Pfizer": 10530, "Total": 61530},
+      "ON": {"AstraZeneca Vaxzevria": 1157300, "Moderna SpikeVax": 7228250, "Pfizer": 17390421, "Total": 25775971},
+      "PE": {"AstraZeneca Vaxzevria": 9900, "Moderna SpikeVax": 75980, "Pfizer": 197445, "Total": 283325},
+      "QC": {"AstraZeneca Vaxzevria": 738110, "Moderna SpikeVax": 3469750, "Pfizer": 9836643, "Total": 14044503},
+      "SK": {"AstraZeneca Vaxzevria": 107500, "Moderna SpikeVax": 617990, "Pfizer": 1278585, "Total": 2004075},
+      "YT": {"AstraZeneca Vaxzevria": 20, "Moderna SpikeVax": 64310, "Pfizer": 3510, "Total": 67840}
+    },
+    {
       "date": "2021-09-16",
       "AB": {"AstraZeneca Vaxzevria": 316300, "Moderna SpikeVax": 1911560, "Pfizer": 4669275, "Total": 6897135},
       "BC": {"AstraZeneca Vaxzevria": 436240, "Moderna SpikeVax": 2004720, "Pfizer": 5586600, "Total": 8027560},
@@ -649,5 +667,5 @@
       "YT": {"AstraZeneca": 20, "Moderna": 54300, "Pfizer": 0, "Total": 54320}
     }
   ],
-  "Pfizer-BioNTech Comirnaty": [{"date": "September 11 to September 17", "AB": 0, "BC": 0, "CA": 0, "FA": 0, "MB": 0, "NB": 0, "NL": 0, "NS": 0, "NT": 0, "NU": 0, "ON": 0, "PE": 0, "QC": 0, "SK": 0, "YT": 0}]
+  "Pfizer-BioNTech Comirnaty": [{"date": "September 18 to September 24", "AB": 0, "BC": 0, "CA": 0, "FA": 0, "MB": 0, "NB": 0, "NL": 0, "NS": 0, "NT": 0, "NU": 0, "ON": 0, "PE": 0, "QC": 0, "SK": 0, "YT": 0}]
 }
