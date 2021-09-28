@@ -1,6 +1,23 @@
 const fs = require('fs');
 const PolynomialRegression = require('ml-regression-polynomial');
 
+const COSTS = {
+  CA: { hospital:  1031, icu:  3582, income: 54630/50/5 },
+  AB: { hospital:  1254, icu:  4868 },
+  BC: { hospital:  1081, icu:  3583  },
+  MB: { hospital:  994, icu:  4121 },
+  NB: { hospital:  836, icu:  3012 },
+  NL: { hospital:  1102, icu:  2680 },
+  NS: { hospital:  1032, icu:  3300 },
+  //NT: { hospital:  0, icu:  0 },
+  NU: { hospital:  1131, icu:  4078 },
+  ON: { hospital:  935, icu:  3163 },
+  // PE: { hospital:  0, icu:  0 },
+  SK: { hospital:  1287, icu:  5008 },
+  // YT: { hospital:  0, icu:  0 },
+  // QC: { hospital:  0, icu:  0 },
+}
+
 function chunkArray(myArray, chunkSize){
   const results = [];
 
@@ -21,6 +38,10 @@ function normalizeDayData(data, item) {
     total_first_vaccination: (item.total_vaccinations || 0) - (item.total_vaccinated || 0),
     available_doses: item.total_vaccines_distributed > 0 ? (item.total_vaccines_distributed || 0) - (item.total_vaccinations || 0) : null,
     active_cases: item.active_cases || ((item.total_cases || 0) - (item.total_fatalities || 0) - (item.total_recoveries || 0)),
+    cost_hospitalization: item.total_hospitalizations * (COSTS[data.code]?.hospital || COSTS[data.province]?.hospital || COSTS.CA?.hospital || 0) || 0,
+    cost_critical: item.total_criticals * (COSTS[data.code]?.icu || COSTS[data.province]?.icu || COSTS.CA?.icu || 0) || 0,
+    total_cost_hospitalization: item.total_hospitalizations * (COSTS[data.code]?.hospital || COSTS[data.province]?.hospital || COSTS.CA?.hospital || 0) + item.total_criticals * (COSTS[data.code]?.icu || COSTS[data.province]?.icu || COSTS.CA?.icu || 0) || 0,
+    cost_income: item.change_cases * COSTS.CA.income * 5 || 0,
   });
   item = Object.assign(item, {
     change_vaccinations_per_1k: item.change_vaccinations >= 0 ? Math.round(item.change_vaccinations / data.population * 10*1000)/10 : null,
@@ -28,6 +49,7 @@ function normalizeDayData(data, item) {
     active_cases_per_100k: item.active_cases >= 0 ? Math.round(item.active_cases / data.population * 100*1000) : null,
     fatalities_per_100k: item.total_fatalities >= 0 ? Math.round(item.total_fatalities / data.population * 100*1000) : null,
     hospitalizations_per_1000k: item.total_hospitalizations >= 0 ? Math.round(item.total_hospitalizations / data.population * 1000*1000) : null,
+    criticals_per_1000k: item.total_criticals >= 0 ? Math.round(item.total_criticals / data.population * 10*1000*1000) : null,
     first_vaccination_per_person: Math.round((item.total_first_vaccination / data.population) * 1000) / 10,
     first_vaccination_per_2plus: Math.round((item.total_first_vaccination / data.population2plus) * 1000) / 10,
     first_vaccination_per_12plus: Math.round((item.total_first_vaccination / data.population12plus) * 1000) / 10,
@@ -46,6 +68,7 @@ function normalizeDayData(data, item) {
     total_cases_per_person: Math.round((item.total_cases / data.population) * 1000) / 10,
     total_fatalities_per_person: Math.round((item.total_fatalities / item.total_cases) * 1000) / 10,
     positivityRate: item.change_tests > 0 ? Math.round(item.change_cases / item.change_tests * 1000) / 10 : null,
+    total_cost_hospitalization_per_person: Math.round((item.total_cost_hospitalization / data.population) * 10000) / 10000,
   });
 
   return item;
@@ -130,6 +153,8 @@ function normalizeVaccine(data) {
   const [lastWeekExclusive] = previousWeeks.slice(-1);
   const [lastWeekInclusive] = [data.daily.slice(-7)].map(item => normalizeWeekData(data, item));
   const [lastMonth] = [data.daily.slice(-31).slice(30)].map(item => normalizeWeekData(data, item));
+  const [lastMonthInclusive] = [data.daily.slice(-31)].map(item => normalizeWeekData(data, item));
+  const [sinceJuly] = [data.daily.filter(d => Date.parse(d.date) >= Date.parse('2021-07-01'))].map(item => normalizeWeekData(data, item));
   normalizeDays(previousWeeks, lastWeekInclusive);
 
   const previous7Days = data.daily.slice(-8, -1);
@@ -168,9 +193,12 @@ function normalizeVaccine(data) {
   }
 
   //convenience checks for maximums
-  for (const name of ["change_vaccinations", "change_cases", "active_cases", "available_doses"]) {
-    today[name + "_max"] = Math.max(...previousWeeks.slice(-8).map(weekData => weekData[name + "_avg"] || 0),
-                                    ...previous7Days.map(dayData => dayData[name]).map(v => v || 0),
+  for (const name of ["total_cost_hospitalization", "change_cases", "active_cases"]) {
+    today[name + "_max"] = Math.max(...previousWeeks.slice(-18).map(weekData => weekData[name + "_avg"] || 0),
+                                    today[name] || 0, 0);
+  }
+  for (const name of ["change_vaccinations", "available_doses"]) {
+    today[name + "_max"] = Math.max(...previousWeeks.slice(-18).map(weekData => weekData[name + "_avg"] || 0),
                                     today[name] || 0, 0);
   }
 
@@ -187,6 +215,8 @@ function normalizeVaccine(data) {
   data.previous7Days = previous7Days;
   data.yesterday = yesterday;
   data.lastMonth = lastMonth;
+  data.lastMonthInclusive = lastMonthInclusive;
+  data.sinceJuly = sinceJuly;
   data.sort_name = data.code === 'CA' ? 'ZZ_CA' : (data.code || data.name);
 
   return data;
@@ -330,6 +360,15 @@ module.exports = async function() {
       prov.data_status = "Waiting For Report";
     }
   }
+  const [CA] = data.filter(prov => prov.name === 'Canada');
+  const provs = data.filter(prov => prov.name !== 'Canada');
+  CA.today.cost_hospitalization = provs.reduce((p, c) => (p || 0) + (c?.today?.cost_hospitalization ||0), 0)
+  CA.today.cost_critical = provs.reduce((p, c) => (p || 0) + (c?.today?.cost_critical ||0), 0)
+  CA.lastMonthInclusive.cost_hospitalization_sum = provs.reduce((p, c) => (p || 0) + (c?.lastMonthInclusive?.cost_hospitalization_sum ||0), 0)
+  CA.lastMonthInclusive.cost_critical_sum = provs.reduce((p, c) => (p || 0) + (c?.lastMonthInclusive?.cost_critical_sum ||0), 0)
+  CA.sinceJuly.cost_hospitalization_sum = provs.reduce((p, c) => (p || 0) + (c?.sinceJuly?.cost_hospitalization_sum ||0), 0)
+  CA.sinceJuly.cost_critical_sum = provs.reduce((p, c) => (p || 0) + (c?.sinceJuly?.cost_critical_sum ||0), 0)
 
+  data.CA = CA;
   return data.sort((a,b) => b.population - a.population);
 };

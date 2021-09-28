@@ -1,11 +1,18 @@
+:root {
+  --pb-background: gray;
+  --pb-width: 7rem;
+  --pb-unit: "";
+  --prefix: "";
+  --suffix: "";
+}
 .progressbar {
   display: grid;
   margin: 0 auto;
   text-align: left;
   height: 1.6rem;
   width: 100%;
-  min-width: 7rem;
-  max-width: 7rem;
+  min-width: var(--pb-width);
+  max-width: var(--pb-width);
   position: relative;
   color: white;
   border: var(--dark);
@@ -13,11 +20,8 @@
   border-style: solid;
   border-radius: 2px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
-  background-color: gray;
+  background-color: var(--pb-background);
   vertical-align: middle;
-
-  --prefix: "";
-  --suffix: "";
 }
 
 .progressbar.darkgray > .value {
@@ -39,7 +43,7 @@
 .progressbar::before {
   /*content: attr(aria-valuenow) "%";*/
   position:absolute;
-  color: white;
+  /*color: white;*/
   left:0.2rem;
   font-weight: bold;
   z-index: 2;
@@ -49,7 +53,7 @@
   grid-area: 1/1;
   margin: .24rem .2rem;
   text-align: right;
-  color: #fff;
+  /*color: #fff;*/
   font-size: .7rem;
   font-weight: initial;
   z-index: 2;
@@ -91,26 +95,28 @@
 .progressbar > .per1k, .progressbar.per1k { --suffix: "/₁₀₀₀" }
 .progressbar > .per10k, .progressbar.per10k { --suffix: "/₁₀ₖ" }
 .progressbar > .per100k, .progressbar.per100k { --suffix: "/₁₀₀ₖ" }
-.progressbar > .per1000k, .progressbar.per1000k { --suffix: "/₁₀₀₀ₖ" }
+.progressbar > .per1000k, .progressbar.per1000k { --suffix: "/₁ ₀₀₀ₖ" }
+.progressbar > .per10000k, .progressbar.per10000k { --suffix: "/₁₀ ₀₀₀ₖ" }
+.progressbar > .cad, .progressbar.cad { --pb-unit: "$" }
 /*.progressbar > .change[data-value]:not([data-value=""]):not([data-value="0"]):not([data-value ^= "-"]) { --prefix: "+" }*/
 .progressbar > [data-value]:not([data-value=""]):not([data-value="0"]):not([data-value="N/A"]):before,
 .progressbar[data-value]:not([data-value=""]):not([data-value="0"]):not([data-value="N/A"]):before {
-  content: attr(data-value) var(--suffix);
+  content: var(--pb-unit, "") attr(data-value) var(--suffix);
 }
 .progressbar > [aria-valuenow]:not([aria-valuenow=""]):not([aria-valuenow="N/A"]):before,
 .progressbar[aria-valuenow]:not([aria-valuenow=""]):not([aria-valuenow="N/A"]):before {
-  content: attr(aria-valuenow) var(--suffix);
+  content: var(--pb-unit, "") attr(aria-valuenow) var(--suffix);
 }
 .progressbar > [data-change]:not([data-change=""]):not([data-change="0"]):not([data-change="N/A"]):not([data-change ^= "-"]),
 .progressbar[data-change]:not([data-change=""]):not([data-change="0"]):not([data-change="N/A"]):not([data-change ^= "-"]) {
-  --prefix: "+"
+  --prefix: "+";
 }
 .progressbar > [data-change]:not([data-change=""]):not([data-change="0"]):not([data-change="N/A"]):after,
 .progressbar[data-change]:not([data-change=""]):not([data-change="0"]):not([data-change="N/A"]):after {
-  content: var(--prefix) attr(data-change);
+  content: var(--prefix) var(--pb-unit, "") attr(data-change);
 }
 .progressbar[data-change]:is(.percent):not([data-change=""]):not([data-change="0"]):not([data-change="N/A"]):after {
-  content: var(--prefix) attr(data-change) var(--suffix);
+  content: var(--prefix) var(--pb-unit, "") attr(data-change) var(--suffix);
 }
 
 .progressbar > div:is([data-value="0"]:not([data-value])) {

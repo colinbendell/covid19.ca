@@ -57,16 +57,26 @@ module.exports = function(eleventyConfig) {
   //   return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
   // });
 
+  const CACHE = new Map();
+
   // Get the first `n` elements of a collection.
   eleventyConfig.addFilter("format", value => {
+    const key = `format:${value}`;
+    if (CACHE.has(key)) return CACHE.get(key);
+
+    CACHE.set(key, value);
     if (Number.parseFloat(value)) {
       const formatter = new Intl.NumberFormat('en-CA');
-      return formatter.format(value);
+      CACHE.set(key, formatter.format(value));
     }
-    return value;
+    return CACHE.get(key);
   });
 
   eleventyConfig.addFilter("formatNumber", (value, useSI=true, max=999999) => {
+    const key = `formatNumber:${value}${useSI}${max}`;
+    if (CACHE.has(key)) return CACHE.get(key);
+
+    CACHE.set(key, value || '');
     if (Number.parseFloat(value)) {
       if (!max) max = Number.MAX_VALUE;
       const SI_SUFFIX = ["", "k", "M", "G"];
@@ -78,9 +88,9 @@ module.exports = function(eleventyConfig) {
       const sigDig = value > max ? 0 : 2 - Math.floor(Math.log10(Math.abs(value))) % 3;
       const simpleValue = formatter.format(Math.round(Math.round(value / Math.pow(10, divisor * 3 - sigDig)) / Math.pow(10, sigDig) * 10)/10);
       const suffix = useSI ? SI_SUFFIX[divisor] : WORD_SUFFIX[divisor];
-      return `${simpleValue}${suffix}`;
+      CACHE.set(key, `${simpleValue}${suffix}`);
     }
-    return value || '';
+    return CACHE.get(key);
   });
 
   eleventyConfig.addFilter("handle", value => value?.toLocaleLowerCase()?.replace(/[^a-zA-Z]+/gi, '-'));
