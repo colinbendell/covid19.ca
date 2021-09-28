@@ -2,6 +2,8 @@
 
 :root {
   --blue: #007bff;
+  --blue20alpha: #007BFF33;
+  --blue60alpha: #007BFF99;
   --indigo: #6610f2;
   --purple: #6f42c1;
   --pink: #e83e8c;
@@ -13,6 +15,8 @@
   --cyan: #17a2b8;
   --white: #fff;
   --gray: #6c757d;
+  --gray20alpha: #6c757d33;
+  --gray60alpha: #6c757d99;
   --gray-dark: #343a40;
   --primary: #007bff;
   --secondary: #6c757d;
@@ -282,12 +286,12 @@ ul.flex {
   font-size: 0.7rem;
 }
 
-#vaccinations, #infections {
+#vaccinations, #infections, #costs {
   margin-top: 1rem;
 }
 
 @media screen and (max-width: 1400px) {
-  #vaccinations, #infections {
+  #vaccinations, #infections, #costs {
     width: max-content;
   }
 }
@@ -404,7 +408,12 @@ main {
 #sort-full-pop:checked ~ .tr.thead label[for=sort-full-pop],
 #sort-freezer-trend:checked ~ .tr.thead label[for=sort-freezer-trend],
 #sort-freezer-today:checked ~ .tr.thead label[for=sort-freezer-today],
-#sort-freezer-population:checked ~ .tr.thead label[for=sort-freezer-population] {
+#sort-freezer-population:checked ~ .tr.thead label[for=sort-freezer-population],
+#sort-cost-pop:checked ~ .tr.thead label[for=sort-cost-pop],
+#sort-cost-history:checked ~ .tr.thead label[for=sort-cost-history],
+#sort-cost-hospitalization:checked ~ .tr.thead label[for=sort-cost-hospitalization],
+#sort-cost-income:checked ~ .tr.thead label[for=sort-cost-income],
+#sort-cost-total:checked ~ .tr.thead label[for=sort-cost-total] {
   background-image: url('img/long-arrow-down.svg');
 }
 
@@ -524,6 +533,10 @@ table.infected td.infected, table.infected th.infected {
   white-space: nowrap;
 }
 
+.flex.tr > .left {
+  text-align: left;
+}
+
 .flex.tr > .th:not(.toggle)::after{
   content: '';
   position: relative;
@@ -580,6 +593,15 @@ table.infected td.infected, table.infected th.infected {
   align-content: center;
 }
 
+.flex.tr > .wide {
+  flex: 1 0 15.5rem;
+  white-space: nowrap;
+}
+
+.flex.tr > .nogrow {
+  flex-grow: 0;
+}
+
 .history > div {
   height: 2.3rem;
   width: 7rem;
@@ -599,13 +621,23 @@ table.charts-css.column:not(.stacked) td:not(:first-child) {
   z-index: 30 !important;
 }
 
-.dose.history table.column {
-  --color-1: rgba(0, 123, 255, 0.2);
-}
+table.column .blue { --color-1: var(--blue); }
+table.column .blue20alpha { --color-1: var(--blue20alpha); }
+table.column .blue60alpha { --color-1: var(--blue60alpha); }
+table.column .gray { --color-1: var(--gray); }
+table.column .gray20alpha { --color-1: var(--gray20alpha); }
+table.column .gray60alpha { --color-1: var(--gray60alpha); }
+table.column .gray { --color-1: var(--gray); }
+table.column .red { --color-1: var(--red); }
+table.column .orange { --color-1: var(--orange); }
 
-.dose.history table.column tr td:nth-child(n+9):not(:last-child) {
-  --color-1: rgba(0, 123, 255, 0.6);
-}
+/*.dose.history table.column {*/
+/*  --color-1: rgba(0, 123, 255, 0.2);*/
+/*}*/
+
+/*.dose.history table.column tr td:nth-child(n+9):not(:last-child) {*/
+/*  --color-1: rgba(0, 123, 255, 0.6);*/
+/*}*/
 
 .today:not(.delayed) .dose.history table tr td:last-child {
   --color-1: var(--blue);
@@ -615,13 +647,13 @@ table.charts-css.column:not(.stacked) td:not(:first-child) {
   --color-2: repeating-linear-gradient(135deg, var(--gray-dark), var(--gray-dark) 3px, var(--light) 3px, var(--light) 5px);
 }
 
-.supply.history table.column td{
-  --color-1: rgba(108, 117, 125, 0.2);
-}
+/*.supply.history table.column td{*/
+/*  --color-1: rgba(108, 117, 125, 0.2);*/
+/*}*/
 
-.supply.history table.column td:nth-child(n+9):not(:last-child) {
-  --color-1: rgba(108, 117, 125, 0.6);
-}
+/*.supply.history table.column td:nth-child(n+9):not(:last-child) {*/
+/*  --color-1: rgba(108, 117, 125, 0.6);*/
+/*}*/
 
 .today:not(.delayed) .supply.history table td:last-child {
   --color-1: var(--gray);
