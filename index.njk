@@ -666,8 +666,8 @@ layout: layouts/home.njk
 </section>
 
   <section id="costs">
-    <h2><a href="#costs">Cost of the Unvaccinated</a></h2>
-    <small>(Projected from <a href="https://www.cihi.ca/en/covid-19-hospitalization-and-emergency-department-statistics">Canadian Institute for Health Information</a>)</small>
+    <h2><a href="#costs">Cost of the Unvaccinated (Since July 2021)</a></h2>
+    <sup><small>Projections based on <a href="https://www.cihi.ca/en/covid-19-hospitalization-and-emergency-department-statistics">Canadian Institute for Health Information</a></small></sup>
     <input id="sort-cost-name-pop" name="costs-sort" type="radio" style="display: none;">
     <input id="sort-cost-name" name="costs-sort" type="radio" style="display: none;">
     <input id="sort-cost-pop" name="costs-sort" type="radio" style="display: none;">
@@ -678,11 +678,11 @@ layout: layouts/home.njk
     <div class="flex tr thead">
       <div class="th toggle"><label class="sort" for="sort-cost-name-pop"><br/><br/></label></div>
       <div class="th name nogrow"><label class="sort" for="sort-cost-name"><br/><br/></label></div>
-      <div class="th nogrow"><label class="sort" for="sort-cost-pop">Hosp + ICU<br>Cost / Population</label></div>
-      <div class="th history nogrow"><label class="sort" for="sort-cost-history">Avg Hosp+ICU<br>Cost / Day</label></div>
-      <div class="th wide nogrow"><label class="sort" for="sort-cost-hospitalization">COVID Hospital+ICU Costs<br/>(Since July)</label></div>
-      <div class="th wide nogrow"><label class="sort" for="sort-cost-income" style="line-height: 0.9;">Lost Income (Since July)<br/><span class="small-detail" style="font-weight: lighter">Assumes $50k/a salary;<br/>3 sick days/infection</span></label></div>
-      <div class="th nogrow"><label class="sort" for="sort-cost-total">Total Cost<br/>(Since July)</label></div>
+      <div class="th nogrow"><label class="sort" for="sort-cost-pop">Hospital + ICU<br>Cost /pop.</label></div>
+      <div class="th history nogrow"><label class="sort" for="sort-cost-history">Hospital + ICU<br>Cost /day</label></div>
+      <div class="th wide nogrow"><label class="sort" for="sort-cost-hospitalization">COVID Hospital + ICU<br/>Total Cost Since July</label></div>
+      <div class="th wide nogrow"><label class="sort" for="sort-cost-income" style="line-height: 0.9;">Cost of Lost Income<br/><span class="small-detail" style="font-weight: lighter">Assumes $50k/a salary;<br/>3 sick days/infection</span></label></div>
+      <div class="th nogrow"><label class="sort" for="sort-cost-total">Combined Cost<br/>Since July</label></div>
       <div class="th"></div>
     </div>
 
@@ -733,7 +733,7 @@ layout: layouts/home.njk
         </div>
         <div class="td icu wide left nogrow">
           <div class="progressbar cad red"
-               style="color: var(--black); margin-left: 0; --pb-width: {{ (data.sinceJuly.total_cost_hospitalization_sum/canada.CA.sinceJuly.total_cost_hospitalization_sum*100) | round(1) }}%; --pb-background: var(--red); --width: 100"
+               style="text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff, 0.5px 0.5px 0 #fff; color: var(--black); margin-left: 0; --pb-width: {{ (data.sinceJuly.total_cost_hospitalization_sum/canada.CA.sinceJuly.total_cost_hospitalization_sum*100) | round(1) }}%; --pb-background: var(--red); --width: 100"
                aria-valuenow="{{ data.sinceJuly.total_cost_hospitalization_sum | d(0) | formatNumber(false, 0) }}"
           >
             <span class="value" aria-hidden="true" ></span>
@@ -744,7 +744,7 @@ layout: layouts/home.njk
         </div>
         <div class="td icu wide left nogrow">
           <div class="progressbar cad orange"
-               style="color: var(--black); margin-left: 0; --pb-width: {{ (data.sinceJuly.cost_income_sum/canada.CA.sinceJuly.cost_income_sum*100) | round(1) }}%; --pb-background: var(--yellow); --width: 100"
+               style="text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff, 0.5px 0.5px 0 #fff; color: var(--black); margin-left: 0; --pb-width: {{ (data.sinceJuly.cost_income_sum/canada.CA.sinceJuly.cost_income_sum*100) | round(1) }}%; --pb-background: var(--yellow); --width: 100"
                aria-valuenow="{{ data.sinceJuly.cost_income_sum | d(0) | formatNumber(false, 0) }}"
           >
             {% if data.today.cost_income %}
