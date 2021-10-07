@@ -1,6 +1,24 @@
 {
   "daily": [
     {
+      "date": "2021-10-07",
+      "AB": {"AstraZeneca": "", "Moderna SpikeVax": "", "Pfizer": "", "Total": ""},
+      "BC": {"AstraZeneca": "", "Moderna SpikeVax": "", "Pfizer": "", "Total": ""},
+      "CA": {"AstraZeneca": "", "Moderna SpikeVax": "", "Pfizer": "", "Total": ""},
+      "FA": {"AstraZeneca": "", "Moderna SpikeVax": "", "Pfizer": "", "Total": ""},
+      "MB": {"AstraZeneca": "", "Moderna SpikeVax": "", "Pfizer": "", "Total": ""},
+      "NB": {"AstraZeneca": "", "Moderna SpikeVax": "", "Pfizer": "", "Total": ""},
+      "NL": {"AstraZeneca": "", "Moderna SpikeVax": "", "Pfizer": "", "Total": ""},
+      "NS": {"AstraZeneca": "", "Moderna SpikeVax": "", "Pfizer": "", "Total": ""},
+      "NT": {"AstraZeneca": "", "Moderna SpikeVax": "", "Pfizer": "", "Total": ""},
+      "NU": {"AstraZeneca": "", "Moderna SpikeVax": "", "Pfizer": "", "Total": ""},
+      "ON": {"AstraZeneca": "", "Moderna SpikeVax": "", "Pfizer": "", "Total": ""},
+      "PE": {"AstraZeneca": "", "Moderna SpikeVax": "", "Pfizer": "", "Total": ""},
+      "QC": {"AstraZeneca": "", "Moderna SpikeVax": "", "Pfizer": "", "Total": ""},
+      "SK": {"AstraZeneca": "", "Moderna SpikeVax": "", "Pfizer": "", "Total": ""},
+      "YT": {"AstraZeneca": "", "Moderna SpikeVax": "", "Pfizer": "", "Total": ""}
+    },
+    {
       "date": "2021-10-01",
       "AB": {"AstraZeneca Vaxzevria": 316300, "Moderna SpikeVax": 1784694, "Pfizer": 5068245, "Total": 7169239},
       "BC": {"AstraZeneca Vaxzevria": 436240, "Moderna SpikeVax": 2063800, "Pfizer": 5612340, "Total": 8112380},
