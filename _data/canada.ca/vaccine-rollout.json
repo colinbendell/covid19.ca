@@ -1,6 +1,24 @@
 {
   "daily": [
     {
+      "date": "2021-11-18",
+      "AB": {"AstraZeneca": 316300, "Janssen": 5000, "Moderna SpikeVax": 1948454, "Pfizer": 5550285, "Total": 7820039},
+      "BC": {"AstraZeneca": 452800, "Janssen": 5000, "Moderna SpikeVax": 2497040, "Pfizer": 5904840, "Total": 8859680},
+      "CA": {"AstraZeneca": 3037110, "Janssen": 18900, "Moderna SpikeVax": 18363176, "Pfizer": 45998394, "Total": 67417580},
+      "FA": {"AstraZeneca": 460, "Janssen": 0, "Moderna SpikeVax": 209868, "Pfizer": 3510, "Total": 213838},
+      "MB": {"AstraZeneca": 91960, "Janssen": 2250, "Moderna SpikeVax": 733908, "Pfizer": 1611390, "Total": 2439508},
+      "NB": {"AstraZeneca": 61500, "Janssen": 450, "Moderna SpikeVax": 443350, "Pfizer": 946875, "Total": 1452175},
+      "NL": {"AstraZeneca": 41100, "Janssen": 250, "Moderna SpikeVax": 327420, "Pfizer": 615030, "Total": 983800},
+      "NS": {"AstraZeneca": 60160, "Janssen": 250, "Moderna SpikeVax": 522500, "Pfizer": 1176300, "Total": 1759210},
+      "NT": {"AstraZeneca": 0, "Janssen": 0, "Moderna SpikeVax": 82670, "Pfizer": 9360, "Total": 92030},
+      "NU": {"AstraZeneca": 0, "Janssen": 0, "Moderna SpikeVax": 57720, "Pfizer": 12870, "Total": 70590},
+      "ON": {"AstraZeneca": 1157300, "Janssen": 2500, "Moderna SpikeVax": 7228250, "Pfizer": 18335781, "Total": 26723831},
+      "PE": {"AstraZeneca": 9900, "Janssen": 500, "Moderna SpikeVax": 75980, "Pfizer": 207975, "Total": 294355},
+      "QC": {"AstraZeneca": 738110, "Janssen": 100, "Moderna SpikeVax": 3540556, "Pfizer": 9923223, "Total": 14201989},
+      "SK": {"AstraZeneca": 107500, "Janssen": 2500, "Moderna SpikeVax": 617990, "Pfizer": 1697445, "Total": 2425435},
+      "YT": {"AstraZeneca": 20, "Janssen": 100, "Moderna SpikeVax": 77470, "Pfizer": 3510, "Total": 81100}
+    },
+    {
       "date": "2021-11-12",
       "AB": {"AstraZeneca": 316300, "Moderna SpikeVax": 1833454, "Pfizer": 5550285, "Total": 5000, "undefined": 7705039},
       "BC": {"AstraZeneca": 452800, "Moderna SpikeVax": 2469740, "Pfizer": 5873250, "Total": 5000, "undefined": 8800790},
