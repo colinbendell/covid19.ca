@@ -810,5 +810,6 @@
       "SK": {"AstraZeneca": 71900, "Moderna": 90700, "Pfizer": 298155, "Total": 460755},
       "YT": {"AstraZeneca": 20, "Moderna": 54300, "Pfizer": 0, "Total": 54320}
     }
-  ]
+  ],
+  "Forecasted allocation of COVID-19 vaccines": [{"date": "Vaccine allocation", "undefined": "FA"}, {"date": "Pfizer", "undefined": 6000}]
 }
