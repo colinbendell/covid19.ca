@@ -15,9 +15,11 @@
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
-    "@adobe/helix-fetch": "^2.4.2",
     "clean-css": "^5.2.0",
     "html-minifier": "^4.0.0",
     "ml-regression-polynomial": "^2.2.0"
+  },
+  "dependencies": {
+    "@adobe/helix-fetch": "^3.0.0"
   }
 }

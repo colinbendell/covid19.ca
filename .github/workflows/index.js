@@ -53,6 +53,7 @@ function mergeDaily(srcDaily = [], newDaily = [], force = false) {
 
 async function get(url) {
   try {
+    console.log(url);
     const res = await fetch(url,
       {
         'headers': {
@@ -456,7 +457,7 @@ async function getSK(hrData) {
         const [,jsonURL] = /<a href=["']([^"']+)["']>JSON<\/a>/m.exec(html) || [];
         if (jsonURL) {
           const data = await get(`https://dashboard.saskatchewan.ca${jsonURL}`);
-          for (const row of data) {
+          for (const row of data.filter(n => n.Region !== 'Total')) {
             // we are only going to keep the macro region details, since the reliability of the sub region data is questionable
             row.Region = row.Region.replace(/(Far North|North|Central|Saskatoon|Regina|South).*/, '$1');
             //init data types to use the common format. For some reason SK doesn't use ISO8601 and invented their own
