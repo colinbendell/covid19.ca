@@ -1,24 +1,6 @@
 {
   "daily": [
     {
-      "date": "2021-12-02",
-      "AB": {"AstraZeneca": 316300, "Janssen": 5000, "Moderna SpikeVax": 1988454, "Pfizer": 394000, "Total": 8434219},
-      "BC": {"AstraZeneca": 452800, "Janssen": 5000, "Moderna SpikeVax": 2678940, "Pfizer": 168000, "Total": 9434220},
-      "CA": {"AstraZeneca": 3037110, "Janssen": 19150, "Moderna SpikeVax": 18989076, "Pfizer": 2709700, "Total": 71962190},
-      "FA": {"AstraZeneca": 460, "Janssen": 0, "Moderna SpikeVax": 212468, "Pfizer": 0, "Total": 218778},
-      "MB": {"AstraZeneca": 91960, "Janssen": 2250, "Moderna SpikeVax": 805408, "Pfizer": 126000, "Total": 2775068},
-      "NB": {"AstraZeneca": 61500, "Janssen": 700, "Moderna SpikeVax": 443350, "Pfizer": 56000, "Total": 1538845},
-      "NL": {"AstraZeneca": 41100, "Janssen": 250, "Moderna SpikeVax": 327420, "Pfizer": 34000, "Total": 1037690},
-      "NS": {"AstraZeneca": 60160, "Janssen": 250, "Moderna SpikeVax": 528500, "Pfizer": 67700, "Total": 1853970},
-      "NT": {"AstraZeneca": 0, "Janssen": 0, "Moderna SpikeVax": 87570, "Pfizer": 6000, "Total": 102930},
-      "NU": {"AstraZeneca": 0, "Janssen": 0, "Moderna SpikeVax": 64720, "Pfizer": 6000, "Total": 83590},
-      "ON": {"AstraZeneca": 1157300, "Janssen": 2500, "Moderna SpikeVax": 7528250, "Pfizer": 1076000, "Total": 28099831},
-      "PE": {"AstraZeneca": 9900, "Janssen": 500, "Moderna SpikeVax": 77980, "Pfizer": 8000, "Total": 304355},
-      "QC": {"AstraZeneca": 738110, "Janssen": 100, "Moderna SpikeVax": 3540556, "Pfizer": 652000, "Total": 15440159},
-      "SK": {"AstraZeneca": 107500, "Janssen": 2500, "Moderna SpikeVax": 617990, "Pfizer": 112000, "Total": 2537435},
-      "YT": {"AstraZeneca": 20, "Janssen": 100, "Moderna SpikeVax": 87470, "Pfizer": 4000, "Total": 95100}
-    },
-    {
       "date": "2021-11-24",
       "AB": {"AstraZeneca": 316300, "Janssen": 5000, "Moderna SpikeVax": 1948454, "Pfizer": 394000, "Total": 8321679},
       "BC": {"AstraZeneca": 452800, "Janssen": 5000, "Moderna SpikeVax": 2569240, "Pfizer": 147700, "Total": 9145400},
@@ -35,6 +17,24 @@
       "QC": {"AstraZeneca": 738110, "Janssen": 100, "Moderna SpikeVax": 3540556, "Pfizer": 652000, "Total": 14853989},
       "SK": {"AstraZeneca": 107500, "Janssen": 2500, "Moderna SpikeVax": 617990, "Pfizer": 112000, "Total": 2537435},
       "YT": {"AstraZeneca": 20, "Janssen": 100, "Moderna SpikeVax": 87470, "Pfizer": 0, "Total": 91100}
+    },
+    {
+      "date": "2021-12-02",
+      "AB": {"AstraZeneca": 316300, "Janssen": 5000, "Moderna SpikeVax": 1988454, "Pfizer": 394000, "Total": 8434219},
+      "BC": {"AstraZeneca": 452800, "Janssen": 5000, "Moderna SpikeVax": 2678940, "Pfizer": 168000, "Total": 9434220},
+      "CA": {"AstraZeneca": 3037110, "Janssen": 19150, "Moderna SpikeVax": 18989076, "Pfizer": 2709700, "Total": 71962190},
+      "FA": {"AstraZeneca": 460, "Janssen": 0, "Moderna SpikeVax": 212468, "Pfizer": 0, "Total": 218778},
+      "MB": {"AstraZeneca": 91960, "Janssen": 2250, "Moderna SpikeVax": 805408, "Pfizer": 126000, "Total": 2775068},
+      "NB": {"AstraZeneca": 61500, "Janssen": 700, "Moderna SpikeVax": 443350, "Pfizer": 56000, "Total": 1538845},
+      "NL": {"AstraZeneca": 41100, "Janssen": 250, "Moderna SpikeVax": 327420, "Pfizer": 34000, "Total": 1037690},
+      "NS": {"AstraZeneca": 60160, "Janssen": 250, "Moderna SpikeVax": 528500, "Pfizer": 67700, "Total": 1853970},
+      "NT": {"AstraZeneca": 0, "Janssen": 0, "Moderna SpikeVax": 87570, "Pfizer": 6000, "Total": 102930},
+      "NU": {"AstraZeneca": 0, "Janssen": 0, "Moderna SpikeVax": 64720, "Pfizer": 6000, "Total": 83590},
+      "ON": {"AstraZeneca": 1157300, "Janssen": 2500, "Moderna SpikeVax": 7528250, "Pfizer": 1076000, "Total": 28099831},
+      "PE": {"AstraZeneca": 9900, "Janssen": 500, "Moderna SpikeVax": 77980, "Pfizer": 8000, "Total": 304355},
+      "QC": {"AstraZeneca": 738110, "Janssen": 100, "Moderna SpikeVax": 3540556, "Pfizer": 652000, "Total": 15440159},
+      "SK": {"AstraZeneca": 107500, "Janssen": 2500, "Moderna SpikeVax": 617990, "Pfizer": 112000, "Total": 2537435},
+      "YT": {"AstraZeneca": 20, "Janssen": 100, "Moderna SpikeVax": 87470, "Pfizer": 4000, "Total": 95100}
     },
     {
       "date": "2021-11-18",
