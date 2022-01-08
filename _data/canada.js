@@ -32,10 +32,12 @@ function normalizeDayData(data, item) {
   item = Object.assign(item, {
     change_vaccinations: item.change_vaccinations || 0,
     change_vaccinated: item.change_vaccinated || 0,
-    change_first_vaccination: (item.change_vaccinations || 0) - (item.change_vaccinated || 0),
+    change_boosters_1: item.change_boosters_1 || 0,
+    change_first_vaccination: (item.change_vaccinations || 0) - (item.change_vaccinated || 0)- (item.change_boosters_1 || 0),
     total_vaccinations: item.total_vaccinations || 0,
     total_vaccinated: item.total_vaccinated || 0,
-    total_first_vaccination: (item.total_vaccinations || 0) - (item.total_vaccinated || 0),
+    total_boosters_1: item.total_boosters_1 || 0,
+    total_first_vaccination: (item.total_vaccinations || 0) - (item.total_vaccinated || 0) - (item.total_boosters_1 || 0),
     available_doses: item.total_vaccines_distributed > 0 ? (item.total_vaccines_distributed || 0) - (item.total_vaccinations || 0) : null,
     active_cases: item.active_cases || ((item.total_cases || 0) - (item.total_fatalities || 0) - (item.total_recoveries || 0)),
     cost_hospitalization: item.total_hospitalizations * (COSTS[data.code]?.hospital || COSTS[data.province]?.hospital || COSTS.CA?.hospital || 0) || 0,
@@ -52,16 +54,19 @@ function normalizeDayData(data, item) {
     criticals_per_1000k: item.total_criticals >= 0 ? Math.round(item.total_criticals / data.population * 10*1000*1000) : null,
     first_vaccination_per_person: Math.round((item.total_first_vaccination / data.population) * 1000) / 10,
     first_vaccination_per_2plus: Math.round((item.total_first_vaccination / data.population2plus) * 1000) / 10,
+    first_vaccination_per_5plus: Math.round((item.total_first_vaccination / data.population5plus) * 1000) / 10,
     first_vaccination_per_12plus: Math.round((item.total_first_vaccination / data.population12plus) * 1000) / 10,
     first_vaccination_per_18plus: Math.round((item.total_first_vaccination / data.population18plus) * 1000) / 10,
     first_vaccination_per_40plus: Math.round((item.total_first_vaccination / data.population40plus) * 1000) / 10,
     vaccinated_per_person: item.total_vaccinated > 0 ? Math.round((item.total_vaccinated / data.population) * 1000) / 10 : 0,
     vaccinated_per_2plus: item.total_vaccinated > 0 ? Math.round((item.total_vaccinated / data.population2plus) * 1000) / 10 : 0,
+    vaccinated_per_5plus: item.total_vaccinated > 0 ? Math.round((item.total_vaccinated / data.population5plus) * 1000) / 10 : 0,
     vaccinated_per_12plus: item.total_vaccinated > 0 ? Math.round((item.total_vaccinated / data.population12plus) * 1000) / 10 : 0,
     vaccinated_per_18plus: item.total_vaccinated > 0 ? Math.round((item.total_vaccinated / data.population18plus) * 1000) / 10 : 0,
     vaccinated_per_40plus: item.total_vaccinated > 0 ? Math.round((item.total_vaccinated / data.population40plus) * 1000) / 10 : 0,
     available_doses_per_person: item.available_doses > 0 ? Math.round((item.available_doses / data.population) * 1000) / 10 : 0,
     available_doses_per_2plus: item.available_doses > 0 ? Math.round((item.available_doses / data.population2plus) * 1000) / 10 : 0,
+    available_doses_per_5plus: item.available_doses > 0 ? Math.round((item.available_doses / data.population5plus) * 1000) / 10 : 0,
     available_doses_per_12plus: item.available_doses > 0 ? Math.round((item.available_doses / data.population12plus) * 1000) / 10 : 0,
     available_doses_per_18plus: item.available_doses > 0 ? Math.round((item.available_doses / data.population18plus) * 1000) / 10 : 0,
     available_doses_per_40plus: item.available_doses > 0 ? Math.round((item.available_doses / data.population40plus) * 1000) / 10 : 0,
@@ -227,6 +232,7 @@ function normalizePopulation(geo, prov) {
   if (geo.population) {
     geo.population15plus = geo.population * (100-(prov["0-14"] || 0)) / 100;
     geo.population2plus = geo.population * (100-(prov["0-1"] || 0)) / 100;
+    geo.population5plus = geo.population * (100-(prov["0-4"] || 0)) / 100;
     geo.population12plus = geo.population * (100-(prov["0-1"] || 0)-(prov["2-11"] || 0)) / 100;
     geo.population18plus = geo.population * (100-(prov["0-1"] || 0)-(prov["2-11"] || 0)-(prov["12-17"] || 0)) / 100;
     geo.population40plus = geo.population * (100-(prov["0-1"] || 0)-(prov["2-11"] || 0)-(prov["12-17"] || 0)-(prov["18-29"] || 0)-(prov["30-39"] || 0)) / 100;
@@ -274,7 +280,7 @@ function projectVaccineAge(vaccineByAge, prov) {
       delete w["80+"];
     }
     //"0-17",
-    const ageGroups = new Set([ "0-11", "12-17", "18-29", "30-39", "40-49", "50-59", "60-69", "70+", ...Object.keys(geo[lastMonth[3]])])
+    const ageGroups = new Set([ "0-4", "05-11", "12-17", "18-29", "30-39", "40-49", "50-59", "60-69", "70+", ...Object.keys(geo[lastMonth[3]])])
     const ageRanges = [...ageGroups.values()].filter(a => a !== 'total').sort();
     for (const age of ageRanges) {
 
@@ -331,7 +337,8 @@ module.exports = async function() {
   const data = Object.keys(fullData).map(k => Object.assign(fullData[k], {code: k, iso3166: k === 'PE' ? 'PEI' : k === 'NT' ? 'NWT' : k }));
 
   for (const prov of data) {
-    prov["0-11"] = prov["0-1"] + prov["2-11"];
+    prov["0-4"] = prov["0-1"] + (prov["2-11"]/10*3);
+    prov["05-11"] = (prov["2-11"]/10*7);
     prov["0-17"] = prov["0-1"] + prov["2-11"] + prov["12-17"];
     prov["18-64"] = prov["18-29"] + prov["30-39"] + prov["40-49"] + prov["50-59"] + Math.round(prov["60-69"]/2);
     prov["65+"] = 100 - prov["18-64"] - prov["0-17"];

@@ -15,7 +15,7 @@ layout: layouts/home.njk
 </header>
 <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
 
-{% macro cssSort(name='#sort-half', descOrder = true, section="#vaccinations", sortProperty='today.first_vaccination_per_12plus') %}
+{% macro cssSort(name='#sort-half', descOrder = true, section="#vaccinations", sortProperty='today.first_vaccination_per_5plus') %}
   {% set css %}
   {% set index = 1 %}
   {%- for province in canada | sort(descOrder, false, sortProperty) %}
@@ -37,12 +37,12 @@ layout: layouts/home.njk
 <style>{{ cssSort('#sort-vacc-today', true, 'details', 'today.sort_change_vaccinations')}}</style>
 <style>{{ cssSort('#sort-complete', false, 'details', 'today.days_to_complete_first_vaccination')}}</style>
 {#<style>{{ cssSort('#sort-vacc-total', true, 'details', 'today.total_vaccinations')}}</style>#}
-<style>{{ cssSort('#sort-half', true, 'details', 'today.first_vaccination_per_12plus')}}</style>
-<style>{{ cssSort('#sort-full', true, 'details', 'today.vaccinated_per_12plus')}}</style>
+<style>{{ cssSort('#sort-half', true, 'details', 'today.first_vaccination_per_5plus')}}</style>
+<style>{{ cssSort('#sort-full', true, 'details', 'today.vaccinated_per_5plus')}}</style>
 <style>{{ cssSort('#sort-full-pop', true, 'details', 'today.vaccinated_per_person')}}</style>
 <style>{{ cssSort('#sort-freezer-trend', true, 'details', 'lastWeekExclusive.available_doses_avg')}}</style>
 <style>{{ cssSort('#sort-freezer-today', true, 'details', 'today.available_doses')}}</style>
-<style>{{ cssSort('#sort-freezer-population', true, 'details', 'today.available_doses_per_12plus')}}</style>
+<style>{{ cssSort('#sort-freezer-population', true, 'details', 'today.available_doses_per_5plus')}}</style>
 <style>{{ cssSort('#sort-time-to-arm', false, 'details', 'lastWeekInclusive.available_doses_days')}}</style>
 
 <style>{{ cssSort('#sort-infect-name-pop', true, 'details', 'population')}}</style>
@@ -115,8 +115,8 @@ layout: layouts/home.njk
       </p>
       <p>
         Fortunately, <strong><span class="number" title="{{ country.today.total_vaccinations | format }}"><a href="#vaccinations">{{ country.today.total_vaccinations | formatNumber(false, 0) }}</a></span> doses</strong> of the vaccine have been administered.
-        For those 12 years and older, <span class="number"><a href="#vaccinations">{{ (100-country.today.first_vaccination_per_12plus) | round(1) }}%</a></span> have their 1st shot
-        and <span class="number"><a href="#vaccinations">{{ (100-country.today.vaccinated_per_12plus) | round(1) }}%</a></span> are fully vaccinated!
+        For those 5 years and older, <span class="number"><a href="#vaccinations">{{ country.today.first_vaccination_per_5plus | round(1) }}%</a></span> have their 1st shot
+        and <span class="number"><a href="#vaccinations">{{ country.today.vaccinated_per_5plus | round(1) }}%</a></span> are fully vaccinated!
       </p>
       <p>
         Vaccination is <span class="editorial {{ "positive" if country.lastWeekInclusive.change_change_vaccinations_avg > 0 else "negative" }}">{{ "speeding up" if country.lastWeekInclusive.change_change_vaccinations_avg > 0 else "slowing down" }}</span>,
@@ -126,7 +126,7 @@ layout: layouts/home.njk
       </p>
       <p>
         At the current rate, Canadians should achieve herd immunity around <span class="number"><a href="#vaccinations">{{ country.today.complete_vaccinated_date | readableDate }}</a></span> when 80% of the entire population is fully vaccinated.
-        There is no approved vaccine for children aged 11 or younger.
+        There is no approved vaccine for children under 5.
       </p>
   </div>
   {%- for province in canada | sort(false, false, "sort_name")%}
@@ -135,7 +135,7 @@ layout: layouts/home.njk
       {% set vaccinePopulation = province.population %}
       {% set vaccinatedPerPopulation = (province.today.total_vaccinated / vaccinePopulation * 100) | round %}
       {% set firstDoesPerPopulation = (province.today.total_first_vaccination / vaccinePopulation * 100) | round %}
-      {% set adultPopulation = ((province.population12plus / vaccinePopulation) * 100) | round %}
+      {% set adultPopulation = ((province.population5plus / vaccinePopulation) * 100) | round %}
       {% set potentialDoesPerPopulation = (province.today.available_doses / vaccinePopulation * 100) | round %}
       {% set potentialFirstDoesPerPopulation = (firstDoesPerPopulation + potentialDoesPerPopulation) | min(adultPopulation)%}
       {% set potentialSecondDoesPerPopulation = (vaccinatedPerPopulation + (potentialDoesPerPopulation - (potentialFirstDoesPerPopulation - firstDoesPerPopulation))) | min(adultPopulation)%}
@@ -182,7 +182,7 @@ layout: layouts/home.njk
               {{data.key}}
           </td>
           <td>
-            <div style="--repeat-y: {{ (province[data.key] / waffleWidth) | round | max(1) }}; --repeat-x:{{ province[data.key] | min(waffleWidth) | round}}" class="ratiostats {{ "child" if data.key === "0-11"}}">
+            <div style="--repeat-y: {{ (province[data.key] / waffleWidth) | round | max(1) }}; --repeat-x:{{ province[data.key] | min(waffleWidth) | round}}" class="ratiostats {{ "child" if data.key === "0-4"}}">
               <div style="position: absolute; --repeat-y: {{ ( firstDoesPerPopulation / waffleWidth) | int }}; --repeat-x:{{ waffleWidth }}; --repeat-color: repeating-linear-gradient( 135deg, var(--blue), var(--blue) 2px, var(--light) 2px, var(--light) 3px );" class="ratiostats"></div>
               <div style="position: absolute; --repeat-y: {{ ( firstDoesPerPopulation / waffleWidth + 0.5) | round }}; --repeat-x:{{ (firstDoesPerPopulation % waffleWidth) | round}}; --repeat-color: repeating-linear-gradient( 135deg, var(--blue), var(--blue) 2px, var(--light) 2px, var(--light) 3px );" class="ratiostats"></div>
               <div style="position: absolute; --repeat-y: {{ (vaccinatedPerPopulation / waffleWidth) | int }}; --repeat-x:{{ waffleWidth }}; --repeat-color: var(--blue);" class="ratiostats"></div>
@@ -240,8 +240,8 @@ layout: layouts/home.njk
     <div class="th"><label class="sort" for="sort-vacc-today">Doses In Arms<br/>Today</label></div>
 {#    <div class="th complete"><label class="sort" for="sort-complete">Projected<br/>Completion</label></div>#}
 {#    <div class="th total"><label class="sort" for="sort-vacc-total">Total<br/>Doses</label></div>#}
-    <div class="th"><label class="sort" for="sort-half">1st Dose /<br/>Eligible (12+)</label></div>
-    <div class="th"><label class="sort" for="sort-full">Fully Vacc. /<br/>Eligible (12+)</label></div>
+    <div class="th"><label class="sort" for="sort-half">1st Dose /<br/>Eligible (5+)</label></div>
+    <div class="th"><label class="sort" for="sort-full">Fully Vacc. /<br/>Eligible (5+)</label></div>
     <div class="th complete"><label class="sort" for="sort-full-pop">Total<br/>Population</label></div>
     <div class="th history"><label class="sort" for="sort-freezer-trend">In Freezers<br/>Last 15 weeks</label></div>
     <div class="th today"><label class="sort" for="sort-freezer-today">In Freezers<br/>Today</label></div>
@@ -315,10 +315,10 @@ layout: layouts/home.njk
 {#          <div class="small-detail reveal-on-hover">({{ data.today.complete_vaccinated_date | readableDate(false) if data.today.days_to_complete_first_vaccination > 0 }})</div>#}
 {#        </div>#}
         <div class="td dose one"
-            title="{{ ((data.today.total_first_vaccination / vaccinePopulation * 100) | round(1)) or "N/A" }}% of {{ vaccinePopulation | formatNumber(false, 0) }} aged 12+ have their first dose.">
+            title="{{ ((data.today.total_first_vaccination / vaccinePopulation * 100) | round(1)) or "N/A" }}% of {{ vaccinePopulation | formatNumber(false, 0) }} aged 4+ have their first dose.">
 {#          {% for key in ["40plus", "18plus", "12plus", "2plus", "person"] %}#}
 {#          {% for key in ["12plus", "person"] %}#}
-          {% for key in ["12plus"] %}
+          {% for key in ["5plus"] %}
           {% set percent = data.today["first_vaccination_per_" + key] | round(1) | min(100) %}
           {% set percent_change = data.today["change_first_vaccination_per_" + key] %}
           {% set abs = data.today.total_first_vaccination %}
@@ -334,10 +334,10 @@ layout: layouts/home.njk
           {% endfor %}
         </div>
         <div class="td dose full"
-            title="{{ ((data.today.total_vaccinated / vaccinePopulation * 100) | round(1)) or "N/A" }}% of {{ vaccinePopulation | formatNumber(false, 0) }} aged 12+ are fully vaccinated.">
+            title="{{ ((data.today.total_vaccinated / vaccinePopulation * 100) | round(1)) or "N/A" }}% of {{ vaccinePopulation | formatNumber(false, 0) }} aged 4+ are fully vaccinated.">
 {#          {% for key in ["40plus", "18plus", "12plus", "2plus", "person"] %}#}
 {#          {% for key in ["12plus", "person"] %}#}
-          {% for key in ["12plus"] %}
+          {% for key in ["5plus"] %}
           {% set percent = data.today["vaccinated_per_" + key] | min(100) | round(1)%}
           {% set percent_change = data.today["change_vaccinated_per_" + key] %}
           {% set abs = data.today.total_vaccinated %}
@@ -355,12 +355,12 @@ layout: layouts/home.njk
           {% endfor %}
         </div>
         <div class="td dose population grid" style="padding-left:0; padding-right: 0;line-height: 0.75rem;"
-             title="{{ data.today.first_vaccination_per_person | round}}% of the total population have at least one dose and {{ data.today.vaccinated_per_person | round}}% are fully vaccinated. {{ (((data.population - data.population12plus) / data.population) * 100) | round }}% are children under 12."
+             title="{{ data.today.first_vaccination_per_person | round}}% of the total population have at least one dose and {{ data.today.vaccinated_per_person | round}}% are fully vaccinated. {{ (((data.population - data.population5plus) / data.population) * 100) | round }}% are children under 5."
         >
           <div class="grid" style="margin: 0 auto; grid-area: 1 / 1 / auto / span 3;">
             <div style="--repeat-y: 1; --repeat-x:10; --repeat-color: rgba(0,0,0,0);" class="grid onexone ratiostats narrow">
               <div style="--repeat-y: 1; --repeat-x:{{ 10 }}; --repeat-color: #E2E3E5; " class="onexone ratiostats narrow child"></div>
-              <div style="--repeat-y: 1; --repeat-x:{{ ((data.population12plus / data.population) * 10) | round }}; --repeat-color: #E2E3E5;" class="onexone ratiostats narrow"></div>
+              <div style="--repeat-y: 1; --repeat-x:{{ ((data.population5plus / data.population) * 10) | round }}; --repeat-color: #E2E3E5;" class="onexone ratiostats narrow"></div>
               <div style="--repeat-y: 1; --repeat-x:{{ (data.today.first_vaccination_per_person / 10) | round }}; --repeat-color: repeating-linear-gradient( 135deg, var(--blue), var(--blue) 2px, var(--light) 2px, var(--light) 3px );" class="onexone ratiostats narrow"></div>
               <div style="--repeat-y: 1; --repeat-x:{{ (data.today.vaccinated_per_person / 10) | round }}; --repeat-color: var(--blue);" class="onexone ratiostats narrow"></div>
             </div>
@@ -368,7 +368,7 @@ layout: layouts/home.njk
           </div>
           <div style="grid-area: 2/1;" class="small-detail">{{ data.today.vaccinated_per_person | round}}%<br>Fully</div>
           <div style="grid-area: 2/2;" class="small-detail">{{ data.today.first_vaccination_per_person | round}}%<br>1+Dose</div>
-          <div style="grid-area: 2/3;" class="small-detail">{{ (((data.population - data.population12plus) / data.population) * 100) | round }}%<br>kids</div>
+          <div style="grid-area: 2/3;" class="small-detail">{{ (((data.population - data.population5plus) / data.population) * 100) | round }}%<br>kids</div>
         </div>
         <div class="td supply history">
           {% if data.today.available_doses > 0 %}
