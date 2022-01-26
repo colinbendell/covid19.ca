@@ -102,7 +102,7 @@ async function getVaccineAgeBreakdown() {
   const lines = res.split(/[\r\n]+/g);
   const header = lines.shift();
   const headerRows = header.split(/\s*,\s*/g) || [];
-  const headerIndex = new Map([["prename", 0],["week_end", 0],["sex", 0],["age", 0],["numtotal_atleast1dose", 0],["numtotal_partially", 0],["numtotal_fully", 0]]);
+  const headerIndex = new Map([["prename", 0],["week_end", 0],["sex", 0],["age", 0],["numtotal_atleast1dose", 0],["numtotal_partially", 0],["numtotal_fully", 0],["numtotal_additional", 0]]);
   for (const i in headerRows) {
     if (headerIndex.has(headerRows[i])) {
       headerIndex.set(headerRows[i], i);
@@ -119,13 +119,14 @@ async function getVaccineAgeBreakdown() {
     const week = values[headerIndex.get('week_end')];
     const sex = values[headerIndex.get('sex')];
     const age = values[headerIndex.get('age')];
-    const half = values[headerIndex.get('numtotal_atleast1dose')];
+    const first = values[headerIndex.get('numtotal_atleast1dose')];
+    const third = values[headerIndex.get('numtotal_additional')];
     // const half = values[headerIndex.get('numtotal_partially')];
-    const full = values[headerIndex.get('numtotal_fully')];
-    const doses = (Number.parseInt(half) || 0) + (Number.parseInt(full) || 0);
+    const second = values[headerIndex.get('numtotal_fully')];
+    const doses = (Number.parseInt(first) || 0) + (Number.parseInt(second) || 0) + (Number.parseInt(third) || 0);
 
     if (!/^\d+/.test(age)) continue;
-    if (!(Number.parseInt(half) > 0)) continue;
+    if (!(Number.parseInt(first) > 0)) continue;
 
     if (!data.has(name)) data.set(name, new Map());
     const nameData = data.get(name);
@@ -139,11 +140,12 @@ async function getVaccineAgeBreakdown() {
     const fullEntry = weekData.get('total');
 
     entry.doses = (entry.doses || 0) + (Number.parseInt(doses) || 0);
-    entry.half = (entry.half || 0) + (Number.parseInt(half) || 0);
-    entry.full = (entry.full || 0) + (Number.parseInt(full) || 0);
+    entry.first = (entry.first || 0) + (Number.parseInt(first) || 0);
+    entry.second = (entry.second || 0) + (Number.parseInt(second) || 0);
+    entry.third = (entry.third || 0) + (Number.parseInt(third) || 0);
     fullEntry.doses = (fullEntry.doses || 0) + (Number.parseInt(doses) || 0);
-    fullEntry.half = (fullEntry.half || 0) + (Number.parseInt(half) || 0);
-    fullEntry.full = (fullEntry.full || 0) + (Number.parseInt(full) || 0);
+    fullEntry.first = (fullEntry.first || 0) + (Number.parseInt(first) || 0);
+    fullEntry.second = (fullEntry.second || 0) + (Number.parseInt(second) || 0);
   }
 
   // for (const province of data.keys()) {
@@ -281,6 +283,22 @@ async function getStatsCanCensus(data, hrData) {
   for (const hr of statsCanadaHR) {
     hrData.set(Number.parseInt(hr.id), hr);
   }
+
+  // https://www150.statcan.gc.ca/n1/pub/71-607-x/2018005/lib/statcan_sgc/i18n/sgc//en.json
+  // https://www150.statcan.gc.ca/n1/pub/71-607-x/2018005/data/pop_projection_01.json
+  // https://www150.statcan.gc.ca/n1/pub/71-607-x/2018005/data/pop_projection_10.json
+  // https://www150.statcan.gc.ca/n1/pub/71-607-x/2018005/data/pop_projection_11.json
+  // https://www150.statcan.gc.ca/n1/pub/71-607-x/2018005/data/pop_projection_12.json
+  // https://www150.statcan.gc.ca/n1/pub/71-607-x/2018005/data/pop_projection_13.json
+  // https://www150.statcan.gc.ca/n1/pub/71-607-x/2018005/data/pop_projection_24.json
+  // https://www150.statcan.gc.ca/n1/pub/71-607-x/2018005/data/pop_projection_35.json
+  // https://www150.statcan.gc.ca/n1/pub/71-607-x/2018005/data/pop_projection_46.json
+  // https://www150.statcan.gc.ca/n1/pub/71-607-x/2018005/data/pop_projection_47.json
+  // https://www150.statcan.gc.ca/n1/pub/71-607-x/2018005/data/pop_projection_48.json
+  // https://www150.statcan.gc.ca/n1/pub/71-607-x/2018005/data/pop_projection_59.json
+  // https://www150.statcan.gc.ca/n1/pub/71-607-x/2018005/data/pop_projection_60.json
+  // https://www150.statcan.gc.ca/n1/pub/71-607-x/2018005/data/pop_projection_61.json
+  // https://www150.statcan.gc.ca/n1/pub/71-607-x/2018005/data/pop_projection_62.json
   const statsCanada = JSON.parse(fs.readFileSync('_data/statcan.gc.ca/1710000901.json', 'utf-8'));
   for (const prov of statsCanada) {
     prov.population = Math.max(prov.population || 0, data.get(prov.code)?.population || 0)

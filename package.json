@@ -14,8 +14,8 @@
   "author": "Colin Bendell <colin@bendell.ca> (https://twitter.com/colinbendell)",
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^0.12.1",
-    "clean-css": "^5.2.0",
+    "@11ty/eleventy": "^1.0.0",
+    "clean-css": "^5.2.3",
     "html-minifier": "^4.0.0",
     "ml-regression-polynomial": "^2.2.0"
   },

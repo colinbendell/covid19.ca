@@ -266,14 +266,15 @@ function projectVaccineAge(vaccineByAge, prov) {
     const x = lastMonth.map(d => ((new Date(d).getTime() - startDate) / 24/60/60/1000) + 1);
     const targetX = ((Date.now() - startDate) / 24/60/60/1000) + 2;
     const targetDate = new Date().toISOString().split('T')[0];
-    const result = {date: lastMonth[3], name, total:{half: 0, full: 0, doses: 0}, ages:[]};
+    const result = {date: lastMonth[3], name, total:{first: 0, second: 0, third: 0, doses: 0}, ages:[]};
 
     const geoPopulation = prov.population;
 
     for (const w of lastMonthValues) {
       w["70+"] = {
-        full: (w["70-79"]?.full || 0) + (w["80+"]?.full || 0),
-        half: (w["70-79"]?.half || 0) + (w["80+"]?.half || 0),
+        third: (w["70-79"]?.third || 0) + (w["80+"]?.third || 0),
+        second: (w["70-79"]?.second || 0) + (w["80+"]?.second || 0),
+        first: (w["70-79"]?.first || 0) + (w["80+"]?.first || 0),
         doses: (w["70-79"]?.doses || 0) + (w["80+"]?.doses || 0),
       };
       delete w["70-79"];
@@ -286,30 +287,34 @@ function projectVaccineAge(vaccineByAge, prov) {
 
       const population = (prov[age] / 100) * geoPopulation;
 
-      const half = lastMonthValues.map(week => week[age]?.half || 0);
-      const full = lastMonthValues.map(week => week[age]?.full || 0);
+      const first = lastMonthValues.map(week => week[age]?.first || 0);
+      const second = lastMonthValues.map(week => week[age]?.second || 0);
+      const third = lastMonthValues.map(week => week[age]?.third || 0);
       const doses = lastMonthValues.map(week => week[age]?.doses || 0);
 
-      const regressionHalf = new PolynomialRegression(x, half, 1);
-      const regressionFull = new PolynomialRegression(x, full, 1);
+      const regressionFirst = new PolynomialRegression(x, first, 1);
+      const regressionSecond = new PolynomialRegression(x, second, 1);
+      const regressionThird = new PolynomialRegression(x, third, 1);
       const regressionDoses = new PolynomialRegression(x, doses, 1);
 
       const prediction = {
         key: (age === "0-17") ? "12-17" : age,
-        half: Math.min(Math.round(regressionHalf.predict(targetX)), population),
-        full: Math.min(Math.round(regressionFull.predict(targetX)), population),
+        first: Math.min(Math.round(regressionFirst.predict(targetX)), population),
+        second: Math.min(Math.round(regressionSecond.predict(targetX)), population),
+        third: Math.min(Math.round(regressionThird.predict(targetX)), population),
         doses: Math.min(Math.round(regressionDoses.predict(targetX)), population*2),
         population
       }
-      result.total.half += prediction.half;
-      result.total.full += prediction.full;
+      result.total.first += prediction.first;
+      result.total.second += prediction.second;
+      result.total.third += prediction.third;
       result.total.doses += prediction.doses;
 
       result.ages.push(prediction);
 
       try {
-        prediction.halfETA = Math.round(new PolynomialRegression(half.slice(-2), x.slice(-2), 1).predict(population * 0.7));
-        prediction.fullETA = Math.round(new PolynomialRegression(full.slice(-2), x.slice(-2), 1).predict(population * 0.7));
+        prediction.halfETA = Math.round(new PolynomialRegression(first.slice(-2), x.slice(-2), 1).predict(population * 0.7));
+        prediction.fullETA = Math.round(new PolynomialRegression(second.slice(-2), x.slice(-2), 1).predict(population * 0.7));
         prediction.dosesETA = Math.round(new PolynomialRegression(doses.slice(-2), x.slice(-2), 1).predict(population * 2 * 0.7));
       }
       catch {}
