@@ -1,6 +1,24 @@
 {
   "daily": [
     {
+      "date": "2022-01-27",
+      "AB": {"AstraZeneca": 2687654, "Janssen": 318200, "Pfizer": 394000, "Total": 10000, "undefined": 10265859},
+      "BC": {"AstraZeneca": 3883120, "Janssen": 456800, "Pfizer": 347000, "Total": 12500, "undefined": 11904130},
+      "CA": {"AstraZeneca": 29352230, "Janssen": 3067010, "Pfizer": 4427890, "Total": 44500, "undefined": 92842704},
+      "FA": {"AstraZeneca": 245068, "Janssen": 460, "Pfizer": 2690, "Total": 0, "undefined": 261766},
+      "MB": {"AstraZeneca": 1034308, "Janssen": 92960, "Pfizer": 252000, "Total": 3250, "undefined": 3488818},
+      "NB": {"AstraZeneca": 590950, "Janssen": 61500, "Pfizer": 112000, "Total": 700, "undefined": 1948365},
+      "NL": {"AstraZeneca": 555224, "Janssen": 41300, "Pfizer": 68000, "Total": 250, "undefined": 1427224},
+      "NS": {"AstraZeneca": 705500, "Janssen": 60860, "Pfizer": 116200, "Total": 2000, "undefined": 2370892},
+      "NT": {"AstraZeneca": 91470, "Janssen": 0, "Pfizer": 6000, "Total": 0, "undefined": 111510},
+      "NU": {"AstraZeneca": 68720, "Janssen": 0, "Pfizer": 14000, "Total": 0, "undefined": 100270},
+      "ON": {"AstraZeneca": 11323650, "Janssen": 1174300, "Pfizer": 1614000, "Total": 10000, "undefined": 35424851},
+      "PE": {"AstraZeneca": 116380, "Janssen": 10100, "Pfizer": 24000, "Total": 500, "undefined": 408095},
+      "QC": {"AstraZeneca": 7311726, "Janssen": 742110, "Pfizer": 1304000, "Total": 100, "undefined": 22097349},
+      "SK": {"AstraZeneca": 650990, "Janssen": 108400, "Pfizer": 169000, "Total": 5000, "undefined": 2932695},
+      "YT": {"AstraZeneca": 87470, "Janssen": 20, "Pfizer": 5000, "Total": 200, "undefined": 100880}
+    },
+    {
       "date": "2022-01-20",
       "AB": {"AstraZeneca": 2687654, "Janssen": 318200, "Pfizer": 394000, "Total": 10000, "undefined": 10020159},
       "BC": {"AstraZeneca": 3591220, "Janssen": 456800, "Pfizer": 313000, "Total": 11800, "undefined": 11185580},
@@ -955,5 +973,5 @@
       "YT": {"AstraZeneca": 20, "Moderna": 54300, "Pfizer": 0, "Total": 54320}
     }
   ],
-  "Forecasted allocation of COVID-19 vaccines": [{"date": "Vaccine allocation", "undefined": "FA"}, {"date": "Pfizer", "undefined": 10000}, {"date": "undefined", "undefined": 5457380}]
+  "Forecasted allocation of COVID-19 vaccines": [{"date": "Vaccine allocation", "undefined": "FA"}, {"date": "Pfizer", "undefined": 10000}, {"date": "undefined", "undefined": 5515200}]
 }
