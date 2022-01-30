@@ -128,7 +128,10 @@ async function getSeverityAgeBreakdown() {
       const ageGroup = values[headerIndex.get('age_group')];
       if (!srcData[severity][ageGroup]) srcData[severity][ageGroup] = {}
       for (const header of headers.filter(v => v !== 'severity' && v !== 'age_group')) {
-        srcData[severity][ageGroup][header.replace('count_', '')] = values[headerIndex.get(header)] || 0
+        const v = values[headerIndex.get(header)] || 0;
+        if (v > 0) {
+          srcData[severity][ageGroup][header.replace('count_', '')] = v;
+        }
       }
     }
     data.set(d.file_date, srcData);
