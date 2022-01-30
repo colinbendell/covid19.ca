@@ -95,6 +95,46 @@ async function get(url) {
     // }
   }
 }
+async function getSeverityAgeBreakdown() {
+  // severity,age_group,count_female,prop_female,count_male,prop_male,count_other,prop_other,count_total,prop_total
+  const headers = ["severity", "age_group", "count_female", "count_male", "count_other", "count_total"]
+  const data = new Map();
+  const dataFilename = '_data/canada.ca/covid19-epiSummary-severityUpdate.json';
+
+  if (fs.existsSync(dataFilename)) {
+    const oldValues = JSON.parse(fs.readFileSync(dataFilename, 'utf-8'));
+    for (const [k, v] of Object.entries(oldValues)) data.set(k, v);
+  }
+
+  const index = await get('https://api.opencovid.ca/archive?uuid=c66b12ae-3bcc-4c03-a4ad-a914f35aa842');
+  for await (const d of index) {
+    if (d.file_date && data.has(d.file_date)) continue;
+    const srcData = {hospitalization: {}, icu: {}, deaths: {}};
+
+    const res = await get(d.file_url);
+    const lines = res.split(/[\r\n]+/g);
+    const header = lines.shift();
+    const headerRows = header.split(/\s*,\s*/g) || [];
+    const headerIndex = new Map(headers.map(v => [v, 0]));
+    for (const i in headerRows) {
+      if (headerIndex.has(headerRows[i])) {
+        headerIndex.set(headerRows[i], i);
+      }
+    }
+    for (const row of lines) {
+      const values = row.split(/\s*,\s*/g) || [];
+      if (values.length < headerIndex.size) continue;
+      const severity = values[headerIndex.get('severity')];
+      const ageGroup = values[headerIndex.get('age_group')];
+      if (!srcData[severity][ageGroup]) srcData[severity][ageGroup] = {}
+      for (const header of headers.filter(v => v !== 'severity' && v !== 'age_group')) {
+        srcData[severity][ageGroup][header.replace('count_', '')] = values[headerIndex.get(header)] || 0
+      }
+    }
+    data.set(d.file_date, srcData);
+  }
+  fs.writeFileSync(dataFilename, stringify(data, 2, 200));
+}
 
 async function getVaccineAgeBreakdown() {
 
@@ -120,9 +160,8 @@ async function getVaccineAgeBreakdown() {
     const sex = values[headerIndex.get('sex')];
     const age = values[headerIndex.get('age')];
     const first = values[headerIndex.get('numtotal_atleast1dose')];
-    const third = values[headerIndex.get('numtotal_additional')];
-    // const half = values[headerIndex.get('numtotal_partially')];
     const second = values[headerIndex.get('numtotal_fully')];
+    const third = values[headerIndex.get('numtotal_additional')];
     const doses = (Number.parseInt(first) || 0) + (Number.parseInt(second) || 0) + (Number.parseInt(third) || 0);
 
     if (!/^\d+/.test(age)) continue;
@@ -148,31 +187,6 @@ async function getVaccineAgeBreakdown() {
     fullEntry.second = (fullEntry.second || 0) + (Number.parseInt(second) || 0);
   }
 
-  // for (const province of data.keys()) {
-  //   const dates = [...data.get(province).keys()].sort((a, b) => Date.parse(a) - Date.parse(b));
-  //   for (const i in dates) {
-  //     if (i === "0") continue;
-  //
-  //     const prev = data.get(province).get(dates[i-1]);
-  //     const curr = data.get(province).get(dates[i]);
-  //     for (const age of curr.keys()) {
-  //       const ageData = curr.get(age);
-  //       const prevAgeData = prev.get(age);
-  //       if (!prevAgeData) continue;
-  //
-  //       for (const key of Object.keys(curr.get(age))) {
-  //         ageData["change_" + key] = ageData[key] - (prevAgeData[key] || 0);
-  //         if (prevAgeData["change_" + key]) {
-  //           ageData["change_change_" + key] = ageData["change_" +key] - (prevAgeData["change_" + key] || 0);
-  //         }
-  //         if (age !== "total" && curr.get("total")[key]) {
-  //           ageData["pct_" + key] = Math.round(ageData[key] / curr.get("total")[key] * 100 * 100) / 100;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-  // console.log(stringify(data, 2, 200))
   fs.writeFileSync('_data/canada.ca/vaccination-coverage-byAgeAndSex.json', stringify(data, 2, 200));
 }
 
@@ -645,8 +659,12 @@ async function getData() {
   const data = new Map();
   const hrData = new Map();
 
-  await getVaccineAgeBreakdown();
-  await getVaccineScheduleCanada();
+  await Promise.all([
+    await getSeverityAgeBreakdown(),
+    await getVaccineAgeBreakdown(),
+    await getVaccineScheduleCanada()
+  ])
+
   await getCovid19TrackerProvinces(data);
   await getStatsCanCensus(data, hrData);
   await getSK(hrData);
