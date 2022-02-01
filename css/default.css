@@ -8,7 +8,11 @@
   --purple: #6f42c1;
   --pink: #e83e8c;
   --red: #dc3545;
+  --red20alpha: #dc354533;
+  --red60alpha: #dc354599;
   --orange: #fd7e14;
+  --orange20alpha: #fd7e1433;
+  --orange60alpha: #fd7e1499;
   --yellow: #ffc107;
   --green: #28a745;
   --teal: #20c997;
@@ -421,17 +425,13 @@ main {
   background-image: url('img/long-arrow-up.svg');
 }
 
-#sort-infect-trend:checked ~ .tr.thead label[for=sort-infect-trend],
-#sort-infect-pop:checked ~ .tr.thead label[for=sort-infect-pop],
-#sort-infect-today:checked ~ .tr.thead label[for=sort-infect-today],
-#sort-active-trend:checked ~ .tr.thead label[for=sort-active-trend],
-#sort-active:checked ~ .tr.thead label[for=sort-active],
-#sort-recovery-days:checked ~ .tr.thead label[for=sort-recovery-days],
 #sort-hospital:checked ~ .tr.thead label[for=sort-hospital],
-#sort-death:checked ~ .tr.thead label[for=sort-death],
-#sort-test:checked ~ .tr.thead label[for=sort-test],
-#sort-infect:checked ~ .tr.thead label[for=sort-infect],
-#sort-death-rate:checked ~ .tr.thead label[for=sort-death-rate] {
+#sort-hospital-trend:checked ~ .tr.thead label[for=sort-hospital-trend],
+#sort-icu:checked ~ .tr.thead label[for=sort-icu],
+#sort-icu-trend:checked ~ .tr.thead label[for=sort-icu-trend],
+#sort-deaths-trend:checked ~ .tr.thead label[for=sort-deaths-trend],
+#sort-deaths-year:checked ~ .tr.thead label[for=sort-deaths-year],
+#sort-deaths:checked ~ .tr.thead label[for=sort-deaths] {
   background-image: url('img/long-arrow-down.svg');
 }
 
@@ -627,9 +627,13 @@ table.column .blue60alpha { --color-1: var(--blue60alpha); }
 table.column .gray { --color-1: var(--gray); }
 table.column .gray20alpha { --color-1: var(--gray20alpha); }
 table.column .gray60alpha { --color-1: var(--gray60alpha); }
-table.column .gray { --color-1: var(--gray); }
+table.column .black { --color-1: var(--black); }
 table.column .red { --color-1: var(--red); }
+table.column .red20alpha { --color-1: var(--red20alpha); }
+table.column .red60alpha { --color-1: var(--red60alpha); }
 table.column .orange { --color-1: var(--orange); }
+table.column .orange20alpha { --color-1: var(--orange20alpha); }
+table.column .orange60alpha { --color-1: var(--orange60alpha); }
 
 /*.dose.history table.column {*/
 /*  --color-1: rgba(0, 123, 255, 0.2);*/

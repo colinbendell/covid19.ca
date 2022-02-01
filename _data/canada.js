@@ -51,7 +51,7 @@ function normalizeDayData(data, item) {
     active_cases_per_100k: item.active_cases >= 0 ? Math.round(item.active_cases / data.population * 100*1000) : null,
     fatalities_per_100k: item.total_fatalities >= 0 ? Math.round(item.total_fatalities / data.population * 100*1000) : null,
     hospitalizations_per_1000k: item.total_hospitalizations >= 0 ? Math.round(item.total_hospitalizations / data.population * 1000*1000) : null,
-    criticals_per_1000k: item.total_criticals >= 0 ? Math.round(item.total_criticals / data.population * 10*1000*1000) : null,
+    criticals_per_1000k: item.total_criticals >= 0 ? Math.round(item.total_criticals / data.population * 1000*1000) : null,
     first_vaccination_per_person: Math.round((item.total_first_vaccination / data.population) * 1000) / 10,
     first_vaccination_per_2plus: Math.round((item.total_first_vaccination / data.population2plus) * 1000) / 10,
     first_vaccination_per_5plus: Math.round((item.total_first_vaccination / data.population5plus) * 1000) / 10,
@@ -157,10 +157,13 @@ function normalizeVaccine(data) {
   const [twoWeeksAgo] = previousWeeks.slice(-2);
   const [lastWeekExclusive] = previousWeeks.slice(-1);
   const [lastWeekInclusive] = [data.daily.slice(-7)].map(item => normalizeWeekData(data, item));
-  const [lastMonth] = [data.daily.slice(-31).slice(30)].map(item => normalizeWeekData(data, item));
+  const [lastMonth] = [data.daily.slice(-31, -1)].map(item => normalizeWeekData(data, item));
   const [lastMonthInclusive] = [data.daily.slice(-31)].map(item => normalizeWeekData(data, item));
+  const [lastYear] = [data.daily.slice(-365, -1)].map(item => normalizeWeekData(data, item));
+  const [lastYearInclusive] = [data.daily.slice(-365)].map(item => normalizeWeekData(data, item));
   const [sinceJuly] = [data.daily.filter(d => Date.parse(d.date) >= Date.parse('2021-07-01'))].map(item => normalizeWeekData(data, item));
   normalizeDays(previousWeeks, lastWeekInclusive);
+  lastYear.change_fatalities_per_100k = lastYear.change_fatalities_sum >= 0 ? Math.round(lastYear.change_fatalities_sum / data.population * 100*1000) : null;
 
   const previous7Days = data.daily.slice(-8, -1);
   const [yesterday] = previous7Days.slice(-1);
@@ -198,9 +201,15 @@ function normalizeVaccine(data) {
   }
 
   //convenience checks for maximums
-  for (const name of ["total_cost_hospitalization", "change_cases", "active_cases"]) {
+  for (const name of ["total_cost_hospitalization", "change_cases", "active_cases", "total_hospitalizations", "total_fatalities","change_fatalities", "total_criticals"]) {
     today[name + "_max"] = Math.max(...previousWeeks.slice(-18).map(weekData => weekData[name + "_avg"] || 0),
                                     today[name] || 0, 0);
+  }
+  for (const age of ['0-11', '12-19','20-29','30-39','40-49','50-59','60-69','70-79','80+']) {
+    for (const name of ["change_infobase_hospitalization_" + age, "change_infobase_icu_" + age, "change_infobase_deaths_" + age]) {
+      today[name + "_max"] = Math.max(...previousWeeks.slice(-18).map(weekData => weekData[name + "_avg"] || 0),
+        today[name] || 0, 0);
+    }
   }
   for (const name of ["change_vaccinations", "available_doses"]) {
     today[name + "_max"] = Math.max(...previousWeeks.slice(-18).map(weekData => weekData[name + "_avg"] || 0),
@@ -208,6 +217,7 @@ function normalizeVaccine(data) {
   }
 
   today.sort_change_cases_per_1000k = today.change_cases_per_1000k || lastWeekExclusive.change_cases_per_1000k_avg;
+  today.sort_change_fatalities_per_100k = today.change_fatalities_per_100k || lastWeekExclusive.change_fatalities_per_100k_avg;
   today.sort_change_cases = today.change_cases || lastWeekExclusive.change_cases_avg;
   today.sort_change_vaccinations_per_1k = today.change_vaccinations > 0 ? lastWeekInclusive.change_vaccinations_per_1k_avg : lastWeekExclusive.change_vaccinations_per_1k_avg;
   today.sort_change_vaccinations = today.change_vaccinations > 0 && yesterday.change_vaccinations > 0 ? today.change_vaccinations : lastWeekExclusive.change_vaccinations_avg;
@@ -221,6 +231,8 @@ function normalizeVaccine(data) {
   data.yesterday = yesterday;
   data.lastMonth = lastMonth;
   data.lastMonthInclusive = lastMonthInclusive;
+  data.lastYear = lastYear;
+  data.lastYearInclusive = lastYearInclusive;
   data.sinceJuly = sinceJuly;
   data.sort_name = data.code === 'CA' ? 'ZZ_CA' : (data.code || data.name);
 
@@ -318,17 +330,55 @@ function projectVaccineAge(vaccineByAge, prov) {
         prediction.dosesETA = Math.round(new PolynomialRegression(doses.slice(-2), x.slice(-2), 1).predict(population * 2 * 0.7));
       }
       catch {}
-
-      // if (name === 'CA') console.log(name, age, x, half, prediction.half, prediction.halfETA);
-      // if (name === 'CA') console.log(name, age, x, full, prediction.full, prediction.fullETA);
-      // if (name === 'CA') console.log(name, age, x, doses, prediction.doses, prediction.dosesETA);
     }
   return result;
+}
+
+function normalizeSeverityByAge(infobase, fullData) {
+
+  for (const day of Object.keys(infobase)) {
+    if (infobase[day].hospitalization["0-19"]) {
+      infobase[day].hospitalization["0-11"] = Math.round(1121/1974 * infobase[day].hospitalization["0-19"]) ;
+      infobase[day].hospitalization["12-19"] = Math.round(853/1974 * infobase[day].hospitalization["0-19"]) ;
+      infobase[day].hospitalization["0-11"] += infobase[day].hospitalization["0-19"]-infobase[day].hospitalization["0-11"]-infobase[day].hospitalization["12-19"];
+      delete infobase[day].hospitalization["0-19"];
+      infobase[day].icu["0-11"] = Math.round(132/244 * infobase[day].icu["0-19"]) ;
+      infobase[day].icu["12-19"] = Math.round(112/244 * infobase[day].icu["0-19"]) ;
+      infobase[day].icu["0-11"] += infobase[day].icu["0-19"]-infobase[day].icu["0-11"]-infobase[day].icu["12-19"];
+      delete infobase[day].icu["0-19"];
+      infobase[day].deaths["0-11"] = Math.round(11/19 * infobase[day].deaths["0-19"]) ;
+      infobase[day].deaths["12-19"] = Math.round(8/19 * infobase[day].deaths["0-19"]) ;
+      infobase[day].deaths["0-11"] += infobase[day].deaths["0-19"]-infobase[day].deaths["0-11"]-infobase[day].deaths["12-19"];
+      delete infobase[day].deaths["0-19"];
+    }
+
+    for (const sev of ['hospitalization', 'icu', 'deaths']) {
+        for (const key of Object.keys(infobase[day][sev])) {
+          infobase[day][`infobase_${sev}_${key}`] = infobase[day][sev][key];
+        }
+        delete infobase[day][sev];
+    }
+  }
+
+  let lastDay;
+  for (const day of fullData["CA"].daily) {
+    if (infobase[day.date]) {
+      lastDay = infobase[day.date];
+      Object.assign(day, lastDay);
+      delete infobase[day.date];
+    }
+    else if (lastDay && day === fullData["CA"].daily.slice(-1)[0]) {
+      Object.assign(day, lastDay);
+    }
+  }
 }
 
 module.exports = async function() {
   const fullData = JSON.parse(fs.readFileSync('_data/covid19tracker.ca/data.json', 'utf-8'));
   // super quick hack to plot ages and demographics. the data from canada.ca is ~2w old
+  const severityByAge = JSON.parse(fs.readFileSync('_data/canada.ca/covid19-epiSummary-severityUpdate.json', 'utf-8'));
+  normalizeSeverityByAge(severityByAge, fullData);
+
   const vaccineByAge = JSON.parse(fs.readFileSync('_data/canada.ca/vaccination-coverage-byAgeAndSex.json', 'utf-8'));
 
   const todayDatePST = new Date(Date.now() - 7*60*60*1000).toJSON().split('T')[0];
@@ -371,6 +421,7 @@ module.exports = async function() {
     if (/Reported/.test(prov.data_status) && prov.total.date !== todayDatePST) {
       prov.data_status = "Waiting For Report";
     }
+
   }
   const [CA] = data.filter(prov => prov.name === 'Canada');
   const provs = data.filter(prov => prov.name !== 'Canada');
