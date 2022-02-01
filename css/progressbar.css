@@ -97,7 +97,7 @@
 .progressbar > .per100k, .progressbar.per100k { --suffix: "/₁₀₀ₖ" }
 .progressbar > .per1000k, .progressbar.per1000k { --suffix: "/₁ ₀₀₀ₖ" }
 .progressbar > .per10000k, .progressbar.per10000k { --suffix: "/₁₀ ₀₀₀ₖ" }
-.progressbar > .cad, .progressbar.cad { --pb-unit: "$" }
+.progressbar > .cad, .progressbar.cad { --pb-unit: "$"}
 /*.progressbar > .change[data-value]:not([data-value=""]):not([data-value="0"]):not([data-value ^= "-"]) { --prefix: "+" }*/
 .progressbar > [data-value]:not([data-value=""]):not([data-value="0"]):not([data-value="N/A"]):before,
 .progressbar[data-value]:not([data-value=""]):not([data-value="0"]):not([data-value="N/A"]):before {
@@ -107,16 +107,16 @@
 .progressbar[aria-valuenow]:not([aria-valuenow=""]):not([aria-valuenow="N/A"]):before {
   content: var(--pb-unit, "") attr(aria-valuenow) var(--suffix);
 }
-.progressbar > [data-change]:not([data-change=""]):not([data-change="0"]):not([data-change="N/A"]):not([data-change ^= "-"]),
-.progressbar[data-change]:not([data-change=""]):not([data-change="0"]):not([data-change="N/A"]):not([data-change ^= "-"]) {
+.progressbar > [data-change]:is([data-change^="0."],[data-change^="1"],[data-change^="2"],[data-change^="3"],[data-change^="4"],[data-change^="5"],[data-change^="6"],[data-change^="7"],[data-change^="8"],[data-change^="9"]),
+.progressbar[data-change]:is([data-change^="0."],[data-change^="1"],[data-change^="2"],[data-change^="3"],[data-change^="4"],[data-change^="5"],[data-change^="6"],[data-change^="7"],[data-change^="8"],[data-change^="9"]) {
   --prefix: "+";
 }
 .progressbar > [data-change]:not([data-change=""]):not([data-change="0"]):not([data-change="N/A"]):after,
 .progressbar[data-change]:not([data-change=""]):not([data-change="0"]):not([data-change="N/A"]):after {
-  content: var(--prefix) var(--pb-unit, "") attr(data-change);
+  content: var(--prefix) attr(data-change);
 }
 .progressbar[data-change]:is(.percent):not([data-change=""]):not([data-change="0"]):not([data-change="N/A"]):after {
-  content: var(--prefix) var(--pb-unit, "") attr(data-change) var(--suffix);
+  content: var(--prefix) attr(data-change) var(--suffix);
 }
 
 .progressbar > div:is([data-value="0"]:not([data-value])) {
