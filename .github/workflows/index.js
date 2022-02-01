@@ -97,7 +97,7 @@ async function get(url) {
 }
 async function getSeverityAgeBreakdown() {
   // severity,age_group,count_female,prop_female,count_male,prop_male,count_other,prop_other,count_total,prop_total
-  const headers = ["severity", "age_group", "count_female", "count_male", "count_other", "count_total"]
+  const headers = ["severity", "age_group", "count_total"]
   const data = new Map();
   const dataFilename = '_data/canada.ca/covid19-epiSummary-severityUpdate.json';
 
@@ -126,13 +126,8 @@ async function getSeverityAgeBreakdown() {
       if (values.length < headerIndex.size) continue;
       const severity = values[headerIndex.get('severity')];
       const ageGroup = values[headerIndex.get('age_group')];
-      if (!srcData[severity][ageGroup]) srcData[severity][ageGroup] = {}
-      for (const header of headers.filter(v => v !== 'severity' && v !== 'age_group')) {
-        const v = values[headerIndex.get(header)] || 0;
-        if (v > 0) {
-          srcData[severity][ageGroup][header.replace('count_', '')] = v;
-        }
-      }
+      const total = Number.parseInt(values[headerIndex.get('count_total')]) || 0;
+      srcData[severity][ageGroup] = total;
     }
     data.set(d.file_date, srcData);
   }
