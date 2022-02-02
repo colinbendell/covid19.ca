@@ -89,11 +89,11 @@ function normalizeDays(items = [], altLast) {
         const prev = items[i - 1];
         const curr = items[i];
         for (const key of keys) {
-          curr["change_" + key] = (curr[key] || 0) - (prev[key] || 0);
+          if (!curr.hasOwnProperty("change_" + key)) curr["change_" + key] = (curr[key] || 0) - (prev[key] || 0);
 
           //special case where we want to also apply the change_ calculation to lastWeekInclusive as well
           if (altLast && curr === lastItem) {
-            altLast["change_" + key] = (altLast[key] || 0) - (prev[key] || 0);
+            if (!altLast.hasOwnProperty("change_" + key)) altLast["change_" + key] = (altLast[key] || 0) - (prev[key] || 0);
           }
         }
       }
@@ -113,8 +113,11 @@ function normalizeWeekData(data, item) {
   for (const key of keys) {
     // only numeric values; assume that periodic entries are numeric. worst case they will add to zero or NaN
     if (Number.isFinite(last[key]) || !last[key] ) {
-      week[key + "_avg"] = Math.round(item.map(i => i[key] || 0).reduce((p, c) => p + c, 0) / item.length * 10)/10;
-      week[key + "_sum"] = item.map(i => i[key] || 0).reduce((p, c) => p + c, 0);
+      const vals = item.map(i => i[key] || 0);
+      week[key + "_avg"] = Math.round(vals.reduce((p, c) => (p + c)) / item.length * 10)/10;
+      week[key + "_sum"] = vals.reduce((p, c) => (p + c));
+      week[key + "_min"] = vals.reduce((p, c) => Math.min(p, c));
+      week[key + "_max"] = vals.reduce((p, c) => Math.max(p, c));
     }
   }
   if (week.change_tests_sum > 0) {
@@ -421,7 +424,6 @@ module.exports = async function() {
     if (/Reported/.test(prov.data_status) && prov.total.date !== todayDatePST) {
       prov.data_status = "Waiting For Report";
     }
-
   }
   const [CA] = data.filter(prov => prov.name === 'Canada');
   const provs = data.filter(prov => prov.name !== 'Canada');

@@ -476,8 +476,8 @@ layout: layouts/home.njk
     <div class="th history"><label class="sort" for="sort-deaths-trend">Deaths<br/>Last 18 weeks</label></div>
     <div class="th deaths"><label class="sort" for="sort-deaths-year">365d<br>Deaths/₁₀₀ₖ</label></div>
     <div class="th deaths"><label class="sort" for="sort-deaths">Total<br>Deaths/₁₀₀ₖ</label></div>
-    <div class="th nogrow"><label class="sort" for="sort-cost-pop">Hospital + ICU<br>Tax $ /person</label></div>
-    <div class="th wide nogrow"><label class="sort" for="sort-cost-hospitalization">COVID Hospital + ICU<br/>Total Tax $ Since July 2021</label></div>
+    <div class="th nogrow"><label class="sort" for="sort-cost-pop">Hospital + ICU<br>$ Cost /pop.</label></div>
+    <div class="th wide nogrow"><label class="sort" for="sort-cost-hospitalization">COVID Hospital + ICU<br/>Total $ Cost Since July 2021</label></div>
   </div>
   {% macro selectColour(data) %}{{ "green" if data < 10 else ("yellow" if data < 25 else ("orange" if data < 40 else ("red" if data < 100 else "darkgray"))) }}{% endmacro %}
   {% macro selectBase(data) %}{{ 10 if data < 10 else (25 if data < 25 else (40 if data < 40 else (100 if data < 100 else 150))) }}{% endmacro %}
@@ -572,10 +572,10 @@ layout: layouts/home.njk
             <tbody>
             <tr>
               {%- for week in data.previousWeeks | head(-18) | head(14) %}
-                <td class="gray60alpha" style="--size:{{ (week.change_fatalities_avg / data.today.change_fatalities_max) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>New Deaths Avg: {{ week.change_fatalities_avg | formatNumber }}/day</span></td>
+                <td class="gray60alpha" style="--size:{{ (week.change_fatalities_avg / data.today.change_fatalities_max) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>New Deaths: {{ week.change_fatalities_sum | formatNumber }}</span></td>
               {%- endfor %}
               {%- for week in data.previousWeeks | head(-4) %}
-                <td class="black" style="--size:{{ (week.change_fatalities_avg / data.today.change_fatalities_max) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>New Deaths Avg: {{ week.change_fatalities_avg | formatNumber }}/day</span></td>
+                <td class="black" style="--size:{{ (week.change_fatalities_avg / data.today.change_fatalities_max) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>New Deaths: {{ week.change_fatalities_sum | formatNumber }}</span></td>
               {%- endfor %}
               <td class="red" style="--size:{{ (data.today.change_fatalities / data.today.change_fatalities_max) | max(0.03) | format }};"><span class="tooltip">{{ data.today.date | readableDate }}<br/>New Deaths: {{ data.today.change_fatalities | d(0) | formatNumber }}</span></td>
             </tr>
@@ -591,8 +591,8 @@ layout: layouts/home.njk
              aria-valuenow="{{ data.lastYear.change_fatalities_per_100k if data.lastYear.change_fatalities_per_100k >= 0 else "N/A"}}"
              data-change="{{ data.lastYear.change_fatalities_per_100k |d(0) | format }}"
         >
+          <span class="value" aria-hidden="true"></span>
           {% if data.lastYear.change_fatalities_sum %}
-            <span class="value" aria-hidden="true"></span>
             <div class="absolute" data-value="{{ data.lastYear.change_fatalities_sum | format }}" data-change="{{ data.today.change_fatalities | format }}"></div>
           {% endif %}
         </div>
@@ -605,8 +605,8 @@ layout: layouts/home.njk
              aria-valuenow="{{ data.today.fatalities_per_100k if data.today.total_fatalities >= 0 else "N/A"}}"
              data-change="{{ data.today.change_fatalities_per_100k |d(0) | format }}"
         >
+          <span class="value" aria-hidden="true"></span>
           {% if data.today.total_fatalities %}
-            <span class="value" aria-hidden="true"></span>
             <div class="absolute" data-value="{{ data.today.total_fatalities | format }}" data-change="{{ data.today.change_fatalities | format }}"></div>
           {% endif %}
         </div>
@@ -616,7 +616,7 @@ layout: layouts/home.njk
         <div class="progressbar nogrow cad red"
              style="--width: {{ ((data.sinceJuly.total_cost_hospitalization_sum/data.population/20)*100) | min(100) }}"
              aria-valuenow="{{ data.sinceJuly.total_cost_hospitalization_per_person_sum | round(2)}}"
-             data-change="/person"
+             data-change="/resident"
         >
           <span class="value" aria-hidden="true"></span>
           <div class="absolute" data-value="" data-change="{{data.today.total_cost_hospitalization_per_person | round(2) }}"></div>
@@ -661,6 +661,8 @@ layout: layouts/home.njk
 
   <section id="costs">
     <h2><a href="#costs">COVID Impact by Age</a></h2>
+    <sup><small>Age breakdown from <a href="https://health-infobase.canada.ca/covid-19/epidemiological-summary-covid-19-cases.html">PHAC</a></small></sup>
+
     <input id="sort-cost-name-pop" name="costs-sort" type="radio" style="display: none;">
     <input id="sort-cost-name" name="costs-sort" type="radio" style="display: none;">
     <input id="sort-cost-history" name="costs-sort" type="radio" style="display: none;" checked>
@@ -669,9 +671,12 @@ layout: layouts/home.njk
     <div class="flex tr thead">
       <div class="th toggle"><label class="sort" for="sort-cost-name-pop"><br/><br/></label></div>
       <div class="th name nogrow"><label class="sort" for="sort-cost-name"><br/><br/></label></div>
-      <div class="th history nogrow"><label class="sort" for="sort-hospital-trend">Hospital<br/>Last 18 weeks</label></div>
-      <div class="th history nogrow"><label class="sort" for="sort-hospital-trend">ICU<br/>Last 18 weeks</label></div>
+      <div class="th history nogrow"><label class="sort" for="sort-hospital-trend">Hospitalizations<br/>Last 18 weeks</label></div>
+      <div class="th history nogrow"><label class="sort" for="sort-hospital-trend">Hospitalizations<br/>Since July, 2021</label></div>
+      <div class="th history nogrow"><label class="sort" for="sort-hospital-trend">In CU<br/>Last 18 weeks</label></div>
+      <div class="th history nogrow"><label class="sort" for="sort-hospital-trend">In ICU<br/>Since July, 2021</label></div>
       <div class="th history nogrow"><label class="sort" for="sort-hospital-trend">Deaths<br/>Last 18 weeks</label></div>
+      <div class="th history nogrow"><label class="sort" for="sort-hospital-trend">Deaths<br/>Since 2021-July</label></div>
       <div class="th"></div>
     </div>
 
@@ -684,23 +689,25 @@ layout: layouts/home.njk
             </label>
           <div class="small-detail reveal-on-hover">{{ data.population | formatNumber(false, 0) }}</div>
         </div>
+        {% set ageData = "change_infobase_hospitalization_" + age %}
+        {% set ageDataMax = "change_infobase_hospitalization_" + age + "_max" %}
+        {% set ageDataAvg = "change_infobase_hospitalization_" + age + "_avg" %}
+        {% set ageDataSum = "change_infobase_hospitalization_" + age + "_sum" %}
+        {% set totalDataSum = "change_infobase_hospitalization_total_sum" %}
         <div class="td hospitalized history nogrow">
-          {% set ageData = "change_infobase_hospitalization_" + age %}
-          {% set ageDataMax = "change_infobase_hospitalization_" + age + "_max" %}
-          {% set ageDataAvg = "change_infobase_hospitalization_" + age + "_avg" %}
           {% if data.today[ageDataMax] > 0 %}
             <div>
               <table class="charts-css column" style="--size: {{ (data.lastWeekExclusive[ageDataAvg] / data.today[ageDataMax]) | format }}" data-trendline="{{ data.lastWeekExclusive[ageDataAvg] |formatNumber }} /day">
                 <tbody>
                 <tr>
                   {%- for week in data.previousWeeks | head(-18) | head(14) %}
-                    <td style="--size:{{ (week[ageDataAvg] / data.today[ageDataMax]) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>Active Cases Avg: {{ week[ageDataAvg] | formatNumber }}/day<br/>Hospitalization: {{ week[ageDataAvg] | d(0) | formatNumber }}</span></td>
+                    <td style="--size:{{ (week[ageDataAvg] / data.today[ageDataMax]) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>Hospitalization: {{ week[ageDataSum] | formatNumber }}</span></td>
                   {%- endfor %}
                   {%- for week in data.previousWeeks | head(-4) %}
-                    <td style="--size:{{ (week[ageDataAvg] / data.today[ageDataMax]) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>Active Cases Avg: {{ week[ageDataAvg] | formatNumber }}/day<br/>Hospitalization: {{ week[ageDataAvg] | d(0) | formatNumber }}</span></td>
+                    <td style="--size:{{ (week[ageDataAvg] / data.today[ageDataMax]) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>Hospitalization: {{ week[ageDataSum] | formatNumber }}</span></td>
                   {%- endfor %}
                   {% if data.today[ageData] > 0 %}
-                    <td style="--size:{{ (data.today[ageData] / data.today[ageDataMax]) | max(0.03) | format }};"><span class="tooltip">{{ data.today.date | readableDate }}<br/>Active Cases: {{ data.today[ageData] | d(0) | formatNumber }}</span></td>
+                    <td style="--size:{{ (data.today[ageData] / data.today[ageDataMax]) | max(0.03) | format }};"><span class="tooltip">{{ data.today.date | readableDate }}<br/>Hospitalization: {{ data.today[ageData] | d(0) | formatNumber }}</span></td>
                   {% endif %}
                 </tr>
                 </tbody>
@@ -708,23 +715,39 @@ layout: layouts/home.njk
             </div>
           {% endif %}
         </div>
+        <div class="td hospitalized nogrow"
+             title="{{ data.sinceJuly[ageDataSum] | format }}"
+        >
+          <div class="progressbar {{ selectColour(data.sinceJuly[ageDataSum]) }}"
+               style="--width: {{ (data.sinceJuly[ageDataSum]/data.sinceJuly[totalDataSum]*100) | min(100) | max(5)}}"
+               aria-valuenow="{{ ( data.sinceJuly[ageDataSum] | formatNumber ) if data.sinceJuly[ageDataSum] >= 0 else "N/A" }}"
+               data-change="{{ data.lastMonth[ageDataSum] |d(0) | format }}"
+          >
+            {% if data.sinceJuly[ageDataSum] %}
+              <span class="value" aria-hidden="true"></span>
+              <div class="absolute" data-value="365d Total: {{ data.lastYear[ageDataSum] | formatNumber }}" data-change=""></div>
+            {% endif %}
+          </div>
+        </div>
+        {% set ageData = "change_infobase_icu_" + age %}
+        {% set ageDataMax = "change_infobase_icu_" + age + "_max" %}
+        {% set ageDataAvg = "change_infobase_icu_" + age + "_avg" %}
+        {% set ageDataSum = "change_infobase_icu_" + age + "_sum" %}
+        {% set totalDataSum = "change_infobase_icu_total_sum" %}
         <div class="td icu history nogrow">
-          {% set ageData = "change_infobase_icu_" + age %}
-          {% set ageDataMax = "change_infobase_icu_" + age + "_max" %}
-          {% set ageDataAvg = "change_infobase_icu_" + age + "_avg" %}
           {% if data.today[ageDataMax] > 0 %}
             <div>
               <table class="charts-css column" style="--size: {{ (data.lastWeekExclusive[ageDataAvg] / data.today[ageDataMax]) | format }}" data-trendline="{{ data.lastWeekExclusive[ageDataAvg] |formatNumber }} /day">
                 <tbody>
                 <tr>
                   {%- for week in data.previousWeeks | head(-18) | head(14) %}
-                    <td style="--size:{{ (week[ageDataAvg] / data.today[ageDataMax]) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>Active Cases Avg: {{ week[ageDataAvg] | formatNumber }}/day<br/>Hospitalization: {{ week[ageDataAvg] | d(0) | formatNumber }}</span></td>
+                    <td style="--size:{{ (week[ageDataAvg] / data.today[ageDataMax]) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>In ICU: {{ week[ageDataSum] | formatNumber }}</span></td>
                   {%- endfor %}
                   {%- for week in data.previousWeeks | head(-4) %}
-                    <td style="--size:{{ (week[ageDataAvg] / data.today[ageDataMax]) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>Active Cases Avg: {{ week[ageDataAvg] | formatNumber }}/day<br/>Hospitalization: {{ week[ageDataAvg] | d(0) | formatNumber }}</span></td>
+                    <td style="--size:{{ (week[ageDataAvg] / data.today[ageDataMax]) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>In ICU: {{ week[ageDataSum] | formatNumber }}</span></td>
                   {%- endfor %}
                   {% if data.today[ageData] > 0 %}
-                    <td style="--size:{{ (data.today[ageData] / data.today[ageDataMax]) | max(0.03) | format }};"><span class="tooltip">{{ data.today.date | readableDate }}<br/>Active Cases: {{ data.today[ageData] | d(0) | formatNumber }}</span></td>
+                    <td style="--size:{{ (data.today[ageData] / data.today[ageDataMax]) | max(0.03) | format }};"><span class="tooltip">{{ data.today.date | readableDate }}<br/>In ICU: {{ data.today[ageData] | d(0) | formatNumber }}</span></td>
                   {% endif %}
                 </tr>
                 </tbody>
@@ -732,29 +755,59 @@ layout: layouts/home.njk
             </div>
           {% endif %}
         </div>
+        <div class="td icu nogrow"
+             title="{{ data.sinceJuly[ageDataSum] | format }}"
+        >
+          <div class="progressbar {{ selectColour(data.sinceJuly[ageDataSum]) }}"
+               style="--width: {{ (data.sinceJuly[ageDataSum]/data.sinceJuly[totalDataSum]*100) | min(100) | max(5)}}"
+               aria-valuenow="{{ ( data.sinceJuly[ageDataSum] | formatNumber ) if data.sinceJuly[ageDataSum] >= 0 else "N/A" }}"
+               data-change="{{ data.lastMonth[ageDataSum] |d(0) | format }}"
+          >
+            {% if data.sinceJuly[ageDataSum] %}
+              <span class="value" aria-hidden="true"></span>
+              <div class="absolute" data-value="365d Total: {{ data.lastYear[ageDataSum] | formatNumber }}" data-change=""></div>
+            {% endif %}
+          </div>
+        </div>
+        {% set ageData = "change_infobase_deaths_" + age %}
+        {% set ageDataMax = "change_infobase_deaths_" + age + "_max" %}
+        {% set ageDataAvg = "change_infobase_deaths_" + age + "_avg" %}
+        {% set ageDataSum = "change_infobase_deaths_" + age + "_sum" %}
+        {% set totalDataSum = "change_infobase_deaths_total_sum" %}
         <div class="td deaths history nogrow">
-          {% set ageData = "change_infobase_deaths_" + age %}
-          {% set ageDataMax = "change_infobase_deaths_" + age + "_max" %}
-          {% set ageDataAvg = "change_infobase_deaths_" + age + "_avg" %}
           {% if data.today[ageDataMax] > 0 %}
             <div>
               <table class="charts-css column" style="--size: {{ (data.lastWeekExclusive[ageDataAvg] / data.today[ageDataMax]) | format }}" data-trendline="{{ data.lastWeekExclusive[ageDataAvg] |formatNumber }} /day">
                 <tbody>
                 <tr>
                   {%- for week in data.previousWeeks | head(-18) | head(14) %}
-                    <td style="--size:{{ (week[ageDataAvg] / data.today[ageDataMax]) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>Active Cases Avg: {{ week[ageDataAvg] | formatNumber }}/day<br/>Hospitalization: {{ week[ageDataAvg] | d(0) | formatNumber }}</span></td>
+                    <td style="--size:{{ (week[ageDataAvg] / data.today[ageDataMax]) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>New Deaths: {{ week[ageDataSum] | formatNumber }}</span></td>
                   {%- endfor %}
                   {%- for week in data.previousWeeks | head(-4) %}
-                    <td style="--size:{{ (week[ageDataAvg] / data.today[ageDataMax]) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>Active Cases Avg: {{ week[ageDataAvg] | formatNumber }}/day<br/>Hospitalization: {{ week[ageDataAvg] | d(0) | formatNumber }}</span></td>
+                    <td style="--size:{{ (week[ageDataAvg] / data.today[ageDataMax]) | max(0.03) | format}};"><span class="tooltip">Week of {{ week.start | readableDate }}<br/>New Deaths: {{ week[ageDataSum] | formatNumber }}</span></td>
                   {%- endfor %}
                   {% if data.today[ageData] > 0 %}
-                    <td style="--size:{{ (data.today[ageData] / data.today[ageDataMax]) | max(0.03) | format }};"><span class="tooltip">{{ data.today.date | readableDate }}<br/>Active Cases: {{ data.today[ageData] | d(0) | formatNumber }}</span></td>
+                    <td style="--size:{{ (data.today[ageData] / data.today[ageDataMax]) | max(0.03) | format }};"><span class="tooltip">{{ data.today.date | readableDate }}<br/>Deaths: {{ data.today[ageData] | d(0) | formatNumber }}</span></td>
                   {% endif %}
                 </tr>
                 </tbody>
               </table>
             </div>
           {% endif %}
+        </div>
+        <div class="td deaths nogrow"
+             title="{{ data.sinceJuly[ageDataSum] | format }}"
+        >
+          <div class="progressbar {{ selectColour(data.sinceJuly[ageDataSum]) }}"
+               style="--width: {{ (data.sinceJuly[ageDataSum]/data.sinceJuly[totalDataSum]*100) | min(100) | max(5)}}"
+               aria-valuenow="{{ ( data.sinceJuly[ageDataSum] | formatNumber ) if data.sinceJuly[ageDataSum] >= 0 else "N/A" }}"
+               data-change="{{ data.lastMonth[ageDataSum] |d(0) | format }}"
+          >
+            {% if data.sinceJuly[ageDataSum] %}
+              <span class="value" aria-hidden="true"></span>
+              <div class="absolute" data-value="365d Total: {{ data.lastYear[ageDataSum] | formatNumber }}" data-change=""></div>
+            {% endif %}
+          </div>
         </div>
         <div class="td"></div>
       </div>
