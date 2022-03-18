@@ -656,6 +656,18 @@
       "70-79": {"doses": 734434, "first": 264104, "second": 258230, "third": 212100},
       "80+": {"doses": 394835, "first": 141480, "second": 137947, "third": 115408},
       "total": {"doses": 8463825, "first": 3543422, "second": 3347869}
+    },
+    "2022-03-13": {
+      "05-11": {"doses": 291321, "first": 180280, "second": 110998, "third": 43},
+      "12-17": {"doses": 529964, "first": 267406, "second": 254490, "third": 8068},
+      "18-29": {"doses": 1312230, "first": 588284, "second": 555498, "third": 168448},
+      "30-39": {"doses": 1413501, "first": 608535, "second": 583591, "third": 221375},
+      "40-49": {"doses": 1317125, "first": 542643, "second": 526894, "third": 247588},
+      "50-59": {"doses": 1257565, "first": 494093, "second": 480722, "third": 282750},
+      "60-69": {"doses": 1228964, "first": 458335, "second": 445952, "third": 324677},
+      "70-79": {"doses": 735072, "first": 264195, "second": 258324, "third": 212553},
+      "80+": {"doses": 395108, "first": 141520, "second": 137997, "third": 115591},
+      "total": {"doses": 8480850, "first": 3545291, "second": 3354466}
     }
   },
   "BC": {
@@ -1348,6 +1360,18 @@
       "70-79": {"doses": 1242844, "first": 446595, "second": 437602, "third": 358647},
       "80+": {"doses": 692278, "first": 251921, "second": 243306, "third": 197051},
       "total": {"doses": 11267487, "first": 4497944, "second": 4275712}
+    },
+    "2022-03-13": {
+      "05-11": {"doses": 298487, "first": 190395, "second": 108091, "third": 1},
+      "12-17": {"doses": 619533, "first": 271056, "second": 257746, "third": 90731},
+      "18-29": {"doses": 1786499, "first": 761089, "second": 731534, "third": 293876},
+      "30-39": {"doses": 1708266, "first": 696810, "second": 674000, "third": 337456},
+      "40-49": {"doses": 1528774, "first": 602022, "second": 585130, "third": 341622},
+      "50-59": {"doses": 1675933, "first": 637823, "second": 621615, "third": 416495},
+      "60-69": {"doses": 1748131, "first": 642117, "second": 628202, "third": 477812},
+      "70-79": {"doses": 1245150, "first": 447141, "second": 438206, "third": 359803},
+      "80+": {"doses": 694347, "first": 252530, "second": 243930, "third": 197887},
+      "total": {"doses": 11305120, "first": 4500983, "second": 4288454}
     }
   },
   "CA": {
@@ -2079,6 +2103,19 @@
       "70-79": {"doses": 8652875, "first": 3051199, "second": 3011100, "third": 2590576},
       "80+": {"doses": 4794192, "first": 1690268, "second": 1661620, "third": 1442304},
       "total": {"doses": 80931764, "first": 32365883, "second": 30919097}
+    },
+    "2022-03-13": {
+      "0-4": {"doses": 388, "first": 299, "second": 89, "third": 0},
+      "05-11": {"doses": 2705471, "first": 1636757, "second": 1068341, "third": 373},
+      "12-17": {"doses": 4566359, "first": 2177894, "second": 2083002, "third": 305463},
+      "18-29": {"doses": 12453566, "first": 5334121, "second": 5105717, "third": 2013728},
+      "30-39": {"doses": 11597545, "first": 4772504, "second": 4610216, "third": 2214825},
+      "40-49": {"doses": 11256087, "first": 4445527, "second": 4337805, "third": 2472755},
+      "50-59": {"doses": 12360926, "first": 4672062, "second": 4579540, "third": 3109324},
+      "60-69": {"doses": 12720655, "first": 4596617, "second": 4521608, "third": 3602430},
+      "70-79": {"doses": 8665469, "first": 3053609, "second": 3014036, "third": 2597824},
+      "80+": {"doses": 4804675, "first": 1692773, "second": 1664380, "third": 1447522},
+      "total": {"doses": 81131141, "first": 32382163, "second": 30984734}
     }
   },
   "MB": {
@@ -2746,6 +2783,18 @@
       "70-79": {"doses": 279235, "first": 98626, "second": 97488, "third": 83121},
       "80+": {"doses": 163921, "first": 58361, "second": 57315, "third": 48245},
       "total": {"doses": 2830163, "first": 1151437, "second": 1097631}
+    },
+    "2022-03-13": {
+      "05-11": {"doses": 121797, "first": 74472, "second": 47315, "third": 10},
+      "12-17": {"doses": 171954, "first": 86651, "second": 82641, "third": 2662},
+      "18-29": {"doses": 472965, "first": 205544, "second": 198707, "third": 68714},
+      "30-39": {"doses": 411190, "first": 169991, "second": 165370, "third": 75829},
+      "40-49": {"doses": 390746, "first": 154506, "second": 151647, "third": 84593},
+      "50-59": {"doses": 405370, "first": 152774, "second": 150527, "third": 102069},
+      "60-69": {"doses": 418351, "first": 150815, "second": 148974, "third": 118562},
+      "70-79": {"doses": 279867, "first": 98781, "second": 97644, "third": 83442},
+      "80+": {"doses": 164477, "first": 58525, "second": 57478, "third": 48474},
+      "total": {"doses": 2836717, "first": 1152059, "second": 1100303}
     }
   },
   "NB": {
@@ -3389,6 +3438,19 @@
       "70-79": {"doses": 217849, "first": 77031, "second": 75460, "third": 65358},
       "80+": {"doses": 103478, "first": 37399, "second": 36073, "third": 30006},
       "total": {"doses": 1730078, "first": 696781, "second": 654741}
+    },
+    "2022-03-13": {
+      "0-4": {"doses": 209, "first": 120, "second": 89, "third": 0},
+      "05-11": {"doses": 57927, "first": 35057, "second": 22737, "third": 133},
+      "12-17": {"doses": 99136, "first": 46209, "second": 44007, "third": 8920},
+      "18-29": {"doses": 218036, "first": 98472, "second": 90049, "third": 29515},
+      "30-39": {"doses": 199400, "first": 85371, "second": 80109, "third": 33920},
+      "40-49": {"doses": 231911, "first": 93487, "second": 89708, "third": 48716},
+      "50-59": {"doses": 290121, "first": 109890, "second": 106357, "third": 73874},
+      "60-69": {"doses": 315242, "first": 114035, "second": 111143, "third": 90064},
+      "70-79": {"doses": 217989, "first": 77043, "second": 75473, "third": 65473},
+      "80+": {"doses": 103558, "first": 37401, "second": 36087, "third": 30070},
+      "total": {"doses": 1733529, "first": 697085, "second": 655759}
     }
   },
   "NL": {
@@ -4071,6 +4133,18 @@
       "70-79": {"doses": 165022, "first": 58299, "second": 57338, "third": 49385},
       "80+": {"doses": 69506, "first": 24965, "second": 24231, "third": 20310},
       "total": {"doses": 1259541, "first": 498084, "second": 474953}
+    },
+    "2022-03-13": {
+      "05-11": {"doses": 49199, "first": 28703, "second": 20491, "third": 5},
+      "12-17": {"doses": 62726, "first": 31536, "second": 30328, "third": 862},
+      "18-29": {"doses": 154555, "first": 65507, "second": 62048, "third": 27000},
+      "30-39": {"doses": 146013, "first": 59676, "second": 57258, "third": 29079},
+      "40-49": {"doses": 169279, "first": 65870, "second": 64074, "third": 39335},
+      "50-59": {"doses": 216376, "first": 80947, "second": 79095, "third": 56334},
+      "60-69": {"doses": 229441, "first": 82742, "second": 81158, "third": 65541},
+      "70-79": {"doses": 165200, "first": 58311, "second": 57358, "third": 49531},
+      "80+": {"doses": 69619, "first": 24972, "second": 24243, "third": 20404},
+      "total": {"doses": 1262408, "first": 498264, "second": 476053}
     }
   },
   "NS": {
@@ -4756,6 +4830,18 @@
       "70-79": {"doses": 270361, "first": 95244, "second": 93478, "third": 81639},
       "80+": {"doses": 128318, "first": 46116, "second": 44864, "third": 37338},
       "total": {"doses": 2247889, "first": 896923, "second": 844883}
+    },
+    "2022-03-13": {
+      "05-11": {"doses": 74451, "first": 47056, "second": 27390, "third": 5},
+      "12-17": {"doses": 120918, "first": 58784, "second": 56133, "third": 6001},
+      "18-29": {"doses": 317776, "first": 138989, "second": 129780, "third": 49007},
+      "30-39": {"doses": 283293, "first": 116838, "second": 111173, "third": 55282},
+      "40-49": {"doses": 291132, "first": 114269, "second": 110542, "third": 66321},
+      "50-59": {"doses": 370039, "first": 138192, "second": 134577, "third": 97270},
+      "60-69": {"doses": 394649, "first": 141704, "second": 138407, "third": 114538},
+      "70-79": {"doses": 270546, "first": 95252, "second": 93491, "third": 81803},
+      "80+": {"doses": 128445, "first": 46123, "second": 44870, "third": 37452},
+      "total": {"doses": 2251249, "first": 897207, "second": 846363}
     }
   },
   "NT": {
@@ -5416,6 +5502,18 @@
       "70-79": {"doses": 5205, "first": 1852, "second": 1841, "third": 1512},
       "80+": {"doses": 1724, "first": 611, "second": 611, "third": 502},
       "total": {"doses": 85151, "first": 34745, "second": 33039}
+    },
+    "2022-03-13": {
+      "05-11": {"doses": 4164, "first": 2507, "second": 1657, "third": 0},
+      "12-17": {"doses": 6346, "first": 2935, "second": 2794, "third": 617},
+      "18-29": {"doses": 13612, "first": 5867, "second": 5641, "third": 2104},
+      "30-39": {"doses": 15041, "first": 6155, "second": 6001, "third": 2885},
+      "40-49": {"doses": 13705, "first": 5304, "second": 5199, "third": 3202},
+      "50-59": {"doses": 14499, "first": 5470, "second": 5379, "third": 3650},
+      "60-69": {"doses": 11238, "first": 4090, "second": 4045, "third": 3103},
+      "70-79": {"doses": 5238, "first": 1864, "second": 1853, "third": 1521},
+      "80+": {"doses": 1743, "first": 618, "second": 618, "third": 507},
+      "total": {"doses": 85586, "first": 34810, "second": 33187}
     }
   },
   "NU": {
@@ -5978,6 +6076,18 @@
       "70-79": {"doses": 1888, "first": 703, "second": 689, "third": 496},
       "80+": {"doses": 425, "first": 167, "second": 161, "third": 97},
       "total": {"doses": 73813, "first": 32533, "second": 27661}
+    },
+    "2022-03-13": {
+      "05-11": {"doses": 6258, "first": 4047, "second": 2211, "third": 0},
+      "12-17": {"doses": 8346, "first": 3861, "second": 3387, "third": 1098},
+      "18-29": {"doses": 16492, "first": 7250, "second": 6368, "third": 2874},
+      "30-39": {"doses": 13821, "first": 5794, "second": 5234, "third": 2793},
+      "40-49": {"doses": 10951, "first": 4403, "second": 4003, "third": 2545},
+      "50-59": {"doses": 10546, "first": 4203, "second": 3838, "third": 2505},
+      "60-69": {"doses": 5581, "first": 2174, "second": 2016, "third": 1391},
+      "70-79": {"doses": 1890, "first": 703, "second": 689, "third": 498},
+      "80+": {"doses": 429, "first": 168, "second": 162, "third": 99},
+      "total": {"doses": 74314, "first": 32603, "second": 27908}
     }
   },
   "ON": {
@@ -6576,6 +6686,18 @@
       "70-79": {"doses": 3221093, "first": 1133965, "second": 1121946, "third": 965182},
       "80+": {"doses": 1839025, "first": 642332, "second": 635530, "third": 561163},
       "total": {"doses": 31498792, "first": 12494773, "second": 11974856}
+    },
+    "2022-03-13": {
+      "05-11": {"doses": 976770, "first": 593711, "second": 382993, "third": 66},
+      "12-17": {"doses": 1765767, "first": 834196, "second": 800547, "third": 131024},
+      "18-29": {"doses": 5243522, "first": 2200544, "second": 2113319, "third": 929659},
+      "30-39": {"doses": 4558445, "first": 1845427, "second": 1787669, "third": 925349},
+      "40-49": {"doses": 4293485, "first": 1680794, "second": 1643451, "third": 969240},
+      "50-59": {"doses": 4912031, "first": 1848631, "second": 1816323, "third": 1247077},
+      "60-69": {"doses": 4761693, "first": 1721377, "second": 1696903, "third": 1343413},
+      "70-79": {"doses": 3226150, "first": 1134922, "second": 1123038, "third": 968190},
+      "80+": {"doses": 1842705, "first": 643050, "second": 636346, "third": 563309},
+      "total": {"doses": 31580568, "first": 12502652, "second": 12000589}
     }
   },
   "PE": {
@@ -7221,6 +7343,18 @@
       "70-79": {"doses": 44505, "first": 15694, "second": 15430, "third": 13381},
       "80+": {"doses": 22802, "first": 8087, "second": 7925, "third": 6790},
       "total": {"doses": 368239, "first": 149284, "second": 141463}
+    },
+    "2022-03-13": {
+      "05-11": {"doses": 13794, "first": 8194, "second": 5600, "third": 0},
+      "12-17": {"doses": 20206, "first": 9851, "second": 9444, "third": 911},
+      "18-29": {"doses": 57197, "first": 25479, "second": 24175, "third": 7543},
+      "30-39": {"doses": 44809, "first": 18905, "second": 18172, "third": 7732},
+      "40-49": {"doses": 47483, "first": 19045, "second": 18495, "third": 9943},
+      "50-59": {"doses": 57343, "first": 21706, "second": 21167, "third": 14470},
+      "60-69": {"doses": 61962, "first": 22397, "second": 21920, "third": 17645},
+      "70-79": {"doses": 44632, "first": 15721, "second": 15460, "third": 13451},
+      "80+": {"doses": 22872, "first": 8104, "second": 7942, "third": 6826},
+      "total": {"doses": 370298, "first": 149402, "second": 142375}
     }
   },
   "QC": {
@@ -7942,6 +8076,19 @@
       "70-79": {"doses": 2242848, "first": 778113, "second": 772119, "third": 692616},
       "80+": {"doses": 1232364, "first": 427069, "second": 423171, "third": 382124},
       "total": {"doses": 18686190, "first": 7381667, "second": 7113055}
+    },
+    "2022-03-13": {
+      "0-4": {"doses": 165, "first": 165, "second": 0, "third": 0},
+      "05-11": {"doses": 702187, "first": 407731, "second": 294346, "third": 110},
+      "12-17": {"doses": 998236, "first": 487192, "second": 467734, "third": 43310},
+      "18-29": {"doses": 2493560, "first": 1075523, "second": 1036922, "third": 381115},
+      "30-39": {"doses": 2435944, "first": 1005550, "second": 974852, "third": 455542},
+      "40-49": {"doses": 2625842, "first": 1028707, "second": 1008485, "third": 588650},
+      "50-59": {"doses": 2812265, "first": 1048952, "second": 1033870, "third": 729443},
+      "60-69": {"doses": 3176666, "first": 1122677, "second": 1111566, "third": 942423},
+      "70-79": {"doses": 2246050, "first": 778699, "second": 773006, "third": 694345},
+      "80+": {"doses": 1235779, "first": 427991, "second": 424206, "third": 383582},
+      "total": {"doses": 18726694, "first": 7383187, "second": 7124987}
     }
   },
   "SK": {
@@ -8652,6 +8799,19 @@
       "70-79": {"doses": 220097, "first": 78322, "second": 76848, "third": 64927},
       "80+": {"doses": 143092, "first": 50909, "second": 49641, "third": 42542},
       "total": {"doses": 2330772, "first": 952147, "second": 898843}
+    },
+    "2022-03-13": {
+      "0-4": {"doses": 14, "first": 14, "second": 0, "third": 0},
+      "05-11": {"doses": 105855, "first": 62594, "second": 43261, "third": 0},
+      "12-17": {"doses": 158238, "first": 75952, "second": 71588, "third": 10698},
+      "18-29": {"doses": 353915, "first": 155822, "second": 146183, "third": 51910},
+      "30-39": {"doses": 350661, "first": 146483, "second": 140017, "third": 64161},
+      "40-49": {"doses": 321852, "first": 129078, "second": 124893, "third": 67881},
+      "50-59": {"doses": 325184, "first": 124262, "second": 121048, "third": 79874},
+      "60-69": {"doses": 354656, "first": 129025, "second": 126271, "third": 99360},
+      "70-79": {"doses": 220181, "first": 78327, "second": 76859, "third": 64995},
+      "80+": {"doses": 143152, "first": 50915, "second": 49650, "third": 42587},
+      "total": {"doses": 2333708, "first": 952472, "second": 899770}
     }
   },
   "YT": {
@@ -9291,6 +9451,18 @@
       "70-79": {"doses": 7494, "first": 2651, "second": 2631, "third": 2212},
       "80+": {"doses": 2424, "first": 851, "second": 845, "third": 728},
       "total": {"doses": 89824, "first": 36143, "second": 34391}
+    },
+    "2022-03-13": {
+      "05-11": {"doses": 3261, "first": 2010, "second": 1251, "third": 0},
+      "12-17": {"doses": 4989, "first": 2265, "second": 2163, "third": 561},
+      "18-29": {"doses": 13207, "first": 5751, "second": 5493, "third": 1963},
+      "30-39": {"doses": 17161, "first": 6969, "second": 6770, "third": 3422},
+      "40-49": {"doses": 13802, "first": 5399, "second": 5284, "third": 3119},
+      "50-59": {"doses": 13654, "first": 5119, "second": 5022, "third": 3513},
+      "60-69": {"doses": 14081, "first": 5129, "second": 5051, "third": 3901},
+      "70-79": {"doses": 7504, "first": 2650, "second": 2635, "third": 2219},
+      "80+": {"doses": 2441, "first": 856, "second": 851, "third": 734},
+      "total": {"doses": 90100, "first": 36148, "second": 34520}
     }
   }
 }
