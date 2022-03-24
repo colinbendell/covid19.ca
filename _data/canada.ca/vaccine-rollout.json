@@ -1,6 +1,24 @@
 {
   "daily": [
     {
+      "date": "2022-03-24",
+      "AB": {"AstraZeneca": 2683654, "Janssen": 318700, "Pfizer": 788000, "Total": 10000, "undefined": 10856429},
+      "BC": {"AstraZeneca": 3920040, "Janssen": 456800, "Pfizer": 381800, "Total": 12400, "undefined": 12303950},
+      "CA": {"AstraZeneca": 28861140, "Janssen": 3061910, "Pfizer": 4875530, "Total": 44400, "undefined": 96057874},
+      "FA": {"AstraZeneca": 248348, "Janssen": 460, "Pfizer": 3130, "Total": 0, "undefined": 266746},
+      "MB": {"AstraZeneca": 1034308, "Janssen": 92960, "Pfizer": 252000, "Total": 3250, "undefined": 3736858},
+      "NB": {"AstraZeneca": 648950, "Janssen": 61500, "Pfizer": 112000, "Total": 700, "undefined": 2151445},
+      "NL": {"AstraZeneca": 555224, "Janssen": 41300, "Pfizer": 68000, "Total": 250, "undefined": 1483384},
+      "NS": {"AstraZeneca": 701500, "Janssen": 60960, "Pfizer": 116200, "Total": 2000, "undefined": 2458252},
+      "NT": {"AstraZeneca": 91470, "Janssen": 0, "Pfizer": 8000, "Total": 0, "undefined": 113510},
+      "NU": {"AstraZeneca": 70980, "Janssen": 0, "Pfizer": 14400, "Total": 0, "undefined": 102930},
+      "ON": {"AstraZeneca": 11320350, "Janssen": 1168300, "Pfizer": 1614000, "Total": 10000, "undefined": 36377291},
+      "PE": {"AstraZeneca": 116380, "Janssen": 10200, "Pfizer": 24000, "Total": 500, "undefined": 424575},
+      "QC": {"AstraZeneca": 6720276, "Janssen": 742110, "Pfizer": 1304000, "Total": 100, "undefined": 22682919},
+      "SK": {"AstraZeneca": 662190, "Janssen": 108600, "Pfizer": 185000, "Total": 5000, "undefined": 2998705},
+      "YT": {"AstraZeneca": 87470, "Janssen": 20, "Pfizer": 5000, "Total": 200, "undefined": 100880}
+    },
+    {
       "date": "2022-03-17",
       "AB": {"AstraZeneca": 2683654, "Janssen": 318700, "Pfizer": 788000, "Total": 10000, "undefined": 10856429},
       "BC": {"AstraZeneca": 3920040, "Janssen": 456800, "Pfizer": 381800, "Total": 12400, "undefined": 12303950},
