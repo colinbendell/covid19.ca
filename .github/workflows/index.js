@@ -539,7 +539,7 @@ async function getON(data, hrData) {
   await Promise.all([
     async () => {
       // cases by health region
-      const res = await get('https://data.ontario.ca/api/3/action/datastore_search?resource_id=d1bfe1ad-6575-4352-8302-09ca81f7ddfc&limit=999999');
+      const res = await get('https://data.ontario.ca/api/3/action/datastore_search?resource_id=d1bfe1ad-6575-4352-8302-09ca81f7ddfc&limit=100000');
       const phuData = new Map();
       for (const hr of hrData.values()) {
         if (hr.phu_id) phuData.set(hr.phu_id, hr);
