@@ -589,9 +589,12 @@ async function getON(data, hrData) {
       for (const r of res?.result?.records) {
         daily.push({
           date: r.report_date.split('T')[0],
-          change_vaccinations: Number.parseInt(r.previous_day_doses_administered?.toString()?.replace(/,/g, '')),
+          change_vaccinations: Number.parseInt(r.previous_day_total_doses_administered?.toString()?.replace(/,/g, '')),
+          change_vaccinated: Number.parseInt(r.previous_day_fully_vaccinated?.toString()?.replace(/,/g, '')),
+          change_boosters_1: Number.parseInt(r.previous_day_3doses?.toString()?.replace(/,/g, '')),
           total_vaccinations: Number.parseInt(r.total_doses_administered?.toString()?.replace(/,/g, '')),
-          total_vaccinated: Number.parseInt(r.total_individuals_fully_vaccinated?.toString()?.replace(/,/g, ''))
+          total_vaccinated: Number.parseInt(r.total_individuals_fully_vaccinated?.toString()?.replace(/,/g, '')),
+          total_boosters_1: Number.parseInt(r.total_individuals_3doses?.toString()?.replace(/,/g, ''))
         });
       }
 

@@ -256,6 +256,7 @@ function normalizePopulation(geo, prov) {
 }
 
 function normalizeTotal(geo) {
+  geo.daily = geo.daily.filter(d => Date.parse(d.date) <= Date.parse(geo.updated_at.split('T')[0]) - 10*1000);
   const todayDate = new Date().toJSON().split('T')[0];
   const [total] = geo.daily.slice(-1);
   if (!geo.data_status || !/reported|progress/i.test(geo.data_status)) {
@@ -410,8 +411,7 @@ module.exports = async function() {
     // only real health regions
     prov.regions = prov.regions?.filter(r => r.daily && !['NT', 'NU', 'PE', 'YT'].includes(r.province)) || [];
 
-    // that have total values
-    prov.regions = prov.regions?.filter(r => Number.isInteger(r.daily[r.daily.length - 1]?.total_vaccinations) ||  Number.isInteger(r.daily[r.daily.length - 1]?.total_cases)) || [];
+    prov.regions = prov.regions?.filter(r => Number.isInteger(r.daily[Math.max(0, r.daily.length - 7 )]?.total_vaccinations) ||  Number.isInteger(r.daily[Math.max(0, r.daily.length - 7)]?.total_cases)) || [];
     prov.regions = prov.regions?.sort((a,b) => b.population - a.population);
 
     for (const region of prov.regions) {
