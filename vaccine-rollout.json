@@ -1,6 +1,24 @@
 {
   "daily": [
     {
+      "date": "2022-04-28",
+      "AB": {"AstraZeneca Vaxzevria": 2771254, "Janssen (Johnson &amp; Johnson)": 318700, "Novavax Nuvaxovid": 10000, "Pfizer": 788000, "Total": 10000, "undefined": 11216109},
+      "BC": {"AstraZeneca Vaxzevria": 3921840, "Janssen (Johnson &amp; Johnson)": 456800, "Novavax Nuvaxovid": 12400, "Pfizer": 405800, "Total": 10100, "undefined": 12353890},
+      "CA": {"AstraZeneca Vaxzevria": 29004990, "Janssen (Johnson &amp; Johnson)": 3062010, "Novavax Nuvaxovid": 44400, "Pfizer": 4904630, "Total": 75700, "undefined": 96582918},
+      "FA": {"AstraZeneca Vaxzevria": 248998, "Janssen (Johnson &amp; Johnson)": 460, "Novavax Nuvaxovid": 0, "Pfizer": 3130, "Total": 300, "undefined": 267870},
+      "MB": {"AstraZeneca Vaxzevria": 1034308, "Janssen (Johnson &amp; Johnson)": 92960, "Novavax Nuvaxovid": 3250, "Pfizer": 252000, "Total": 10300, "undefined": 3747158},
+      "NB": {"AstraZeneca Vaxzevria": 670950, "Janssen (Johnson &amp; Johnson)": 61500, "Novavax Nuvaxovid": 700, "Pfizer": 112000, "Total": 500, "undefined": 2173945},
+      "NL": {"AstraZeneca Vaxzevria": 555224, "Janssen (Johnson &amp; Johnson)": 41300, "Novavax Nuvaxovid": 250, "Pfizer": 68000, "Total": 200, "undefined": 1483584},
+      "NS": {"AstraZeneca Vaxzevria": 701500, "Janssen (Johnson &amp; Johnson)": 60960, "Novavax Nuvaxovid": 2000, "Pfizer": 116200, "Total": 1000, "undefined": 2459252},
+      "NT": {"AstraZeneca Vaxzevria": 91470, "Janssen (Johnson &amp; Johnson)": 0, "Novavax Nuvaxovid": 0, "Pfizer": 8800, "Total": 1100, "undefined": 115410},
+      "NU": {"AstraZeneca Vaxzevria": 73680, "Janssen (Johnson &amp; Johnson)": 0, "Novavax Nuvaxovid": 0, "Pfizer": 14400, "Total": 0, "undefined": 105630},
+      "ON": {"AstraZeneca Vaxzevria": 11320350, "Janssen (Johnson &amp; Johnson)": 1168300, "Novavax Nuvaxovid": 10000, "Pfizer": 1614000, "Total": 30000, "undefined": 36407291},
+      "PE": {"AstraZeneca Vaxzevria": 116380, "Janssen (Johnson &amp; Johnson)": 10300, "Novavax Nuvaxovid": 500, "Pfizer": 24000, "Total": 400, "undefined": 425075},
+      "QC": {"AstraZeneca Vaxzevria": 6720276, "Janssen (Johnson &amp; Johnson)": 742110, "Novavax Nuvaxovid": 100, "Pfizer": 1304000, "Total": 7500, "undefined": 22690419},
+      "SK": {"AstraZeneca Vaxzevria": 691290, "Janssen (Johnson &amp; Johnson)": 108600, "Novavax Nuvaxovid": 5000, "Pfizer": 189000, "Total": 4200, "undefined": 3036005},
+      "YT": {"AstraZeneca Vaxzevria": 87470, "Janssen (Johnson &amp; Johnson)": 20, "Novavax Nuvaxovid": 200, "Pfizer": 5300, "Total": 100, "undefined": 101280}
+    },
+    {
       "date": "2022-04-21",
       "AB": {"AstraZeneca Vaxzevria": 2771254, "Janssen (Johnson &amp; Johnson)": 318700, "Novavax Nuvaxovid": 10000, "Pfizer": 788000, "Total": 10000, "undefined": 11216109},
       "BC": {"AstraZeneca Vaxzevria": 3921840, "Janssen (Johnson &amp; Johnson)": 456800, "Novavax Nuvaxovid": 12400, "Pfizer": 405800, "Total": 10100, "undefined": 12349210},
