@@ -8,13 +8,37 @@ const {fetch} = context({
 const {stringify} = require('./stringify.js');
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
+const csv2obj = csv => {
+  const result = [];
+  const lines = csv.split(/[\r\n]+/g);
+  const header = lines.shift();
+  const headerRows = header.split(/\s*,\s*/g) || [];
+  const headerIndex = new Map();
+  for (const i in headerRows) {
+      headerIndex.set(headerRows[i], i);
+  }
+
+  for (const row of lines) {
+    const values = row.split(/\s*,\s*/g) || [];
+    const obj = {};
+    for (const colIndex in headerRows)  {
+      const colName = headerRows[colIndex];
+      obj[colName] = values[colIndex] || null;
+    }
+    result.push(obj);
+  }
+
+  return result;
+}
+
 const provinces = ['CA','AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'NT', 'NU', 'ON', 'PE', 'QC', 'SK', 'YT'];
 const provinceLookup = new Map([
   ['Total forecasted allocations','CA'],
   ['Alberta','AB'], ['Canada', 'CA'],
   ['British Columbia','BC'],['Manitoba','MB'],['New Brunswick','NB'],['Newfoundland and Labrador','NL'],
   ['Nova Scotia','NS'],['Northwest Territories','NT'],['Nunavut','NU'],['Ontario','ON'],['Prince Edward Island','PE'],
-  ['Quebec','QC'],['Saskatchewan','SK'],['Yukon','YT']
+  ['Quebec','QC'],['Saskatchewan','SK'],['Yukon','YT'],
+  ['Federal allocation', 'FA']
 ]);
 
 function removeEmpty(obj) {
@@ -190,78 +214,39 @@ async function getVaccineAgeBreakdown() {
 
 async function getVaccineScheduleCanada() {
   const newValues = {};
-  const res = await get('https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks/covid-19-vaccine-treatment/vaccine-rollout.html');
+  const csv = await get ('https://health-infobase.canada.ca/src/data/covidLive/vaccination-distribution.csv');
 
-  for (const tableMatch of res.replace(/&nbsp;/g, ' ').matchAll(/<h2 id="a4[a-z][^<]*?<\/h2>.*?<table.*?<\/table>/isg)) {
-    const table = new Map();
-    const [match] = tableMatch || [];
+  const res = csv2obj(csv);
 
-    let lastModified;
-    if (/Total COVID-19 vaccine confirmed distribution as of /.test(match)) {
-      const [,lastModifiedDate, lastModifiedTime] = /Total COVID-19 vaccine confirmed distribution as of (.*?) at (\d+: ?\d+ \S+)/i.exec(match) || [];
-      // lastModified = new Date(`${new Date(lastModifiedDate).toISOString().split('T')[0]} ${lastModifiedTime.replace('.', '')} EDT`);
-      lastModified = (new Date(lastModifiedDate) || new Date()).toISOString().split('T')[0];
-    }
+  const table = new Map();
+  for (const row of res) {
+    const date = row.as_of_date;
+    const region = provinceLookup.get(row.prename);
+    if (date && region) {
+      if (!table.has(date)) table.set(date, {date: date});
+      const dateData = table.get(date);
+      const data = {}
+      data.Total = Number.parseInt(row.numtotal_all_distributed) || 0;
+      data.AstraZeneca = Number.parseInt(row.numtotal_astrazeneca_distributed) || 0;
+      data.Moderna = Number.parseInt(row.numtotal_moderna_distributed) || 0;
+      data.Pfizer = Number.parseInt(row.numtotal_pfizerbiontech_distributed) || 0;
+      data.Pfizer_5_11 = Number.parseInt(row.numtotal_pfizerbiontech_5_11_distributed) || 0;
+      data.Novavax = Number.parseInt(row.numtotal_novavax_distributed) || 0;
+      data.Janssen = Number.parseInt(row.numtotal_janssen_distributed) || 0;
 
-    const [,title] = /<h2[^>]+>([^<]+)<\/h2>/i.exec(match) || [];
-    const titleClean = title.replace(/(?: vaccine)? forecasted allocation/i, '').replace(/ distribution/i, '');
-    const [thead] = /<thead[^>]*>.*?<\/thead>/ism.exec(match) || [];
+      if (!data.AstraZeneca) delete data.AstraZeneca;
+      if (!data.Pfizer) delete data.Pfizer;
+      if (!data.Pfizer_5_11) delete data.Pfizer_5_11;
+      if (!data.Novavax) delete data.Novavax;
+      if (!data.Janssen) delete data.Janssen;
 
-    const header = [];
-    for (const thMatch of thead.matchAll(/<th[^>]*>(?:<[^>]+>)*([^<]+)(?:<\/[^>]+>)*<\/th>/g)) {
-      const [,th] = thMatch;
-      const thClean = th.trim()
-        .replace(/Pfizer.*/, 'Pfizer')
-        .replace(/Distribution location/, 'name')
-        .replace(/Vaccine distribution/, 'name')
-        .replace(/Total forecasted allocations/, 'total')
-        .replace(/^(\d+)(?:[ –-]*\d+)?\s*([a-z]+).*/i, '2021-$2-$1');
-      header.push(Date.parse(thClean) ? new Date(thClean)?.toISOString()?.split('T')[0] : thClean);
-    }
-
-    const [tbody] = /<tbody[^>]*>.*?<\/tbody>/is.exec(match) || [];
-    for (const trMatch of tbody.matchAll(/<tr[^>]*>.*?<\/tr>/isg)) {
-      const [tr] = trMatch || "";
-      let i = 0;
-      const row = {};
-      for (const tdMatch of tr.matchAll(/<td[^>]*>(.*?)<\/td>/ig)) {
-        const [,td] = tdMatch || "";
-        const tdClean = td.replace(/<.*/, '').replace(/\s+/g, ' ').trim()
-          .replace(/Federal allocation.*/, 'FA')
-          .replace(/Total distributed in Canada/, 'CA')
-          .replace(/,/g, '');
-        row[header[i++]] = provinceLookup.get(tdClean) || Number.parseInt(tdClean) || (tdClean === "0" ? 0 : tdClean);
-      }
-
-      const name = row.name;
-      delete row.name;
-      table.set(name, row);
-    }
-
-    // blech this is gross. TODO: cleanup
-    if (titleClean !== 'Vaccine') {
-      // we need to reorganize
-      const newRow = new Map();
-      for (const [name, row] of [...table.entries()]) {
-        for (const [date, value] of Object.entries(row)) {
-          if (!table.has(date)) table.set(date, {date: date});
-          table.get(date)[name] = value;
-        }
-        table.delete(name);
-      }
-      newValues[titleClean] = [...table.values()];
-    }
-    else {
-      newValues.daily = [Object.assign(Object.fromEntries(table.entries()), {date: lastModified})];
+      dateData[region] = data;
     }
   }
+  newValues.daily = [...table.values()].sort((a,b) => Date.parse(a.date) - Date.parse(b.date));
 
   const dataFilename = '_data/canada.ca/vaccine-rollout.json';
-  if (fs.existsSync(dataFilename)) {
-    const oldValues = JSON.parse(fs.readFileSync(dataFilename, 'utf-8'));
-    newValues.daily.push(...oldValues.daily.filter(d => d.date !== newValues?.daily[0].date));
-  }
-  fs.writeFileSync('_data/canada.ca/vaccine-rollout.json', stringify(newValues, 2, 200));
+  fs.writeFileSync(dataFilename, stringify(newValues, 2, 200));
 }
 
 async function getStatsCanCensus(data, hrData) {
@@ -670,6 +655,7 @@ async function getData() {
   await getStatsCanCensus(data, hrData);
   await getSK(hrData);
   await getON(data, hrData);
+
 
   await Promise.all([
     // getCovid19TrackerCanadaTotals(data),
