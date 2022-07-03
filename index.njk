@@ -615,7 +615,7 @@ layout: layouts/home.njk
       >
         <div class="progressbar nogrow cad red"
              style="--width: {{ ((data.sinceJuly.total_cost_hospitalization_sum/data.population/20)*100) | min(100) }}"
-             aria-valuenow="{{ data.sinceJuly.total_cost_hospitalization_per_person_sum | round(2)}}"
+             aria-valuenow="{{ data.sinceJuly.total_cost_hospitalization_per_person_sum | round(0)}}"
              data-change="/resident"
         >
           <span class="value" aria-hidden="true"></span>
