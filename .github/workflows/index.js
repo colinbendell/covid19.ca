@@ -81,14 +81,14 @@ async function get(url) {
     const res = await fetch(url,
       {
         'headers': {
-          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/jxl,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
           'Accept-Language': 'en-US,en;q=0.9,pl;q=0.8',
           'sec-fetch-dest': 'document',
           'sec-fetch-mode': 'navigate',
           'sec-fetch-site': 'none',
           'sec-fetch-user': '?1',
           'upgrade-insecure-requests': '1',
-          'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36',
+          'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36',
         },
         redirect: 'manual',
       });
@@ -131,7 +131,7 @@ async function getSeverityAgeBreakdown() {
   }
 
   const index = await get('https://api.opencovid.ca/archive?uuid=c66b12ae-3bcc-4c03-a4ad-a914f35aa842');
-  for await (const d of index) {
+  for (const d of index.data) {
     if (d.file_date && data.has(d.file_date)) continue;
     const srcData = {hospitalization: {}, icu: {}, deaths: {}};
 
