@@ -2195,6 +2195,24 @@
       "SK": {"AstraZeneca": 108600, "Janssen": 5000, "Moderna": 764040, "Novavax": 5000, "Pfizer": 2113905, "Pfizer_5_11": 254600, "Total": 3828955},
       "YT": {"AstraZeneca": 20, "Janssen": 200, "Moderna": 92470, "Novavax": 300, "Pfizer": 9570, "Pfizer_5_11": 7500, "Total": 135110}
     },
+    {
+      "date": "2023-01-12",
+      "AB": {"AstraZeneca": 318700, "Janssen": 10600, "Moderna": 3212994, "Novavax": 12200, "Pfizer": 8143065, "Pfizer_5_11": 914700, "Total": 14255509},
+      "BC": {"AstraZeneca": 440240, "Janssen": 25350, "Moderna": 4553160, "Novavax": 83200, "Pfizer": 8105940, "Pfizer_5_11": 575900, "Total": 16970570},
+      "CA": {"AstraZeneca": 3030700, "Janssen": 58750, "Moderna": 30658560, "Novavax": 181990, "Pfizer": 62881458, "Pfizer_5_11": 5805480, "Total": 118751012},
+      "FA": {"AstraZeneca": 460, "Moderna": 256028, "Novavax": 690, "Pfizer": 20112, "Pfizer_5_11": 3980, "Total": 321564},
+      "MB": {"AstraZeneca": 87460, "Janssen": 3550, "Moderna": 1115808, "Novavax": 15000, "Pfizer": 2366700, "Pfizer_5_11": 309200, "Total": 4561808},
+      "NB": {"AstraZeneca": 52230, "Janssen": 1200, "Moderna": 695550, "Novavax": 1500, "Pfizer": 1330575, "Pfizer_5_11": 119000, "Total": 2482555},
+      "NL": {"AstraZeneca": 41300, "Janssen": 250, "Moderna": 607224, "Novavax": 1300, "Pfizer": 1019700, "Pfizer_5_11": 79000, "Total": 2111274},
+      "NS": {"AstraZeneca": 60960, "Janssen": 2000, "Moderna": 715800, "Novavax": 1600, "Pfizer": 1656882, "Pfizer_5_11": 145800, "Total": 2981792},
+      "NT": {"Moderna": 96370, "Novavax": 1200, "Pfizer": 14400, "Pfizer_5_11": 10300, "Total": 139230},
+      "NU": {"Moderna": 78330, "Pfizer": 19140, "Pfizer_5_11": 17800, "Total": 128370},
+      "ON": {"AstraZeneca": 1168300, "Janssen": 10000, "Moderna": 11390950, "Novavax": 40000, "Pfizer": 23851281, "Pfizer_5_11": 1960000, "Total": 44228141},
+      "PE": {"AstraZeneca": 10300, "Janssen": 500, "Moderna": 119080, "Novavax": 1000, "Pfizer": 293715, "Pfizer_5_11": 25700, "Total": 506515},
+      "QC": {"AstraZeneca": 742130, "Janssen": 100, "Moderna": 6960756, "Novavax": 19000, "Pfizer": 13936473, "Pfizer_5_11": 1382000, "Total": 26099619},
+      "SK": {"AstraZeneca": 108600, "Janssen": 5000, "Moderna": 764040, "Novavax": 5000, "Pfizer": 2113905, "Pfizer_5_11": 254600, "Total": 3828955},
+      "YT": {"AstraZeneca": 20, "Janssen": 200, "Moderna": 92470, "Novavax": 300, "Pfizer": 9570, "Pfizer_5_11": 7500, "Total": 135110}
+    },
     {"date": "17000", "QC": {"AstraZeneca": 177250, "Moderna": 0, "Novavax": 742110, "Pfizer_5_11": 917, "Total": 23326539}}
   ]
 }
