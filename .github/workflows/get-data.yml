@@ -1,12 +1,13 @@
 name: Synchronize data
 
 on:
-  workflow_dispatch:
-    branches:
-      - main
-  schedule:
-    - cron: "1 00-11 * * *"
-    - cron: "*/20 12-23 * * *"
+  deployment
+#   workflow_dispatch:
+#     branches:
+#       - main
+#   schedule:
+#     - cron: "1 00-11 * * *"
+#     - cron: "*/20 12-23 * * *"
 
 jobs:
   sync:
